@@ -128,7 +128,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contact Us Section - Alternate Design (No Form) */}
       <section
         id="contact"
         className="bg-linear-to-r from-[#B81C22] to-[#C8A175] px-6 py-20 text-white shadow-lg"
