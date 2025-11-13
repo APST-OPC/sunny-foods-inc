@@ -127,6 +127,42 @@ const Home = () => {
           </h1>
         </div>
       </section>
+
+      {/* Contact Us Section - Alternate Design (No Form) */}
+      <section
+        id="contact"
+        className="bg-linear-to-r from-[#B81C22] to-[#C8A175] px-6 py-20 text-white shadow-lg"
+      >
+        <div className="mx-auto max-w-5xl space-y-6 text-center">
+          <h2 className="mb-4 text-5xl font-bold">Let’s Work Together</h2>
+          <p className="mx-auto max-w-3xl text-lg text-gray-100">
+            Whether you need wholesale meat distribution, reliable logistics, or partnership
+            opportunities — we’re here to make your operations smoother and faster.
+          </p>
+
+          <div className="mt-10 grid gap-8 text-center sm:grid-cols-3">
+            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
+              <h3 className="mb-1 text-xl font-semibold">🌍 Our Location</h3>
+              <p className="text-gray-100">123 Market Street, Chicago, IL 60601</p>
+            </div>
+
+            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
+              <h3 className="mb-1 text-xl font-semibold">📞 Call Us</h3>
+              <p className="text-gray-100">+1 (800) 555-MEAT</p>
+              <p className="text-gray-100">Mon–Sun: 24/7 Support</p>
+            </div>
+
+            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
+              <h3 className="mb-1 text-xl font-semibold">✉️ Email Us</h3>
+              <p className="text-gray-100">contact@meatdistros.com</p>
+            </div>
+          </div>
+
+          <button className="mt-10 rounded-lg bg-white px-8 py-3 font-semibold text-[#B81C22] shadow-md transition hover:bg-gray-100">
+            Reach Out Today
+          </button>
+        </div>
+      </section>
     </main>
   );
 };
