@@ -1,6 +1,9 @@
+import { NavLink } from 'react-router-dom';
 import Logo from '~/assets/sunnyfoods-logo.png';
 
 const Footer = () => {
+  const getYear = new Date().getFullYear();
+
   return (
     <footer className="bg-[#f6ede3] px-6 py-12">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 md:flex-row">
@@ -19,38 +22,34 @@ const Footer = () => {
         </div>
 
         {/* Links Section */}
-        <div className="text-neutral-900">
-          <ul className="flex gap-5 space-y-2">
-            <li>
-              <a href="#" className="transition-colors hover:text-[#b81c21]">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-[#b81c21]">
-                Careers
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-[#b81c21]">
-                Press
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-[#b81c21]">
-                Contact
-              </a>
-            </li>
-          </ul>
-          <div className="my-1 border-t-2" />
+        <div className="w-full text-neutral-900 md:w-auto">
+          <nav className="flex flex-row justify-center font-semibold">
+            <NavLink to="/about" className="hover:text-error">
+              About Us
+            </NavLink>
+            <div className="divider divider-horizontal before:bg-neutral-900/40 after:bg-neutral-900/40" />
+            <NavLink to="/products" className="hover:text-error">
+              Products
+            </NavLink>
+            <div className="divider divider-horizontal before:bg-neutral-900/40 after:bg-neutral-900/40" />
+            <NavLink to="/contact" className="hover:text-error">
+              Contact
+            </NavLink>
+          </nav>
+
+          <div className="divider divider-vertical before:bg-neutral-900/40 after:bg-neutral-900/40" />
           <p>Email: sales@sunnyfoods.com.ph</p>
-          <p>Contact No.: 0939-237-9999 / 0918-739-9999</p>
+          <p>
+            Contact No.: <span className="text-wrap">0939-237-9999 / 0918-739-9999</span>
+          </p>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="mx-auto mt-10 w-[90%] border-t border-neutral-900/40 pt-6 text-center text-sm text-neutral-900">
-        © {new Date().getFullYear()} Galaxy Studio. All rights reserved.
+
+      <div className="mx-auto mt-10 border-neutral-900/40 pt-6 text-center text-sm font-semibold text-neutral-900">
+        <div className="divider divider-vertical px-0 before:bg-neutral-900/40 after:bg-neutral-900/40 md:px-20" />
+        © {getYear} Sunny Foods Inc. All rights reserved.
       </div>
     </footer>
   );
