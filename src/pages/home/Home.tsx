@@ -5,6 +5,7 @@ import Quality from '~/assets/high-quality.png';
 
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
+import ProductCard from './components/ProductCard';
 
 const services = [
   {
@@ -146,36 +147,14 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col justify-center-safe gap-5 lg:flex-row">
             {[...Array(3)].map((_, ids) => (
-              <div
+              <ProductCard
                 key={ids}
-                className="card bg-base-100 relative w-80 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              >
-                <div className="bg-error absolute top-3 right-3 rounded-full px-2 py-1 text-xs font-bold text-white">
-                  Best Seller
-                </div>
-
-                <figure>
-                  <img
-                    src="https://media.istockphoto.com/id/535786572/photo/grilled-striploin-steak.jpg?s=612x612&w=0&k=20&c=F_vrvwIOWe3vBR2y16Dp4z6d46K1sIY3togU3VYjrpA="
-                    alt="Meat"
-                    className="h-60 w-full rounded-t-lg object-cover"
-                  />
-                </figure>
-
-                <div className="card-body">
-                  <h2 className="card-title text-error text-xl font-bold">Strip Loin Steak</h2>
-                  <p className="mt-1 text-sm text-gray-600">
-                    Our Strip Loin Steak is a prime cut of beef, known for its robust flavor and
-                    tender texture.
-                  </p>
-
-                  <div className="card-actions mt-4 justify-end">
-                    <button className="btn btn-outline border-error text-error">View</button>
-                  </div>
-                </div>
-              </div>
+                title="Classic Meat"
+                description="Medium sized cut"
+                link="./products/classic-meat"
+              />
             ))}
           </div>
 
