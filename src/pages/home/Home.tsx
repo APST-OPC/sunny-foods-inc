@@ -1,13 +1,9 @@
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
 
-import { featureProducts, services } from './utils';
-import { ProductCard, ServiceCard } from './components';
+import { contacts, featureProducts, services } from './utils';
+import { ContactCard, ProductCard, ServiceCard } from './components';
 import { useEffect, useState } from 'react';
-
-import Mail from '~/assets/mail.png';
-import Phone from '~/assets/phone.png';
-import Planet from '~/assets/planet-earth.png';
 
 const images = [
   'https://t3.ftcdn.net/jpg/05/39/75/88/360_F_539758860_1vCdxgIx1oePzvxcdts80VYacH0hxOOO.jpg',
@@ -23,7 +19,7 @@ const Home = () => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images]);
 
   return (
     <main>
@@ -31,7 +27,7 @@ const Home = () => {
         <img
           src="https://img.freepik.com/premium-photo/top-view-juicy-cowboy-steak-black-plate_219193-2349.jpg"
           alt="beef"
-          className="h-[70vh] w-full"
+          className="aspect-square h-[70vh] w-full"
         />
 
         <div className="hero-overlay" />
@@ -44,10 +40,11 @@ const Home = () => {
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
               convenience.
             </p>
-            <button className="btn btn-success w-80 md:w-40">Get Started</button>
+            <button className="btn btn-success w-80 border-0 md:w-40">Get Started</button>
           </div>
         </div>
       </section>
+
       <section className="bg-error h-full py-10 md:h-60 md:place-content-center">
         <div className="container mx-auto flex flex-col items-center justify-center gap-10 text-white md:flex-row">
           <div className="flex transform flex-col items-center gap-4 md:flex-row">
@@ -69,6 +66,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="bg-base-100 px-6 py-16 text-center md:px-12 md:text-left">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row">
           <div className="flex-1 space-y-6">
@@ -101,6 +99,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="container mx-auto space-y-10 py-20">
         <div className="text-center">
           <h1 className="text-4xl font-bold">
@@ -124,12 +123,15 @@ const Home = () => {
           ))}
         </div>
       </section>
+
       <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
-        <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.4)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
-            <h1 className="text-4xl font-bold">Our Signature Steak Series</h1>
-            <p className="mt-2 px-2 text-lg leading-6">
+            <h1 className="text-4xl font-bold">
+              Our Signature <span className="text-error"> Steak Series</span>
+            </h1>
+            <p className="font- mt-2 px-2 text-lg leading-6">
               Experience the difference of truly exceptional meat
             </p>
           </div>
@@ -151,35 +153,29 @@ const Home = () => {
           </h1>
         </div>
       </section>
-      {/* bg-linear-to-r from-[#B81C22] to-[#C8A175] */}
-      <section id="contact" className="bg-error px-6 py-20 shadow-lg">
-        <div className="mx-auto max-w-5xl space-y-6 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-white">
+
+      <section id="contact" className="bg-error/90 px-6 py-20 md:px-0">
+        <div className="mx-auto max-w-5xl space-y-10 text-center">
+          <h1 className="text-4xl font-bold text-white">
             Let&apos;s <span className="text-black">Work Together</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-lg text-gray-100">
+          <p className="mx-auto max-w-3xl text-lg leading-5 text-gray-100">
             Whether you need wholesale meat distribution, reliable logistics, or partnership
             opportunities — we&apos;re here to make your operations smoother and faster.
           </p>
 
-          <div className="mt-10 flex flex-row flex-wrap justify-center-safe gap-5 text-center sm:grid-cols-3">
-            <ServiceCard
-              src={Planet}
-              title="Our Location"
-              description="Bldg. 2 Blk. 1 Governors Park Drive Southwoods Industrial Park Mabuhay, Carmona,
-                Cavite (4116)"
-            />
-
-            <ServiceCard
-              src={Phone}
-              title="Call Us"
-              description="(+63) 939-237-9999 OR (+63) 918-739-9999"
-            />
-
-            <ServiceCard src={Mail} title="Email us" description="sales@sunnyfoods.com.ph" />
+          <div className="flex flex-row flex-wrap justify-center-safe gap-5">
+            {contacts.map((contact, ids) => (
+              <ContactCard
+                key={ids}
+                src={contact.src}
+                title={contact.title}
+                description={contact.description}
+              />
+            ))}
           </div>
 
-          <button className="btn btn-success mt-10 w-80 font-semibold text-white md:w-40">
+          <button className="btn btn-success w-80 border-0 font-semibold text-white md:w-40">
             Reach Out Today
           </button>
         </div>
