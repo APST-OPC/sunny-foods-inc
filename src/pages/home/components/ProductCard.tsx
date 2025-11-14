@@ -3,10 +3,13 @@ interface IProductPreview {
   title: string;
   description: string;
   link: string;
+  img?: string;
 }
 
+const SampleImage = "https://media.istockphoto.com/id/1371751060/photo/grilled-medium-rare-top-sirloin-beef-steak-or-rump-steak-on-a-steel-tray-dark-background-top.jpg?s=612x612&w=0&k=20&c=svqnTZV_l7DP0QPCG8L_-f6k7LuBUA-cH9wiL8eJqUs="
+
 export const ProductCard = (props: IProductPreview) => {
-  const { title, description, link } = props;
+  const { title, description, link, img = SampleImage } = props;
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -37,7 +40,7 @@ export const ProductCard = (props: IProductPreview) => {
       )}
 
       <img
-        src="https://media.istockphoto.com/id/1371751060/photo/grilled-medium-rare-top-sirloin-beef-steak-or-rump-steak-on-a-steel-tray-dark-background-top.jpg?s=612x612&w=0&k=20&c=svqnTZV_l7DP0QPCG8L_-f6k7LuBUA-cH9wiL8eJqUs="
+        src={img}
         alt={title.toLowerCase()}
         className="h-full w-full"
       />

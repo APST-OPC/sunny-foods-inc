@@ -3,6 +3,9 @@ import Wholesale from '~/assets/wholesale.png';
 import Packaging from '~/assets/packaging-meat.png';
 import Quality from '~/assets/high-quality.png';
 
+import ChuckEye from '~/assets/image.webp';
+import Ribeye from '~/assets/reverse_sear_ribeye_steak-1689174081267_1200x.jpg';
+
 export const services = [
   {
     src: SliceMeat,
@@ -42,11 +45,13 @@ export const featureProducts = [
     description:
       '“Discover the steak lover’s secret — bold, tender, and richly marbled Chuck Eye perfection.”',
     link: './products/classic-meat',
+    img: ChuckEye,
   },
   {
     title: 'Rib Eye Steak',
     description:
       'Indulge in the unrivaled richness of our Rib Eye Steak — beautifully marbled, melt-in-your-mouth tender, and bursting with flavor in every bite.',
     link: './products/classic-meat',
+    img: Ribeye,
   },
 ];

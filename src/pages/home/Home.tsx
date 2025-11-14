@@ -5,6 +5,10 @@ import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
 import { useEffect, useState } from 'react';
 
+import Mail from '~/assets/mail.png';
+import Phone from '~/assets/phone.png';
+import Planet from '~/assets/planet-earth.png';
+
 const images = [
   'https://t3.ftcdn.net/jpg/05/39/75/88/360_F_539758860_1vCdxgIx1oePzvxcdts80VYacH0hxOOO.jpg',
   'https://img.freepik.com/premium-photo/meat-steak_131550-9.jpg',
@@ -40,7 +44,7 @@ const Home = () => {
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
               convenience.
             </p>
-            <button className="btn btn-active w-80 md:w-40">Get Started</button>
+            <button className="btn btn-success w-80 md:w-40">Get Started</button>
           </div>
         </div>
       </section>
@@ -124,9 +128,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.4)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
-            <h1 className="text-4xl font-bold">
-              Our Signiture <span className="text-error">Steak</span> Series
-            </h1>
+            <h1 className="text-4xl font-bold">Our Signature Steak Series</h1>
             <p className="mt-2 px-2 text-lg leading-6">
               Experience the difference of truly exceptional meat
             </p>
@@ -139,6 +141,7 @@ const Home = () => {
                 title={product.title}
                 description={product.description}
                 link={product.link}
+                img={product.img}
               />
             ))}
           </div>
@@ -151,34 +154,32 @@ const Home = () => {
       {/* bg-linear-to-r from-[#B81C22] to-[#C8A175] */}
       <section id="contact" className="bg-error px-6 py-20 shadow-lg">
         <div className="mx-auto max-w-5xl space-y-6 text-center">
-          <h1 className="mb-4 text-4xl font-bold">Let&apos;s Work Together</h1>
+          <h1 className="mb-4 text-4xl font-bold text-white">
+            Let&apos;s <span className="text-black">Work Together</span>
+          </h1>
           <p className="mx-auto max-w-3xl text-lg text-gray-100">
             Whether you need wholesale meat distribution, reliable logistics, or partnership
             opportunities — we&apos;re here to make your operations smoother and faster.
           </p>
 
-          <div className="mt-10 grid gap-5 text-center sm:grid-cols-3">
-            <div className="rounded-lg bg-white p-6 shadow-md transition hover:bg-white/20">
-              <h3 className="mb-1 text-xl font-semibold">🌍 Our Location</h3>
-              <p className="">
-                Bldg. 2 Blk. 1 Governors Park Drive Southwoods Industrial Park Mabuhay, Carmona,
-                Cavite (4116)
-              </p>
-            </div>
+          <div className="mt-10 flex flex-row flex-wrap justify-center-safe gap-5 text-center sm:grid-cols-3">
+            <ServiceCard
+              src={Planet}
+              title="Our Location"
+              description="Bldg. 2 Blk. 1 Governors Park Drive Southwoods Industrial Park Mabuhay, Carmona,
+                Cavite (4116)"
+            />
 
-            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
-              <h3 className="mb-1 text-xl font-semibold">📞 Call Us</h3>
-              <p className="text-gray-100">(+63) 939-237-9999 </p> <span>OR</span>
-              <p className="text-gray-100">(+63) 918-739-9999</p>
-            </div>
+            <ServiceCard
+              src={Phone}
+              title="Call Us"
+              description="(+63) 939-237-9999 OR (+63) 918-739-9999"
+            />
 
-            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
-              <h3 className="mb-1 text-xl font-semibold">✉️ Email Us</h3>
-              <p className="text-gray-100">sales@sunnyfoods.com.ph</p>
-            </div>
+            <ServiceCard src={Mail} title="Email us" description="sales@sunnyfoods.com.ph" />
           </div>
 
-          <button className="btn btn-active text-error mt-10 rounded-lg font-semibold">
+          <button className="btn btn-success mt-10 w-80 font-semibold text-white md:w-40">
             Reach Out Today
           </button>
         </div>
