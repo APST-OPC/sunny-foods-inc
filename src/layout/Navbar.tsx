@@ -2,12 +2,31 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
 
+const links = [
+  {
+    to: '/',
+    label: 'Home',
+  },
+  {
+    to: '/products',
+    label: 'Products',
+  },
+  {
+    to: '/about',
+    label: 'About',
+  },
+  {
+    to: '/contact',
+    label: 'Contact',
+  },
+];
+
 const Navbar = () => {
   const navigate = useNavigate();
 
   return (
     <nav className="navbar container mx-auto">
-      <div className="navbar-start">
+      <div className="navbar-start flex flex-1">
         <div
           role="button"
           onClick={() => navigate('/')}
@@ -25,11 +44,16 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="navbar-end flex flex-row gap-3 text-lg font-semibold">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+      <div className="navbar-end hidden flex-row gap-7 text-lg font-semibold md:flex">
+        {links.map((link, ids) => (
+          <NavLink
+            key={ids}
+            to={link.to}
+            className={({ isActive }) => (isActive ? 'text-error btn btn-outline' : 'text-black')}
+          >
+            {link.label}
+          </NavLink>
+        ))}
       </div>
     </nav>
   );
