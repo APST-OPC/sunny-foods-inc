@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="navbar-end hidden flex-row gap-8 text-lg font-semibold md:flex">
+      <div className="navbar-end text-md hidden flex-row gap-8 font-semibold md:flex">
         {links.map((link, ids) => (
           <NavLink
             key={ids}
