@@ -40,7 +40,7 @@ export const featureProducts = [
   {
     title: 'Chuck Eye Steak',
     description:
-      'Discover the secret of steak lovers — our Chuck Eye Steak delivers the same rich marbling and tenderness as ribeye, with bold flavor that impresses every time.',
+      '“Discover the steak lover’s secret — bold, tender, and richly marbled Chuck Eye perfection.”',
     link: './products/classic-meat',
   },
   {

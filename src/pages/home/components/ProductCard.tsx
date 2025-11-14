@@ -19,7 +19,7 @@ export const ProductCard = (props: IProductPreview) => {
   };
   return (
     <div
-      className="card relative h-72 w-80 overflow-hidden shadow-lg shadow-black"
+      className="card relative h-56 w-80 overflow-hidden shadow-lg shadow-black md:h-72"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleViewMore}

@@ -3,8 +3,24 @@ import Steak from '~/assets/ic_steak.png';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
+import { useEffect, useState } from 'react';
+
+const images = [
+  'https://t3.ftcdn.net/jpg/05/39/75/88/360_F_539758860_1vCdxgIx1oePzvxcdts80VYacH0hxOOO.jpg',
+  'https://img.freepik.com/premium-photo/meat-steak_131550-9.jpg',
+  'https://media.istockphoto.com/id/535786572/photo/grilled-striploin-steak.jpg?s=612x612&w=0&k=20&c=F_vrvwIOWe3vBR2y16Dp4z6d46K1sIY3togU3VYjrpA=',
+];
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <main>
       <section className="hero relative min-h-[70vh]">
@@ -28,7 +44,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="bg-error h-full py-10 md:h-60 md:place-content-center">
         <div className="container mx-auto flex flex-col items-center justify-center gap-10 text-white md:flex-row">
           <div className="flex transform flex-col items-center gap-4 md:flex-row">
@@ -50,7 +65,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="bg-base-100 px-6 py-16 text-center md:px-12 md:text-left">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row">
           <div className="flex-1 space-y-6">
@@ -64,17 +78,25 @@ const Home = () => {
           </div>
 
           <div className="flex flex-1 justify-center md:justify-end">
-            <img
-              src={
-                'https://media.istockphoto.com/id/535786572/photo/grilled-striploin-steak.jpg?s=612x612&w=0&k=20&c=F_vrvwIOWe3vBR2y16Dp4z6d46K1sIY3togU3VYjrpA='
-              }
-              alt="Premium Beef"
-              className="aspect-video h-96 w-full max-w-md rounded-lg shadow-2xl shadow-red-950/80"
-            />
+            <div className="carousel card shadow-2xl shadow-red-950/80">
+              {images.map((src, index) => (
+                <div
+                  key={index}
+                  className={`carousel-item w-full transition-all ${
+                    index === currentSlide ? 'opacity-100' : 'absolute opacity-0'
+                  }`}
+                >
+                  <img
+                    src={src}
+                    className="aspect-video h-72 w-full max-w-md rounded-lg"
+                    alt="Tailwind CSS Carousel component"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
       <section className="container mx-auto space-y-10 py-20">
         <div className="text-center">
           <h1 className="text-4xl font-bold">
@@ -98,7 +120,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
         <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.4)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
@@ -127,37 +148,37 @@ const Home = () => {
           </h1>
         </div>
       </section>
-
-      <section
-        id="contact"
-        className="bg-linear-to-r from-[#B81C22] to-[#C8A175] px-6 py-20 text-white shadow-lg"
-      >
+      {/* bg-linear-to-r from-[#B81C22] to-[#C8A175] */}
+      <section id="contact" className="bg-error px-6 py-20 shadow-lg">
         <div className="mx-auto max-w-5xl space-y-6 text-center">
-          <h2 className="mb-4 text-5xl font-bold">Let’s Work Together</h2>
+          <h1 className="mb-4 text-4xl font-bold">Let&apos;s Work Together</h1>
           <p className="mx-auto max-w-3xl text-lg text-gray-100">
             Whether you need wholesale meat distribution, reliable logistics, or partnership
-            opportunities — we’re here to make your operations smoother and faster.
+            opportunities — we&apos;re here to make your operations smoother and faster.
           </p>
 
-          <div className="mt-10 grid gap-8 text-center sm:grid-cols-3">
-            <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
+          <div className="mt-10 grid gap-5 text-center sm:grid-cols-3">
+            <div className="rounded-lg bg-white p-6 shadow-md transition hover:bg-white/20">
               <h3 className="mb-1 text-xl font-semibold">🌍 Our Location</h3>
-              <p className="text-gray-100">123 Market Street, Chicago, IL 60601</p>
+              <p className="">
+                Bldg. 2 Blk. 1 Governors Park Drive Southwoods Industrial Park Mabuhay, Carmona,
+                Cavite (4116)
+              </p>
             </div>
 
             <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
               <h3 className="mb-1 text-xl font-semibold">📞 Call Us</h3>
-              <p className="text-gray-100">+1 (800) 555-MEAT</p>
-              <p className="text-gray-100">Mon–Sun: 24/7 Support</p>
+              <p className="text-gray-100">(+63) 939-237-9999 </p> <span>OR</span>
+              <p className="text-gray-100">(+63) 918-739-9999</p>
             </div>
 
             <div className="rounded-lg bg-white/10 p-6 shadow-md transition hover:bg-white/20">
               <h3 className="mb-1 text-xl font-semibold">✉️ Email Us</h3>
-              <p className="text-gray-100">contact@meatdistros.com</p>
+              <p className="text-gray-100">sales@sunnyfoods.com.ph</p>
             </div>
           </div>
 
-          <button className="mt-10 rounded-lg bg-white px-8 py-3 font-semibold text-[#B81C22] shadow-md transition hover:bg-gray-100">
+          <button className="btn btn-active text-error mt-10 rounded-lg font-semibold">
             Reach Out Today
           </button>
         </div>

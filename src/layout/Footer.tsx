@@ -37,7 +37,7 @@ const Footer = () => {
             </NavLink>
           </nav>
 
-          <div className="divider divider-vertical before:bg-neutral-900/40 after:bg-neutral-900/40" />
+          <div className="divider divider-vertical before:bg-neutral-500/40 after:bg-neutral-500/40" />
           <p>Email: sales@sunnyfoods.com.ph</p>
           <p>
             Contact No.: <span className="text-wrap">0939-237-9999 / 0918-739-9999</span>
@@ -47,8 +47,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
 
-      <div className="mx-auto mt-10 border-neutral-900/40 pt-6 text-center text-sm font-semibold text-neutral-900">
-        <div className="divider divider-vertical px-0 before:bg-neutral-900/40 after:bg-neutral-900/40 md:px-20" />
+      <div className="mx-auto mt-10 border-neutral-900/40 pt-6 text-center text-sm font-bold text-neutral-900">
+        <div className="divider divider-vertical before:bg-neutral-500/40 after:bg-neutral-500/40" />
         © {getYear} Sunny Foods Inc. All rights reserved.
       </div>
     </footer>
