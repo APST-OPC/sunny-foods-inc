@@ -34,7 +34,7 @@ const Home = () => {
 
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-xl">
-            <h1 className="mb-5 text-5xl font-bold"> Premium Beef, Crafted to Perfection</h1>
+            <h1 className="mb-5 text-5xl md:font-bold"> Premium Beef, Crafted to Perfection</h1>
             <p className="mb-5 text-lg">
               Handpicked premium beef — from Wagyu-style cubes and Black Pepper Steaks to our
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
@@ -102,7 +102,7 @@ const Home = () => {
 
       <section className="container mx-auto space-y-10 py-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-4xl font-extrabold">
             WHAT <span className="text-error">WE</span> DO
           </h1>
 
@@ -128,7 +128,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
-            <h1 className="text-4xl font-bold">
+            <h1 className="text-4xl font-extrabold">
               Our Signature <span className="text-error"> Steak Series</span>
             </h1>
             <p className="font- mt-2 px-2 text-lg leading-6">
@@ -156,7 +156,7 @@ const Home = () => {
 
       <section id="contact" className="bg-error/90 px-6 py-20 md:px-0">
         <div className="mx-auto max-w-5xl space-y-10 text-center">
-          <h1 className="text-4xl font-bold text-white">
+          <h1 className="text-4xl font-extrabold text-white">
             Let&apos;s <span className="text-black">Work Together</span>
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-5 text-gray-100">

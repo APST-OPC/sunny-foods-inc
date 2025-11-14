@@ -44,12 +44,16 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="navbar-end hidden flex-row gap-7 text-lg font-semibold md:flex">
+      <div className="navbar-end hidden flex-row gap-8 text-lg font-semibold md:flex">
         {links.map((link, ids) => (
           <NavLink
             key={ids}
             to={link.to}
-            className={({ isActive }) => (isActive ? 'text-error btn btn-outline' : 'text-black')}
+            className={({ isActive }) =>
+              isActive
+                ? 'text-error btn btn-outline hover:border-error hover:bg-transparent'
+                : 'hover:text-error text-black underline-offset-8 hover:underline'
+            }
           >
             {link.label}
           </NavLink>
