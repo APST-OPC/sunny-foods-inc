@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
 
 @import 'tailwindcss';
 @plugin 'daisyui';
@@ -55,11 +56,19 @@
   --red: #b81c21;
   --green: #006c2d;
   --light-brown: #c8a175;
-  --nunito-sans: Nunito Sans, sans-serif;
+  --golden-yellow: #eead15;
+  --olive-green: #4f7d30;
+  --spring-green: #8ac447;
+  --nunito-sans: 'Nunito Sans', sans-serif;
+  --solitreo: 'Solitreo', cursive;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--nunito-sans);
+}
+
+.font-solitreo {
+  font-family: var(--solitreo);
 }

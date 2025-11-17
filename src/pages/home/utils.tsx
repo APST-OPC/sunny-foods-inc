@@ -70,7 +70,7 @@ export const contacts = [
   {
     src: Phone,
     title: 'Call Us',
-    description: '(+63) 939-237-9999 OR (+63) 918-739-9999',
+    description: '(+63) 939-237-9999  OR (+63) 918-739-9999',
   },
   {
     src: Mail,

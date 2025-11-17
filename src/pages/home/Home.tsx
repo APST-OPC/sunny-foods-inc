@@ -32,9 +32,11 @@ const Home = () => {
 
         <div className="hero-overlay" />
 
-        <div className="hero-content text-neutral-content text-center">
+        <div className="hero-content text-center text-white">
           <div className="max-w-xl">
-            <h1 className="mb-5 text-5xl md:font-bold"> Premium Beef, Crafted to Perfection</h1>
+            <h1 className="font-solitreo mb-5 text-5xl md:font-bold">
+              Premium Beef, Crafted to Perfection
+            </h1>
             <p className="mb-5 text-lg">
               Handpicked premium beef — from Wagyu-style cubes and Black Pepper Steaks to our
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
@@ -70,7 +72,7 @@ const Home = () => {
       <section className="bg-base-100 px-6 py-16 text-center md:px-12 md:text-left">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row">
           <div className="flex-1 space-y-6">
-            <h1 className="text-2xl leading-tight font-bold md:text-5xl">
+            <h1 className="font-solitreo text-2xl leading-tight font-bold md:text-5xl">
               Make Every Dish Unforgettable
             </h1>
             <p className="text-lg text-gray-600">
