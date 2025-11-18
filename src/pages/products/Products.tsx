@@ -23,7 +23,8 @@ const Products = () => {
         <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Our Premium Meat Collection
         </h1>
-        <p className="mx-auto max-w-3xl text-xl text-gray-600">
+
+        <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
           Select from our finest cuts, each prepared to deliver exceptional taste and quality.
         </p>
       </header>
