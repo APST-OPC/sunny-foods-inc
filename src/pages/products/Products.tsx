@@ -20,10 +20,10 @@ const Products = () => {
   return (
     <main className="py-20">
       <header className="container mx-auto mb-14 px-4 text-center">
-        <h1 className="font-solitreo text-error mb-3 text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Our Premium Meat Collection
         </h1>
-        <p className="mx-auto max-w-2xl text-lg text-gray-600">
+        <p className="mx-auto max-w-3xl text-xl text-gray-600">
           Select from our finest cuts, each prepared to deliver exceptional taste and quality.
         </p>
       </header>
@@ -36,7 +36,7 @@ const Products = () => {
               className="bg-base-200 group relative flex w-full flex-row overflow-hidden rounded-none p-0 shadow"
             >
               <div className="flex h-full w-1/2 flex-col justify-between p-4">
-                <h6 className="font-solitreo mt-5 grid h-28 place-content-center text-xl font-bold">
+                <h6 className="font-heading mt-5 grid h-28 place-content-center text-xl font-bold">
                   {item.title}
                 </h6>
                 <button

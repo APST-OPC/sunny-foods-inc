@@ -34,7 +34,7 @@ const Home = () => {
 
         <div className="hero-content text-center text-white">
           <div className="max-w-xl">
-            <h1 className="font-solitreo mb-5 text-5xl md:font-bold">
+            <h1 className="font-heading mb-5 text-5xl md:font-bold">
               Premium Beef, Crafted to Perfection
             </h1>
             <p className="mb-5 text-lg">
@@ -72,7 +72,7 @@ const Home = () => {
       <section className="bg-base-100 px-6 py-16 text-center md:px-12 md:text-left">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row">
           <div className="flex-1 space-y-6">
-            <h1 className="font-solitreo text-2xl leading-tight font-bold md:text-5xl">
+            <h1 className="font-heading text-2xl leading-tight font-bold md:text-5xl">
               Make Every Dish Unforgettable
             </h1>
             <p className="text-lg text-gray-600">
@@ -159,7 +159,7 @@ const Home = () => {
       <section id="contact" className="bg-error/90 px-6 py-20 md:px-0">
         <div className="mx-auto max-w-5xl space-y-10 text-center">
           <h1 className="text-4xl font-extrabold text-white">
-            Let&apos;s <span className="text-black">Work Together</span>
+            Let&apos;s <span className="text-neutral">Work Together</span>
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-5 text-gray-100">
             Whether you need wholesale meat distribution, reliable logistics, or partnership
