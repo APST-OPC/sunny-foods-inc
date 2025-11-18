@@ -1,6 +1,7 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
+import { cn } from '~/libs/cn';
 
 const links = [
   {
@@ -23,9 +24,15 @@ const links = [
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <nav className="navbar container mx-auto">
+    <nav
+      className={cn(
+        'navbar container mx-auto border-b-2',
+        location.pathname !== '/' ? 'border-b-(--light-brown)/30' : 'border-0'
+      )}
+    >
       <div className="navbar-start flex flex-1">
         <div
           role="button"

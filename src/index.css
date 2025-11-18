@@ -52,7 +52,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3b2f2f;
   --red: #b81c21;
   --green: #006c2d;
   --light-brown: #c8a175;
@@ -69,6 +69,6 @@ body {
   font-family: var(--nunito-sans);
 }
 
-.font-solitreo {
+.font-heading {
   font-family: var(--solitreo);
 }

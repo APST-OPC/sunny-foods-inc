@@ -1,148 +1,218 @@
-import { featureProducts } from './utils';
+import Warehouse2 from '~/assets/warehouse2.jpg';
+import WareHouse from '~/assets/sunnyfood-warehouse.png';
+import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
+
+import { reasons, teams } from './utils';
 
 const About = () => {
   return (
-    <div className="container mx-auto min-h-screen px-6 py-16">
-      <div className="mx-auto w-full max-w-6xl space-y-20">
-        {/* Header */}
-        <div className="space-y-6 text-center">
-          <h1 className="text-5xl font-extrabold tracking-tight text-(--red) drop-shadow-sm">
-            About Us
-          </h1>
+    <main className="space-y-20">
+      <section id="company-profile" className="container mx-auto px-5 py-20">
+        <header className="mb-14">
+          <h1 className="text-4xl font-extrabold">About Sunny Foods Inc.</h1>
+          <div className="h-1 w-28 bg-(--red)" />
+        </header>
 
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-700">
-            "Sunny Foods is dedicated to providing premium-quality meat products crafted through
-            advanced processing standards and responsible sourcing. We are committed to excellence,
-            sustainability, and delivering dependable service to both retail and wholesale
-            customers."
-          </p>
+        <div className="mb-10 h-96 w-full overflow-hidden rounded-xl shadow-xl shadow-gray-400">
+          <img
+            loading="lazy"
+            src={WareHouse}
+            alt="sunny-food"
+            className="h-full w-full object-cover"
+          />
         </div>
 
-        {/* History */}
-        <section className="flex gap-10 md:flex-row md:items-stretch">
-          <div className="rounded-2xl border border-(--red) bg-linear-to-br from-white to-(--green)/10 p-10 shadow-[0_0_15px_rgba(0,108,45,0.08)] transition hover:shadow-[0_0_25px_rgba(0,108,45,0.15)] md:w-1/2">
-            <h2 className="mb-6 text-center text-4xl font-bold tracking-wide text-(--red) md:text-left">
-              History
-            </h2>
-            <p className="text-center text-lg leading-relaxed text-gray-700 md:text-left">
-              Established in 2024, Sunny Food Inc. develops high-quality meat products using
-              cutting-edge technology and precision-engineered equipment. We’re passionate about
-              delivering fresh, flavorful, and reliable meats that suit every meal from daily
+        <div className="space-y-10 text-justify text-lg text-wrap sm:text-xl">
+          <p>
+            Sunny Foods Inc. is a provider of premium-quality meat products crafted through advanced
+            processing and responsible sourcing.{' '}
+            <strong>
+              We are committed to excellence, sustainability, and delivering dependable service to
+              both retail and wholesale customers.
+            </strong>
+          </p>
+
+          <p>
+            <strong>
+              We specialize in premium beef processing with a strong focus on quality, consistency,
+              and customer satisfaction.{' '}
+            </strong>
+            Our product selection includes Wagyu-style beef cubes, Black Pepper Steaks, Burger
+            Patties, and our signature Steak Series—Strip Loin, Chuck Eye, Rib Eye, and Top Blade.
+            Every cut is designed to deliver exceptional taste, tenderness, and convenience.
+          </p>
+
+          <p>
+            With a team driven by passion and precision, we ensure that every product meets the
+            highest standards and every customer receives the value they deserve.
+          </p>
+
+          <h1 className="text-xl font-bold sm:text-3xl">
+            <q>
+              At Sunny Foods Inc., quality isn&apos;t just a standard —<strong> We Set Them</strong>
+            </q>
+          </h1>
+        </div>
+      </section>
+
+      <section id="history">
+        <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
+          <div className="flex-1 space-y-6 lg:px-10">
+            <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
+              Our History
+            </h1>
+            <p className="text-lg text-gray-700 md:text-xl">
+              Established in 2024, Sunny Foods Inc. develops high-quality meat products using
+              cutting-edge technology and precision-engineered equipment. We&apos;re passionate
+              about delivering fresh, flavorful, and reliable meats that suit every meal from daily
               dinners to special occasions.
             </p>
           </div>
 
-          <div className="hidden md:block md:w-1/2">
+          <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
             <img
-              src={featureProducts[0].img}
-              alt={featureProducts[0].title}
-              className="h-full w-full rounded-2xl object-cover shadow-[0_0_15px_rgba(0,108,45,0.1)]"
+              loading="lazy"
+              src={Warehouse2}
+              alt={'sunny-foods-inc-warehouse'}
+              className="h-full w-full object-cover object-center"
             />
-          </div>
-        </section>
+          </figure>
+        </article>
+      </section>
 
-        {/* Mission */}
-        <section className="flex gap-10 md:flex-row md:items-stretch">
-          <div className="hidden md:block md:w-1/2">
-            <img
-              src={featureProducts[1].img}
-              alt={featureProducts[1].title}
-              className="h-full w-full rounded-2xl object-cover shadow-[0_0_15px_rgba(0,108,45,0.1)]"
-            />
-          </div>
+      <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
+        <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
 
-          <div className="rounded-2xl border border-(--red) bg-linear-to-br from-white to-(--green)/10 p-10 shadow-[0_0_15px_rgba(0,108,45,0.08)] transition hover:shadow-[0_0_25px_rgba(0,108,45,0.15)] md:w-1/2">
-            <h2 className="mb-6 text-center text-4xl font-bold tracking-wide text-(--red) md:text-right">
+        <article className="relative z-10 container mx-auto space-y-10 px-5">
+          <header className="text-center">
+            <h1 className="text-4xl font-extrabold text-white md:text-6xl lg:text-8xl">
+              What Sets Us Apart
+            </h1>
+          </header>
+
+          <article className="mx-auto max-w-4xl space-y-3">
+            <p className="text-justify text-xl leading-6 text-white">
+              A Premium quality, consistency, and convenience in every cut. Whether you're a chef,
+              restaurateur, hotel operator, or retailer, partnering with Sunny Foods Inc. means
+              choosing dependable, premium-quality beef crafted for performance and consistency.
+            </p>
+          </article>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {reasons.map((reason, ids) => (
+              <div
+                key={ids}
+                className="card border-base-300 relative border bg-white p-6 shadow-xl"
+              >
+                <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 border-r-4" />
+                <h3 className="text-xl font-bold"> {reason.title}</h3>
+                <div className="h-1 w-24 bg-(--red)/50" />
+                <p className="mt-2 text-gray-700">{reason.details}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section id="mission-vision" className="space-y-20">
+        <article
+          id="mission"
+          className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row"
+        >
+          <div className="flex-1 space-y-6 lg:px-10">
+            <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our Mission
-            </h2>
-            <p className="text-center text-lg leading-relaxed text-gray-700 md:text-right">
+            </h1>
+
+            <p className="text-lg text-gray-700 md:text-xl">
               Our mission is to provide high-quality, delicious, and affordable food products that
               bring joy to every meal. We are committed to excellence, sustainability, and serving
               our customers with integrity and care.
             </p>
           </div>
-        </section>
 
-        {/* Vision */}
-        <section className="flex gap-10 md:flex-row md:items-stretch">
-          <div className="rounded-2xl border border-(--red) bg-linear-to-br from-white to-(--green)/10 p-10 shadow-[0_0_15px_rgba(0,108,45,0.08)] transition hover:shadow-[0_0_25px_rgba(0,108,45,0.15)] md:w-1/2">
-            <h2 className="tracking-widet mb-6 text-center text-4xl font-bold text-(--red) md:text-left">
+          <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
+            <img
+              src={WagyuCubes}
+              alt={'WagyuCubes'}
+              className="h-full w-full object-cover object-center"
+            />
+          </figure>
+        </article>
+
+        <article
+          id="vision"
+          className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 lg:flex-row"
+        >
+          <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
+            <img
+              src={WagyuCubes}
+              alt={'WagyuCubes'}
+              className="h-full w-full object-cover object-center"
+            />
+          </figure>
+
+          <div className="flex-1 space-y-6 lg:px-10">
+            <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our Vision
-            </h2>
-            <p className="text-center text-lg leading-relaxed text-gray-700 md:text-left">
+            </h1>
+
+            <p className="text-lg text-gray-700 md:text-xl">
               To be a leading and trusted provider of premium frozen meat products, recognized
               across the retail and food service industries for our commitment to quality,
               operational excellence, and consistent value.
             </p>
           </div>
+        </article>
 
-          <div className="hidden md:block md:w-1/2">
-            <img
-              src={featureProducts[2].img}
-              alt={featureProducts[2].title}
-              className="h-full w-full rounded-2xl object-cover shadow-[0_0_15px_rgba(0,108,45,0.1)]"
-            />
-          </div>
-        </section>
-
-        <div className="my-10 flex flex-col items-center justify-center md:flex-row">
-          <div className="mb-2 h-0.5 w-40 bg-(--green)/60 md:mb-0"></div>
-          <div className="mx-4 text-lg font-semibold text-(--green)">TEAM STRUCTURE</div>
-          <div className="mt-2 h-0.5 w-40 bg-(--green)/60 md:mt-0"></div>
-        </div>
-
-        {/* Organization Chart */}
-        <section className="mt-10 flex flex-col items-center space-y-10 text-center">
-          <h2 className="text-4xl font-bold text-(--red)">Organization Chart</h2>
-          <p className="max-w-3xl text-lg text-gray-700">
-            Meet the dedicated team behind Sunny Foods, working together to deliver quality,
-            efficiency, and excellence every day.
+        <article id="innovation" className="mx-auto max-w-7xl items-center space-y-3 px-6">
+          <h2 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
+            R&D & Innovation
+          </h2>
+          <div className="mx-auto h-1 w-28 bg-(--green)" />
+          <p className="mx-auto max-w-3xl px-5 text-justify text-xl text-gray-700">
+            At Sunny Foods, innovation is at the heart of everything we do. Our Research and
+            Development (R&D) team is constantly exploring new ways to improve our products, develop
+            new cuts of meat, and introduce healthier options. We also focus on improving packaging,
+            enhancing flavor profiles, and developing convenient meal solutions for our customers..
           </p>
+        </article>
+      </section>
 
-          <div className="flex flex-col items-center space-y-6">
-            {/* CEO */}
-            <div className="w-60 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-72">
-              <h3 className="text-2xl font-extrabold text-(--red)">WEI HENG LI</h3>
-              <p className="text-lg text-gray-700">CEO</p>
-            </div>
+      <header className="space-y-3 text-center">
+        <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl">Meet Our Dedicated Team</h2>
+        <div className="mx-auto h-1 w-28 bg-(--green)" />
+        <p className="mx-auto max-w-3xl px-5 text-justify text-lg text-gray-700">
+          Our management team consists of industry experts with years of experience in the meat
+          processing and food production sectors. Led by our CEO, Mr. Li Wei Heng, who has a strong
+          background in both business management and food safety, our team ensures that Sunny Foods
+          stays ahead of industry trends and continues to deliver top-quality products
+        </p>
+      </header>
 
-            {/* Executive Assistant */}
-            <div className="w-60 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-72">
-              <h3 className="text-xl font-bold text-(--red)">ALFRED SENG</h3>
-              <p className="text-gray-700">Executive Assistant</p>
-            </div>
+      <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20">
+        <div className="grid grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5">
+          {teams.map((team) => (
+            <div className="w-auto">
+              <div className="flex flex-col items-center text-center">
+                <div className="avatar">
+                  <div className="w-24 rounded-full">
+                    <img
+                      src={team.img}
+                      alt={team.name.toLocaleLowerCase()}
+                      className="h-full w-full"
+                    />
+                  </div>
+                </div>
 
-            {/* Managers Row */}
-            <div className="flex flex-col flex-wrap justify-center gap-6 md:flex-row md:gap-12">
-              <div className="w-60 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-72">
-                <h3 className="text-xl font-bold text-(--red)">XIAO BIN</h3>
-                <p className="text-gray-700">Production Manager</p>
-              </div>
-              <div className="w-60 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-72">
-                <h3 className="text-xl font-bold text-(--red)">KIMBERLY ANAHAW</h3>
-                <p className="text-gray-700">HR Manager</p>
-              </div>
-              <div className="w-60 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-72">
-                <h3 className="text-xl font-bold text-(--red)">KIM IAN TAGUIAM</h3>
-                <p className="text-gray-700">QA / QC</p>
-              </div>
-            </div>
-
-            {/* Supervisors */}
-            <div className="flex flex-col flex-wrap justify-center gap-6 md:flex-row md:gap-10">
-              <div className="w-52 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-60">
-                <h4 className="font-semibold text-(--red)">RODELLA MERCADO</h4>
-                <p className="text-gray-700">Asst. Prod. Supervisor</p>
-              </div>
-              <div className="w-52 rounded-xl border border-(--green) bg-white px-6 py-4 shadow-[0_0_15px_rgba(0,108,45,0.1)] md:w-60">
-                <h4 className="font-semibold text-(--red)">JB PATCHICOY</h4>
-                <p className="text-gray-700">Team Leader</p>
+                <h3 className="mt-2 text-xl font-extrabold">{team.name.toUpperCase()}</h3>
+                <p className="text-md text-gray-700">{team.postion}</p>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 };
 
