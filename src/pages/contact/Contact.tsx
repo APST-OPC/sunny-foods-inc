@@ -1,44 +1,8 @@
-import { useState } from 'react';
 import Chat from '~/assets/icons/ic_message.svg';
 import Email from '~/assets/icons/ic_email.svg';
 import Facebook from '~/assets/icons/ic_facebook.svg';
 
 const Contact = () => {
-  const [contactOpen, setContactOpen] = useState<boolean>(false);
-
-  const renderModal = () => {
-    return (
-      <dialog className="modal modal-middle backdrop-blur-xs" open={contactOpen}>
-        <div className="modal-box">
-          <button
-            className="btn btn-ghost btn-circle fixed top-2 right-2"
-            onClick={() => setContactOpen(false)}
-          >
-            ✕
-          </button>
-
-          <div className="mt-5 flex flex-col space-y-2">
-            <p>You can call us or send us a message through these numbers:</p>
-
-            <button
-              className="btn btn-ghost btn-success rounded-md hover:text-white"
-              onClick={() => window.open('viber://chat?number=%2B9392379999', '_blank')}
-            >
-              0939-237-9999
-            </button>
-
-            <button
-              className="btn btn-ghost btn-success rounded-md hover:text-white"
-              onClick={() => window.open('viber://chat?number=%2B9187399999', '_blank')}
-            >
-              0918-739-9999
-            </button>
-          </div>
-        </div>
-      </dialog>
-    );
-  };
-
   return (
     <main className="space-y-5 pt-20">
       <header className="container mx-auto space-y-5 px-4 text-center">
@@ -64,7 +28,7 @@ const Contact = () => {
                 <div className="tooltip tooltip-bottom" data-tip="Chat with us">
                   <button
                     className="btn btn-success btn-circle lg:h-24 lg:w-24 space-x-4 text-white"
-                    onClick={() => setContactOpen(true)}
+                    onClick={() => window.open('viber://chat?number=%2B9392379999', '_blank')}
                   >
                     <img src={Chat} className="h-[50%]" />
                   </button>
@@ -85,8 +49,6 @@ const Contact = () => {
                   </button>
                 </div>
               </div>
-
-              {renderModal()}
             </div>
 
             <div className="card bg-base-100 w-full p-5 shadow-xl row-span-2">
@@ -132,7 +94,7 @@ const Contact = () => {
                     placeholder="Leave a comment..."
                   />
                 </fieldset>
-                
+
                 <button className="btn btn-success rounded-md text-lg text-white w-full">Submit</button>
               </div>
             </div>
