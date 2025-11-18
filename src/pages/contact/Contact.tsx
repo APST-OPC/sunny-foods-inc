@@ -1,6 +1,43 @@
+import type { IContactUs, IContactUsCard } from './type';
+
+import { cn } from '~/libs/cn';
+
 import Chat from '~/assets/icons/ic_message.svg';
 import Email from '~/assets/icons/ic_email.svg';
 import Facebook from '~/assets/icons/ic_facebook.svg';
+
+const contactBtns: IContactUs[] = [
+  {
+    contactIcon: Chat,
+    contactCTA: 'Chat with us',
+    contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
+  },
+  {
+    contactIcon: Email,
+    contactCTA: 'Email us',
+    contactFn: () => window.open('mailto:sales@sunnyfoods.com.ph', '_blank'),
+  },
+  {
+    contactIcon: Facebook,
+    contactCTA: 'Visit our Facebook page',
+  },
+];
+
+const ContactUsCard = (props: IContactUsCard) => {
+  const { className, title, children } = props;
+
+  return (
+    <div className={cn('card bg-base-100 w-full p-5 shadow-xl', className)}>
+      <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 rounded border-r-4" />
+
+      {title && <p className="text-xl font-bold">{title}</p>}
+
+      <div className="h-1 w-24 bg-(--red)/50" />
+
+      {children}
+    </div>
+  );
+};
 
 const Contact = () => {
   return (
@@ -16,62 +53,34 @@ const Contact = () => {
 
       <div className="bg-gray-500 bg-[url(~/assets/chuck-eye.webp)] bg-cover bg-center bg-no-repeat bg-blend-overlay">
         <section className="container mx-auto space-y-10 p-10">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
-            <div className="card bg-base-100 w-full justify-evenly space-x-3 p-5 shadow-xl">
-              <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 rounded border-r-4" />
-
-              <p className="text-xl font-bold">You may reach us through the following channels:</p>
-
-              <div className="h-1 w-24 bg-(--red)/50" />
-
-              <div className="mt-5 flex flex-row gap-3 items-center justify-evenly">
-                <div className="tooltip tooltip-bottom" data-tip="Chat with us">
-                  <button
-                    className="btn btn-success btn-circle lg:h-24 lg:w-24 space-x-4 text-white"
-                    onClick={() => window.open('viber://chat?number=%2B9392379999', '_blank')}
-                  >
-                    <img src={Chat} className="h-[50%]" />
-                  </button>
-                </div>
-
-                <div className="tooltip tooltip-bottom" data-tip="Send us an email">
-                  <button
-                    className="btn btn-success btn-circle lg:h-24 lg:w-24 space-x-4 text-white"
-                    onClick={() => window.open('mailto:sales@sunnyfoods.com.ph', '_blank')}
-                  >
-                    <img src={Email} className="h-[50%]" />
-                  </button>
-                </div>
-
-                <div className="tooltip tooltip-bottom" data-tip="Visit our Facebook page">
-                  <button className="btn btn-success btn-circle lg:h-24 lg:w-24 space-x-4 text-white">
-                    <img src={Facebook} className="h-[50%]" />
-                  </button>
-                </div>
+          <div className="flex flex-col gap-10 md:grid md:grid-cols-2">
+            <ContactUsCard
+              title="You may reach us through the following channels:"
+              className="justify-evenly space-x-3"
+            >
+              <div className="mt-5 flex flex-row items-center justify-evenly gap-3">
+                {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
+                  <div key={ids} className="tooltip tooltip-bottom" data-tip={contactCTA}>
+                    <button
+                      className="btn btn-success btn-circle space-x-4 text-white lg:h-24 lg:w-24"
+                      onClick={contactFn}
+                    >
+                      <img src={contactIcon} className="h-[50%]" />
+                    </button>
+                  </div>
+                ))}
               </div>
-            </div>
+            </ContactUsCard>
 
-            <div className="card bg-base-100 w-full p-5 shadow-xl row-span-2">
-              <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 rounded border-r-4" />
-
-              <p className="text-start text-xl font-bold">Visit our store location:</p>
-
-              <div className="h-1 w-24 bg-(--red)/50" />
-
+            <ContactUsCard title="Visit our store location:" className="row-span-2">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
                 className="mt-5 h-full rounded-lg"
                 loading="lazy"
               />
-            </div>
+            </ContactUsCard>
 
-            <div className="card bg-base-100 flex w-full justify-center p-5 shadow-xl">
-              <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 rounded border-r-4" />
-
-              <p className="text-xl font-bold">Send us your inquiries here:</p>
-
-              <div className="h-1 w-24 bg-(--red)/50" />
-
+            <ContactUsCard title="Send us your inquiries here:" className="flex justify-center">
               <div className="mt-5 space-y-5">
                 <fieldset className="fieldset">
                   <p className="label text-lg font-bold">Full name:</p>
@@ -95,9 +104,11 @@ const Contact = () => {
                   />
                 </fieldset>
 
-                <button className="btn btn-success rounded-md text-lg text-white w-full">Submit</button>
+                <button className="btn btn-success w-full rounded-md text-white md:text-lg">
+                  Submit
+                </button>
               </div>
-            </div>
+            </ContactUsCard>
           </div>
         </section>
       </div>
