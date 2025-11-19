@@ -60,7 +60,11 @@ const About = () => {
           id="mission"
           className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row"
         >
-          <div className="flex-1 space-y-6 lg:px-10">
+          <div
+            data-aos="fade-down-right"
+            data-aos-offset="500"
+            className="flex-1 space-y-6 lg:px-10"
+          >
             <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our Mission
             </h1>
@@ -93,7 +97,11 @@ const About = () => {
             />
           </figure>
 
-          <div className="flex-1 space-y-6 lg:px-10">
+          <div
+            data-aos="fade-down-left"
+            data-aos-offset="500"
+            className="flex-1 space-y-6 lg:px-10"
+          >
             <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our Vision
             </h1>
@@ -106,7 +114,11 @@ const About = () => {
           </div>
         </article>
 
-        <article id="innovation" className="mx-auto max-w-7xl items-center space-y-3 px-6">
+        <article
+          id="innovation"
+          data-aos="fade-up"
+          className="mx-auto max-w-7xl items-center space-y-3 px-6"
+        >
           <h2 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
             R&D & Innovation
           </h2>
@@ -142,6 +154,7 @@ const About = () => {
             {reasons.map((reason, ids) => (
               <div
                 key={ids}
+                data-aos="zoom-in-up"
                 className="card border-base-300 relative border bg-white p-6 shadow-xl"
               >
                 <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 border-r-4" />
@@ -156,15 +169,17 @@ const About = () => {
 
       <section id="history">
         <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
-          <div className="flex-1 space-y-6 lg:px-10">
+          <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
             <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our History
             </h1>
-            <p className="text-lg text-gray-700 md:text-xl">
+            <p className="text-justify text-lg text-gray-700 md:text-xl">
               Established in 2024, Sunny Foods Inc. develops high-quality meat products using
-              cutting-edge technology and precision-engineered equipment. We&apos;re passionate
-              about delivering fresh, flavorful, and reliable meats that suit every meal from daily
-              dinners to special occasions.
+              cutting-edge technology and precision-engineered equipment.
+            </p>
+            <p className="text-justify text-lg text-gray-700 md:text-xl">
+              We&apos;re passionate about delivering fresh, flavorful, and reliable meats that suit
+              every meal from daily dinners to special occasions.
             </p>
           </div>
 
@@ -192,8 +207,8 @@ const About = () => {
 
       <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20">
         <div className="mx-auto grid max-w-4xl grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5">
-          {teams.map((team) => (
-            <div className="w-auto">
+          {teams.map((team, ids) => (
+            <div key={ids} className="w-auto">
               <div className="flex flex-col items-center text-center">
                 <div className="avatar">
                   <div className="w-24 rounded-full">
