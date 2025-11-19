@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 
 export interface IContactUs {
-  contactIcon: string;
+  contactIcon: ReactElement;
   contactCTA: string;
   contactFn?: () => void;
 }

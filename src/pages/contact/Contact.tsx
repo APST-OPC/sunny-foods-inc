@@ -1,24 +1,23 @@
 import type { IContactUs, IContactUsCard } from './type';
 
-import { cn } from '~/libs/cn';
+import { FaFacebookSquare, FaViber } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
-import Chat from '~/assets/icons/ic_message.svg';
-import Email from '~/assets/icons/ic_email.svg';
-import Facebook from '~/assets/icons/ic_facebook.svg';
+import { cn } from '~/libs/cn';
 
 const contactBtns: IContactUs[] = [
   {
-    contactIcon: Chat,
+    contactIcon: <FaViber size={50} />,
     contactCTA: 'Chat with us',
     contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
   },
   {
-    contactIcon: Email,
+    contactIcon: <MdEmail size={50} />,
     contactCTA: 'Email us',
     contactFn: () => window.open('mailto:sales@sunnyfoods.com.ph', '_blank'),
   },
   {
-    contactIcon: Facebook,
+    contactIcon: <FaFacebookSquare size={50} />,
     contactCTA: 'Visit our Facebook page',
   },
 ];
@@ -62,10 +61,10 @@ const Contact = () => {
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
                   <div key={ids} className="tooltip tooltip-bottom" data-tip={contactCTA}>
                     <button
-                      className="btn btn-success btn-circle space-x-4 text-white lg:h-24 lg:w-24"
+                      className="flex items-center justify-center space-x-4 rounded-full bg-(--green) p-5 text-white cursor-pointer"
                       onClick={contactFn}
                     >
-                      <img src={contactIcon} className="h-[50%]" />
+                      {contactIcon}
                     </button>
                   </div>
                 ))}
