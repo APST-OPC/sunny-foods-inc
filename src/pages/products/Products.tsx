@@ -23,47 +23,32 @@ const Products = () => {
         <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Our Premium Meat Collection
         </h1>
-        <p className="mx-auto max-w-3xl text-xl text-gray-600">
+
+        <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
           Select from our finest cuts, each prepared to deliver exceptional taste and quality.
         </p>
       </header>
 
-      <div className="bg-white">
-        <section className="container mx-auto grid gap-8 p-5 px-5 md:grid-cols-2 lg:grid-cols-3 lg:p-16 xl:grid-cols-4">
-          {products.map((item) => (
-            <div
-              key={item.id}
-              className="bg-base-200 group relative flex w-full flex-row overflow-hidden rounded-none p-0 shadow"
-            >
-              <div className="flex h-full w-1/2 flex-col justify-between p-4">
-                <h6 className="font-heading mt-5 grid h-28 place-content-center text-xl font-bold">
-                  {item.title}
-                </h6>
-                <button
-                  className="btn btn-error btn-sm text-white shadow-none"
-                  onClick={() => handleView(item)}
-                >
-                  Details
-                </button>
-              </div>
-
-              <div className="border-success/50 absolute bottom-1/3 left-0 z-10 h-1/2 border-r-2 sm:border-r-4" />
-
-              <div className="relative w-full flex-1">
-                <figure className="h-52 overflow-hidden">
-                  <img
-                    loading="lazy"
-                    src={item.image}
-                    alt={item.title.toLocaleLowerCase()}
-                    className="h-full w-full scale-150 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </figure>
-              </div>
+      <section className="container mx-auto grid gap-8 p-5 px-5 md:grid-cols-2 lg:grid-cols-3 lg:p-16 xl:grid-cols-4">
+        {products.map((item) => (
+          <div key={item.id} className="text-center">
+            <figure className="b h-64 w-full drop-shadow-xl drop-shadow-gray-400">
+              <img src={item.image} className="h-full w-full object-contain" />
+            </figure>
+            <div className="h-24 place-content-center space-y-1">
+              <h6 className="grid text-xl font-bold">{item.title}</h6>
+              <button
+                className="btn btn-error btn-sm w-64 text-white shadow-none"
+                onClick={() => handleView(item)}
+              >
+                Details
+              </button>
             </div>
-          ))}
-        </section>
-      </div>
+          </div>
+        ))}
+      </section>
 
+      {/* Dialog Modal */}
       <dialog id="product-detail" className="modal modal-middle backdrop-blur-xs" open={showDetail}>
         <div className="modal-box max-w-3xl rounded-xl border border-white/40 bg-white/90 shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-xl">
           <figure className="mb-4 h-40 overflow-hidden rounded-lg">

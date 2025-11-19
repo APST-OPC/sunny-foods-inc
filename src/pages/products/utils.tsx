@@ -1,11 +1,11 @@
-import BlackPepperSteak from '~/assets/steak/black-pepper-steak.jpg';
-import WagyuCubes from '~/assets/steak/wagyu-cubes.jpg';
-import BurgerPatty from '~/assets/steak/burger-patty.jpg';
+import BlackPepperSteak from '~/assets/steak/black-pepper-steak.png';
+import WagyuCubes from '~/assets/steak/wagyu-cubes.png';
+import BurgerPatty from '~/assets/steak/burger-patty.png';
 
-import StripLoinSteak from '~/assets/steak/striploin-steak.jpg';
-import ChuckEyeSteak from '~/assets/steak/chuck-eye-steak.jpg';
-import RibEyeSteak from '~/assets/steak/rib-eye-steak.jpg';
-import TopBladeSteak from '~/assets/steak/top-blade-steak.jpg';
+import StripLoinSteak from '~/assets/steak/striploin-steak.png';
+import ChuckEyeSteak from '~/assets/steak/chuck-eye-steak.png';
+import RibEyeSteak from '~/assets/steak/rib-eye-steak.png';
+import TopBladeSteak from '~/assets/steak/top-blade-steak.png';
 
 export const products = [
   {

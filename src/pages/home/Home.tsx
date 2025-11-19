@@ -71,7 +71,7 @@ const Home = () => {
 
       <section className="bg-base-100 px-6 py-16 text-center md:px-12 md:text-left">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row">
-          <div className="flex-1 space-y-6">
+          <div data-aos="zoom-out-right" className="flex-1 space-y-6">
             <h1 className="font-heading text-2xl leading-tight font-bold md:text-5xl">
               Make Every Dish Unforgettable
             </h1>
