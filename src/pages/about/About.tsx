@@ -104,7 +104,7 @@ const About = () => {
                 key={ids}
                 className="card border-base-300 relative border bg-white p-6 shadow-xl"
               >
-                <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 border-r-4" />
+                <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 border-r-4 rounded" />
                 <h3 className="text-xl font-bold"> {reason.title}</h3>
                 <div className="h-1 w-24 bg-(--red)/50" />
                 <p className="mt-2 text-gray-700">{reason.details}</p>
@@ -190,7 +190,7 @@ const About = () => {
         </p>
       </header>
 
-      <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20">
+      <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20 rounded-2xl">
         <div className="grid grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5">
           {teams.map((team) => (
             <div className="w-auto">
