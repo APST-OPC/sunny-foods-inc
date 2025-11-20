@@ -32,7 +32,7 @@ const ContactUsCard = (props: IContactUsCard) => {
   const { className, title, children } = props;
 
   return (
-    <div className={cn('card bg-(--light-brown)/10 p-5 shadow-xl', className)}>
+    <div className={cn('card bg-[#F4ECE4] p-5 shadow-xl', className)}>
       <div className="border-success/50 absolute bottom-1/4 left-0 h-1/2 rounded border-r-4" />
 
       {title && <p className="text-xl font-bold">{title}</p>}
@@ -45,7 +45,7 @@ const ContactUsCard = (props: IContactUsCard) => {
 const Contact = () => {
   return (
     <main className="space-y-5 py-20">
-      <header className="px-5 mx-auto space-y-5 text-center">
+      <header className="mx-auto space-y-5 px-10 text-center">
         <h2 className="text-center text-4xl font-bold text-black md:text-6xl">
           Comments<span className="text-(--red)">?</span> Suggestions
           <span className="text-(--red)">?</span> Need help<span className="text-(--red)">?</span>
@@ -61,7 +61,7 @@ const Contact = () => {
 
             <div className="h-1 w-24 bg-(--red)/50" />
 
-            <div className="mt-5 flex justify-evenly">
+            <div className="mt-5 flex flex-wrap justify-evenly">
               {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
                 <div
                   key={ids}
@@ -101,18 +101,19 @@ const Contact = () => {
           <div className="mt-5 flex flex-col space-y-2">
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Full name:</p>
-              <input type="text" className="input w-full rounded-md" placeholder="Full name" />
+              <input id="fullName" type="text" className="input w-full rounded-md" placeholder="Full name" />
             </fieldset>
 
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Email address:</p>
-              <input type="text" className="input w-full rounded-md" placeholder="Email address" />
+              <input id="emailAddress" type="text" className="input w-full rounded-md" placeholder="Email address" />
             </fieldset>
 
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Message:</p>
               <textarea
                 className="textarea w-full resize-none rounded-md"
+                id="msg"
                 placeholder="Leave a message..."
               />
             </fieldset>
