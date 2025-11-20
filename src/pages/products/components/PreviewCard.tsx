@@ -12,7 +12,7 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
         <img
           src={image}
           alt={title.toLowerCase()}
-          className="aspect-auto h-full w-full object-fill"
+          className="aspect-square h-full w-full object-cover"
           loading="lazy"
         />
       </div>
