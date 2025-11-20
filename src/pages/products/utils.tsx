@@ -1,11 +1,10 @@
-import BlackPepperSteak from '~/assets/steak/black-pepper-steak.png';
-import WagyuCubes from '~/assets/steak/wagyu-cubes.png';
-import BurgerPatty from '~/assets/steak/burger-patty.png';
-
-import StripLoinSteak from '~/assets/steak/striploin-steak.png';
-import ChuckEyeSteak from '~/assets/steak/chuck-eye-steak.png';
-import RibEyeSteak from '~/assets/steak/rib-eye-steak.png';
-import TopBladeSteak from '~/assets/steak/top-blade-steak.png';
+import BlackPepperSteak from '~/assets/old-steak/black-pepper-steak.jpg';
+import WagyuCubes from '~/assets/old-steak/wagyu-cube-steak.jpg';
+import BurgerPatty from '~/assets/old-steak/burger-patty.jpg';
+import StripLoinSteak from '~/assets/old-steak/striploin-steak.jpg';
+import ChuckEyeSteak from '~/assets/old-steak/chuck-eye-steak.jpg';
+import RibEyeSteak from '~/assets/old-steak/rib-eye-steak.jpg';
+import TopBladeSteak from '~/assets/old-steak/top-blade-steak.jpg';
 
 export const products = [
   {
@@ -24,17 +23,17 @@ export const products = [
   },
   {
     id: 3,
-    title: 'Burger Patty',
-    description:
-      'Our Burger Patty is made from premium cuts of freshly ground beef, carefully seasoned to create a juicy, flavorful patty perfect for grilling or pan-frying. Whether you’re making a classic burger or getting creative with toppings, our patty offers the ideal balance of tenderness and rich beef flavor.',
-    image: BurgerPatty,
-  },
-  {
-    id: 4,
     title: 'Strip Loin Steak',
     description:
       'Our Strip Loin Steak is a prime cut of beef, known for its robust flavor and tender texture. With just the right amount of marbling, this steak is a perfect choice for grilling or pan searing. Whether you’re cooking for a special occasion or enjoying a weekend meal, the Strip Loin delivers a satisfying, savory experience',
     image: StripLoinSteak,
+  },
+  {
+    id: 4,
+    title: 'Burger Patty',
+    description:
+      'Our Burger Patty is made from premium cuts of freshly ground beef, carefully seasoned to create a juicy, flavorful patty perfect for grilling or pan-frying. Whether you’re making a classic burger or getting creative with toppings, our patty offers the ideal balance of tenderness and rich beef flavor.',
+    image: BurgerPatty,
   },
   {
     id: 5,
