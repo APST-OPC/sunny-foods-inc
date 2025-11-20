@@ -47,11 +47,40 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
     variant: itemVariants,
   };
 
+  const closeIcon = () => {
+    return (
+      <motion.div
+        key="close"
+        initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+        animate={{ opacity: 1, rotate: 0, scale: 1 }}
+        exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+        transition={{ duration: 0.25 }}
+      >
+        <FiX className="text-error h-8 w-8" />
+      </motion.div>
+    );
+  };
+
+  const menuIcon = () => {
+    return (
+      <motion.div
+        key="menu"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.5 }}
+        transition={{ duration: 0.25 }}
+      >
+        <FiMenu className="text-error h-8 w-8" />
+      </motion.div>
+    );
+  };
   return (
     <Fragment>
       {/* MOBILE MENU ICON */}
       <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
-        {open ? <FiX className="text-error h-8 w-8" /> : <FiMenu className="text-error h-8 w-8" />}
+        <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
+          <AnimatePresence mode="wait">{open ? closeIcon() : menuIcon()}</AnimatePresence>
+        </div>
       </div>
 
       {/* MOBILE MENU DROPDOWN (FRAMER MOTION) */}
