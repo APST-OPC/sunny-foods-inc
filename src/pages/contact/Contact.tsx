@@ -17,7 +17,7 @@ const contactBtns: IContactUs[] = [
     contactFn: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
   },
   {
-    contactIcon: <FaInstagram size={80} color="#833ab4" />,
+    contactIcon: <FaInstagram size={80} color="#d300c5" />,
     contactCTA: 'Visit our Instagram',
     contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
