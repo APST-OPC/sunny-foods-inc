@@ -38,8 +38,8 @@ const Contact = (): ReactElement => {
       <section className="container mx-auto">
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
 
-        <div className="flex flex-col gap-10 p-5 xl:flex-row">
-          <div className="flex w-full flex-col gap-10 xl:w-1/3">
+        <div className="flex flex-col gap-10 p-5 md:flex-row">
+          <div className="flex w-full flex-col gap-10 md:w-1/3">
             <div>
               <p className="text-2xl font-bold">Follow us</p>
 
@@ -74,7 +74,7 @@ const Contact = (): ReactElement => {
                 loading="lazy"
               />
 
-              <p className='mt-5 xl:hidden'>
+              <p className='mt-5 md:hidden'>
                 Bldg. 2 Blk. 1 Governors Park Drive, Southwoods Industrial Park Mabuhay, Carmona,
                 Cavite (4116)
               </p>
