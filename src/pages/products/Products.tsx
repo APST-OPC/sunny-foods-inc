@@ -33,16 +33,14 @@ const Products = () => {
       </header>
 
       <section className="container mx-auto space-y-7 px-5">
-        <p className="mx-auto w-full text-center text-3xl font-black lg:w-4/5 lg:text-start">
-          All Products
-        </p>
-
         <div className="divider mx-auto -mt-5 h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
+
         <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
           {products.map((data, index) => {
             return <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />;
           })}
         </div>
+
         <div className="divider mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
         <PreviewModal
           product={selectedProduct}

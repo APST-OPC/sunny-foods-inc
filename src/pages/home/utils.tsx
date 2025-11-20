@@ -5,6 +5,7 @@ import Quality from '~/assets/high-quality.png';
 
 import ChuckEye from '~/assets/chuck-eye.webp';
 import Ribeye from '~/assets/ribeye.jpg';
+import StripLoin from '~/assets/strip-loin-cooked.jpg';
 
 import Mail from '~/assets/mail.png';
 import Phone from '~/assets/phone.png';
@@ -43,11 +44,12 @@ export const featureProducts = [
     description:
       'Our Strip Loin Steak is a prime cut of beef, known for its robust flavor and tender texture.',
     link: './products',
+    img: StripLoin,
   },
   {
     title: 'Chuck Eye Steak',
     description:
-      '“Discover the steak lover’s secret — bold, tender, and richly marbled Chuck Eye perfection.”',
+      'Discover the steak lover’s secret — bold, tender, and richly marbled Chuck Eye perfection.',
     link: './products',
     img: ChuckEye,
   },
