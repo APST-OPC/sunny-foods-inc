@@ -9,6 +9,7 @@ import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
+import { FaCheck } from 'react-icons/fa';
 
 const images = [StripLoin, Chuckeye, Ribeye];
 
@@ -159,27 +160,41 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" className="px-6 py-20 md:px-0">
-        <div className="mx-auto max-w-4xl space-y-10 rounded-2xl bg-white py-16 text-center shadow-xl">
-          <header className="grid place-content-center">
-            <h1 className="max-w-2xl text-center text-4xl font-bold">
-              Your Growth Starts With the <span className="text-error">Right Supply Partner</span>
+      <section id="contact" className="bg-gray-50 px-6 py-24 md:px-0">
+        <div className="mx-auto max-w-4xl space-y-10 rounded-3xl bg-white px-10 py-16 text-center shadow-2xl">
+          <header className="grid place-content-center space-y-4">
+            <h1 className="text-4xl leading-snug font-extrabold">
+              Power Your Business With a<span className="text-error"> Reliable Meat Supplier</span>
             </h1>
+
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg">
+              Premium-quality meat, strict quality control, and customer-first service—tailored for
+              restaurants, retailers, and large-scale distributors.
+            </p>
           </header>
 
-          <p className="mx-auto max-w-2xl px-5 text-sm leading-relaxed text-gray-600 lg:text-lg">
-            Empower your business with a supply partner that delivers quality, consistency, and
-            customer-first service.
-          </p>
+          <div className="mx-auto grid max-w-md gap-4 text-sm text-gray-700">
+            <div className="flex items-center justify-center gap-2">
+              <FaCheck className="text-success" /> Premium quality & strict standards
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <FaCheck className="text-success" /> Reliable, consistent delivery
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <FaCheck className="text-success" /> Exceptional Flavor & Juiciness
+            </div>
+          </div>
 
-          <div className="divider mx-auto w-44" />
+          <div className="divider mx-auto w-32" />
 
-          <button
-            onClick={() => navigate('/contact')}
-            className="btn btn-success w-60 font-medium text-white transition-all"
-          >
-            Reach Out Today
-          </button>
+          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
+            <button
+              onClick={() => navigate('/contact')}
+              className="btn btn-success w-60 rounded-full font-medium text-white shadow-md hover:shadow-lg"
+            >
+              Talk to Our Team
+            </button>
+          </div>
         </div>
       </section>
     </main>
