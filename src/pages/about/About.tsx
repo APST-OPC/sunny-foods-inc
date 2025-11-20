@@ -97,11 +97,7 @@ const About = () => {
             />
           </figure>
 
-          <div
-            data-aos="fade-down-left"
-            data-aos-offset="500"
-            className="flex-1 space-y-6 lg:px-10"
-          >
+          <div data-aos="fade-up" data-aos-offset="500" className="flex-1 space-y-6 lg:px-10">
             <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
               Our Vision
             </h1>
