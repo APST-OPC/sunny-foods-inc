@@ -1,25 +1,28 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
+import StripLoin from '~/assets/strip-loin-cooked.jpg';
+import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
+import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
 
-import { contacts, featureProducts, services } from './utils';
-import { ContactCard, ProductCard, ServiceCard } from './components';
-import { useEffect, useState } from 'react';
+import { featureProducts, services } from './utils';
+import { ProductCard, ServiceCard } from './components';
 
-const images = [
-  'https://t3.ftcdn.net/jpg/05/39/75/88/360_F_539758860_1vCdxgIx1oePzvxcdts80VYacH0hxOOO.jpg',
-  'https://img.freepik.com/premium-photo/meat-steak_131550-9.jpg',
-  'https://media.istockphoto.com/id/535786572/photo/grilled-striploin-steak.jpg?s=612x612&w=0&k=20&c=F_vrvwIOWe3vBR2y16Dp4z6d46K1sIY3togU3VYjrpA=',
-];
+const images = [StripLoin, Chuckeye, Ribeye];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [images]);
+  }, []);
 
   return (
     <main>
@@ -93,7 +96,7 @@ const Home = () => {
                   <img
                     src={src}
                     className="aspect-video h-72 w-full max-w-md rounded-lg"
-                    alt="Tailwind CSS Carousel component"
+                    alt={src}
                   />
                 </div>
               ))}
@@ -156,28 +159,25 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" className="bg-error/90 px-6 py-20 md:px-0">
-        <div className="mx-auto max-w-5xl space-y-10 text-center">
-          <h1 className="text-4xl font-extrabold text-white">
-            Let&apos;s <span className="text-neutral">Work Together</span>
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg leading-5 text-gray-100">
-            Whether you need wholesale meat distribution, reliable logistics, or partnership
-            opportunities — we&apos;re here to make your operations smoother and faster.
+      <section id="contact" className="px-6 py-20 md:px-0">
+        <div className="mx-auto max-w-4xl space-y-10 rounded-2xl bg-white py-16 text-center shadow-xl">
+          <header className="grid place-content-center">
+            <h1 className="max-w-2xl text-center text-4xl font-bold">
+              Your Growth Starts With the <span className="text-error">Right Supply Partner</span>
+            </h1>
+          </header>
+
+          <p className="mx-auto max-w-2xl px-5 text-sm leading-relaxed text-gray-600 lg:text-lg">
+            Empower your business with a supply partner that delivers quality, consistency, and
+            customer-first service.
           </p>
 
-          <div className="flex flex-row flex-wrap justify-center-safe gap-5">
-            {contacts.map((contact, ids) => (
-              <ContactCard
-                key={ids}
-                src={contact.src}
-                title={contact.title}
-                description={contact.description}
-              />
-            ))}
-          </div>
+          <div className="divider mx-auto w-44" />
 
-          <button className="btn btn-success w-80 border-0 font-semibold text-white md:w-40">
+          <button
+            onClick={() => navigate('/contact')}
+            className="btn btn-success w-60 font-medium text-white transition-all"
+          >
             Reach Out Today
           </button>
         </div>
