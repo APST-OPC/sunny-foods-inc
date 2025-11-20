@@ -1,9 +1,9 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { IContactUs, IContactUsCard } from './type';
 
-import { FaFacebookSquare, FaViber } from 'react-icons/fa';
+import { FaViber } from 'react-icons/fa';
+import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
-import { MdEmail } from 'react-icons/md';
 import { cn } from '~/libs/cn';
 
 const contactBtns: IContactUs[] = [
@@ -13,12 +13,7 @@ const contactBtns: IContactUs[] = [
     contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
   },
   {
-    contactIcon: <MdEmail size={80} color="#000000" />,
-    contactCTA: 'Send us an email',
-    contactFn: () => window.open('mailto:sales@sunnyfoods.com.ph', '_blank'),
-  },
-  {
-    contactIcon: <FaFacebookSquare color="#1877f2" size={80} />,
+    contactIcon: <AiOutlineFacebook size={90} color="#1877f2" />,
     contactCTA: 'Visit our Facebook page',
     contactFn: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
   },
@@ -56,8 +51,8 @@ const Contact = (): ReactElement => {
       </header>
 
       <section className="container mx-auto flex flex-col gap-10 p-5 md:flex-row">
-        <div className="flex h-full w-full flex-col gap-10 md:w-1/3">
-          <ContactUsCard>
+        <div className="flex w-full flex-col gap-10 md:w-1/3">
+          <div className="w-full">
             <p className="text-xl font-bold">Follow us</p>
 
             <div className="h-1 w-24 bg-(--red)/50" />
@@ -70,7 +65,7 @@ const Contact = (): ReactElement => {
                   data-tip={contactCTA}
                 >
                   <button
-                    className="flex size-20 cursor-pointer items-center justify-center rounded-full text-white"
+                    className="flex cursor-pointer items-center justify-center rounded-full text-white"
                     onClick={contactFn}
                   >
                     {contactIcon}
@@ -78,28 +73,27 @@ const Contact = (): ReactElement => {
                 </div>
               ))}
             </div>
-          </ContactUsCard>
+          </div>
 
-          <ContactUsCard>
+          <div className="w-full ">
             <p className="text-xl font-bold">Our location</p>
 
             <div className="h-1 w-24 bg-(--red)/50" />
 
+            <div></div>
+
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
-              className="mt-5 h-full w-full rounded-lg border-2 border-gray-400"
+              className="mt-5 h-full rounded-lg border-2 border-gray-400"
               loading="lazy"
             />
-          </ContactUsCard>
+          </div>
         </div>
 
-        <ContactUsCard
-          title="Send us your inquiries here"
-          className="col-span-2 row-span-2 w-full md:w-2/3"
-        >
+        <ContactUsCard title="Send us your inquiries here" className="col-span-2 row-span-2 w-full h-fit">
           <div className="h-1 w-24 bg-(--red)/50" />
 
-          <div className="mt-5 flex flex-col space-y-2">
+          <div className="mt-5 flex flex-col space-y-5">
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Full name:</p>
               <input
@@ -123,7 +117,7 @@ const Contact = (): ReactElement => {
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Message:</p>
               <textarea
-                className="textarea w-full resize-none rounded-md"
+                className="textarea h-[21.3svh] w-full resize-none rounded-md"
                 id="msg"
                 placeholder="Leave a message..."
               />
