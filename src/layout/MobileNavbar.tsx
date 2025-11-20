@@ -28,6 +28,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
         when: 'beforeChildren',
         staggerChildren: 0.5,
       },
+      backgroundColor: '#FFFFFF',
     },
     exit: {
       height: 0,
@@ -57,13 +58,13 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="absolute top-full left-0 w-full overflow-hidden bg-[#f5ede4] md:hidden"
+            className="absolute top-full left-0 w-full overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover bg-bottom-left backdrop-blur-lg md:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={menuVariants}
           >
-            <motion.ul className="menu mt-10 w-full space-y-3 p-4">
+            <motion.ul className="menu w-full space-y-2 p-4">
               {links.map((link, ids) => (
                 <motion.li key={ids} variants={motionlistMenuVariant.variant}>
                   <NavLink
@@ -71,7 +72,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
                       cn(
-                        'bg-transparent text-5xl font-bold tracking-tight',
+                        'bg-transparent text-4xl font-bold tracking-tight',
                         isActive ? 'text-error' : 'text-black'
                       )
                     }
