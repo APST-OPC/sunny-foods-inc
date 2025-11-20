@@ -1,3 +1,4 @@
+import type { ReactElement, ReactNode } from 'react';
 import type { IContactUs, IContactUsCard } from './type';
 
 import { FaFacebookSquare, FaViber } from 'react-icons/fa';
@@ -28,7 +29,7 @@ const contactBtns: IContactUs[] = [
   },
 ];
 
-const ContactUsCard = (props: IContactUsCard) => {
+const ContactUsCard = (props: IContactUsCard): ReactNode => {
   const { className, title, children } = props;
 
   return (
@@ -42,7 +43,7 @@ const ContactUsCard = (props: IContactUsCard) => {
   );
 };
 
-const Contact = () => {
+const Contact = (): ReactElement => {
   return (
     <main className="space-y-5 py-20">
       <header className="mx-auto space-y-5 px-10 text-center">
@@ -101,12 +102,22 @@ const Contact = () => {
           <div className="mt-5 flex flex-col space-y-2">
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Full name:</p>
-              <input id="fullName" type="text" className="input w-full rounded-md" placeholder="Full name" />
+              <input
+                id="fullName"
+                type="text"
+                className="input w-full rounded-md"
+                placeholder="Full name"
+              />
             </fieldset>
 
             <fieldset className="fieldset">
               <p className="label text-lg font-bold text-black">Email address:</p>
-              <input id="emailAddress" type="text" className="input w-full rounded-md" placeholder="Email address" />
+              <input
+                id="emailAddress"
+                type="text"
+                className="input w-full rounded-md"
+                placeholder="Email address"
+              />
             </fieldset>
 
             <fieldset className="fieldset">
