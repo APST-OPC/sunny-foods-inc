@@ -3,8 +3,6 @@ import ExecutiveAssistant from '~/assets/teams/executive-assitant.png';
 import ProductionManager from '~/assets/teams/production-manager.png';
 import AssProductionManager from '~/assets/teams/asst-prod-supervisor.png';
 import HrManager from '~/assets/teams/hr-manager.png';
-import QA from '~/assets/teams/qa-qc.png';
-import TeamLeader from '~/assets/teams/team-leader.png';
 
 export const reasons = [
   {
@@ -66,15 +64,5 @@ export const teams = [
     img: HrManager,
     name: 'Kimberly Anahaw',
     postion: 'HR Manager',
-  },
-  {
-    img: QA,
-    name: 'Kim Ian Taguiam',
-    postion: 'Quality Assurance / Control',
-  },
-  {
-    img: TeamLeader,
-    name: 'JB Patchicoy',
-    postion: 'Team Leader',
-  },
+  }
 ];

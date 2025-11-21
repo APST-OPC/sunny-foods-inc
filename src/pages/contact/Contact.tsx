@@ -1,5 +1,7 @@
+import type { IContactForm, IContactUs } from './type';
 import type { ReactElement } from 'react';
-import type { IContactUs } from './type';
+
+import { useState } from 'react';
 
 import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
@@ -24,12 +26,19 @@ const contactBtns: IContactUs[] = [
 ];
 
 const Contact = (): ReactElement => {
+  const [formData, setFormData] = useState<IContactForm>({
+    fullName: '',
+    emailAddress: '',
+    message: '',
+  });
+
   return (
     <main className="space-y-5 py-20">
       <header className="mx-auto space-y-5 px-10 text-center">
-        <h2 className="text-center text-4xl font-bold text-black md:text-6xl">
+        <h2 className="text-4xl font-bold text-black md:text-6xl">
           Comments<span className="text-(--red)">?</span> Suggestions
-          <span className="text-(--red)">?</span> Need help<span className="text-(--red)">?</span>
+          <span className="text-(--red)">?</span> Need help
+          <span className="text-(--red)">?</span>
         </h2>
 
         <p className="text-xl text-gray-600">We got you! You can contact us here.</p>
@@ -74,7 +83,7 @@ const Contact = (): ReactElement => {
                 loading="lazy"
               />
 
-              <p className='mt-5 md:hidden'>
+              <p className="mt-5 md:hidden">
                 Bldg. 2 Blk. 1 Governors Park Drive, Southwoods Industrial Park Mabuhay, Carmona,
                 Cavite (4116)
               </p>
@@ -86,40 +95,55 @@ const Contact = (): ReactElement => {
 
             <div className="h-1 w-24 rounded-full bg-(--red)/50" />
 
-            <div className="mt-5 flex flex-col space-y-5">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                console.log('Submitted:', formData);
+              }}
+              className="mt-5 space-y-5"
+            >
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Full name:</p>
+
                 <input
                   id="fullName"
                   type="text"
                   className="input w-full rounded-md"
                   placeholder="Full name"
+                  value={formData.fullName}
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
               </fieldset>
 
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Email address:</p>
+
                 <input
                   id="emailAddress"
                   type="text"
                   className="input w-full rounded-md"
                   placeholder="Email address"
+                  value={formData.emailAddress}
+                  onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
                 />
               </fieldset>
 
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Message:</p>
+
                 <textarea
                   className="textarea h-90 w-full resize-none rounded-md"
                   id="msg"
                   placeholder="Leave a message..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
               </fieldset>
 
-              <button className="btn btn-error w-full text-white md:text-lg">
+              <button type="submit" className="btn btn-error w-full text-white md:text-lg">
                 Send us a message
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
