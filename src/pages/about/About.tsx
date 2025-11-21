@@ -202,7 +202,7 @@ const About = () => {
       </header>
 
       <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20">
-        <div className="mx-auto grid max-w-4xl grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5 xl:grid-cols-5">
           {teams.map((team, ids) => (
             <div key={ids} className="w-auto">
               <div className="flex flex-col items-center text-center">
