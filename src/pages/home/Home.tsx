@@ -163,17 +163,25 @@ const Home = () => {
       <section id="contact" className="bg-gray-50 px-6 py-24 md:px-0">
         <div className="mx-auto max-w-4xl space-y-10 rounded-3xl bg-white px-10 py-16 text-center shadow-2xl">
           <header className="grid place-content-center space-y-4">
-            <h1 className="text-4xl leading-snug font-extrabold">
+            <h1
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              className="text-4xl leading-snug font-extrabold"
+            >
               Power Your Business With a<span className="text-error"> Reliable Meat Supplier</span>
             </h1>
 
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg">
+            <p
+              data-aos="fade-right"
+              data-aos-duration="3000"
+              className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg"
+            >
               Premium-quality meat, strict quality control, and customer-first service—tailored for
               restaurants, retailers, and large-scale distributors.
             </p>
           </header>
 
-          <div className="mx-auto grid max-w-md gap-4 text-sm text-gray-700">
+          <div data-aos="fade-up" className="mx-auto grid max-w-md gap-4 text-sm text-gray-700">
             <div className="flex items-center justify-center gap-2">
               <FaCheck className="text-success" /> Premium quality & strict standards
             </div>

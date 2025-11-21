@@ -1,11 +1,12 @@
 import type { IContactForm, IContactUs } from './type';
 import type { ReactElement } from 'react';
 
-import { useState } from 'react';
-
 import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
+
+import { useForm } from 'react-hook-form';
+import useWeb3Forms from '@web3forms/react';
 
 const contactBtns: IContactUs[] = [
   {
@@ -24,12 +25,24 @@ const contactBtns: IContactUs[] = [
     contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
 ];
+// const accessKey = 'fec412d1-0035-421b-be54-b80a191064b1';
 
 const Contact = (): ReactElement => {
-  const [formData, setFormData] = useState<IContactForm>({
-    fullName: '',
-    emailAddress: '',
-    message: '',
+  const { register, reset, handleSubmit, getFieldState } = useForm<IContactForm>();
+
+  const { submit: onSubmit } = useWeb3Forms({
+    access_key: import.meta.env.VITE_ACCESS_KEY,
+    settings: {
+      from_name: getFieldState('emailAddress'),
+      subject: 'New Contact Message from your Website',
+    },
+    onSuccess: () => {
+      reset();
+    },
+    onError: (msg, data) => {
+      console.log('message', msg);
+      console.log('data', data);
+    },
   });
 
   return (
@@ -95,54 +108,41 @@ const Contact = (): ReactElement => {
 
             <div className="h-1 w-24 rounded-full bg-(--red)/50" />
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                console.log('Submitted:', formData);
-              }}
-              className="mt-5 space-y-5"
-            >
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Full name:</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="mt-5 flex flex-col space-y-5">
+                <fieldset className="fieldset">
+                  <p className="label text-lg font-semibold text-black">Full name:</p>
+                  <input
+                    {...register('fullName')}
+                    type="text"
+                    className="input w-full rounded-md"
+                    placeholder="Full name"
+                  />
+                </fieldset>
 
-                <input
-                  id="fullName"
-                  type="text"
-                  className="input w-full rounded-md"
-                  placeholder="Full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                />
-              </fieldset>
+                <fieldset className="fieldset">
+                  <p className="label text-lg font-semibold text-black">Email address:</p>
+                  <input
+                    {...register('emailAddress')}
+                    type="text"
+                    className="input w-full rounded-md"
+                    placeholder="Email address"
+                  />
+                </fieldset>
 
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Email address:</p>
+                <fieldset className="fieldset">
+                  <p className="label text-lg font-semibold text-black">Message:</p>
+                  <textarea
+                    {...register('message')}
+                    className="textarea h-90 w-full resize-none rounded-md"
+                    placeholder="Leave a message..."
+                  />
+                </fieldset>
 
-                <input
-                  id="emailAddress"
-                  type="text"
-                  className="input w-full rounded-md"
-                  placeholder="Email address"
-                  value={formData.emailAddress}
-                  onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
-                />
-              </fieldset>
-
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Message:</p>
-
-                <textarea
-                  className="textarea h-90 w-full resize-none rounded-md"
-                  id="msg"
-                  placeholder="Leave a message..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                />
-              </fieldset>
-
-              <button type="submit" className="btn btn-error w-full text-white md:text-lg">
-                Send us a message
-              </button>
+                <button type="submit" className="btn btn-error w-full text-white md:text-lg">
+                  Send us a message
+                </button>
+              </div>
             </form>
           </div>
         </div>
