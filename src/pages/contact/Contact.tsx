@@ -5,8 +5,10 @@ import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
 
-import { useForm } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const contactBtns: IContactUs[] = [
   {
@@ -25,15 +27,32 @@ const contactBtns: IContactUs[] = [
     contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
 ];
-// const accessKey = 'fec412d1-0035-421b-be54-b80a191064b1';
 
 const Contact = (): ReactElement => {
-  const { register, reset, handleSubmit, getFieldState } = useForm<IContactForm>();
+  const schema: yup.ObjectSchema<IContactForm> = yup.object({
+    fullName: yup.string().required('Fullname is required'),
+    emailAddress: yup.string().email('Invalid email format').required('Email is required'),
+    message: yup.string().required('Message is required'),
+  });
 
-  const { submit: onSubmit } = useWeb3Forms({
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<IContactForm>({
+    defaultValues: {
+      fullName: '',
+      emailAddress: '',
+      message: '',
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const { submit: web3Submit } = useWeb3Forms({
     access_key: import.meta.env.VITE_ACCESS_KEY,
     settings: {
-      from_name: getFieldState('emailAddress'),
+      from_name: '',
       subject: 'New Contact Message from your Website',
     },
     onSuccess: () => {
@@ -44,6 +63,13 @@ const Contact = (): ReactElement => {
       console.log('data', data);
     },
   });
+
+  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
+    web3Submit({
+      ...data,
+      from_name: data.emailAddress,
+    });
+  };
 
   return (
     <main className="space-y-5 py-20">
@@ -118,6 +144,7 @@ const Contact = (): ReactElement => {
                     className="input w-full rounded-md"
                     placeholder="Full name"
                   />
+                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
                 </fieldset>
 
                 <fieldset className="fieldset">
@@ -128,6 +155,9 @@ const Contact = (): ReactElement => {
                     className="input w-full rounded-md"
                     placeholder="Email address"
                   />
+                  {errors.emailAddress && (
+                    <p className="text-error">{errors.emailAddress?.message}</p>
+                  )}
                 </fieldset>
 
                 <fieldset className="fieldset">
@@ -137,10 +167,15 @@ const Contact = (): ReactElement => {
                     className="textarea h-90 w-full resize-none rounded-md"
                     placeholder="Leave a message..."
                   />
+                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
                 </fieldset>
 
-                <button type="submit" className="btn btn-error w-full text-white md:text-lg">
-                  Send us a message
+                <button
+                  type="submit"
+                  className="btn btn-error w-full text-white md:text-lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending ...' : 'Send us a message'}
                 </button>
               </div>
             </form>
