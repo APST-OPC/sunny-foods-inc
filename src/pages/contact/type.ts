@@ -5,3 +5,9 @@ export interface IContactUs {
   contactCTA: string;
   contactFn?: () => void;
 }
+
+export interface IContactForm {
+  fullName: string;
+  emailAddress: string;
+  message: string;
+}
