@@ -1,9 +1,3 @@
-import Ceo from '~/assets/teams/ceo.png';
-import ExecutiveAssistant from '~/assets/teams/executive-assitant.png';
-import ProductionManager from '~/assets/teams/production-manager.png';
-import AssProductionManager from '~/assets/teams/asst-prod-supervisor.png';
-import HrManager from '~/assets/teams/hr-manager.png';
-
 export const reasons = [
   {
     title: 'Premium Beef Cuts',
@@ -41,27 +35,22 @@ export const reasons = [
 
 export const teams = [
   {
-    img: Ceo,
     name: 'Wei Heng Li',
     postion: 'CEO',
   },
   {
-    img: ExecutiveAssistant,
     name: 'Alfred Seng',
     postion: 'Executive Assistant',
   },
   {
-    img: ProductionManager,
     name: 'Xiao Bin',
     postion: 'Production Manager',
   },
   {
-    img: AssProductionManager,
     name: 'Rodella Mercado',
     postion: 'Asst. Prod. Supervisor',
   },
   {
-    img: HrManager,
     name: 'Kimberly Anahaw',
     postion: 'HR Manager',
   }
