@@ -3,7 +3,7 @@ import { products } from './utils';
 
 import PreviewCard from './components/PreviewCard';
 import PreviewModal from './components/PreviewModal';
-import { FaCheck } from 'react-icons/fa';
+
 import { CTA } from '~/components';
 
 interface IProducts {
