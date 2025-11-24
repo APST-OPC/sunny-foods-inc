@@ -36,15 +36,9 @@ const Home = () => {
         <div className="hero-overlay" />
 
         <div className="z-20 p-5 text-center text-white md:p-0 md:text-start">
-          {/* <p className="mb-10 text-5xl font-black drop-shadow-md drop-shadow-white/20 lg:text-[5rem]">
-            <span className="text-success mr-1">Sunny</span>
-            <span className="text-error">Foods Inc.</span>
-          </p> */}
           <div className="max-w-xl lg:absolute lg:bottom-5 lg:left-10">
-            <p className="font-heading text-3xl md:font-bold lg:text-6xl">
-              Premium Beef,
-            </p>
-            <p className="font-heading mb-5 text-3xl md:font-bold lg:text-6xl">
+            <p className="font-heading text-4xl md:font-bold lg:text-6xl">Premium Beef,</p>
+            <p className="font-heading mb-5 text-4xl md:font-bold lg:text-6xl">
               Crafted to Perfection
             </p>
             <p className="text-md mb-5 lg:text-lg">
