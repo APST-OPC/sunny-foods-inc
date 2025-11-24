@@ -30,7 +30,7 @@ const contactBtns: IContactUs[] = [
 ];
 
 const Contact = (): ReactElement => {
-  const schema: yup.ObjectSchema<IContactForm> = yup.object().shape({
+  const schema: yup.ObjectSchema<IContactForm> = yup.object({
     fullName: yup.string().required('Fullname is required'),
     emailAddress: yup.string().email('Invalid email format').required('Email is required'),
     message: yup.string().required('Message is required'),
