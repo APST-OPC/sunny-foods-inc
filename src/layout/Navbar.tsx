@@ -42,9 +42,11 @@ const Navbar = () => {
             key={ids}
             to={link.to}
             className={({ isActive }) =>
-              isActive
-                ? 'text-error btn btn-outline hover:border-error hover:bg-transparent'
-                : 'hover:text-error text-black underline-offset-8 hover:underline'
+              cn(
+                'hover:text-error relative px-2 py-1 text-black transition-all duration-300',
+                'after:bg-error after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full',
+                isActive && 'text-error after:w-full'
+              )
             }
           >
             {link.label}

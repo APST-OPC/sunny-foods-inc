@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
@@ -10,14 +9,13 @@ import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
-import { FaCheck } from 'react-icons/fa';
+
+import { CTA } from '~/components';
 
 const images = [StripLoin, Chuckeye, Ribeye];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,15 +36,9 @@ const Home = () => {
         <div className="hero-overlay" />
 
         <div className="z-20 p-5 text-center text-white md:p-0 md:text-start">
-          {/* <p className="mb-10 text-5xl font-black drop-shadow-md drop-shadow-white/20 lg:text-[5rem]">
-            <span className="text-success mr-1">Sunny</span>
-            <span className="text-error">Foods Inc.</span>
-          </p> */}
           <div className="max-w-xl lg:absolute lg:bottom-5 lg:left-10">
-            <p className="font-heading text-3xl md:font-bold lg:text-6xl">
-              Premium Beef,
-            </p>
-            <p className="font-heading mb-5 text-3xl md:font-bold lg:text-6xl">
+            <p className="font-heading text-4xl md:font-bold lg:text-6xl">Premium Beef,</p>
+            <p className="font-heading mb-5 text-4xl md:font-bold lg:text-6xl">
               Crafted to Perfection
             </p>
             <p className="text-md mb-5 lg:text-lg">
@@ -167,51 +159,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" className="bg-gray-50 px-6 py-24 md:px-0">
-        <div className="mx-auto max-w-4xl space-y-10 rounded-3xl bg-white px-10 py-16 text-center shadow-2xl">
-          <header className="grid place-content-center space-y-4">
-            <h1
-              data-aos="fade-right"
-              data-aos-duration="2000"
-              className="text-4xl leading-snug font-extrabold"
-            >
-              Power Your Business With a<span className="text-error"> Reliable Meat Supplier</span>
-            </h1>
-
-            <p
-              data-aos="fade-right"
-              data-aos-duration="3000"
-              className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg"
-            >
-              Premium-quality meat, strict quality control, and customer-first service—tailored for
-              restaurants, retailers, and large-scale distributors.
-            </p>
-          </header>
-
-          <div data-aos="fade-up" className="mx-auto grid max-w-md gap-4 text-sm text-gray-700">
-            <div className="flex items-center justify-center gap-2">
-              <FaCheck className="text-success" /> Premium quality & strict standards
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <FaCheck className="text-success" /> Reliable, consistent delivery
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <FaCheck className="text-success" /> Exceptional Flavor & Juiciness
-            </div>
-          </div>
-
-          <div className="divider mx-auto w-32" />
-
-          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
-            <button
-              onClick={() => navigate('/contact')}
-              className="btn btn-success w-60 rounded-full font-medium text-white shadow-md hover:shadow-lg"
-            >
-              Talk to Our Team
-            </button>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </main>
   );
 };

@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 
 import { Outlet } from 'react-router-dom';
+import { FaAngleUp } from 'react-icons/fa';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -9,12 +10,20 @@ import Footer from './Footer';
 import 'aos/dist/aos.css';
 
 const Layout = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-    });
+  const [showFab, setShowFab] = useState(false);
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+
+    const handleScroll = () => {
+      setShowFab(window.scrollY > window.innerHeight - 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       AOS.refreshHard();
     };
   }, []);
@@ -27,6 +36,14 @@ const Layout = () => {
 
       <Outlet />
       <Footer />
+
+      {showFab && (
+        <div className="fab transition-all">
+          <button className="btn btn-xl btn-square btn-success" onClick={() => scrollToTop()}>
+            <FaAngleUp />
+          </button>
+        </div>
+      )}
     </main>
   );
 };
