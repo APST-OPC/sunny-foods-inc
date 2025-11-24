@@ -148,7 +148,7 @@ const Contact = (): ReactElement => {
         </div>
 
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-      </section>
+      </section> 
     </main>
   );
 };
