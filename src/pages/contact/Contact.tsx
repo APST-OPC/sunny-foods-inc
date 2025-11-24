@@ -9,6 +9,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { cn } from '~/libs/cn';
 
 const contactBtns: IContactUs[] = [
   {
@@ -29,7 +30,7 @@ const contactBtns: IContactUs[] = [
 ];
 
 const Contact = (): ReactElement => {
-  const schema: yup.ObjectSchema<IContactForm> = yup.object({
+  const schema: yup.ObjectSchema<IContactForm> = yup.object().shape({
     fullName: yup.string().required('Fullname is required'),
     emailAddress: yup.string().email('Invalid email format').required('Email is required'),
     message: yup.string().required('Message is required'),
@@ -138,36 +139,51 @@ const Contact = (): ReactElement => {
               <div className="mt-5 flex flex-col space-y-5">
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Full name:</p>
+
                   <input
                     {...register('fullName')}
                     type="text"
-                    className="input w-full rounded-md"
+                    className={cn('input w-full rounded-md', errors.fullName && 'border-error')}
                     placeholder="Full name"
                   />
-                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
+
+                  <div className="h-0.5">
+                    {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
+                  </div>
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Email address:</p>
+
                   <input
                     {...register('emailAddress')}
                     type="text"
-                    className="input w-full rounded-md"
+                    className={cn('input w-full rounded-md', errors.emailAddress && 'border-error')}
                     placeholder="Email address"
                   />
-                  {errors.emailAddress && (
-                    <p className="text-error">{errors.emailAddress?.message}</p>
-                  )}
+
+                  <div className="h-0.5">
+                    {errors.emailAddress && (
+                      <p className="text-error">{errors.emailAddress?.message}</p>
+                    )}
+                  </div>
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Message:</p>
+
                   <textarea
                     {...register('message')}
-                    className="textarea h-90 w-full resize-none rounded-md"
+                    className={cn(
+                      'textarea h-90 w-full resize-none rounded-md',
+                      errors.message && 'border-error'
+                    )}
                     placeholder="Leave a message..."
                   />
-                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
+
+                  <div className="h-0.5">
+                    {errors.message && <p className="text-error">{errors.message?.message}</p>}
+                  </div>
                 </fieldset>
 
                 <button
@@ -183,7 +199,7 @@ const Contact = (): ReactElement => {
         </div>
 
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-      </section> 
+      </section>
     </main>
   );
 };
