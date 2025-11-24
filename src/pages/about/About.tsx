@@ -190,7 +190,7 @@ const About = () => {
         </article>
       </section>
 
-      <header className="space-y-3 text-center">
+      <header data-aos="fade-up" className="space-y-3 text-center">
         <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl">Meet Our Dedicated Team</h2>
         <div className="mx-auto h-1 w-28 bg-(--green)" />
         <p className="mx-auto max-w-3xl px-5 text-justify text-lg text-gray-700">
@@ -201,7 +201,7 @@ const About = () => {
         </p>
       </header>
 
-      <section id="team" className="container mx-auto my-20 bg-[#e8e5e0] sm:rounded-2xl">
+      <section id="team" className="bg-base-300 container mx-auto my-20 sm:rounded-2xl">
         <div className="grid gap-5 px-5 py-10 min-[425px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {teams.map((team, ids) => (
             <div key={ids} className="card bg-base-100 px-2 py-5 text-center">

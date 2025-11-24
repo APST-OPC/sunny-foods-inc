@@ -23,6 +23,7 @@ export const ProductCard = (props: IProductPreview) => {
   };
   return (
     <div
+      data-aos="zoom-in-up"
       className="card relative h-56 w-80 overflow-hidden shadow-lg shadow-black md:h-72"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
