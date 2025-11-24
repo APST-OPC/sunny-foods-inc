@@ -201,24 +201,13 @@ const About = () => {
         </p>
       </header>
 
-      <section id="team" className="container mx-auto mb-20 bg-[#E8E5E0] py-20">
-        <div className="mx-auto grid max-w-4xl grid-cols-2 place-content-center gap-5 px-2 md:grid-cols-3 lg:grid-cols-4 lg:px-5 xl:grid-cols-5">
+      <section id="team" className="container mx-auto my-20 bg-[#e8e5e0] sm:rounded-2xl">
+        <div className="grid gap-5 px-5 py-10 min-[425px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {teams.map((team, ids) => (
-            <div key={ids} className="w-auto">
-              <div className="flex flex-col items-center text-center">
-                <div className="avatar">
-                  <div className="w-24 rounded-full">
-                    <img
-                      src={team.img}
-                      alt={team.name.toLocaleLowerCase()}
-                      className="h-full w-full"
-                    />
-                  </div>
-                </div>
+            <div key={ids} className="card bg-base-100 px-2 py-5 text-center">
+              <h3 className="font-extrabold">{team.name.toUpperCase()}</h3>
 
-                <h3 className="mt-2 text-xl font-extrabold">{team.name.toUpperCase()}</h3>
-                <p className="text-md text-gray-700">{team.postion}</p>
-              </div>
+              <p className="text-sm">{team.postion}</p>
             </div>
           ))}
         </div>
