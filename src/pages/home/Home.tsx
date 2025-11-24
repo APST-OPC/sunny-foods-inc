@@ -5,6 +5,7 @@ import Steak from '~/assets/ic_steak.png';
 import StripLoin from '~/assets/strip-loin-cooked.jpg';
 import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
 import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
+import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
@@ -27,24 +28,30 @@ const Home = () => {
     <main>
       <section className="hero relative min-h-[70vh]">
         <img
-          src="https://img.freepik.com/premium-photo/top-view-juicy-cowboy-steak-black-plate_219193-2349.jpg"
+          src={BannerHead}
           alt="beef"
-          className="aspect-square h-[70vh] w-full"
+          className="aspect-square h-[70vh] w-full bg-linear-to-b from-red-950 via-red-700 to-red-950 object-cover object-center"
         />
 
         <div className="hero-overlay" />
 
-        <div className="hero-content text-center text-white">
-          <div className="max-w-xl">
-            <h1 className="font-heading mb-5 text-5xl md:font-bold">
-              Premium Beef, Crafted to Perfection
-            </h1>
-            <p className="mb-5 text-lg">
+        <div className="z-20 p-5 text-center text-white md:p-0 md:text-start">
+          {/* <p className="mb-10 text-5xl font-black drop-shadow-md drop-shadow-white/20 lg:text-[5rem]">
+            <span className="text-success mr-1">Sunny</span>
+            <span className="text-error">Foods Inc.</span>
+          </p> */}
+          <div className="max-w-xl lg:absolute lg:bottom-5 lg:left-10">
+            <p className="font-heading text-3xl md:font-bold lg:text-6xl">
+              Premium Beef,
+            </p>
+            <p className="font-heading mb-5 text-3xl md:font-bold lg:text-6xl">
+              Crafted to Perfection
+            </p>
+            <p className="text-md mb-5 lg:text-lg">
               Handpicked premium beef — from Wagyu-style cubes and Black Pepper Steaks to our
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
               convenience.
             </p>
-            <button className="btn btn-success w-80 border-0 md:w-40">Get Started</button>
           </div>
         </div>
       </section>
