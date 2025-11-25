@@ -50,6 +50,7 @@ const Contact = (): ReactElement => {
     reset,
     handleSubmit,
     formState: { errors, isSubmitting },
+    watch,
   } = useForm<IContactForm>({
     defaultValues: {
       fullName: '',
@@ -158,7 +159,11 @@ const Contact = (): ReactElement => {
                   <input
                     {...register('fullName')}
                     type="text"
-                    className={cn('input w-full rounded-md', errors.fullName && 'border-error')}
+                    className={cn(
+                      'input w-full rounded-md',
+                      errors.fullName && 'border-error',
+                      watch('fullName') && !errors.fullName && 'border-success'
+                    )}
                     placeholder="Full name"
                     disabled={isSubmitting}
                   />
@@ -174,7 +179,11 @@ const Contact = (): ReactElement => {
                   <input
                     {...register('emailAddress')}
                     type="text"
-                    className={cn('input w-full rounded-md', errors.emailAddress && 'border-error')}
+                    className={cn(
+                      'input w-full rounded-md',
+                      errors.emailAddress && 'border-error',
+                      watch('emailAddress') && !errors.emailAddress && 'border-success'
+                    )}
                     placeholder="Email address"
                     disabled={isSubmitting}
                   />
@@ -193,7 +202,8 @@ const Contact = (): ReactElement => {
                     {...register('message')}
                     className={cn(
                       'textarea h-90 w-full resize-none rounded-md',
-                      errors.message && 'border-error'
+                      errors.message && 'border-error',
+                      watch('message') && !errors.message && 'border-success'
                     )}
                     placeholder="Leave a message..."
                     disabled={isSubmitting}
