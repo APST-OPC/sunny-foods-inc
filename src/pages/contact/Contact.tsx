@@ -2,7 +2,7 @@ import type { IContactForm, IContactUs } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
@@ -33,6 +33,8 @@ const contactBtns: IContactUs[] = [
 ];
 
 const Contact = (): ReactElement => {
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
   const schema: yup.ObjectSchema<IContactForm> = useMemo(
     () =>
       yup.object({
@@ -47,7 +49,7 @@ const Contact = (): ReactElement => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitted },
+    formState: { errors, isSubmitting },
   } = useForm<IContactForm>({
     defaultValues: {
       fullName: '',
@@ -65,6 +67,8 @@ const Contact = (): ReactElement => {
     },
     onSuccess: () => {
       reset();
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 2500);
     },
     onError: (msg, data) => {
       console.log('message', msg);
@@ -156,6 +160,7 @@ const Contact = (): ReactElement => {
                     type="text"
                     className={cn('input w-full rounded-md', errors.fullName && 'border-error')}
                     placeholder="Full name"
+                    disabled={isSubmitting}
                   />
 
                   <div className="h-0.5">
@@ -171,6 +176,7 @@ const Contact = (): ReactElement => {
                     type="text"
                     className={cn('input w-full rounded-md', errors.emailAddress && 'border-error')}
                     placeholder="Email address"
+                    disabled={isSubmitting}
                   />
 
                   <div className="h-0.5">
@@ -190,6 +196,7 @@ const Contact = (): ReactElement => {
                       errors.message && 'border-error'
                     )}
                     placeholder="Leave a message..."
+                    disabled={isSubmitting}
                   />
 
                   <div className="h-0.5">
@@ -209,12 +216,17 @@ const Contact = (): ReactElement => {
           </div>
         </div>
 
-        <div className="toast">
-          {isSubmitted && (
-            <div className="alert alert-success">
-              <p className="text-white">Your message has been sent!</p>
-            </div>
-          )}
+        <div className="toast toast-start md:toast-end">
+          <div
+            className={cn(
+              'alert alert-success pointer-events-none',
+              isSubmitted
+                ? 'opacity-100 transition-all duration-300'
+                : 'opacity-0 transition-all duration-300'
+            )}
+          >
+            <p className="text-white">Your message has been sent!</p>
+          </div>
         </div>
 
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
