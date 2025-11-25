@@ -1,14 +1,18 @@
 import type { IContactForm, IContactUs } from './type';
 import type { ReactElement } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
+
+import { useMemo, useState } from 'react';
 
 import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
 
-import { useForm, type SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { cn } from '~/libs/cn';
 
 const contactBtns: IContactUs[] = [
   {
@@ -29,17 +33,24 @@ const contactBtns: IContactUs[] = [
 ];
 
 const Contact = (): ReactElement => {
-  const schema: yup.ObjectSchema<IContactForm> = yup.object({
-    fullName: yup.string().required('Fullname is required'),
-    emailAddress: yup.string().email('Invalid email format').required('Email is required'),
-    message: yup.string().required('Message is required'),
-  });
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+  const schema: yup.ObjectSchema<IContactForm> = useMemo(
+    () =>
+      yup.object({
+        fullName: yup.string().required('Fullname is required'),
+        emailAddress: yup.string().email('Invalid email format').required('Email is required'),
+        message: yup.string().required('Message is required'),
+      }),
+    []
+  );
 
   const {
     register,
     reset,
     handleSubmit,
     formState: { errors, isSubmitting },
+    watch,
   } = useForm<IContactForm>({
     defaultValues: {
       fullName: '',
@@ -57,6 +68,8 @@ const Contact = (): ReactElement => {
     },
     onSuccess: () => {
       reset();
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 2500);
     },
     onError: (msg, data) => {
       console.log('message', msg);
@@ -64,11 +77,15 @@ const Contact = (): ReactElement => {
     },
   });
 
-  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
-    web3Submit({
-      ...data,
-      from_name: data.emailAddress,
-    });
+  const onSubmit: SubmitHandler<IContactForm> = async (data: IContactForm) => {
+    try {
+      await web3Submit({
+        ...data,
+        from_name: data.emailAddress,
+      });
+    } catch (err) {
+      console.error('Email not submitted: ', err);
+    }
   };
 
   return (
@@ -138,36 +155,63 @@ const Contact = (): ReactElement => {
               <div className="mt-5 flex flex-col space-y-5">
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Full name:</p>
+
                   <input
                     {...register('fullName')}
                     type="text"
-                    className="input w-full rounded-md"
+                    className={cn(
+                      'input w-full rounded-md',
+                      errors.fullName && 'border-error',
+                      watch('fullName') && !errors.fullName && 'border-success'
+                    )}
                     placeholder="Full name"
+                    disabled={isSubmitting}
                   />
-                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
+
+                  <div className="h-0.5">
+                    {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
+                  </div>
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Email address:</p>
+
                   <input
                     {...register('emailAddress')}
                     type="text"
-                    className="input w-full rounded-md"
+                    className={cn(
+                      'input w-full rounded-md',
+                      errors.emailAddress && 'border-error',
+                      watch('emailAddress') && !errors.emailAddress && 'border-success'
+                    )}
                     placeholder="Email address"
+                    disabled={isSubmitting}
                   />
-                  {errors.emailAddress && (
-                    <p className="text-error">{errors.emailAddress?.message}</p>
-                  )}
+
+                  <div className="h-0.5">
+                    {errors.emailAddress && (
+                      <p className="text-error">{errors.emailAddress?.message}</p>
+                    )}
+                  </div>
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <p className="label text-lg font-semibold text-black">Message:</p>
+
                   <textarea
                     {...register('message')}
-                    className="textarea h-90 w-full resize-none rounded-md"
+                    className={cn(
+                      'textarea h-90 w-full resize-none rounded-md',
+                      errors.message && 'border-error',
+                      watch('message') && !errors.message && 'border-success'
+                    )}
                     placeholder="Leave a message..."
+                    disabled={isSubmitting}
                   />
-                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
+
+                  <div className="h-0.5">
+                    {errors.message && <p className="text-error">{errors.message?.message}</p>}
+                  </div>
                 </fieldset>
 
                 <button
@@ -182,8 +226,21 @@ const Contact = (): ReactElement => {
           </div>
         </div>
 
+        <div className="toast toast-start md:toast-end">
+          <div
+            className={cn(
+              'alert alert-success pointer-events-none',
+              isSubmitted
+                ? 'opacity-100 transition-all duration-300'
+                : 'opacity-0 transition-all duration-300'
+            )}
+          >
+            <p className="text-white">Your message has been sent!</p>
+          </div>
+        </div>
+
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-      </section> 
+      </section>
     </main>
   );
 };
