@@ -46,7 +46,7 @@ const Footer = (): ReactElement => {
 
   const renderLinks = (): ReactNode => {
     return (
-      <div className="text-neutral-900">
+      <div className="hidden text-neutral-900 lg:block">
         <div className="flex w-fit flex-col space-y-2 font-bold">
           <NavLink to="/about" className="hover:text-error">
             About Us
@@ -65,15 +65,19 @@ const Footer = (): ReactElement => {
   const renderInfo = () => {
     return (
       <div className="space-y-2">
-        <h1 className="text-lg leading-6 font-bold">Power Your Business</h1>
-        <div className="flex items-center gap-1 font-semibold">
-          <img src={Mail} className="h-5 w-5" />
-          <p>: sales@sunnyfoods.com.ph</p>
-        </div>
-        <div className="flex items-center gap-1 font-bold">
-          <img src={Contact} className="h-5 w-5" />
-          <p className="font-semibold text-wrap">: 0939-237-9999 / 0918-739-9999</p>
-        </div>
+        <h1 className="text-lg leading-6 font-bold text-center md:text-start">Power Your Business</h1>
+        <p className="flex font-semibold text-wrap gap-1">
+          <span>
+            <img src={Mail} className="h-5 w-5" />
+          </span>
+          :sales@sunnyfoods.com.ph
+        </p>
+        <p className="flex font-semibold text-wrap gap-1">
+          <span>
+            <img src={Contact} className="h-5 w-5" />
+          </span>
+          :0939-237-9999 / 0918-739-9999
+        </p>
       </div>
     );
   };
@@ -88,7 +92,7 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-10 px-6 pt-12 pb-6 md:flex-row lg:min-w-1/4 lg:items-center">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-10 pt-12 pb-6 md:flex-row lg:min-w-1/4 lg:items-center lg:px-6">
         {renderBrand()}
         {renderLinks()}
         {renderInfo()}
