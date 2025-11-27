@@ -31,7 +31,7 @@ const Home = () => {
           src={BannerHead}
           alt="beef"
           className="aspect-square h-[70vh] w-full bg-linear-to-b from-red-950 via-red-700 to-red-950 object-cover object-center"
-          loading='eager'
+          loading="eager"
         />
 
         <div className="hero-overlay" />
