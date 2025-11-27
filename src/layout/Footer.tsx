@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
-import { FaFacebookSquare, FaTwitterSquare, FaYoutubeSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
@@ -28,16 +28,16 @@ const Footer = (): ReactElement => {
   const renderSocial = (): ReactNode => {
     return (
       <div className="flex flex-col items-center gap-4 text-neutral-900">
-        <p className="leading-6 font-bold">Follow us</p>
+        <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
+          <button className="hover:cursor-pointer active:opacity-80">
+            <FaViber color="#c8a175" size={50} />
+          </button>
           <button className="hover:cursor-pointer active:opacity-80">
             <FaFacebookSquare color="#c8a175" size={50} />
           </button>
           <button className="hover:cursor-pointer active:opacity-80">
-            <FaTwitterSquare color="#c8a175" size={50} />
-          </button>
-          <button className="hover:cursor-pointer active:opacity-80">
-            <FaYoutubeSquare color="#c8a175" size={50} />
+            <FaInstagramSquare color="#c8a175" size={50} />
           </button>
         </div>
       </div>
@@ -46,8 +46,8 @@ const Footer = (): ReactElement => {
 
   const renderLinks = (): ReactNode => {
     return (
-      <div className="w-full text-neutral-900 md:w-auto lg:min-w-1/4">
-        <nav className="flex flex-row justify-center gap-8 font-bold">
+      <div className="text-neutral-900">
+        <div className="flex w-fit flex-col space-y-2 font-bold">
           <NavLink to="/about" className="hover:text-error">
             About Us
           </NavLink>
@@ -57,10 +57,15 @@ const Footer = (): ReactElement => {
           <NavLink to="/contact" className="hover:text-error">
             Contact
           </NavLink>
-        </nav>
+        </div>
+      </div>
+    );
+  };
 
-        <div className="divider divider-vertical m-2 before:bg-neutral-500/40 after:bg-neutral-500/40" />
-
+  const renderInfo = () => {
+    return (
+      <div className="space-y-2">
+        <h1 className="text-lg leading-6 font-bold">Power Your Business</h1>
         <div className="flex items-center gap-1 font-semibold">
           <img src={Mail} className="h-5 w-5" />
           <p>: sales@sunnyfoods.com.ph</p>
@@ -83,12 +88,13 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-10 px-6 pt-12 pb-6 md:flex-row lg:min-w-1/4 lg:items-start">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-10 px-6 pt-12 pb-6 md:flex-row lg:min-w-1/4 lg:items-center">
         {renderBrand()}
-        {renderSocial()}
         {renderLinks()}
+        {renderInfo()}
+        {renderSocial()}
       </div>
-      
+
       {renderBottomBar()}
     </footer>
   );
