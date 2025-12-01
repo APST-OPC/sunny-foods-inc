@@ -10,7 +10,7 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex items-center gap-4 text-neutral-900">
+      <div className="flex items-center gap-4 px-2 text-neutral-900">
         <img src={Logo} className="h-20 w-20 lg:h-28 lg:w-28" />
         <div className="font-semibold">
           <p className="text-xl leading-6 font-black">
