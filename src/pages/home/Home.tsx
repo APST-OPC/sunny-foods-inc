@@ -118,7 +118,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="flex flex-row flex-wrap justify-center-safe gap-5">
+        <div className="grid gap-5 place-items-center md:grid-cols-2 lg:grid-cols-4 px-5" data-aos="zoom-in-up">
           {services.map((service, ids) => (
             <ServiceCard
               key={ids}
