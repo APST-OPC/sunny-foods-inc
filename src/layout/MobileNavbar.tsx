@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 import { cn } from '~/libs/cn';
+import { handleScrollTop } from './utils';
 
 interface Links {
   to: string;
@@ -98,7 +99,10 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
                 <motion.li key={ids} variants={motionlistMenuVariant.variant}>
                   <NavLink
                     to={link.to}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      handleScrollTop();
+                    }}
                     className={({ isActive }) =>
                       cn(
                         'bg-transparent text-4xl font-bold tracking-tight',

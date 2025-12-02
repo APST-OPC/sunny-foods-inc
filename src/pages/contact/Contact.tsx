@@ -2,13 +2,13 @@ import type { IContactForm, IContactUs } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
 
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -49,15 +49,11 @@ const Contact = (): ReactElement => {
     );
   };
 
-  const schema: yup.ObjectSchema<IContactForm> = useMemo(
-    () =>
-      yup.object({
-        fullName: yup.string().required('Fullname is required'),
-        emailAddress: yup.string().email('Invalid email format').required('Email is required'),
-        message: yup.string().required('Message is required'),
-      }),
-    []
-  );
+  const schema: yup.ObjectSchema<IContactForm> = yup.object({
+    fullName: yup.string().required('Fullname is required'),
+    emailAddress: yup.string().email('Invalid email format').required('Email is required'),
+    message: yup.string().required('Message is required'),
+  });
 
   const {
     register,
@@ -65,6 +61,7 @@ const Contact = (): ReactElement => {
     handleSubmit,
     formState: { errors, isSubmitting },
     watch,
+    control,
   } = useForm<IContactForm>({
     defaultValues: {
       fullName: '',
@@ -91,15 +88,11 @@ const Contact = (): ReactElement => {
     },
   });
 
-  const onSubmit: SubmitHandler<IContactForm> = async (data: IContactForm) => {
-    try {
-      await web3Submit({
-        ...data,
-        from_name: data.emailAddress,
-      });
-    } catch (err) {
-      console.error('Email not submitted: ', err);
-    }
+  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
+    web3Submit({
+      ...data,
+      from_name: data.emailAddress,
+    });
   };
 
   return (
@@ -169,12 +162,19 @@ const Contact = (): ReactElement => {
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Full name:</p>
 
-                <input
+                <Controller
                   {...register('fullName')}
-                  type="text"
-                  className={getFieldClass('fullName', !!errors.fullName, !!watch('fullName'))}
-                  placeholder="Full name"
-                  disabled={isSubmitting}
+                  control={control}
+                  render={({ field }) => (
+                    <input
+                      value={field.value}
+                      onChange={field.onChange}
+                      type="text"
+                      className={getFieldClass('fullName', !!errors.fullName, !!watch('fullName'))}
+                      placeholder="Full name"
+                      disabled={isSubmitting}
+                    />
+                  )}
                 />
 
                 <div className="h-0.5">
@@ -185,16 +185,23 @@ const Contact = (): ReactElement => {
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Email address:</p>
 
-                <input
+                <Controller
                   {...register('emailAddress')}
-                  type="text"
-                  className={getFieldClass(
-                    'emailAddress',
-                    !!errors.emailAddress,
-                    !!watch('emailAddress')
+                  control={control}
+                  render={({ field }) => (
+                    <input
+                      value={field.value}
+                      onChange={field.onChange}
+                      type="text"
+                      className={getFieldClass(
+                        'emailAddress',
+                        !!errors.emailAddress,
+                        !!watch('emailAddress')
+                      )}
+                      placeholder="Email address"
+                      disabled={isSubmitting}
+                    />
                   )}
-                  placeholder="Email address"
-                  disabled={isSubmitting}
                 />
 
                 <div className="h-0.5">
@@ -207,11 +214,18 @@ const Contact = (): ReactElement => {
               <fieldset className="fieldset">
                 <p className="label text-lg font-semibold text-black">Message:</p>
 
-                <textarea
+                <Controller
                   {...register('message')}
-                  className={getFieldClass('message', !!errors.message, !!watch('message'))}
-                  placeholder="Leave a message..."
-                  disabled={isSubmitting}
+                  control={control}
+                  render={({ field }) => (
+                    <textarea
+                      value={field.value}
+                      onChange={field.onChange}
+                      className={getFieldClass('message', !!errors.message, !!watch('message'))}
+                      placeholder="Leave a message..."
+                      disabled={isSubmitting}
+                    />
+                  )}
                 />
 
                 <div className="h-0.5">
@@ -233,9 +247,7 @@ const Contact = (): ReactElement => {
         <div
           className={cn(
             'toast toast-start md:toast-end transition-all',
-            isSubmitted
-              ? 'opacity-100 duration-300'
-              : 'opacity-0 duration-300'
+            isSubmitted ? 'opacity-100 duration-300' : 'opacity-0 duration-300'
           )}
         >
           <div className="alert alert-success pointer-events-none">

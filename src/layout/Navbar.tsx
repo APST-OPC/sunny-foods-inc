@@ -4,6 +4,7 @@ import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
 import { cn } from '~/libs/cn';
 
 import MobileNavbar from './MobileNavbar';
+import { handleScrollTop } from './utils';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -21,7 +22,10 @@ const Navbar = () => {
       <div className="navbar-start flex flex-1">
         <div
           role="button"
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/');
+            handleScrollTop();
+          }}
           className="flex flex-row items-center gap-2 hover:cursor-pointer"
         >
           <img src={SunnyFoodsLogo} alt="Sunny Foods" className="h-16 w-16" />
@@ -41,6 +45,7 @@ const Navbar = () => {
           <NavLink
             key={ids}
             to={link.to}
+            onClick={() => handleScrollTop()}
             className={({ isActive }) =>
               cn(
                 'hover:text-error relative px-2 py-1 text-black transition-all duration-300',

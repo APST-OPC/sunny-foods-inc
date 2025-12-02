@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { FaAngleUp } from 'react-icons/fa';
 
 import Navbar from './Navbar';
@@ -12,7 +12,6 @@ import { cn } from '~/libs/cn';
 
 const Layout = () => {
   const [showFab, setShowFab] = useState(false);
-  const { pathname } = useLocation();
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -23,15 +22,13 @@ const Layout = () => {
       setShowFab(window.scrollY > window.innerHeight - 500);
     };
 
-    window.scrollTo({ top: 0, behavior: 'instant' });
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       AOS.refreshHard();
     };
-  }, [pathname]);
+  }, []);
 
   return (
     <main className="h-full bg-(--light-brown)/10">

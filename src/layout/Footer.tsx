@@ -4,6 +4,7 @@ import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
 import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
+import { handleScrollTop } from './utils';
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
@@ -48,13 +49,13 @@ const Footer = (): ReactElement => {
     return (
       <div className="hidden text-neutral-900 lg:block">
         <div className="flex w-fit flex-col space-y-2 font-bold">
-          <NavLink to="/about" className="hover:text-error">
+          <NavLink to="/about" className="hover:text-error" onClick={() => handleScrollTop()}>
             About Us
           </NavLink>
-          <NavLink to="/products" className="hover:text-error">
+          <NavLink to="/products" className="hover:text-error" onClick={() => handleScrollTop()}>
             Products
           </NavLink>
-          <NavLink to="/contact" className="hover:text-error">
+          <NavLink to="/contact" className="hover:text-error" onClick={() => handleScrollTop()}>
             Contact
           </NavLink>
         </div>
@@ -65,14 +66,16 @@ const Footer = (): ReactElement => {
   const renderInfo = () => {
     return (
       <div className="space-y-2">
-        <h1 className="text-lg leading-6 font-bold text-center md:text-start">Power Your Business</h1>
-        <p className="flex font-semibold text-wrap gap-1">
+        <h1 className="text-center text-lg leading-6 font-bold md:text-start">
+          Power Your Business
+        </h1>
+        <p className="flex gap-1 font-semibold text-wrap">
           <span>
             <img src={Mail} className="h-5 w-5" />
           </span>
           :sales@sunnyfoods.com.ph
         </p>
-        <p className="flex font-semibold text-wrap gap-1">
+        <p className="flex gap-1 font-semibold text-wrap">
           <span>
             <img src={Contact} className="h-5 w-5" />
           </span>
