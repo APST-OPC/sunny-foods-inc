@@ -4,6 +4,22 @@ import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
 import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
+import { handleScrollTop } from './utils';
+
+const footerContactUs = [
+  {
+    contactCTA: 'Chat with us on Viber',
+    contactIcon: <FaViber color="#c8a175" size={50} />,
+  },
+  {
+    contactCTA: 'Visit our Facebook page',
+    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />
+  },
+  {
+    contactCTA: 'Visit our Instagram',
+    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />
+  }
+]
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
@@ -30,15 +46,17 @@ const Footer = (): ReactElement => {
       <div className="flex flex-col items-center gap-4 text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
-          <button className="hover:cursor-pointer active:opacity-80">
-            <FaViber color="#c8a175" size={50} />
-          </button>
-          <button className="hover:cursor-pointer active:opacity-80">
-            <FaFacebookSquare color="#c8a175" size={50} />
-          </button>
-          <button className="hover:cursor-pointer active:opacity-80">
-            <FaInstagramSquare color="#c8a175" size={50} />
-          </button>
+          {footerContactUs.map(({contactCTA, contactIcon}, ids) => (
+            <div key={ids} className='tooltip'>
+              <div className='tooltip-content bg-gray-500'>
+                <p className='text-white'>{contactCTA}</p>
+              </div>
+
+              <button className='hover:cursor-pointer active:opacity-80'>
+                {contactIcon}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -48,13 +66,13 @@ const Footer = (): ReactElement => {
     return (
       <div className="hidden text-neutral-900 lg:block">
         <div className="flex w-fit flex-col space-y-2 font-bold">
-          <NavLink to="/about" className="hover:text-error">
+          <NavLink to="/about" className="hover:text-error" onClick={() => handleScrollTop()}>
             About Us
           </NavLink>
-          <NavLink to="/products" className="hover:text-error">
+          <NavLink to="/products" className="hover:text-error" onClick={() => handleScrollTop()}>
             Products
           </NavLink>
-          <NavLink to="/contact" className="hover:text-error">
+          <NavLink to="/contact" className="hover:text-error" onClick={() => handleScrollTop()}>
             Contact
           </NavLink>
         </div>
@@ -65,14 +83,16 @@ const Footer = (): ReactElement => {
   const renderInfo = () => {
     return (
       <div className="space-y-2">
-        <h1 className="text-lg leading-6 font-bold text-center md:text-start">Power Your Business</h1>
-        <p className="flex font-semibold text-wrap gap-1">
+        <h1 className="text-center text-lg leading-6 font-bold md:text-start">
+          Power Your Business
+        </h1>
+        <p className="flex gap-1 font-semibold text-wrap">
           <span>
             <img src={Mail} className="h-5 w-5" />
           </span>
           :sales@sunnyfoods.com.ph
         </p>
-        <p className="flex font-semibold text-wrap gap-1">
+        <p className="flex gap-1 font-semibold text-wrap">
           <span>
             <img src={Contact} className="h-5 w-5" />
           </span>

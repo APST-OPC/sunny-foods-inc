@@ -4,6 +4,8 @@ import AOS from 'aos';
 import { Outlet } from 'react-router-dom';
 import { FaAngleUp } from 'react-icons/fa';
 
+import { AnimatePresence, motion } from 'motion/react';
+
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -22,6 +24,7 @@ const Layout = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       AOS.refreshHard();
@@ -30,20 +33,28 @@ const Layout = () => {
 
   return (
     <main className="h-full bg-(--light-brown)/10">
-      <header className={`sticky top-0 left-0 z-50 w-full bg-[#f5ede4] shadow-sm`}>
+      <header className="sticky top-0 left-0 z-50 w-full bg-[#f5ede4] shadow-sm">
         <Navbar />
       </header>
 
       <Outlet />
       <Footer />
 
-      {showFab && (
-        <div className="fab transition-all">
-          <button className="btn btn-xl btn-square btn-success" onClick={() => scrollToTop()}>
-            <FaAngleUp />
-          </button>
-        </div>
-      )}
+      <AnimatePresence>
+        {showFab && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fab"
+          >
+            <button className="btn btn-xl btn-square btn-success" onClick={() => scrollToTop()}>
+              <FaAngleUp />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 };
