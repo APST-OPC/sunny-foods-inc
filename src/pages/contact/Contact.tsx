@@ -35,6 +35,8 @@ const contactBtns: IContactUs[] = [
 
 const Contact = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isSuccessful, setIsSuccessful] = useState<boolean>(true)
+  const [msg, setMsg] = useState<string>('')
 
   const getFieldClass = (field: keyof IContactForm, hasError: boolean, hasValue: boolean) => {
     const fieldBaseClass = {
@@ -80,12 +82,15 @@ const Contact = (): ReactElement => {
     },
     onSuccess: () => {
       reset();
+      setMsg('Your message has been sent!')
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 2500);
     },
-    onError: (msg, data) => {
-      console.log('message', msg);
-      console.log('data', data);
+    onError: (msg) => {
+      setMsg(msg);
+      setIsSubmitted(true);
+      setIsSuccessful(false);
+      setTimeout(() => setIsSubmitted(false), 2500)
     },
   });
 
@@ -253,8 +258,8 @@ const Contact = (): ReactElement => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="alert alert-success pointer-events-none">
-                <p className="text-white">Your message has been sent!</p>
+              <div className={cn("alert", isSuccessful ? 'alert-success' : 'alert-error')}>
+                <p className="text-white">{msg}</p>
               </div>
             </motion.div>
           )}
