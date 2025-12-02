@@ -16,17 +16,17 @@ import { cn } from '~/libs/cn';
 
 const contactBtns: IContactUs[] = [
   {
-    contactIcon: <FaViber size={80} color="#7360f2" />,
+    contactIcon: <FaViber size={75} color="#7360f2" />,
     contactCTA: 'Chat with us on Viber',
     contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
   },
   {
-    contactIcon: <AiOutlineFacebook size={90} color="#1877f2" />,
+    contactIcon: <AiOutlineFacebook size={75} color="#1877f2" />,
     contactCTA: 'Visit our Facebook page',
     contactFn: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
   },
   {
-    contactIcon: <FaInstagram size={80} color="#d300c5" />,
+    contactIcon: <FaInstagram size={75} color="#d300c5" />,
     contactCTA: 'Visit our Instagram',
     contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
@@ -34,6 +34,20 @@ const contactBtns: IContactUs[] = [
 
 const Contact = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+  const getFieldClass = (field: keyof IContactForm, hasError: boolean, hasValue: boolean) => {
+    const fieldBaseClass = {
+      fullName: 'input w-full rounded-md',
+      emailAddress: 'input w-full rounded-md',
+      message: 'textarea h-90 w-full resize-none rounded-md',
+    };
+
+    return cn(
+      fieldBaseClass[field],
+      hasError && 'border-error',
+      hasValue && !hasError && 'border-success'
+    );
+  };
 
   const schema: yup.ObjectSchema<IContactForm> = useMemo(
     () =>
@@ -118,7 +132,7 @@ const Contact = (): ReactElement => {
                     </div>
 
                     <button
-                      className="flex cursor-pointer items-center justify-center rounded-full text-white"
+                      className="btn btn-circle btn-ghost size-full rounded-full border-none p-2"
                       onClick={contactFn}
                     >
                       {contactIcon}
@@ -151,90 +165,80 @@ const Contact = (): ReactElement => {
 
             <div className="h-1 w-24 rounded-full bg-(--red)/50" />
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mt-5 flex flex-col space-y-5">
-                <fieldset className="fieldset">
-                  <p className="label text-lg font-semibold text-black">Full name:</p>
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
+              <fieldset className="fieldset">
+                <p className="label text-lg font-semibold text-black">Full name:</p>
 
-                  <input
-                    {...register('fullName')}
-                    type="text"
-                    className={cn(
-                      'input w-full rounded-md',
-                      errors.fullName && 'border-error',
-                      watch('fullName') && !errors.fullName && 'border-success'
-                    )}
-                    placeholder="Full name"
-                    disabled={isSubmitting}
-                  />
-
-                  <div className="h-0.5">
-                    {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
-                  </div>
-                </fieldset>
-
-                <fieldset className="fieldset">
-                  <p className="label text-lg font-semibold text-black">Email address:</p>
-
-                  <input
-                    {...register('emailAddress')}
-                    type="text"
-                    className={cn(
-                      'input w-full rounded-md',
-                      errors.emailAddress && 'border-error',
-                      watch('emailAddress') && !errors.emailAddress && 'border-success'
-                    )}
-                    placeholder="Email address"
-                    disabled={isSubmitting}
-                  />
-
-                  <div className="h-0.5">
-                    {errors.emailAddress && (
-                      <p className="text-error">{errors.emailAddress?.message}</p>
-                    )}
-                  </div>
-                </fieldset>
-
-                <fieldset className="fieldset">
-                  <p className="label text-lg font-semibold text-black">Message:</p>
-
-                  <textarea
-                    {...register('message')}
-                    className={cn(
-                      'textarea h-90 w-full resize-none rounded-md',
-                      errors.message && 'border-error',
-                      watch('message') && !errors.message && 'border-success'
-                    )}
-                    placeholder="Leave a message..."
-                    disabled={isSubmitting}
-                  />
-
-                  <div className="h-0.5">
-                    {errors.message && <p className="text-error">{errors.message?.message}</p>}
-                  </div>
-                </fieldset>
-
-                <button
-                  type="submit"
-                  className="btn btn-error w-full text-white md:text-lg"
+                <input
+                  {...register('fullName')}
+                  type="text"
+                  className={getFieldClass('fullName', !!errors.fullName, !!watch('fullName'))}
+                  placeholder="Full name"
                   disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Sending ...' : 'Send us a message'}
-                </button>
-              </div>
+                />
+
+                <div className="h-0.5">
+                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
+                </div>
+              </fieldset>
+
+              <fieldset className="fieldset">
+                <p className="label text-lg font-semibold text-black">Email address:</p>
+
+                <input
+                  {...register('emailAddress')}
+                  type="text"
+                  className={getFieldClass(
+                    'emailAddress',
+                    !!errors.emailAddress,
+                    !!watch('emailAddress')
+                  )}
+                  placeholder="Email address"
+                  disabled={isSubmitting}
+                />
+
+                <div className="h-0.5">
+                  {errors.emailAddress && (
+                    <p className="text-error">{errors.emailAddress?.message}</p>
+                  )}
+                </div>
+              </fieldset>
+
+              <fieldset className="fieldset">
+                <p className="label text-lg font-semibold text-black">Message:</p>
+
+                <textarea
+                  {...register('message')}
+                  className={getFieldClass('message', !!errors.message, !!watch('message'))}
+                  placeholder="Leave a message..."
+                  disabled={isSubmitting}
+                />
+
+                <div className="h-0.5">
+                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
+                </div>
+              </fieldset>
+
+              <button
+                type="submit"
+                className="btn btn-error w-full text-white md:text-lg"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending ...' : 'Send us a message'}
+              </button>
             </form>
           </div>
         </div>
 
-        <div className="toast toast-start md:toast-end">
-          <div
-            className={cn(
-              'alert alert-success pointer-events-none',
-              isSubmitted
-                ? 'opacity-100 transition-all duration-300'
-                : 'opacity-0 transition-all duration-300'
-            )}
-          >
+        <div
+          className={cn(
+            'toast toast-start md:toast-end transition-all',
+            isSubmitted
+              ? 'opacity-100 duration-300'
+              : 'opacity-0 duration-300'
+          )}
+        >
+          <div className="alert alert-success pointer-events-none">
             <p className="text-white">Your message has been sent!</p>
           </div>
         </div>

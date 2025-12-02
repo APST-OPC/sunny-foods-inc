@@ -15,10 +15,6 @@ const links = [
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const handleScrollTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <nav className={cn('navbar container mx-auto')}>
       {/* LEFT SIDE LOGO */}
@@ -45,7 +41,6 @@ const Navbar = () => {
           <NavLink
             key={ids}
             to={link.to}
-            onClick={() => handleScrollTop()}
             className={({ isActive }) =>
               cn(
                 'hover:text-error relative px-2 py-1 text-black transition-all duration-300',
