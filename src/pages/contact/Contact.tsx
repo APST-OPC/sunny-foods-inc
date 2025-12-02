@@ -13,6 +13,7 @@ import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { cn } from '~/libs/cn';
+import { AnimatePresence, motion } from 'motion/react';
 
 const contactBtns: IContactUs[] = [
   {
@@ -244,16 +245,20 @@ const Contact = (): ReactElement => {
           </div>
         </div>
 
-        <div
-          className={cn(
-            'toast toast-start md:toast-end transition-all',
-            isSubmitted ? 'opacity-100 duration-300' : 'opacity-0 duration-300'
+        <AnimatePresence>
+          {isSubmitted && (
+            <motion.div
+              className="toast toast-start md:toast-end"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="alert alert-success pointer-events-none">
+                <p className="text-white">Your message has been sent!</p>
+              </div>
+            </motion.div>
           )}
-        >
-          <div className="alert alert-success pointer-events-none">
-            <p className="text-white">Your message has been sent!</p>
-          </div>
-        </div>
+        </AnimatePresence>
 
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
       </section>
