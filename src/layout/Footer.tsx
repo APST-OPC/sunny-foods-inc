@@ -6,20 +6,29 @@ import Mail from '~/assets/gmail.png';
 import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
 import { handleScrollTop } from './utils';
 
-const footerContactUs = [
+interface IFooterContactUs {
+  contactCTA: string;
+  contactIcon: ReactNode;
+  openWindow: () => void;
+}
+
+const footerContactUs: IFooterContactUs[] = [
   {
     contactCTA: 'Chat with us on Viber',
     contactIcon: <FaViber color="#c8a175" size={50} />,
+    openWindow: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
   },
   {
     contactCTA: 'Visit our Facebook page',
-    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />
+    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />,
+    openWindow: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
   },
   {
     contactCTA: 'Visit our Instagram',
-    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />
-  }
-]
+    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />,
+    openWindow: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
+  },
+];
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
@@ -46,13 +55,13 @@ const Footer = (): ReactElement => {
       <div className="flex flex-col items-center gap-4 text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
-          {footerContactUs.map(({contactCTA, contactIcon}, ids) => (
-            <div key={ids} className='tooltip'>
-              <div className='tooltip-content bg-gray-500'>
-                <p className='text-white'>{contactCTA}</p>
+          {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
+            <div key={ids} className="tooltip">
+              <div className="tooltip-content bg-gray-500">
+                <p className="text-white">{contactCTA}</p>
               </div>
 
-              <button className='hover:cursor-pointer active:opacity-80'>
+              <button className="hover:cursor-pointer active:opacity-80" onClick={openWindow}>
                 {contactIcon}
               </button>
             </div>
@@ -80,7 +89,7 @@ const Footer = (): ReactElement => {
     );
   };
 
-  const renderInfo = () => {
+  const renderInfo = (): ReactNode => {
     return (
       <div className="space-y-2">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
