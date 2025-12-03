@@ -4,32 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
-import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
-import { instantScrollToTop } from './utils';
-
-interface IFooterContactUs {
-  contactCTA: string;
-  contactIcon: ReactNode;
-  openWindow: () => void;
-}
-
-const footerContactUs: IFooterContactUs[] = [
-  {
-    contactCTA: 'Chat with us on Viber',
-    contactIcon: <FaViber color="#c8a175" size={50} />,
-    openWindow: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
-  },
-  {
-    contactCTA: 'Visit our Facebook page',
-    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />,
-    openWindow: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
-  },
-  {
-    contactCTA: 'Visit our Instagram',
-    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />,
-    openWindow: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
-  },
-];
+import { footerContactUs, instantScrollToTop } from './utils';
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
