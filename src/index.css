@@ -67,6 +67,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--nunito-sans);
+  font-size: 14;
 }
 
 .font-heading {

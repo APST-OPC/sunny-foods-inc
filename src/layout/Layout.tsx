@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 
 import { Outlet } from 'react-router-dom';
@@ -6,15 +6,17 @@ import { FaAngleUp } from 'react-icons/fa';
 
 import { AnimatePresence, motion } from 'motion/react';
 
+import { useLayoutContext } from '~/hooks/useLayoutContext';
+
 import Navbar from './Navbar';
 import Footer from './Footer';
+
+import { smoothScrollToTop } from './utils';
 
 import 'aos/dist/aos.css';
 
 const Layout = () => {
-  const [showFab, setShowFab] = useState(false);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const { isSidebarOpen, isShowFab, setShowFab } = useLayoutContext();
 
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -38,23 +40,27 @@ const Layout = () => {
       </header>
 
       <Outlet />
-      <Footer />
 
       <AnimatePresence>
-        {showFab && (
+        {isShowFab && !isSidebarOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fab"
+            className="fab bottom-8"
           >
-            <button className="btn btn-xl btn-square btn-success" onClick={() => scrollToTop()}>
+            <button
+              className="btn btn-sm btn-circle md:btn-lg btn-success"
+              onClick={smoothScrollToTop}
+            >
               <FaAngleUp />
             </button>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <Footer />
     </main>
   );
 };
