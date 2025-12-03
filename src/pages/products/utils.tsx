@@ -1,3 +1,5 @@
+import type { IProducts } from './type';
+
 import BlackPepperSteak from '~/assets/old-steak/black-pepper-steak.jpg';
 import WagyuCubes from '~/assets/old-steak/wagyu-cube-steak.jpg';
 import BurgerPatty from '~/assets/old-steak/burger-patty.jpg';
@@ -6,7 +8,7 @@ import ChuckEyeSteak from '~/assets/old-steak/chuck-eye-steak.jpg';
 import RibEyeSteak from '~/assets/old-steak/rib-eye-steak.jpg';
 import TopBladeSteak from '~/assets/old-steak/top-blade-steak.jpg';
 
-export const products = [
+export const products: IProducts[] = [
   {
     id: 1,
     title: 'Black Pepper Steak',

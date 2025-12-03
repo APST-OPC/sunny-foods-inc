@@ -1,19 +1,17 @@
-import { useState } from 'react';
-import { products } from './utils';
+import type { ReactElement, ReactNode } from 'react';
+import type { IProducts } from './type';
 
-import PreviewCard from './components/PreviewCard';
-import PreviewModal from './components/PreviewModal';
+import { useState } from 'react';
 
 import { CTA } from '~/components';
 
-interface IProducts {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-}
+import CustomDivider from './components/CustomDivider';
+import PreviewCard from './components/PreviewCard';
+import PreviewModal from './components/PreviewModal';
 
-const Products = () => {
+import { products } from './utils';
+
+const Products = (): ReactElement => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(null);
 
@@ -21,9 +19,12 @@ const Products = () => {
     setSelectedProduct(item);
     setShowDetail(true);
   };
+  const handleShowDetail = (): void => {
+    setShowDetail(false);
+  };
 
-  return (
-    <main className="py-20">
+  const renderHeader = (): ReactNode => {
+    return (
       <header className="container mx-auto mb-14 px-4 text-center">
         <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Our Premium Meat Collection
@@ -33,25 +34,29 @@ const Products = () => {
           Select from our finest cuts, each prepared to deliver exceptional taste and quality.
         </p>
       </header>
+    );
+  };
 
+  const renderProductList = (): ReactNode => {
+    return (
       <section className="container mx-auto space-y-7 px-5">
-        <div className="divider mx-auto -mt-5 h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-
+        <CustomDivider />
         <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
           {products.map((data, index) => {
             return <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />;
           })}
         </div>
-
-        <div className="divider mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-        <PreviewModal
-          product={selectedProduct}
-          open={showDetail}
-          handleClose={() => setShowDetail(false)}
-        />
+        <CustomDivider />
       </section>
+    );
+  };
 
+  return (
+    <main className="py-20">
+      {renderHeader()}
+      {renderProductList()}
       <CTA />
+      <PreviewModal product={selectedProduct} open={showDetail} handleClose={handleShowDetail} />
     </main>
   );
 };
