@@ -8,12 +8,13 @@ import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { FaInstagram } from 'react-icons/fa6';
 
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { cn } from '~/libs/cn';
 import { AnimatePresence, motion } from 'motion/react';
+import { TextArea, TextField } from './components';
 
 const contactBtns: IContactUs[] = [
   {
@@ -35,22 +36,8 @@ const contactBtns: IContactUs[] = [
 
 const Contact = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [isSuccessful, setIsSuccessful] = useState<boolean>(true)
-  const [msg, setMsg] = useState<string>('')
-
-  const getFieldClass = (field: keyof IContactForm, hasError: boolean, hasValue: boolean) => {
-    const fieldBaseClass = {
-      fullName: 'input w-full rounded-md',
-      emailAddress: 'input w-full rounded-md',
-      message: 'textarea h-90 w-full resize-none rounded-md',
-    };
-
-    return cn(
-      fieldBaseClass[field],
-      hasError && 'border-error',
-      hasValue && !hasError && 'border-success'
-    );
-  };
+  const [isSuccessful, setIsSuccessful] = useState<boolean>(true);
+  const [msg, setMsg] = useState<string>('');
 
   const schema: yup.ObjectSchema<IContactForm> = yup.object({
     fullName: yup.string().required('Fullname is required'),
@@ -59,11 +46,9 @@ const Contact = (): ReactElement => {
   });
 
   const {
-    register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    watch,
+    formState: { isSubmitting },
     control,
   } = useForm<IContactForm>({
     defaultValues: {
@@ -82,7 +67,7 @@ const Contact = (): ReactElement => {
     },
     onSuccess: () => {
       reset();
-      setMsg('Your message has been sent!')
+      setMsg('Your message has been sent!');
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 2500);
     },
@@ -90,7 +75,7 @@ const Contact = (): ReactElement => {
       setMsg(msg);
       setIsSubmitted(true);
       setIsSuccessful(false);
-      setTimeout(() => setIsSubmitted(false), 2500)
+      setTimeout(() => setIsSubmitted(false), 2500);
     },
   });
 
@@ -125,11 +110,11 @@ const Contact = (): ReactElement => {
 
               <div className="mt-5 flex flex-wrap justify-evenly">
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
-                  <div key={ids} className="tooltip tooltip-bottom m-1 flex items-center">
-                    <div className="tooltip-content bg-gray-500">
-                      <p className="text-white">{contactCTA}</p>
-                    </div>
-
+                  <div
+                    key={ids}
+                    className="tooltip tooltip-bottom before:bg-gray-500 before:text-white after:bg-gray-500"
+                    data-tip={contactCTA}
+                  >
                     <button
                       className="btn btn-circle btn-ghost size-full rounded-full border-none p-2"
                       onClick={contactFn}
@@ -165,79 +150,29 @@ const Contact = (): ReactElement => {
             <div className="h-1 w-24 rounded-full bg-(--red)/50" />
 
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Full name:</p>
+              <TextField
+                control={control}
+                label="Full name:"
+                disabled={isSubmitting}
+                name="fullName"
+                placeholder="Full name"
+              />
 
-                <Controller
-                  {...register('fullName')}
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      value={field.value}
-                      onChange={field.onChange}
-                      type="text"
-                      className={getFieldClass('fullName', !!errors.fullName, !!watch('fullName'))}
-                      placeholder="Full name"
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
+              <TextField
+                control={control}
+                label="Email address:"
+                disabled={isSubmitting}
+                name="emailAddress"
+                placeholder="Email address"
+              />
 
-                <div className="h-0.5">
-                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
-                </div>
-              </fieldset>
-
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Email address:</p>
-
-                <Controller
-                  {...register('emailAddress')}
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      value={field.value}
-                      onChange={field.onChange}
-                      type="text"
-                      className={getFieldClass(
-                        'emailAddress',
-                        !!errors.emailAddress,
-                        !!watch('emailAddress')
-                      )}
-                      placeholder="Email address"
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
-
-                <div className="h-0.5">
-                  {errors.emailAddress && (
-                    <p className="text-error">{errors.emailAddress?.message}</p>
-                  )}
-                </div>
-              </fieldset>
-
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Message:</p>
-
-                <Controller
-                  {...register('message')}
-                  control={control}
-                  render={({ field }) => (
-                    <textarea
-                      value={field.value}
-                      onChange={field.onChange}
-                      className={getFieldClass('message', !!errors.message, !!watch('message'))}
-                      placeholder="Leave a message..."
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
-
-                <div className="h-0.5">
-                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
-                </div>
-              </fieldset>
+              <TextArea
+                control={control}
+                label="Message:"
+                disabled={isSubmitting}
+                name="message"
+                placeholder="Message..."
+              />
 
               <button
                 type="submit"
@@ -258,7 +193,7 @@ const Contact = (): ReactElement => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className={cn("alert", isSuccessful ? 'alert-success' : 'alert-error')}>
+              <div className={cn('alert', isSuccessful ? 'alert-success' : 'alert-error')}>
                 <p className="text-white">{msg}</p>
               </div>
             </motion.div>
