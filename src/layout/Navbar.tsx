@@ -41,7 +41,7 @@ const Navbar = () => {
           <NavLink
             key={ids}
             to={link.to}
-            onClick={() => instantScrollToTop()}
+            onClick={instantScrollToTop}
             className={({ isActive }) =>
               cn(
                 'hover:text-error relative px-2 py-1 text-black transition-all duration-300',
