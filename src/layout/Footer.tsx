@@ -1,25 +1,11 @@
 import type { ReactElement, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
-import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
-import { handleScrollTop } from './utils';
 
-const footerContactUs = [
-  {
-    contactCTA: 'Chat with us on Viber',
-    contactIcon: <FaViber color="#c8a175" size={50} />,
-  },
-  {
-    contactCTA: 'Visit our Facebook page',
-    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />
-  },
-  {
-    contactCTA: 'Visit our Instagram',
-    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />
-  }
-]
+import { footerContactUs, instantScrollToTop } from './utils';
 
 const Footer = (): ReactElement => {
   const getYear = new Date().getFullYear();
@@ -46,15 +32,13 @@ const Footer = (): ReactElement => {
       <div className="flex flex-col items-center gap-4 text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
-          {footerContactUs.map(({contactCTA, contactIcon}, ids) => (
-            <div key={ids} className='tooltip'>
-              <div className='tooltip-content bg-gray-500'>
-                <p className='text-white'>{contactCTA}</p>
+          {footerContactUs.map(({ contactCTA, contactIcon }, ids) => (
+            <div key={ids} className="tooltip">
+              <div className="tooltip-content bg-gray-500">
+                <p className="text-white">{contactCTA}</p>
               </div>
 
-              <button className='hover:cursor-pointer active:opacity-80'>
-                {contactIcon}
-              </button>
+              <button className="hover:cursor-pointer active:opacity-80">{contactIcon}</button>
             </div>
           ))}
         </div>
@@ -66,13 +50,13 @@ const Footer = (): ReactElement => {
     return (
       <div className="hidden text-neutral-900 lg:block">
         <div className="flex w-fit flex-col space-y-2 font-bold">
-          <NavLink to="/about" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
             About Us
           </NavLink>
-          <NavLink to="/products" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
             Products
           </NavLink>
-          <NavLink to="/contact" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/contact" className="hover:text-error" onClick={instantScrollToTop}>
             Contact
           </NavLink>
         </div>
