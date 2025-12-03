@@ -1,10 +1,11 @@
 import type { ReactElement, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
 import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
-import { handleScrollTop } from './utils';
+import { instantScrollToTop } from './utils';
 
 interface IFooterContactUs {
   contactCTA: string;
@@ -75,13 +76,13 @@ const Footer = (): ReactElement => {
     return (
       <div className="hidden text-neutral-900 lg:block">
         <div className="flex w-fit flex-col space-y-2 font-bold">
-          <NavLink to="/about" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
             About Us
           </NavLink>
-          <NavLink to="/products" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
             Products
           </NavLink>
-          <NavLink to="/contact" className="hover:text-error" onClick={() => handleScrollTop()}>
+          <NavLink to="/contact" className="hover:text-error" onClick={instantScrollToTop}>
             Contact
           </NavLink>
         </div>

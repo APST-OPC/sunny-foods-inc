@@ -1,13 +1,15 @@
 import type { Variants } from 'motion/react';
 
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { FiMenu, FiX } from 'react-icons/fi';
 
 import { cn } from '~/libs/cn';
-import { handleScrollTop } from './utils';
+import { useLayoutContext } from '~/hooks/useLayoutContext';
+
+import { instantScrollToTop } from './utils';
 
 interface Links {
   to: string;
@@ -18,7 +20,7 @@ interface MobileNavbarProps {
 }
 
 const MobileNavbar = ({ links }: MobileNavbarProps) => {
-  const [open, setOpen] = useState(false);
+  const { isSidebarOpen, setSidebarOpen } = useLayoutContext();
 
   const menuVariants: Variants = {
     hidden: { height: 0, opacity: 0 },
@@ -33,7 +35,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
     },
     exit: {
       height: 0,
-      opacity: 99,
+      opacity: 1,
       transition: { when: 'afterChildren', type: 'spring', stiffness: 200, damping: 30 },
     },
   };
@@ -41,11 +43,15 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
   // Variants for each menu item
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
   };
-  const motionlistMenuVariant = {
-    variant: itemVariants,
+
+  const toggleMenu = () => setSidebarOpen(!isSidebarOpen);
+
+  const closeMenu = () => {
+    instantScrollToTop();
+    setSidebarOpen(false);
   };
 
   const closeIcon = () => {
@@ -75,18 +81,40 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
       </motion.div>
     );
   };
+
+  const renderMenuList = () => {
+    return (
+      <motion.ul className="menu w-full space-y-2 p-4">
+        {links.map((link, ids) => (
+          <motion.li key={ids} variants={itemVariants}>
+            <NavLink
+              to={link.to}
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                cn(
+                  'bg-transparent text-4xl font-bold tracking-tight',
+                  isActive ? 'text-error' : 'text-black'
+                )
+              }
+            >
+              {link.label}
+            </NavLink>
+          </motion.li>
+        ))}
+      </motion.ul>
+    );
+  };
+
   return (
     <Fragment>
-      {/* MOBILE MENU ICON */}
-      <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
-        <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
-          <AnimatePresence mode="wait">{open ? closeIcon() : menuIcon()}</AnimatePresence>
+      <div className="nav-end flex md:hidden" onClick={() => setSidebarOpen(!isSidebarOpen)}>
+        <div className="nav-end flex md:hidden" onClick={toggleMenu}>
+          <AnimatePresence mode="wait">{isSidebarOpen ? closeIcon() : menuIcon()}</AnimatePresence>
         </div>
       </div>
 
-      {/* MOBILE MENU DROPDOWN (FRAMER MOTION) */}
       <AnimatePresence>
-        {open && (
+        {isSidebarOpen && (
           <motion.div
             className="absolute top-full left-0 w-full overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover bg-bottom-left backdrop-blur-lg md:hidden"
             initial="hidden"
@@ -94,27 +122,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
             exit="exit"
             variants={menuVariants}
           >
-            <motion.ul className="menu w-full space-y-2 p-4">
-              {links.map((link, ids) => (
-                <motion.li key={ids} variants={motionlistMenuVariant.variant}>
-                  <NavLink
-                    to={link.to}
-                    onClick={() => {
-                      setOpen(false);
-                      handleScrollTop();
-                    }}
-                    className={({ isActive }) =>
-                      cn(
-                        'bg-transparent text-4xl font-bold tracking-tight',
-                        isActive ? 'text-error' : 'text-black'
-                      )
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                </motion.li>
-              ))}
-            </motion.ul>
+            {renderMenuList()}
           </motion.div>
         )}
       </AnimatePresence>
