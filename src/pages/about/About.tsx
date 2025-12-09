@@ -3,6 +3,7 @@ import type { Transition } from 'motion/react';
 import Warehouse2 from '~/assets/warehouse2.jpg';
 import WareHouse from '~/assets/sunnyfood-warehouse.png';
 import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
+import ChefSlice from '~/assets/slice-meat.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -15,8 +16,8 @@ const linear: Transition = {
 
 const About = () => {
   return (
-    <main className="space-y-20">
-      <AnimatePresence>
+    <AnimatePresence mode="wait">
+      <main className="space-y-20">
         <section id="company-profile" className="container mx-auto px-5 py-20">
           <header className="mb-14">
             <h1 className="text-4xl font-extrabold">About Sunny Foods Inc.</h1>
@@ -91,8 +92,9 @@ const About = () => {
 
             <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
               <img
-                src={WagyuCubes}
-                alt={'WagyuCubes'}
+                loading="lazy"
+                src={ChefSlice}
+                alt={'chef'}
                 className="h-full w-full object-cover object-center"
               />
             </figure>
@@ -104,6 +106,7 @@ const About = () => {
           >
             <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
               <img
+                loading="lazy"
                 src={WagyuCubes}
                 alt={'WagyuCubes'}
                 className="h-full w-full object-cover object-center"
@@ -112,8 +115,8 @@ const About = () => {
 
             <motion.div
               className="flex-1 space-y-6 lg:px-10"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={linear}
             >
@@ -232,8 +235,8 @@ const About = () => {
             ))}
           </div>
         </section>
-      </AnimatePresence>
-    </main>
+      </main>
+    </AnimatePresence>
   );
 };
 
