@@ -1,12 +1,8 @@
-import type { IContactForm, IContactUs } from './type';
+import type { IContactCard, IContactForm } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { useState } from 'react';
-
-import { FaViber } from 'react-icons/fa';
-import { AiOutlineFacebook } from 'react-icons/ai';
-import { FaInstagram } from 'react-icons/fa6';
 
 import { useForm } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
@@ -15,24 +11,21 @@ import * as yup from 'yup';
 import { cn } from '~/libs/cn';
 import { AnimatePresence, motion } from 'motion/react';
 import { TextArea, TextField } from './components';
+import { contactBtns } from './utils';
 
-const contactBtns: IContactUs[] = [
-  {
-    contactIcon: <FaViber size={75} color="#7360f2" />,
-    contactCTA: 'Chat with us on Viber',
-    contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
-  },
-  {
-    contactIcon: <AiOutlineFacebook size={75} color="#1877f2" />,
-    contactCTA: 'Visit our Facebook page',
-    contactFn: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
-  },
-  {
-    contactIcon: <FaInstagram size={75} color="#d300c5" />,
-    contactCTA: 'Visit our Instagram',
-    contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
-  },
-];
+const ContactCard = (props: IContactCard) => {
+  const { title, className, children } = props;
+
+  return (
+    <div className={className}>
+      <p className="text-2xl font-bold">{title}</p>
+
+      <div className="h-1 w-24 rounded-full bg-(--red)/50" />
+
+      {children}
+    </div>
+  );
+};
 
 const Contact = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -103,11 +96,7 @@ const Contact = (): ReactElement => {
 
         <div className="flex flex-col gap-10 p-5 md:flex-row">
           <div className="flex w-full flex-col gap-10 md:w-1/3">
-            <div>
-              <p className="text-2xl font-bold">Follow us</p>
-
-              <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+            <ContactCard title="Follow us">
               <div className="mt-5 flex flex-wrap justify-evenly">
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
                   <div
@@ -124,13 +113,9 @@ const Contact = (): ReactElement => {
                   </div>
                 ))}
               </div>
-            </div>
+            </ContactCard>
 
-            <div className="flex h-full flex-col">
-              <p className="text-2xl font-bold">Our location</p>
-
-              <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+            <ContactCard title="Our location" className="flex h-full flex-col">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
                 className="mt-5 h-full w-full rounded-lg border-2 border-gray-400"
@@ -141,14 +126,13 @@ const Contact = (): ReactElement => {
                 Bldg. 2 Blk. 1 Governors Park Drive, Southwoods Industrial Park Mabuhay, Carmona,
                 Cavite (4116)
               </p>
-            </div>
+            </ContactCard>
           </div>
 
-          <div className="card w-full bg-[#F4ECE4] p-5 shadow-xl">
-            <p className="text-2xl font-bold">Send us your inquiries here</p>
-
-            <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+          <ContactCard
+            title="Send us your inquires here"
+            className="card w-full bg-[#F4ECE4] p-5 shadow-xl"
+          >
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
               <TextField
                 control={control}
@@ -171,7 +155,7 @@ const Contact = (): ReactElement => {
                 label="Message:"
                 disabled={isSubmitting}
                 name="message"
-                placeholder="Message..."
+                placeholder="Leave a message..."
               />
 
               <button
@@ -182,13 +166,13 @@ const Contact = (): ReactElement => {
                 {isSubmitting ? 'Sending ...' : 'Send us a message'}
               </button>
             </form>
-          </div>
+          </ContactCard>
         </div>
 
         <AnimatePresence>
           {isSubmitted && (
             <motion.div
-              className="toast toast-start md:toast-end"
+              className="toast toast-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

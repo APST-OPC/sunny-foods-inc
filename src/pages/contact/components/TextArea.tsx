@@ -1,5 +1,5 @@
 import type { FieldValues } from 'react-hook-form';
-import type { ITextInput } from './type';
+import type { ITextInput } from '../type';
 
 import { useController } from 'react-hook-form';
 import { cn } from '~/libs/cn';
@@ -23,7 +23,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          'textarea h-90 w-full resize-none rounded-md',
+          'textarea',
           error && 'border-error',
           valueCheck && !error && 'border-success',
           className

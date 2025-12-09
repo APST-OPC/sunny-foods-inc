@@ -32,11 +32,11 @@ const Footer = (): ReactElement => {
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
-            <div key={ids} className="tooltip">
-              <div className="tooltip-content bg-gray-500">
-                <p className="text-white">{contactCTA}</p>
-              </div>
-
+            <div
+              key={ids}
+              className="tooltip before:bg-gray-500 before:text-white after:bg-gray-500"
+              data-tip={contactCTA}
+            >
               <button className="hover:cursor-pointer active:opacity-80" onClick={openWindow}>
                 {contactIcon}
               </button>
