@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import Logo from '~/assets/sunnyfoods-logo.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
-
 import { footerContactUs, instantScrollToTop } from './utils';
 
 const Footer = (): ReactElement => {
@@ -32,13 +31,15 @@ const Footer = (): ReactElement => {
       <div className="flex flex-col items-center gap-4 text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
-          {footerContactUs.map(({ contactCTA, contactIcon }, ids) => (
+          {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
             <div key={ids} className="tooltip">
               <div className="tooltip-content bg-gray-500">
                 <p className="text-white">{contactCTA}</p>
               </div>
 
-              <button className="hover:cursor-pointer active:opacity-80">{contactIcon}</button>
+              <button className="hover:cursor-pointer active:opacity-80" onClick={openWindow}>
+                {contactIcon}
+              </button>
             </div>
           ))}
         </div>
@@ -64,7 +65,7 @@ const Footer = (): ReactElement => {
     );
   };
 
-  const renderInfo = () => {
+  const renderInfo = (): ReactNode => {
     return (
       <div className="space-y-2">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
