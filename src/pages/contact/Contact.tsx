@@ -1,56 +1,36 @@
-import type { IContactForm, IContactUs } from './type';
+import type { IContactCard, IContactForm } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { useState } from 'react';
 
-import { FaViber } from 'react-icons/fa';
-import { AiOutlineFacebook } from 'react-icons/ai';
-import { FaInstagram } from 'react-icons/fa6';
-
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { cn } from '~/libs/cn';
 import { AnimatePresence, motion } from 'motion/react';
+import { TextArea, TextField } from './components';
+import { contactBtns } from './utils';
 
-const contactBtns: IContactUs[] = [
-  {
-    contactIcon: <FaViber size={75} color="#7360f2" />,
-    contactCTA: 'Chat with us on Viber',
-    contactFn: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
-  },
-  {
-    contactIcon: <AiOutlineFacebook size={75} color="#1877f2" />,
-    contactCTA: 'Visit our Facebook page',
-    contactFn: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
-  },
-  {
-    contactIcon: <FaInstagram size={75} color="#d300c5" />,
-    contactCTA: 'Visit our Instagram',
-    contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
-  },
-];
+const ContactCard = (props: IContactCard) => {
+  const { title, className, children } = props;
+
+  return (
+    <div className={className}>
+      <p className="text-2xl font-bold">{title}</p>
+
+      <div className="h-1 w-24 rounded-full bg-(--red)/50" />
+
+      {children}
+    </div>
+  );
+};
 
 const Contact = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [isSuccessful, setIsSuccessful] = useState<boolean>(true)
-  const [msg, setMsg] = useState<string>('')
-
-  const getFieldClass = (field: keyof IContactForm, hasError: boolean, hasValue: boolean) => {
-    const fieldBaseClass = {
-      fullName: 'input w-full rounded-md',
-      emailAddress: 'input w-full rounded-md',
-      message: 'textarea h-90 w-full resize-none rounded-md',
-    };
-
-    return cn(
-      fieldBaseClass[field],
-      hasError && 'border-error',
-      hasValue && !hasError && 'border-success'
-    );
-  };
+  const [isSuccessful, setIsSuccessful] = useState<boolean>(true);
+  const [msg, setMsg] = useState<string>('');
 
   const schema: yup.ObjectSchema<IContactForm> = yup.object({
     fullName: yup.string().required('Fullname is required'),
@@ -59,11 +39,9 @@ const Contact = (): ReactElement => {
   });
 
   const {
-    register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    watch,
+    formState: { isSubmitting },
     control,
   } = useForm<IContactForm>({
     defaultValues: {
@@ -82,7 +60,7 @@ const Contact = (): ReactElement => {
     },
     onSuccess: () => {
       reset();
-      setMsg('Your message has been sent!')
+      setMsg('Your message has been sent!');
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 2500);
     },
@@ -90,12 +68,12 @@ const Contact = (): ReactElement => {
       setMsg(msg);
       setIsSubmitted(true);
       setIsSuccessful(false);
-      setTimeout(() => setIsSubmitted(false), 2500)
+      setTimeout(() => setIsSubmitted(false), 2500);
     },
   });
 
-  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
-    web3Submit({
+  const onSubmit: SubmitHandler<IContactForm> = async (data: IContactForm) => {
+    await web3Submit({
       ...data,
       from_name: data.emailAddress,
     });
@@ -118,18 +96,14 @@ const Contact = (): ReactElement => {
 
         <div className="flex flex-col gap-10 p-5 md:flex-row">
           <div className="flex w-full flex-col gap-10 md:w-1/3">
-            <div>
-              <p className="text-2xl font-bold">Follow us</p>
-
-              <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+            <ContactCard title="Follow us">
               <div className="mt-5 flex flex-wrap justify-evenly">
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
-                  <div key={ids} className="tooltip tooltip-bottom m-1 flex items-center">
-                    <div className="tooltip-content bg-gray-500">
-                      <p className="text-white">{contactCTA}</p>
-                    </div>
-
+                  <div
+                    key={ids}
+                    className="tooltip tooltip-bottom before:bg-gray-500 before:text-white after:bg-gray-500"
+                    data-tip={contactCTA}
+                  >
                     <button
                       className="btn btn-circle btn-ghost size-full rounded-full border-none p-2"
                       onClick={contactFn}
@@ -139,13 +113,9 @@ const Contact = (): ReactElement => {
                   </div>
                 ))}
               </div>
-            </div>
+            </ContactCard>
 
-            <div className="flex h-full flex-col">
-              <p className="text-2xl font-bold">Our location</p>
-
-              <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+            <ContactCard title="Our location" className="flex h-full flex-col">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
                 className="mt-5 h-full w-full rounded-lg border-2 border-gray-400"
@@ -156,88 +126,37 @@ const Contact = (): ReactElement => {
                 Bldg. 2 Blk. 1 Governors Park Drive, Southwoods Industrial Park Mabuhay, Carmona,
                 Cavite (4116)
               </p>
-            </div>
+            </ContactCard>
           </div>
 
-          <div className="card w-full bg-[#F4ECE4] p-5 shadow-xl">
-            <p className="text-2xl font-bold">Send us your inquiries here</p>
-
-            <div className="h-1 w-24 rounded-full bg-(--red)/50" />
-
+          <ContactCard
+            title="Send us your inquires here"
+            className="card w-full bg-[#F4ECE4] p-5 shadow-xl"
+          >
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Full name:</p>
+              <TextField
+                control={control}
+                label="Full name:"
+                disabled={isSubmitting}
+                name="fullName"
+                placeholder="Full name"
+              />
 
-                <Controller
-                  {...register('fullName')}
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      value={field.value}
-                      onChange={field.onChange}
-                      type="text"
-                      className={getFieldClass('fullName', !!errors.fullName, !!watch('fullName'))}
-                      placeholder="Full name"
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
+              <TextField
+                control={control}
+                label="Email address:"
+                disabled={isSubmitting}
+                name="emailAddress"
+                placeholder="Email address"
+              />
 
-                <div className="h-0.5">
-                  {errors.fullName && <p className="text-error">{errors.fullName?.message}</p>}
-                </div>
-              </fieldset>
-
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Email address:</p>
-
-                <Controller
-                  {...register('emailAddress')}
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      value={field.value}
-                      onChange={field.onChange}
-                      type="text"
-                      className={getFieldClass(
-                        'emailAddress',
-                        !!errors.emailAddress,
-                        !!watch('emailAddress')
-                      )}
-                      placeholder="Email address"
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
-
-                <div className="h-0.5">
-                  {errors.emailAddress && (
-                    <p className="text-error">{errors.emailAddress?.message}</p>
-                  )}
-                </div>
-              </fieldset>
-
-              <fieldset className="fieldset">
-                <p className="label text-lg font-semibold text-black">Message:</p>
-
-                <Controller
-                  {...register('message')}
-                  control={control}
-                  render={({ field }) => (
-                    <textarea
-                      value={field.value}
-                      onChange={field.onChange}
-                      className={getFieldClass('message', !!errors.message, !!watch('message'))}
-                      placeholder="Leave a message..."
-                      disabled={isSubmitting}
-                    />
-                  )}
-                />
-
-                <div className="h-0.5">
-                  {errors.message && <p className="text-error">{errors.message?.message}</p>}
-                </div>
-              </fieldset>
+              <TextArea
+                control={control}
+                label="Message:"
+                disabled={isSubmitting}
+                name="message"
+                placeholder="Leave a message..."
+              />
 
               <button
                 type="submit"
@@ -247,18 +166,18 @@ const Contact = (): ReactElement => {
                 {isSubmitting ? 'Sending ...' : 'Send us a message'}
               </button>
             </form>
-          </div>
+          </ContactCard>
         </div>
 
         <AnimatePresence>
           {isSubmitted && (
             <motion.div
-              className="toast toast-start md:toast-end"
+              className="toast toast-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className={cn("alert", isSuccessful ? 'alert-success' : 'alert-error')}>
+              <div className={cn('alert', isSuccessful ? 'alert-success' : 'alert-error')}>
                 <p className="text-white">{msg}</p>
               </div>
             </motion.div>
