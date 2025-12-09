@@ -23,7 +23,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          'textarea',
+          'textarea h-90 w-full resize-none rounded-md',
           error && 'border-error',
           valueCheck && !error && 'border-success',
           className

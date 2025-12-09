@@ -24,7 +24,7 @@ export const TextField = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          'input',
+          'input w-full rounded-md',
           error && 'border-error',
           valueCheck && !error && 'border-success',
           className

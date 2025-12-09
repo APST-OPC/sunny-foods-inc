@@ -72,8 +72,8 @@ const Contact = (): ReactElement => {
     },
   });
 
-  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
-    web3Submit({
+  const onSubmit: SubmitHandler<IContactForm> = async (data: IContactForm) => {
+    await web3Submit({
       ...data,
       from_name: data.emailAddress,
     });
