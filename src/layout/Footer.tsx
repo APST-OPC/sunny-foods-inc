@@ -11,7 +11,7 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex gap-4 text-neutral-900">
+      <div className="flex gap-4 text-neutral-900 md:w-1/3 lg:w-auto">
         <img src={Logo} className="h-18 w-18 lg:h-28 lg:w-28" />
         <div className="font-semibold">
           <p className="text-xl leading-6 font-black">
@@ -50,7 +50,11 @@ const Footer = (): ReactElement => {
   const renderLinks = (): ReactNode => {
     return (
       <div className="hidden flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
-        <NavLink to="/about" className="hover:text-error whitespace-nowrap" onClick={instantScrollToTop}>
+        <NavLink
+          to="/about"
+          className="hover:text-error whitespace-nowrap"
+          onClick={instantScrollToTop}
+        >
           About Us
         </NavLink>
         <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
@@ -71,11 +75,15 @@ const Footer = (): ReactElement => {
         </h1>
         <div className="flex gap-1">
           <img src={Mail} className="h-5 w-5" />
-          <p className="font-semibold md:justify-start md:text-sm lg:text-md whitespace-nowrap">: sales@sunnyfoods.com.ph</p>
+          <p className="lg:text-md font-semibold whitespace-nowrap md:justify-start md:text-sm">
+            : sales@sunnyfoods.com.ph
+          </p>
         </div>
         <div className="flex gap-1">
           <img src={Contact} className="h-5 w-5" />
-          <p className="font-semibold md:justify-start md:text-sm lg:text-md">: 0939-237-9999 / 0918-739-9999</p>
+          <p className="lg:text-md font-semibold md:justify-start md:text-sm">
+            : 0939-237-9999 / 0918-739-9999
+          </p>
         </div>
       </div>
     );
