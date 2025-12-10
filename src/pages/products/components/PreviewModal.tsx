@@ -19,12 +19,12 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
 
   const imageFigure = (): ReactNode => {
     return (
-      <figure className="mb-4 h-40 overflow-hidden rounded-lg">
+      <figure className="mb-4 h-40 overflow-hidden rounded-lg md:mb-0 md:h-full md:max-w-80 md:min-w-80">
         <img
           loading="lazy"
           src={product?.image}
           alt={product?.title.toLocaleLowerCase()}
-          className="h-full w-full scale-150 object-cover"
+          className="h-full w-full object-cover"
         />
       </figure>
     );
@@ -58,7 +58,7 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
   };
   const modalAction = (): ReactNode => {
     return (
-      <div className="modal-action">
+      <div className="modal-action md:absolute md:right-6 md:bottom-6">
         <button
           className="btn btn-error w-full text-white shadow-lg hover:shadow-xl sm:w-36"
           onClick={handleClose}
@@ -68,21 +68,25 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
       </div>
     );
   };
+
   return (
     <dialog id="product-detail" className="modal modal-middle backdrop-blur-xs" open={open}>
       <div
         className={cn(
           'modal-box max-w-3xl rounded-xl',
           'border border-white/40 bg-white/90',
-          'shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-xl'
+          'shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-xl',
+          'block md:flex md:gap-5'
         )}
       >
         {imageFigure()}
-        {header()}
-        {tags()}
-        {subDivider()}
-        {description()}
-        {modalAction()}
+        <div>
+          {header()}
+          {tags()}
+          {subDivider()}
+          {description()}
+          {modalAction()}
+        </div>
       </div>
     </dialog>
   );
