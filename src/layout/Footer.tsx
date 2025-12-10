@@ -50,7 +50,7 @@ const Footer = (): ReactElement => {
   const renderLinks = (): ReactNode => {
     return (
       <div className="hidden flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
-        <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
+        <NavLink to="/about" className="hover:text-error whitespace-nowrap" onClick={instantScrollToTop}>
           About Us
         </NavLink>
         <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
