@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 
 interface IPreview {
   imageSrc: { title: string; image: string };
@@ -6,7 +6,20 @@ interface IPreview {
 }
 const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
   const { title, image } = imageSrc;
-  return (
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return isLoading ? (
+    <div className="skeleton flex h-48 flex-col items-center space-y-5" />
+  ) : (
     <div className="flex flex-col items-center space-y-5">
       <div className="relative h-52 w-full overflow-hidden rounded-2xl shadow-lg shadow-gray-400 lg:h-72 lg:w-52">
         <img
