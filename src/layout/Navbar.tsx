@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
 import { cn } from '~/libs/cn';
@@ -35,8 +35,7 @@ const Navbar = () => {
       </div>
 
       {/* DESKTOP LINKS */}
-
-      <div className="navbar-end text-md hidden gap-8 font-semibold md:flex">
+      <div className="navbar-end text-md hidden gap-5 font-semibold md:flex">
         {links.map((link, ids) => (
           <NavLink
             key={ids}
@@ -53,6 +52,12 @@ const Navbar = () => {
             {link.label}
           </NavLink>
         ))}
+
+        <Link to={'/talk-to-us'}>
+          <button onClick={instantScrollToTop} className="btn btn-error text-white">
+            Talk to us
+          </button>
+        </Link>
       </div>
 
       {/* MOBILE MENU ICON */}

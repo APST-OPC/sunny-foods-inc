@@ -1,7 +1,7 @@
 import type { Variants } from 'motion/react';
 
 import { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { FiMenu, FiX } from 'react-icons/fi';
@@ -22,10 +22,12 @@ interface MobileNavbarProps {
 const MobileNavbar = ({ links }: MobileNavbarProps) => {
   const { isSidebarOpen, setSidebarOpen } = useLayoutContext();
 
+  const navigate = useNavigate();
+
   const menuVariants: Variants = {
     hidden: { height: 0, opacity: 0 },
     visible: {
-      height: '100dvh',
+      height: 'calc(100dvh - 64px)',
       opacity: 1,
       transition: {
         when: 'beforeChildren',
@@ -45,6 +47,11 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
+  };
+
+  const handleNavigate = () => {
+    navigate('/talk-to-us');
+    closeMenu();
   };
 
   const toggleMenu = () => setSidebarOpen(!isSidebarOpen);
@@ -108,7 +115,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
   return (
     <Fragment>
       <div className="nav-end flex md:hidden" onClick={() => setSidebarOpen(!isSidebarOpen)}>
-        <div className="nav-end flex md:hidden" onClick={toggleMenu}>
+        <div className="flex md:hidden" onClick={toggleMenu}>
           <AnimatePresence mode="wait">{isSidebarOpen ? closeIcon() : menuIcon()}</AnimatePresence>
         </div>
       </div>
@@ -116,13 +123,27 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover bg-bottom-left backdrop-blur-lg md:hidden"
+            className="absolute top-full left-0 flex w-full flex-col overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover backdrop-blur-lg md:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={menuVariants}
           >
             {renderMenuList()}
+
+            <div className="mt-auto space-y-5 bg-amber-100 px-5 py-10">
+              <h1 data-aos="fade-right" className="text-3xl leading-snug font-extrabold">
+                Power Your Business With a
+                <span className="text-error"> Reliable Meat Supplier</span>
+              </h1>
+
+              <button
+                onClick={handleNavigate}
+                className="btn btn-error w-full text-white shadow-md hover:shadow-lg"
+              >
+                Talk to us
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

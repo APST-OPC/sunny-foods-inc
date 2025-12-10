@@ -19,9 +19,9 @@ export const footerContactUs = [
 ];
 export const links = [
   { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/who-we-are', label: 'Who We Are' },
+  { to: '/products', label: 'Our Products' },
+  // { to: '/contact', label: 'Contact' },
 ];
 
 export const instantScrollToTop = () => {
