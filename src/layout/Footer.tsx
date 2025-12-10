@@ -11,8 +11,8 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex gap-4 px-2 text-neutral-900">
-        <img src={Logo} className="h-20 w-20 lg:h-28 lg:w-28" />
+      <div className="flex gap-4 text-neutral-900">
+        <img src={Logo} className="h-18 w-18 lg:h-28 lg:w-28" />
         <div className="font-semibold">
           <p className="text-xl leading-6 font-black">
             <span className="text-success mr-1">Sunny</span>
@@ -91,7 +91,7 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col justify-between gap-10 px-6 pt-12 pb-6 md:flex-row md:gap-5 lg:min-w-1/4">
+      <div className="container mx-auto flex flex-col justify-between gap-10 px-6 pt-12 pb-6 md:flex-row md:gap-4 lg:min-w-1/4">
         {renderBrand()}
         {renderLinks()}
         {renderSocial()}
