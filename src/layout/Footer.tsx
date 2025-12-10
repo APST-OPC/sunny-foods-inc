@@ -69,18 +69,14 @@ const Footer = (): ReactElement => {
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
           Power Your Business
         </h1>
-        <p className="flex justify-center gap-1 font-semibold text-wrap md:justify-start">
-          <span>
-            <img src={Mail} className="h-5 w-5" />
-          </span>
-          :sales@sunnyfoods.com.ph
-        </p>
-        <p className="flex justify-center gap-1 font-semibold text-wrap md:justify-start">
-          <span>
-            <img src={Contact} className="h-5 w-5" />
-          </span>
-          :0939-237-9999 / 0918-739-9999
-        </p>
+        <div className="flex gap-1">
+          <img src={Mail} className="h-5 w-5" />
+          <p className="font-semibold md:justify-start md:text-sm lg:text-md whitespace-nowrap">: sales@sunnyfoods.com.ph</p>
+        </div>
+        <div className="flex gap-1">
+          <img src={Contact} className="h-5 w-5" />
+          <p className="font-semibold md:justify-start md:text-sm lg:text-md">: 0939-237-9999 / 0918-739-9999</p>
+        </div>
       </div>
     );
   };
