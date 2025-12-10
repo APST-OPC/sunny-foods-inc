@@ -28,7 +28,7 @@ const Footer = (): ReactElement => {
 
   const renderSocial = (): ReactNode => {
     return (
-      <div className="flex flex-col items-center gap-4 overflow-hidden text-neutral-900 md:w-1/3 lg:w-1/4">
+      <div className="flex flex-col items-center gap-4 text-neutral-900 md:w-1/3 lg:w-1/4">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
@@ -49,7 +49,7 @@ const Footer = (): ReactElement => {
 
   const renderLinks = (): ReactNode => {
     return (
-      <div className="hidden w-1/4 flex-col justify-start items-center gap-2 font-bold text-neutral-900 lg:flex">
+      <div className="hidden w-1/4 flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
         <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
           About Us
         </NavLink>
