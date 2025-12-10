@@ -11,7 +11,7 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex gap-4 px-2 text-neutral-900 md:w-1/3 lg:w-1/4">
+      <div className="flex gap-4 px-2 text-neutral-900">
         <img src={Logo} className="h-20 w-20 lg:h-28 lg:w-28" />
         <div className="font-semibold">
           <p className="text-xl leading-6 font-black">
@@ -28,9 +28,9 @@ const Footer = (): ReactElement => {
 
   const renderSocial = (): ReactNode => {
     return (
-      <div className="flex flex-col items-center gap-4 text-neutral-900 md:w-1/3 lg:w-1/4">
+      <div className="space-y-4 text-center text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
-        <div className="flex gap-5">
+        <div className="flex justify-center gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
             <div
               key={ids}
@@ -49,7 +49,7 @@ const Footer = (): ReactElement => {
 
   const renderLinks = (): ReactNode => {
     return (
-      <div className="hidden w-1/4 flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
+      <div className="hidden flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
         <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
           About Us
         </NavLink>
@@ -65,7 +65,7 @@ const Footer = (): ReactElement => {
 
   const renderInfo = (): ReactNode => {
     return (
-      <div className="space-y-2 md:w-1/3 lg:w-1/4">
+      <div className="space-y-2">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
           Power Your Business
         </h1>
@@ -95,7 +95,7 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col justify-between gap-10 pt-12 pb-6 md:flex-row md:gap-0 lg:min-w-1/4 lg:px-6">
+      <div className="container mx-auto flex flex-col justify-between gap-10 px-6 pt-12 pb-6 md:flex-row md:gap-5 lg:min-w-1/4">
         {renderBrand()}
         {renderLinks()}
         {renderSocial()}
