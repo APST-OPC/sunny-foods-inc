@@ -11,7 +11,7 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex items-center gap-4 px-2 text-neutral-900">
+      <div className="flex gap-4 px-2 text-neutral-900 md:w-1/3 lg:w-1/4">
         <img src={Logo} className="h-20 w-20 lg:h-28 lg:w-28" />
         <div className="font-semibold">
           <p className="text-xl leading-6 font-black">
@@ -28,7 +28,7 @@ const Footer = (): ReactElement => {
 
   const renderSocial = (): ReactNode => {
     return (
-      <div className="flex flex-col items-center gap-4 text-neutral-900">
+      <div className="flex flex-col items-center gap-4 overflow-hidden text-neutral-900 md:w-1/3 lg:w-1/4">
         <p className="text-lg leading-6 font-bold">Follow us</p>
         <div className="flex gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
@@ -49,35 +49,33 @@ const Footer = (): ReactElement => {
 
   const renderLinks = (): ReactNode => {
     return (
-      <div className="hidden text-neutral-900 lg:block">
-        <div className="flex w-fit flex-col space-y-2 font-bold">
-          <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
-            About Us
-          </NavLink>
-          <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
-            Products
-          </NavLink>
-          <NavLink to="/contact" className="hover:text-error" onClick={instantScrollToTop}>
-            Contact
-          </NavLink>
-        </div>
+      <div className="hidden w-1/4 flex-col justify-start items-center gap-2 font-bold text-neutral-900 lg:flex">
+        <NavLink to="/about" className="hover:text-error" onClick={instantScrollToTop}>
+          About Us
+        </NavLink>
+        <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
+          Products
+        </NavLink>
+        <NavLink to="/contact" className="hover:text-error" onClick={instantScrollToTop}>
+          Contact
+        </NavLink>
       </div>
     );
   };
 
   const renderInfo = (): ReactNode => {
     return (
-      <div className="space-y-2">
+      <div className="space-y-2 md:w-1/3 lg:w-1/4">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
           Power Your Business
         </h1>
-        <p className="flex gap-1 font-semibold text-wrap">
+        <p className="flex justify-center gap-1 font-semibold text-wrap md:justify-start">
           <span>
             <img src={Mail} className="h-5 w-5" />
           </span>
           :sales@sunnyfoods.com.ph
         </p>
-        <p className="flex gap-1 font-semibold text-wrap">
+        <p className="flex justify-center gap-1 font-semibold text-wrap md:justify-start">
           <span>
             <img src={Contact} className="h-5 w-5" />
           </span>
@@ -97,11 +95,11 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-10 pt-12 pb-6 md:flex-row lg:min-w-1/4 lg:items-center lg:px-6">
+      <div className="container mx-auto flex flex-col justify-between gap-10 pt-12 pb-6 md:flex-row md:gap-0 lg:min-w-1/4 lg:px-6">
         {renderBrand()}
         {renderLinks()}
-        {renderInfo()}
         {renderSocial()}
+        {renderInfo()}
       </div>
 
       {renderBottomBar()}
