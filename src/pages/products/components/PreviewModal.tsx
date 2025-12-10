@@ -19,7 +19,7 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
 
   const imageFigure = (): ReactNode => {
     return (
-      <figure className="mb-4 h-40 overflow-hidden rounded-lg md:mb-0 md:h-full md:max-w-80 md:min-w-80">
+      <figure className="mb-4 h-40 overflow-hidden rounded-lg md:mb-0 md:h-100 md:w-350">
         <img
           loading="lazy"
           src={product?.image}
