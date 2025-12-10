@@ -4,6 +4,11 @@ import { FaCheck } from 'react-icons/fa';
 export const CTA = () => {
   const navigate = useNavigate();
 
+  const handleNavigate = () => {
+    navigate('/talk-to-us');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section id="contact" className="px-6 py-24 md:px-0">
       <div className="mx-auto max-w-4xl space-y-10 rounded-3xl bg-white px-10 py-16 text-center shadow-2xl">
@@ -42,10 +47,10 @@ export const CTA = () => {
 
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <button
-            onClick={() => navigate('/contact')}
+            onClick={handleNavigate}
             className="btn btn-success w-60 rounded-full font-medium text-white shadow-md hover:shadow-lg"
           >
-            Talk to Our Team
+            Talk to us
           </button>
         </div>
       </div>

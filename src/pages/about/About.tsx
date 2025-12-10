@@ -33,7 +33,13 @@ const About = () => {
             />
           </div>
 
-          <div className="space-y-10 text-justify text-lg text-wrap sm:text-xl">
+          <motion.div
+            className="space-y-10 text-justify text-lg text-wrap sm:text-xl"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={linear}
+          >
             <p>
               Sunny Foods Inc. is a provider of premium-quality meat products crafted through
               advanced processing and responsible sourcing.{' '}
@@ -64,7 +70,7 @@ const About = () => {
                 <strong> We Set Them</strong>
               </q>
             </h1>
-          </div>
+          </motion.div>
         </section>
 
         <section id="mission-vision" className="space-y-20">
