@@ -12,15 +12,10 @@ const SampleImage =
 export const ProductCard = (props: IProductPreview) => {
   const { title, description, link, img = SampleImage } = props;
   const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const handleViewMore = () => {
-    window.location.href = link;
-  };
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+  const handleViewMore = () => (window.location.href = link);
+
   return (
     <div
       data-aos="zoom-in-up"

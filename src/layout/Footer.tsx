@@ -51,7 +51,7 @@ const Footer = (): ReactElement => {
     return (
       <div className="hidden flex-col items-center justify-start gap-2 font-bold text-neutral-900 lg:flex">
         <NavLink
-          to="/about"
+          to="/who-we-are"
           className="hover:text-error whitespace-nowrap"
           onClick={instantScrollToTop}
         >
@@ -60,7 +60,7 @@ const Footer = (): ReactElement => {
         <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
           Products
         </NavLink>
-        <NavLink to="/contact" className="hover:text-error" onClick={instantScrollToTop}>
+        <NavLink to="/talk-to-us" className="hover:text-error" onClick={instantScrollToTop}>
           Contact
         </NavLink>
       </div>

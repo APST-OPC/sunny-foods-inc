@@ -19,9 +19,7 @@ const Products = (): ReactElement => {
     setSelectedProduct(item);
     setShowDetail(true);
   };
-  const handleShowDetail = (): void => {
-    setShowDetail(false);
-  };
+  const handleShowDetail = (): void => setShowDetail(false);
 
   const renderHeader = (): ReactNode => {
     return (

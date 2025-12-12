@@ -24,8 +24,6 @@ export const links = [
   // { to: '/contact', label: 'Contact' },
 ];
 
-export const instantScrollToTop = () => {
-  window.scrollTo(0, 0);
-};
+export const instantScrollToTop = () => window.scrollTo(0, 0);
 
 export const smoothScrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
