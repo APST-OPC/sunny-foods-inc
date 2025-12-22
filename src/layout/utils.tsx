@@ -21,7 +21,6 @@ export const links = [
   { to: '/', label: 'Home' },
   { to: '/who-we-are', label: 'Who We Are' },
   { to: '/products', label: 'Our Products' },
-  // { to: '/contact', label: 'Contact' },
 ];
 
 export const instantScrollToTop = () => window.scrollTo(0, 0);
