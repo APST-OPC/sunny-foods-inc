@@ -6,7 +6,7 @@ import Products from '~/pages/products';
 import About from '~/pages/about';
 import Contact from '~/pages/contact';
 
-import { LayoutProvider } from './context/layoutContext';
+import { LayoutProvider } from './provider/LayoutProvider';
 
 const App = () => {
   return (

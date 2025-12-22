@@ -1,2 +1,2 @@
-export * from './Textfield'
-export * from './Textarea'
+export * from './TextArea';
+export * from './TextField';

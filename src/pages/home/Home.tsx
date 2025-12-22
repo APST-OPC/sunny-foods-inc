@@ -118,7 +118,10 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 place-items-center md:grid-cols-2 lg:grid-cols-4 px-5" data-aos="zoom-in-up">
+        <div
+          className="grid place-items-center gap-5 px-5 md:grid-cols-2 lg:grid-cols-4"
+          data-aos="zoom-in-up"
+        >
           {services.map((service, ids) => (
             <ServiceCard
               key={ids}
@@ -155,7 +158,7 @@ const Home = () => {
           </div>
 
           <h1 className="text-center text-4xl font-bold">
-            ...And there&apos;s <span className="text-error">more!</span>
+            ...And there&apos;s <span className="text-error">more!asdlkaj shfsadsa</span>
           </h1>
         </div>
       </section>
