@@ -83,12 +83,10 @@ const Contact = (): ReactElement => {
     <main className="space-y-5 py-20">
       <header className="mx-auto space-y-5 px-10 text-center">
         <h2 className="text-4xl font-bold text-black md:text-6xl">
-          Comments<span className="text-(--red)">?</span> Suggestions
-          <span className="text-(--red)">?</span> Need help
-          <span className="text-(--red)">?</span>
+          We value your feedback and questions.
         </h2>
 
-        <p className="text-xl text-gray-600">We got you! You can contact us here.</p>
+        <p className="text-xl text-gray-600">Contact our support team anytime.</p>
       </header>
 
       <section className="container mx-auto">

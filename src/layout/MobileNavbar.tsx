@@ -91,7 +91,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
 
   const renderMenuList = () => {
     return (
-      <motion.ul className="menu w-full space-y-2 p-4">
+      <motion.ul className="menu w-full p-4">
         {links.map((link, ids) => (
           <motion.li key={ids} variants={itemVariants}>
             <NavLink
@@ -99,7 +99,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
               onClick={closeMenu}
               className={({ isActive }) =>
                 cn(
-                  'bg-transparent text-4xl font-bold tracking-tight',
+                  'bg-transparent text-2xl font-bold tracking-tight',
                   isActive ? 'text-error' : 'text-black'
                 )
               }
@@ -123,7 +123,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
-            className="absolute top-full left-0 flex w-full flex-col overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover backdrop-blur-lg md:hidden"
+            className="absolute top-full left-0 flex w-full flex-col overflow-hidden backdrop-blur-lg md:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -132,7 +132,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
             {renderMenuList()}
 
             <div className="mt-auto space-y-5 bg-amber-100 px-5 py-10">
-              <h1 data-aos="fade-right" className="text-3xl leading-snug font-extrabold">
+              <h1 data-aos="fade-right" className="text-2xl leading-snug font-extrabold">
                 Power Your Business With a
                 <span className="text-error"> Reliable Meat Supplier</span>
               </h1>
