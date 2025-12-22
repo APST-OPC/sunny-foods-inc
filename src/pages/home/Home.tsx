@@ -158,7 +158,7 @@ const Home = () => {
           </div>
 
           <h1 className="text-center text-4xl font-bold">
-            ...And there&apos;s <span className="text-error">more!asdlkaj shfsadsa</span>
+            ...And there&apos;s <span className="text-error">more!</span>
           </h1>
         </div>
       </section>
