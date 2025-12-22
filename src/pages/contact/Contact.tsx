@@ -82,13 +82,9 @@ const Contact = (): ReactElement => {
   return (
     <main className="space-y-5 py-20">
       <header className="mx-auto space-y-5 px-10 text-center">
-        <h2 className="text-4xl font-bold text-black md:text-6xl">
-          Comments<span className="text-(--red)">?</span> Suggestions
-          <span className="text-(--red)">?</span> Need help
-          <span className="text-(--red)">?</span>
-        </h2>
+        <h2 className="text-4xl font-bold md:text-6xl">We value your feedback and questions.</h2>
 
-        <p className="text-xl text-gray-600">We got you! You can contact us here.</p>
+        <p className="text-xl text-gray-600">Contact our support team anytime.</p>
       </header>
 
       <section className="container mx-auto">
@@ -136,27 +132,19 @@ const Contact = (): ReactElement => {
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
               <TextField
                 control={control}
-                label="Full name:"
+                label="Full name"
                 disabled={isSubmitting}
                 name="fullName"
-                placeholder="Full name"
               />
 
               <TextField
                 control={control}
-                label="Email address:"
+                label="Email address"
                 disabled={isSubmitting}
                 name="emailAddress"
-                placeholder="Email address"
               />
 
-              <TextArea
-                control={control}
-                label="Message:"
-                disabled={isSubmitting}
-                name="message"
-                placeholder="Leave a message..."
-              />
+              <TextArea control={control} label="Message" disabled={isSubmitting} name="message" />
 
               <button
                 type="submit"

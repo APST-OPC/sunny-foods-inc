@@ -5,7 +5,7 @@ import { useController } from 'react-hook-form';
 import { cn } from '~/libs/cn';
 
 export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
-  const { name, control, label, className, placeholder, disabled } = props;
+  const { name, control, label, className, placeholder = 'Pease type here', disabled } = props;
 
   const {
     field,
@@ -23,7 +23,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          'textarea h-90 w-full resize-none rounded-md',
+          'textarea h-90 w-full resize-none rounded-md focus-within:outline-0 focus:outline-0',
           error && 'border-error',
           valueCheck && !error && 'border-success',
           className

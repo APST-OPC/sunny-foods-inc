@@ -17,7 +17,7 @@ export interface ITextInput<T extends FieldValues> {
   control: Control<T>;
   label: string;
   className?: string;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
 }
 
