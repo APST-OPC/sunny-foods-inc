@@ -54,7 +54,11 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
     );
   };
   const description = (): ReactNode => {
-    return <p className="py-4 text-justify leading-6 text-gray-700">{product?.description}</p>;
+    return (
+      <p className="h-38 overflow-y-auto px-3 py-4 text-justify leading-6 text-gray-700 lg:h-fit">
+        {product?.description}
+      </p>
+    );
   };
   const modalAction = (): ReactNode => {
     return (
