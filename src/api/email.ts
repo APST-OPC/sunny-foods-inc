@@ -15,7 +15,7 @@ export const sendEmail = async (props: IContactForm): Promise<IContactForm> => {
     },
   };
 
-  const response = await axios.post(URI, [payload]);
+  const response = await axios.post(URI, payload);
 
   return response.data;
 };

@@ -105,7 +105,7 @@ const Contact = (): ReactElement => {
           >
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-3">
               {isSuccess && (
-                <div role="alert" className="alert alert-success text-white">
+                <div role="alert" className="alert alert-success alert-soft">
                   <FaCircleCheck size={24} />
                   <span>
                     Thank you for your inquiry. It has been successfully submitted, and our team
@@ -114,7 +114,7 @@ const Contact = (): ReactElement => {
                 </div>
               )}
               {isError && (
-                <div role="alert" className="alert alert-error text-white">
+                <div role="alert" className="alert alert-error alert-soft">
                   <FaCircleExclamation size={24} />
                   <span>{error?.message}</span>
                 </div>
