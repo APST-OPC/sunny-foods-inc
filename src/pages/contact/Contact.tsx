@@ -2,14 +2,14 @@ import type { IContactCard, IContactForm } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
-import { useState } from 'react';
-
 import { useForm } from 'react-hook-form';
-import useWeb3Forms from '@web3forms/react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { FaCircleCheck, FaCircleExclamation } from 'react-icons/fa6';
+
 import * as yup from 'yup';
-import { cn } from '~/libs/cn';
-import { AnimatePresence, motion } from 'motion/react';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import { useSendEmail } from '~/queries/useSendEmail';
+
 import { TextArea, TextField } from './components';
 import { contactBtns } from './utils';
 
@@ -28,54 +28,28 @@ const ContactCard = (props: IContactCard) => {
 };
 
 const Contact = (): ReactElement => {
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [isSuccessful, setIsSuccessful] = useState<boolean>(true);
-  const [msg, setMsg] = useState<string>('');
+  const { mutate, isSuccess, isError, error } = useSendEmail();
 
   const schema: yup.ObjectSchema<IContactForm> = yup.object({
-    fullName: yup.string().required('Fullname is required'),
-    emailAddress: yup.string().email('Invalid email format').required('Email is required'),
-    message: yup.string().required('Message is required'),
+    fullname: yup.string().required('required*'),
+    email: yup.string().email('Invalid email format').required('required*'),
+    message: yup.string().required('required*'),
   });
 
-  const {
-    reset,
-    handleSubmit,
-    formState: { isSubmitting },
-    control,
-  } = useForm<IContactForm>({
+  const { reset, handleSubmit, control } = useForm<IContactForm>({
     defaultValues: {
-      fullName: '',
-      emailAddress: '',
+      fullname: '',
+      email: '',
       message: '',
     },
     resolver: yupResolver(schema),
   });
 
-  const { submit: web3Submit } = useWeb3Forms({
-    access_key: import.meta.env.VITE_ACCESS_KEY,
-    settings: {
-      from_name: '',
-      subject: 'New Contact Message from your Website',
-    },
-    onSuccess: () => {
-      reset();
-      setMsg('Your message has been sent!');
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 2500);
-    },
-    onError: (msg) => {
-      setMsg(msg);
-      setIsSubmitted(true);
-      setIsSuccessful(false);
-      setTimeout(() => setIsSubmitted(false), 2500);
-    },
-  });
-
-  const onSubmit: SubmitHandler<IContactForm> = async (data: IContactForm) => {
-    await web3Submit({
-      ...data,
-      from_name: data.emailAddress,
+  const onSubmit: SubmitHandler<IContactForm> = (data: IContactForm) => {
+    mutate(data, {
+      onSuccess: () => {
+        reset();
+      },
     });
   };
 
@@ -129,48 +103,41 @@ const Contact = (): ReactElement => {
             title="Send us your inquires here"
             className="card w-full bg-[#F4ECE4] p-5 shadow-xl"
           >
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-5">
-              <TextField
-                control={control}
-                label="Full name"
-                disabled={isSubmitting}
-                name="fullName"
-              />
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col space-y-3">
+              {isSuccess && (
+                <div role="alert" className="alert alert-success text-white">
+                  <FaCircleCheck size={24} />
+                  <span>
+                    Thank you for your inquiry. It has been successfully submitted, and our team
+                    will contact you shortly.
+                  </span>
+                </div>
+              )}
+              {isError && (
+                <div role="alert" className="alert alert-error text-white">
+                  <FaCircleExclamation size={24} />
+                  <span>{error?.message}</span>
+                </div>
+              )}
 
+              <TextField control={control} label="Full name" disabled={isSuccess} name="fullname" />
               <TextField
                 control={control}
                 label="Email address"
-                disabled={isSubmitting}
-                name="emailAddress"
+                disabled={isSuccess}
+                name="email"
               />
-
-              <TextArea control={control} label="Message" disabled={isSubmitting} name="message" />
-
+              <TextArea control={control} disabled={isSuccess} label="Message" name="message" />
               <button
                 type="submit"
                 className="btn btn-error w-full text-white md:text-lg"
-                disabled={isSubmitting}
+                disabled={isSuccess}
               >
-                {isSubmitting ? 'Sending ...' : 'Send us a message'}
+                {isSuccess ? 'Sending ...' : 'Send us a message'}
               </button>
             </form>
           </ContactCard>
         </div>
-
-        <AnimatePresence>
-          {isSubmitted && (
-            <motion.div
-              className="toast toast-start"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className={cn('alert', isSuccessful ? 'alert-success' : 'alert-error')}>
-                <p className="text-white">{msg}</p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         <div className="divider m-3 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
       </section>
