@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import { useForm } from 'react-hook-form';
-import { FaCircleCheck } from 'react-icons/fa6';
+import { FaCircleCheck, FaCircleExclamation } from 'react-icons/fa6';
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -115,7 +115,7 @@ const Contact = (): ReactElement => {
               )}
               {isError && (
                 <div role="alert" className="alert alert-error text-white">
-                  <FaCircleCheck size={24} />
+                  <FaCircleExclamation size={24} />
                   <span>{error?.message}</span>
                 </div>
               )}
