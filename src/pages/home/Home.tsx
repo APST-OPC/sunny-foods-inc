@@ -107,9 +107,10 @@ const Home = () => {
               {images.map((src, index) => (
                 <div
                   key={index}
-                  className={`carousel-item w-full transition-all ${
+                  className={cn(
+                    'carousel-item w-full transition-all',
                     index === currentSlide ? 'opacity-100' : 'absolute opacity-0'
-                  }`}
+                  )}
                 >
                   <img
                     src={src}

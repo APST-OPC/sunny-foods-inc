@@ -120,13 +120,8 @@ const Contact = (): ReactElement => {
                 </div>
               )}
 
-              <TextField control={control} label="Full name" disabled={isSuccess} name="fullname" />
-              <TextField
-                control={control}
-                label="Email address"
-                disabled={isSuccess}
-                name="email"
-              />
+              <TextField control={control} label="Fullname" disabled={isSuccess} name="fullname" />
+              <TextField control={control} label="Email" disabled={isSuccess} name="email" />
               <TextArea control={control} disabled={isSuccess} label="Message" name="message" />
               <button
                 type="submit"

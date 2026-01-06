@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
+import { cn } from '~/libs/cn';
 
 export const CTA = () => {
   const navigate = useNavigate();
@@ -44,7 +45,12 @@ export const CTA = () => {
           </div>
         </div>
 
-        <div className="divider mx-auto h-5 w-32 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--warm-red) before:to-(--warm-red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--warm-red) after:to-(--warm-red)" />
+        <div
+          className={cn(
+            'divider mx-auto h-5 w-32',
+            'before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--warm-red) before:to-(--warm-red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--warm-red) after:to-(--warm-red)'
+          )}
+        />
 
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <button
