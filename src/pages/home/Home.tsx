@@ -11,11 +11,15 @@ import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
 
 import { CTA } from '~/components';
+import { cn } from '~/libs/cn';
+import { useNavigate } from 'react-router-dom';
 
 const images = [StripLoin, Chuckeye, Ribeye];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,44 +34,57 @@ const Home = () => {
         <img
           src={BannerHead}
           alt="beef"
-          className="aspect-square h-[70vh] w-full bg-linear-to-b from-red-950 via-red-700 to-red-950 object-cover object-center"
-          loading="eager"
+          loading="lazy"
+          className={cn(
+            'aspect-square h-[70vh] w-full rotate-y-180',
+            'bg-[radial-gradient(ellipse_at_top,#7A1F1F_0%,#3B0A0A_55%,#1A0505_100%)] object-cover object-center'
+          )}
         />
 
-        <div className="hero-overlay" />
+        <div className="hero-overlay rotate-y-180" />
 
         <div className="z-20 p-5 text-center text-white md:p-0 md:text-start">
-          <div className="max-w-xl lg:absolute lg:bottom-5 lg:left-10">
+          <div className="max-w-xl lg:absolute lg:left-10">
             <p className="font-heading text-4xl md:font-bold lg:text-6xl">Premium Beef,</p>
             <p className="font-heading mb-5 text-4xl md:font-bold lg:text-6xl">
               Crafted to Perfection
             </p>
+
             <p className="text-md mb-5 lg:text-lg">
               Handpicked premium beef — from Wagyu-style cubes and Black Pepper Steaks to our
               signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
               convenience.
             </p>
+
+            <div className="flex flex-col gap-4 md:flex-row">
+              <button
+                onClick={() => navigate('products')}
+                className="btn text-bold w-full rounded-sm border-[#1A1513] bg-[#1A1513] px-8 text-white md:h-14 md:w-56"
+              >
+                Explore Products
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-error h-full py-10 md:h-60 md:place-content-center">
-        <div className="container mx-auto flex flex-col items-center justify-center gap-10 text-white md:flex-row">
-          <div className="flex transform flex-col items-center gap-4 md:flex-row">
-            <img src={Cow} className="h-auto w-auto" alt="High-quality meat" />
-            <div className="text-center md:text-left">
-              <h6 className="text-2xl font-black">High-quality meat</h6>
-              <p className="mt-1 text-lg">Sourced from trusted farms</p>
+      <section className="bg-(--warm-red) py-12">
+        <div className="container mx-auto flex flex-col items-center gap-10 text-white md:flex-row md:justify-center">
+          <div className="flex items-center gap-5">
+            <img src={Cow} alt="High-quality meat" />
+            <div>
+              <h6 className="text-xl font-bold">High-quality meat</h6>
+              <p className="text-sm opacity-90">Carefully sourced from trusted farms</p>
             </div>
           </div>
 
-          <div className="divider divider-vertical md:divider-horizontal px-20 before:bg-white after:bg-white md:px-0" />
+          <div className="hidden h-10 w-px bg-white/40 md:block" />
 
-          <div className="flex transform flex-col items-center gap-4 md:flex-row">
-            <img src={Steak} className="h-auto w-auto" alt="Wide selection" />
-            <div className="text-center md:text-left">
-              <h6 className="text-2xl font-black">Wide selection</h6>
-              <p className="mt-1 text-lg">Cuts for every recipe and occasion</p>
+          <div className="flex items-center gap-5">
+            <img src={Steak} alt="Wide selection" />
+            <div>
+              <h6 className="text-xl font-bold">Wide selection</h6>
+              <p className="text-sm opacity-90">Cuts for every recipe and occasion</p>
             </div>
           </div>
         </div>

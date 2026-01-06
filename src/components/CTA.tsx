@@ -18,7 +18,8 @@ export const CTA = () => {
             data-aos-duration="2000"
             className="text-4xl leading-snug font-extrabold"
           >
-            Power Your Business With a<span className="text-error"> Reliable Meat Supplier</span>
+            Power Your Business With a
+            <span className="text-(--warm-red)"> Reliable Meat Supplier</span>
           </h1>
 
           <p
@@ -31,24 +32,24 @@ export const CTA = () => {
           </p>
         </header>
 
-        <div data-aos="fade-up" className="mx-auto grid max-w-md gap-4 text-sm text-gray-700">
+        <div data-aos="fade-up" className="mx-auto grid max-w-md gap-3 text-sm text-gray-700">
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-success" /> Premium quality & strict standards
+            <FaCheck className="text-(--warm-red)" /> Premium quality & strict standards
           </div>
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-success" /> Reliable, consistent delivery
+            <FaCheck className="text-(--warm-red)" /> Reliable, consistent delivery
           </div>
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-success" /> Exceptional Flavor & Juiciness
+            <FaCheck className="text-(--warm-red)" /> Exceptional Flavor & Juiciness
           </div>
         </div>
 
-        <div className="divider mx-auto w-32" />
+        <div className="divider mx-auto h-5 w-32 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--warm-red) before:to-(--warm-red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--warm-red) after:to-(--warm-red)" />
 
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <button
             onClick={handleNavigate}
-            className="btn btn-success w-60 rounded-full font-medium text-white shadow-md hover:shadow-lg"
+            className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
           >
             Talk to us
           </button>

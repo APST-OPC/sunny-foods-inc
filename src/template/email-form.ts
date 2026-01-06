@@ -1,5 +1,72 @@
 import type { IContactForm } from '~/pages/contact/type';
 
 export const buildEmailHtml = (props: IContactForm) => `
- <table width='100%' cellpadding='0' cellspacing='0' role='presentation' style='background-color: #f5f7fa; padding: 20px; font-family: Nunito Sans, sans-serif; '> <tr> <td align='center'> <table width='700' cellpadding='0'cellspacing='0' role='presentation'> <tr> <td align='left' style='background-color:#1f2937; padding: 16px; color: #fff; font-weight: bold; align-items:center; display:flex;    flex-direction: row; font-size: 20px; margin-top: 2px;'><img  src='https://www.sunnyfoods.com.ph/assets/sunnyfoods-logo-DRoWJhEX.png' alt='Sunny Foods Logo' width='75' /><span style='line-height: 0.4'> <p>Sunny Foods Inc</p> <p style='font-size: 10px'>  Delicious • Healthy • Affordable  </p> </span></td> </tr> <tr>  <td>   <main style='padding: 24px; font-size: 14px; line-height: 1.2'>  <p><strong>Greetings from ${props.fullname}!</strong></p> <p>You have received a new inquiry.</p><p> <strong>Client:</strong> ${props.fullname} <i>&lt;${props.email}&gt;</i> </p><p>${props.message}</p> </main> </td>  </tr><tr> <td> <footer style='  background-color: #f9fafb;  padding: 16px;  font-size: 12px;  text-align: center; '>  © 2025 Sunny Foods. All rights reserved. </footer>  </td>  </tr>  </table>  </td> </tr> </table>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email</title>
+  </head>
+
+  <body style="margin: 0; padding: 0">
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      role="presentation"
+      style="
+        background-color: #f5f7fa;
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      ">
+
+      <tr>
+        <td
+          align="center"
+          style="background-color: #1f2937; padding: 16px; color: #ffffff">
+          <img
+            src="https://www.sunnyfoods.com.ph/assets/sunnyfoods-logo-DRoWJhEX.png"
+            alt="Sunny Foods Logo"
+            width="75"
+            style="display: block; margin: 0 auto 8px" />
+
+          <p style="margin: 0; font-size: 18px; font-weight: bold">
+            Sunny Foods Inc
+          </p>
+
+          <p style="margin: 0; font-size: 11px; opacity: 0.9">
+            Delicious • Healthy • Affordable
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+          style="
+            background-color: #ffffff;
+            padding: 24px;
+            font-size: 14px;
+            line-height: 1.5;
+          ">
+          <p style="margin-top: 0">You have received a new inquiry.</p>
+
+          <p>
+            <strong>Greetings from ${props.fullname}!</strong>
+          </p>
+
+          <p>
+            <strong>Client:</strong><br />
+            ${props.fullname}<br />
+            <i>&lt;${props.email}&gt;</i>
+          </p>
+
+          <p>${props.message}</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
 `;

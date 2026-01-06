@@ -51,7 +51,7 @@ const Layout = () => {
             className="fab bottom-8"
           >
             <button
-              className="btn btn-sm btn-circle md:btn-lg btn-success"
+              className="btn btn-sm btn-circle md:btn-lg btn-success text-white"
               onClick={smoothScrollToTop}
             >
               <FaAngleUp />

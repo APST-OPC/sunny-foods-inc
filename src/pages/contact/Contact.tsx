@@ -130,7 +130,7 @@ const Contact = (): ReactElement => {
               <TextArea control={control} disabled={isSuccess} label="Message" name="message" />
               <button
                 type="submit"
-                className="btn btn-error w-full text-white md:text-lg"
+                className="btn border(--warm-red) w-full border bg-(--warm-red) text-white md:text-lg"
                 disabled={isSuccess}
               >
                 {isSuccess ? 'Sending ...' : 'Send us a message'}

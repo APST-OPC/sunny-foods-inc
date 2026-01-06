@@ -64,7 +64,7 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
     return (
       <div className="modal-action md:absolute md:right-6 md:bottom-6">
         <button
-          className="btn btn-error w-full text-white shadow-lg hover:shadow-xl sm:w-36"
+          className="btn w-full border border-(--warm-red) bg-(--warm-red) text-white shadow-lg hover:shadow-xl sm:w-36"
           onClick={handleClose}
         >
           Close

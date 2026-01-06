@@ -9,7 +9,7 @@ export const footerContactUs = [
   {
     contactCTA: 'Visit our Facebook page',
     contactIcon: <FaFacebookSquare color="#c8a175" size={50} />,
-    openWindow: () => window.open('https://www.facebook.com/SUNNYFOODSINC.2025', '_blank'),
+    openWindow: () => window.open('https://www.facebook.com/sunnyfoodsinc/', '_blank'),
   },
   {
     contactCTA: 'Visit our Instagram',

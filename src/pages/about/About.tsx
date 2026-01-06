@@ -85,7 +85,7 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
                 Our Mission
               </h1>
 
@@ -126,7 +126,7 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
                 Our Vision
               </h1>
 
@@ -195,7 +195,7 @@ const About = () => {
         <section id="history">
           <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
             <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
-              <h1 className="text-error text-5xl font-semibold md:text-7xl lg:text-9xl">
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
                 Our History
               </h1>
               <p className="text-justify text-lg text-gray-700 md:text-xl">

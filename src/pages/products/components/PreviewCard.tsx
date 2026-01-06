@@ -29,7 +29,10 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
           loading="lazy"
         />
       </div>
-      <button className="btn btn-error text-white" onClick={openDetails}>
+      <button
+        className="btn border border-(--warm-red) bg-(--warm-red) text-white"
+        onClick={openDetails}
+      >
         {title}
       </button>
     </div>
