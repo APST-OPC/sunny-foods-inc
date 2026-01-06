@@ -70,7 +70,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
         exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
         transition={{ duration: 0.25 }}
       >
-        <FiX className="text-error h-8 w-8" />
+        <FiX className="h-8 w-8 text-(--warm-red)" />
       </motion.div>
     );
   };
@@ -84,7 +84,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ duration: 0.25 }}
       >
-        <FiMenu className="text-error h-8 w-8" />
+        <FiMenu className="h-8 w-8 text-(--warm-red)" />
       </motion.div>
     );
   };
@@ -100,7 +100,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
               className={({ isActive }) =>
                 cn(
                   'bg-transparent text-2xl font-bold tracking-tight',
-                  isActive ? 'text-error' : 'text-black'
+                  isActive ? 'text-(--warm-red) underline underline-offset-4' : 'text-black'
                 )
               }
             >
@@ -134,12 +134,12 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
             <div className="mt-auto space-y-5 bg-amber-100 px-5 py-10">
               <h1 data-aos="fade-right" className="text-2xl leading-snug font-extrabold">
                 Power Your Business With a
-                <span className="text-error"> Reliable Meat Supplier</span>
+                <span className="text-(--warm-red)"> Reliable Meat Supplier</span>
               </h1>
 
               <button
                 onClick={handleNavigate}
-                className="btn btn-error w-full text-white shadow-md hover:shadow-lg"
+                className="btn w-full border-(--warm-red) bg-(--warm-red) font-bold text-white shadow-md hover:shadow-lg"
               >
                 Talk to us
               </button>
