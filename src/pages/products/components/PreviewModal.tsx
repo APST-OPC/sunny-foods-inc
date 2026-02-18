@@ -35,11 +35,16 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
   const tags = (): ReactNode => {
     return (
       <div className="mb-4 flex flex-wrap gap-2">
-        {product?.tags?.map((tag, ids) => (
-          <span key={ids} className="badge badge-outline text-(--red)">
-            {tag}
-          </span>
-        ))}
+        {product?.tags?.map((tag, ids) => {
+          const colors = ['--red', '--olive-green', '--golden-yellow'];
+          const colorClass = colors[ids % colors.length];
+
+          return (
+            <span key={ids} className={`badge badge-outline text-(${colorClass})`}>
+              {tag}
+            </span>
+          );
+        })}
       </div>
     );
   };

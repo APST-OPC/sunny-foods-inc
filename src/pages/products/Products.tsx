@@ -9,7 +9,7 @@ import CustomDivider from './components/CustomDivider';
 import PreviewCard from './components/PreviewCard';
 import PreviewModal from './components/PreviewModal';
 
-import { products } from './utils';
+import { products, whyChooseProducts } from './utils';
 import { cn } from '~/libs/cn';
 
 const Products = (): ReactElement => {
@@ -42,37 +42,81 @@ const Products = (): ReactElement => {
 
     return (
       <section className="container mx-auto space-y-7 px-5">
-        <CustomDivider />
-        <div role="tablist" className="tabs tabs-border justify-center">
-          <button
-            role="tab"
-            className={cn(
-              'tab text-lg',
-              selectedType === 'Core Products' && 'tab-active before:text-error text-error'
-            )}
-            onClick={() => setSelectedType('Core Products')}
-          >
-            Core Products
-          </button>
+        <CustomDivider className="-mt-5" />
 
-          <button
-            role="tab"
-            className={cn(
-              'tab text-lg',
-              selectedType === 'Steak Series' && 'tab-active before:text-error text-error'
-            )}
-            onClick={() => setSelectedType('Steak Series')}
-          >
-            Steak Series
-          </button>
+        <div className="space-y-5">
+          <div role="tablist" className="tabs tabs-border justify-center">
+            <a
+              role="tab"
+              className={cn(
+                'tab hover:text-error text-lg transition-colors duration-300',
+                selectedType === 'Core Products' &&
+                  'tab-active before:text-error text-error font-bold'
+              )}
+              onClick={() => setSelectedType('Core Products')}
+            >
+              Core Products
+            </a>
+
+            <a
+              role="tab"
+              className={cn(
+                'tab hover:text-error text-lg transition-colors duration-300',
+                selectedType === 'Steak Series' &&
+                  'tab-active before:text-error text-error font-bold'
+              )}
+              onClick={() => setSelectedType('Steak Series')}
+            >
+              Steak Series
+            </a>
+          </div>
+
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
+            {displayedProducts.map((data, index) => {
+              return (
+                <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
-          {displayedProducts.map((data, index) => {
-            return <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />;
-          })}
+        <CustomDivider className="mt-5" />
+      </section>
+    );
+  };
+
+  const renderWhyChooseProducts = (): ReactNode => {
+    return (
+      <section className="container mx-auto space-y-20 py-20">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold">
+            WHY CHOOSE <span className="text-error">OUR BEEF PRODUCTS</span>?
+          </h1>
+
+          <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
+            Sunny Foods is committed to more than just great meat — we make sure that our beef
+            products are of utmost quality to keep our customers satisfied.
+          </p>
         </div>
-        <CustomDivider />
+
+        <div className="grid place-items-center gap-5 px-5 md:grid-cols-2 lg:grid-cols-3">
+          {whyChooseProducts.map(({ title, description, image }, ids) => (
+            <div
+              key={ids}
+              className="card bg-base-100 border-base-200 w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md"
+            >
+              <div className="card-body items-center text-center">
+                <div className="mb-4 text-5xl">
+                  <img src={image} alt={title.toLowerCase()} className="h-14 w-14" />
+                </div>
+                <h3 className="card-title text-xl font-bold">{title}</h3>
+                <p className="text-base-content/80">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <CustomDivider className="mt-5" />
       </section>
     );
   };
@@ -81,6 +125,7 @@ const Products = (): ReactElement => {
     <main className="py-20">
       {renderHeader()}
       {renderProductList()}
+      {renderWhyChooseProducts()}
       <CTA />
       <PreviewModal product={selectedProduct} open={showDetail} handleClose={handleShowDetail} />
     </main>

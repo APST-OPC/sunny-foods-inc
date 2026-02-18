@@ -8,6 +8,12 @@ import ChuckEyeSteak from '~/assets/products/steak-series/chuckeye-steak.webp';
 import RibEyeSteak from '~/assets/products/steak-series/ribeye-steak.webp';
 import TopBladeSteak from '~/assets/products/steak-series/top-blade-steak.webp';
 
+import Packaging from '~/assets/packaging-meat.png';
+import Stove from '~/assets/stove.png';
+import FrozenMeat from '~/assets/steak.png'
+import Restaurant from '~/assets/restaurant.png';
+import Quality from '~/assets/high-quality.png';
+
 export const products: IProducts[] = [
   {
     id: 1,
@@ -66,3 +72,36 @@ export const products: IProducts[] = [
     tags: ['Frozen', 'Easy to Cook']
   },
 ];
+
+export const whyChooseProducts = [
+  {
+    image: Packaging,
+    title: "Premium Beef Cuts",
+    description: "All natural, premium-grade cuts, expertly portion-controlled."
+  },
+  {
+    image: Stove,
+    title: "Ready-to-Cook Convenience",
+    description: "Pre-cut, pre-marinated options for effortless cooking."
+  },
+  {
+    image: Packaging,
+    title: "Portion-Controlled / Zero Waste",
+    description: "Consistent weight & size, minimizing waste & maximizing profit."
+  },
+  {
+    image: FrozenMeat,
+    title: "Frozen for Freshness & Shelf Life",
+    description: "Locking in natural juices and nutrients for extended shelf life."
+  },
+  {
+    image: Restaurant,
+    title: "Foodservice Friendly",
+    description: "Custom-tailored to meet the needs of horeca and food retailers."
+  },
+  {
+    image: Quality,
+    title: "Consistent Quality Every Time",
+    description: "Rigorous quality control, ensuring top quality in every order."
+  },
+]
