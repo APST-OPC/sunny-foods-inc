@@ -1,61 +1,68 @@
 import type { IProducts } from './type';
 
-import BlackPepperSteak from '~/assets/old-steak/black-pepper-steak.jpg';
-import WagyuCubes from '~/assets/old-steak/wagyu-cube-steak.jpg';
-import BurgerPatty from '~/assets/old-steak/burger-patty.jpg';
-import StripLoinSteak from '~/assets/old-steak/striploin-steak.jpg';
-import ChuckEyeSteak from '~/assets/old-steak/chuck-eye-steak.jpg';
-import RibEyeSteak from '~/assets/old-steak/rib-eye-steak.jpg';
-import TopBladeSteak from '~/assets/old-steak/top-blade-steak.jpg';
+import BlackPepperSteak from '~/assets/products/core-products/black-pepper-steak.webp';
+import WagyuCubes from '~/assets/products/core-products/wagyu-cubes.webp';
+import BurgerPatty from '~/assets/products/core-products/burger-patty.webp';
+import StripLoinSteak from '~/assets/products/steak-series/striploin-steak.webp';
+import ChuckEyeSteak from '~/assets/products/steak-series/chuckeye-steak.webp';
+import RibEyeSteak from '~/assets/products/steak-series/ribeye-steak.webp';
+import TopBladeSteak from '~/assets/products/steak-series/top-blade-steak.webp';
 
 export const products: IProducts[] = [
   {
     id: 1,
     title: 'Black Pepper Steak',
-    description:
-      'Our Black Pepper Steak features a premium cut of tender beef, seasoned with freshly cracked black pepper and aromatic spices. grilled or pan-seared, it offers a bold, savory flavor with a satisfying kick, ideal for steak lovers who enjoy a spicy, flavorful bite.',
+    description: 'Tender beef steak seasoned with cracked black pepper for bold flavor.',
     image: BlackPepperSteak,
+    type: 'Core Products',
+    tags: ['Frozen - Easy to Cook', 'Premium Steak Experience']
   },
   {
     id: 2,
-    title: 'Wagyu Cubes',
-    description:
-      'Our Wagyu Style Cubes offer the rich, marbled texture and melt-in-your mouth tenderness of Wagyu Style cubes, but in a convenient bite-sized format. Perfect for grilling, stir-frying, or adding to stews, these cubes bring the luxurious flavor of Wagyu to any dish. Ideal for those who crave indulgence in every bite.',
+    title: 'Wagyu-Style Cubes',
+    description: 'Warbled beef cubes ideal for grilling, stir-frying, and premium dishes.',
     image: WagyuCubes,
+    type: 'Core Products',
+    tags: ['Cook From Frozen', 'Easy to Cook', 'No Chef Needed']
   },
   {
     id: 3,
     title: 'Strip Loin Steak',
-    description:
-      'Our Strip Loin Steak is a prime cut of beef, known for its robust flavor and tender texture. With just the right amount of marbling, this steak is a perfect choice for grilling or pan searing. Whether you’re cooking for a special occasion or enjoying a weekend meal, the Strip Loin delivers a satisfying, savory experience',
+    description: 'Tender and flavorful, a classic choice for grilling or pan-searing.',
     image: StripLoinSteak,
+    type: 'Steak Series',
+    tags: ['Frozen', 'Easy to Cook']
   },
   {
     id: 4,
     title: 'Burger Patty',
-    description:
-      'Our Burger Patty is made from premium cuts of freshly ground beef, carefully seasoned to create a juicy, flavorful patty perfect for grilling or pan-frying. Whether you’re making a classic burger or getting creative with toppings, our patty offers the ideal balance of tenderness and rich beef flavor.',
+    description: 'Juicy beef patties for burgers, sandwiches and creative dishes.',
     image: BurgerPatty,
+    type: 'Core Products',
+    tags: ['Cook From Frozen', 'Easy to Cook', 'No Chef Needed']
   },
   {
     id: 5,
     title: 'Chuck Eye Steak',
-    description:
-      'Our Chuck Eye Steak offers the perfect balance of tenderness, flavor, and value. Often referred to as the “poor man’s ribeye, ” this cut comes from the shoulder area of the beef, providing a marbled texture and rich beef flavor similar to more expensive steaks, but at a more affordable price. Ideal for grilling or pan-searing, the Chuck Eye Steak is a delicious choice for steak lovers.',
+    description: 'Juicy and flavorful, with greate marbling for the perfect balance.',
     image: ChuckEyeSteak,
+    type: 'Steak Series',
+    tags: ['Frozen', 'Easy to Cook']
   },
   {
     id: 6,
     title: 'Rib Eye Steak',
-    description:
-      'Our Rib Eye Steak is the ultimate indulgence for steak lovers. Known for its tender texture and rich, juicy flavor, this cut comes from the rib section of the beef, offering excellent marbling throughout. Whether grilled, pan-seared, or broiled, the Rib Eye Steak delivers a mouthwatering experience with every bite.',
+    description: 'Rich and juicy, with excellent marbling for superior flavor.',
     image: RibEyeSteak,
+    type: 'Steak Series',
+    tags: ['Frozen', 'Easy to Cook']
   },
   {
     id: 7,
     title: 'Top Blade Steak',
-    description:
-      'Our Top Blade Steak is a flavorful and tender cut from the shoulder of the beef, known for its rich taste and unique texture. With a combination of lean meat and fine marbling, the Top Blade offers a hearty steak experience that is both juicy and satisfying. It’s perfect for grilling, pan-searing, or slow cooking, making it a versatile option for any steak lover.',
+    description: 'Lean and tender, ideal for grilling, broiling, or pan-frying.',
     image: TopBladeSteak,
+    type: 'Steak Series',
+    tags: ['Frozen', 'Easy to Cook']
   },
 ];

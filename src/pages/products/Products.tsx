@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
-import type { IProducts } from './type';
+import type { IProductType, IProducts } from './type';
 
 import { useState } from 'react';
 
@@ -10,10 +10,12 @@ import PreviewCard from './components/PreviewCard';
 import PreviewModal from './components/PreviewModal';
 
 import { products } from './utils';
+import { cn } from '~/libs/cn';
 
 const Products = (): ReactElement => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(null);
+  const [selectedType, setSelectedType] = useState<IProductType>('Core Products');
 
   const handleView = (item: IProducts) => {
     setSelectedProduct(item);
@@ -36,11 +38,37 @@ const Products = (): ReactElement => {
   };
 
   const renderProductList = (): ReactNode => {
+    const displayedProducts = products.filter((p) => p.type === selectedType);
+
     return (
       <section className="container mx-auto space-y-7 px-5">
         <CustomDivider />
+        <div role="tablist" className="tabs tabs-border justify-center">
+          <button
+            role="tab"
+            className={cn(
+              'tab text-lg',
+              selectedType === 'Core Products' && 'tab-active before:text-error text-error'
+            )}
+            onClick={() => setSelectedType('Core Products')}
+          >
+            Core Products
+          </button>
+
+          <button
+            role="tab"
+            className={cn(
+              'tab text-lg',
+              selectedType === 'Steak Series' && 'tab-active before:text-error text-error'
+            )}
+            onClick={() => setSelectedType('Steak Series')}
+          >
+            Steak Series
+          </button>
+        </div>
+
         <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
-          {products.map((data, index) => {
+          {displayedProducts.map((data, index) => {
             return <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />;
           })}
         </div>
