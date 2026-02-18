@@ -1,9 +1,12 @@
 import type { Transition } from 'motion/react';
 
 import Warehouse2 from '~/assets/warehouse2.jpg';
-import WareHouse from '~/assets/sunnyfood-warehouse.png';
+import WareHouse from '~/assets/company-building.webp';
 import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
 import ChefSlice from '~/assets/slice-meat.png';
+
+import YummeatLogo from '~/assets/yummeat-logo.png';
+import SoulmeatLogo from '~/assets/soulmeat-logo.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -18,7 +21,7 @@ const About = () => {
   return (
     <AnimatePresence mode="wait">
       <main className="space-y-20">
-        <section id="company-profile" className="container mx-auto px-5 py-20">
+        <section id="company-profile" className="container mx-auto px-5 py-20 space-y-20">
           <header className="mb-14">
             <h1 className="text-4xl font-extrabold">About Sunny Foods Inc.</h1>
             <div className="h-1 w-28 bg-(--red)" />
@@ -71,6 +74,28 @@ const About = () => {
               </q>
             </h1>
           </motion.div>
+
+          <article
+            id="brands"
+            data-aos="fade-up"
+            className="mx-auto max-w-7xl items-center space-y-3 px-6"
+          >
+            <h2 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">Our brands</h2>
+            <div className="mx-auto h-1 w-28 bg-(--green)" />
+
+            <div className="space-y-5">
+              <p className="px-5 text-justify text-xl text-gray-700">
+                With our brands such as Yummeat and Soulmeat, we are sure to deliver the best
+                experience from our beef products, from farm to table.
+              </p>
+
+              <div className="pointer-events-none flex flex-col justify-between items-center lg:flex-row gap-10">
+                <img src={YummeatLogo} className='min-[500px]:w-100'/>
+
+                <img src={SoulmeatLogo} className='min-[500px]:w-100'/>
+              </div>
+            </div>
+          </article>
         </section>
 
         <section id="mission-vision" className="space-y-20">
@@ -152,7 +177,7 @@ const About = () => {
               Development (R&D) team is constantly exploring new ways to improve our products,
               develop new cuts of meat, and introduce healthier options. We also focus on improving
               packaging, enhancing flavor profiles, and developing convenient meal solutions for our
-              customers..
+              customers.
             </p>
           </article>
         </section>
