@@ -56,13 +56,17 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
     );
   };
   const description = (): ReactNode => {
-    return <p className="py-4 text-justify leading-6 text-gray-700">{product?.description}</p>;
+    return (
+      <p className="h-38 overflow-y-auto px-3 py-4 text-justify leading-6 text-gray-700 lg:h-fit">
+        {product?.description}
+      </p>
+    );
   };
   const modalAction = (): ReactNode => {
     return (
       <div className="modal-action md:absolute md:right-6 md:bottom-6">
         <button
-          className="btn btn-error w-full text-white shadow-lg hover:shadow-xl sm:w-36"
+          className="btn w-full border border-(--warm-red) bg-(--warm-red) text-white shadow-lg hover:shadow-xl sm:w-36"
           onClick={handleClose}
         >
           Close

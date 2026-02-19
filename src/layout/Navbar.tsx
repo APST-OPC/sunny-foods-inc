@@ -54,7 +54,10 @@ const Navbar = () => {
         ))}
 
         <Link to={'/talk-to-us'}>
-          <button onClick={instantScrollToTop} className="btn btn-error text-white">
+          <button
+            onClick={instantScrollToTop}
+            className="btn border border-(--warm-red) bg-(--warm-red) text-white"
+          >
             Talk to us
           </button>
         </Link>

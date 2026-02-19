@@ -8,8 +8,8 @@ export interface IContactUs {
 }
 
 export interface IContactForm {
-  fullName: string;
-  emailAddress: string;
+  fullname: string;
+  email: string;
   message: string;
 }
 export interface ITextInput<T extends FieldValues> {

@@ -16,7 +16,9 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
 
   return (
     <fieldset className="fieldset">
-      <p className="label text-lg font-semibold text-black">{label}</p>
+      <p className={cn('label text-lg font-semibold text-black')}>
+        {label} <span className="text-error text-xs">{error && <>{error.message}</>}</span>
+      </p>
 
       <textarea
         {...field}
@@ -29,8 +31,6 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
           className
         )}
       />
-
-      <div className="h-0.5">{error && <p className="text-error">{error.message}</p>}</div>
     </fieldset>
   );
 };
