@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react';
 
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
-import StripLoin from '~/assets/strip-loin-cooked.jpg';
-import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
-import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
+import StripLoin from '~/assets/meat-categories/meat-cat-1.webp';
+import Chuckeye from '~/assets/meat-categories/meat-cat-2.webp';
+import Ribeye from '~/assets/meat-categories/meat-cat-3.webp';
+import TopBlade from '~/assets/meat-categories/meat-cat-4.webp';
 import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
 
 import { CTA } from '~/components';
+import { cn } from '~/libs/cn';
 
-const images = [StripLoin, Chuckeye, Ribeye];
+const images = [StripLoin, Chuckeye, Ribeye, TopBlade];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -90,9 +92,10 @@ const Home = () => {
               {images.map((src, index) => (
                 <div
                   key={index}
-                  className={`carousel-item w-full transition-all ${
+                  className={cn(
+                    'carousel-item w-full transition-all',
                     index === currentSlide ? 'opacity-100' : 'absolute opacity-0'
-                  }`}
+                  )}
                 >
                   <img
                     src={src}
