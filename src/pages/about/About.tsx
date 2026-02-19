@@ -21,7 +21,7 @@ const About = () => {
   return (
     <AnimatePresence mode="wait">
       <main className="space-y-20">
-        <section id="company-profile" className="container mx-auto px-5 py-20 space-y-20">
+        <section id="company-profile" className="container mx-auto space-y-20 px-5 py-20">
           <header className="mb-14">
             <h1 className="text-4xl font-extrabold">About Sunny Foods Inc.</h1>
             <div className="h-1 w-28 bg-(--red)" />
@@ -89,10 +89,10 @@ const About = () => {
                 experience from our beef products, from farm to table.
               </p>
 
-              <div className="pointer-events-none flex flex-col justify-between items-center lg:flex-row gap-10">
-                <img src={YummeatLogo} className='min-[500px]:w-100'/>
+              <div className="pointer-events-none flex flex-col items-center justify-between gap-10 lg:flex-row">
+                <img src={YummeatLogo} className="min-[500px]:w-100" />
 
-                <img src={SoulmeatLogo} className='min-[500px]:w-100'/>
+                <img src={SoulmeatLogo} className="min-[500px]:w-100" />
               </div>
             </div>
           </article>
@@ -110,14 +110,14 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our Mission
-              </h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">Mission</h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
-                Our mission is to provide high-quality, delicious, and affordable food products that
-                bring joy to every meal. We are committed to excellence, sustainability, and serving
-                our customers with integrity and care.
+                Our mission is to provide our customers with{' '}
+                <strong>high-quality, convenient,</strong> and{' '}
+                <strong>delicious frozen beef products,</strong> crafted to bring{' '}
+                <strong>gourmet flavors and premium</strong> dining experiences into every home and
+                business.
               </p>
             </motion.div>
 
@@ -151,14 +151,12 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our Vision
-              </h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">Vision</h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
-                To be a leading and trusted provider of premium frozen meat products, recognized
-                across the retail and food service industries for our commitment to quality,
-                operational excellence, and consistent value.
+                Our vision is to be the leading producer of premium frozen beef products, known for{' '}
+                <strong>our commitment to quality, innovation,</strong> and{' '}
+                <strong>exceptional taste</strong> in the local and international markets.
               </p>
             </motion.div>
           </article>
@@ -220,16 +218,16 @@ const About = () => {
         <section id="history">
           <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
             <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our History
-              </h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">History</h1>
               <p className="text-justify text-lg text-gray-700 md:text-xl">
-                Established in 2024, Sunny Foods Inc. develops high-quality meat products using
-                cutting-edge technology and precision-engineered equipment.
+                Sunny Foods Inc. is a leading meat processing and distribution company based in the
+                Philippines. Established in 2024, we specialize in producing high-quality meat
+                products using cutting-edge technology and strict quality control standards.
               </p>
               <p className="text-justify text-lg text-gray-700 md:text-xl">
-                We&apos;re passionate about delivering fresh, flavorful, and reliable meats that
-                suit every meal from daily dinners to special occasions.
+                From our state-of-the-art manufacturing facility in Carmona, Cavite, we supply
+                retailers, foodservice businesses, distributors, and private label clients
+                throughout the nation, with delicious and affordable protein solutions.
               </p>
             </div>
 

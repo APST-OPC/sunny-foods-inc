@@ -67,6 +67,13 @@ const Footer = (): ReactElement => {
         >
           Talk to us
         </NavLink>
+        <NavLink
+          to="/legal"
+          className="hover:text-error whitespace-nowrap"
+          onClick={instantScrollToTop}
+        >
+          Licenses and Safety
+        </NavLink>
       </div>
     );
   };
