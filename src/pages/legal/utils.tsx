@@ -1,13 +1,13 @@
 import type { IFactory, ILicenseAndSafety, ISafetyCard } from './type';
 
-import BarangayCert from '~/assets/certifications/barangay-clearance-cert.webp';
-import Bir from '~/assets/certifications/bir-cert.webp';
-import Fda from '~/assets/certifications/fda-license-cert.webp';
-import FireSafety from '~/assets/certifications/fire-safety-clearance.webp';
-import Sanitary from '~/assets/certifications/mayor-sanitary-permit-cert.webp';
-import MayorPerm from '~/assets/certifications/mayors-perm-cert.webp';
-import SanitaryCert from '~/assets/certifications/sanitary-permit-cert.webp';
-import Sec from '~/assets/certifications/sec-cert.webp';
+import BarangayCert from '~/assets/certifications/barangay-clearance-cert.png';
+import Bir from '~/assets/certifications/bir-cert.png';
+import Fda from '~/assets/certifications/fda-license-cert.png';
+import FireSafety from '~/assets/certifications/fire-safety-clearance.png';
+import Sanitary from '~/assets/certifications/mayor-sanitary-permit-cert.png';
+import MayorPerm from '~/assets/certifications/mayors-perm-cert.png';
+import SanitaryCert from '~/assets/certifications/sanitary-permit-cert.png';
+import Sec from '~/assets/certifications/sec-cert.png';
 
 import FdaLogo from '~/assets/icons/fda.png';
 import Checklist from '~/assets/icons/checklist.png';
