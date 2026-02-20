@@ -13,13 +13,13 @@ import FdaLogo from '~/assets/icons/fda.png';
 import Checklist from '~/assets/icons/checklist.png';
 import Wholesale from '~/assets/wholesale.png';
 
-import FoodSafetyOne from '~/assets/food-safety/food-safety-one.webp';
-import FoodSafetyTwo from '~/assets/food-safety/food-safety-two.webp';
+import FoodSafetyOne from '~/assets/food-safety/food-safety-one.png';
+import FoodSafetyTwo from '~/assets/food-safety/food-safety-two.png';
 
-import ProdFacilityOne from '~/assets/food-safety/prod-facility-1.webp';
-import ProdFacilityTwo from '~/assets/food-safety/prod-facility-2.webp';
-import ProdFacilityThree from '~/assets/food-safety/prod-facility-3.webp';
-import ProdFacilityFour from '~/assets/food-safety/prod-area-visual-2.webp';
+import ProdFacilityOne from '~/assets/food-safety/prod-facility-1.png';
+import ProdFacilityTwo from '~/assets/food-safety/prod-facility-2.png';
+import ProdFacilityThree from '~/assets/food-safety/prod-facility-3.png';
+import ProdFacilityFour from '~/assets/food-safety/prod-area-visual-2.png';
 
 export const licenses: ILicenseAndSafety[] = [
   {

@@ -1,12 +1,12 @@
 import type { IProducts } from './type';
 
-import BlackPepperSteak from '~/assets/products/core-products/black-pepper-steak.webp';
-import WagyuCubes from '~/assets/products/core-products/wagyu-cubes.webp';
-import BurgerPatty from '~/assets/products/core-products/burger-patty.webp';
-import StripLoinSteak from '~/assets/products/steak-series/striploin-steak.webp';
-import ChuckEyeSteak from '~/assets/products/steak-series/chuckeye-steak.webp';
-import RibEyeSteak from '~/assets/products/steak-series/ribeye-steak.webp';
-import TopBladeSteak from '~/assets/products/steak-series/top-blade-steak.webp';
+import BlackPepperSteak from '~/assets/products/core-products/black-pepper-steak.png';
+import WagyuCubes from '~/assets/products/core-products/wagyu-cubes.png';
+import BurgerPatty from '~/assets/products/core-products/burger-patty.png';
+import StripLoinSteak from '~/assets/products/steak-series/striploin-steak.png';
+import ChuckEyeSteak from '~/assets/products/steak-series/chuckeye-steak.png';
+import RibEyeSteak from '~/assets/products/steak-series/ribeye-steak.png';
+import TopBladeSteak from '~/assets/products/steak-series/topblade-steak.png';
 
 import Packaging from '~/assets/packaging-meat.png';
 import Stove from '~/assets/stove.png';

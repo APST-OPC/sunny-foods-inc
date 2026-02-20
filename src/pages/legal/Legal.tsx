@@ -7,9 +7,9 @@ import {
   safetyPermits,
 } from './utils';
 
-import PpeImage from '~/assets/food-safety/ppe-protocol.webp';
-import ProdAreaVisualOne from '~/assets/food-safety/prod-area-visual-1.webp';
-import ProdAreaVisualTwo from '~/assets/food-safety/prod-area-visual-2.webp';
+import PpeImage from '~/assets/food-safety/ppe-protocol.png';
+import ProdAreaVisualOne from '~/assets/food-safety/prod-area-visual-1.png';
+import ProdAreaVisualTwo from '~/assets/food-safety/prod-area-visual-2.png';
 
 const Legal = () => {
   return (

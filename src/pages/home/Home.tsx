@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
-import StripLoin from '~/assets/meat-categories/meat-cat-1.webp';
-import Chuckeye from '~/assets/meat-categories/meat-cat-2.webp';
-import Ribeye from '~/assets/meat-categories/meat-cat-3.webp';
-import TopBlade from '~/assets/meat-categories/meat-cat-4.webp';
+import StripLoin from '~/assets/meat-categories/meat-cat-1.png';
+import Chuckeye from '~/assets/meat-categories/meat-cat-2.png';
+import Ribeye from '~/assets/meat-categories/meat-cat-3.png';
+import TopBlade from '~/assets/meat-categories/meat-cat-4.png';
 import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
 
 import { featureProducts, services } from './utils';

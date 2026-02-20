@@ -5,9 +5,9 @@ import Quality from '~/assets/products.png';
 import Delivery from '~/assets/delivery.png';
 import CustomerService from '~/assets/customer-service.png';
 
-import ChuckEye from '~/assets/products/steak-series/chuckeye-steak.webp';
-import Ribeye from '~/assets/products/steak-series/ribeye-steak.webp';
-import StripLoin from '~/assets/products/steak-series/striploin-steak.webp';
+import ChuckEye from '~/assets/products/steak-series/chuckeye-steak.png';
+import Ribeye from '~/assets/products/steak-series/ribeye-steak.png';
+import StripLoin from '~/assets/products/steak-series/striploin-steak.png';
 
 export const services = [
   {

@@ -1,7 +1,7 @@
 import type { Transition } from 'motion/react';
 
 import Warehouse2 from '~/assets/warehouse2.jpg';
-import WareHouse from '~/assets/company-building.webp';
+import WareHouse from '~/assets/company-building.png';
 import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
 import ChefSlice from '~/assets/slice-meat.png';
 
