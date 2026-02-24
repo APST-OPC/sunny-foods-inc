@@ -1,12 +1,12 @@
 import type { Transition } from 'motion/react';
 
 import Warehouse2 from '~/assets/warehouse2.jpg';
-import WareHouse from '~/assets/sunnyfood-warehouse.png';
-import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
+import WareHouse from '~/assets/company-building.png';
+import WagyuCubes from '~/assets/wagyu-cube-cook.png';
 import ChefSlice from '~/assets/slice-meat.png';
 
-import YummeatLogo from '~/assets/yummeat-logo-transparent.png';
-import SoulmeatLogo from '~/assets/soulmeat-logo-transparent.png';
+import YummeatLogo from '~/assets/yummeat-logo-trans.png';
+import SoulmeatLogo from '~/assets/soulmeat-logo-trans.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';

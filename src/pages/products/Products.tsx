@@ -40,7 +40,7 @@ const Products = (): ReactElement => {
   const renderProductList = (): ReactNode => {
     return (
       <section className="container mx-auto space-y-7 px-5">
-        <CustomDivider className="-mt-5" />
+        <CustomDivider />
 
         <div className="space-y-5">
           <div role="tablist" className="tabs tabs-border justify-center">
@@ -80,7 +80,7 @@ const Products = (): ReactElement => {
           </div>
         </div>
 
-        <CustomDivider className="mt-5" />
+        <CustomDivider />
       </section>
     );
   };
@@ -116,7 +116,7 @@ const Products = (): ReactElement => {
           ))}
         </div>
 
-        <CustomDivider className="mt-5" />
+        <CustomDivider />
       </section>
     );
   };
