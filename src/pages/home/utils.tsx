@@ -1,58 +1,68 @@
 import SliceMeat from '~/assets/custom-meat.png';
-import Wholesale from '~/assets/wholesale.png';
+import Wholesale from '~/assets/box.png';
 import Packaging from '~/assets/packaging-meat.png';
-import Quality from '~/assets/high-quality.png';
+import Quality from '~/assets/products.png';
+import Delivery from '~/assets/delivery.png';
+import CustomerService from '~/assets/customer-service.png';
 
-import ChuckEye from '~/assets/chuck-eye.webp';
-import Ribeye from '~/assets/ribeye.jpg';
-import StripLoin from '~/assets/strip-loin-cooked.jpg';
+import ChuckEye from '~/assets/products/steak-series/chuckeye-steak.png';
+import Ribeye from '~/assets/products/steak-series/ribeye-steak.png';
+import StripLoin from '~/assets/products/steak-series/striploin-steak.png';
 
 export const services = [
   {
     src: SliceMeat,
     title: 'Custom Meat Orders',
-    description:
-      'Choose your preferred cuts, portion sizes, and packaging — all customized to meet your specific cooking and dining needs.',
+    description: 'Tailored cuts and blends to your exact to your exact specifications.',
   },
   {
     src: Wholesale,
     title: 'Bulk Ordering & Wholesale',
-    description:
-      'We provide large-scale meat supply for restaurants, retailers, and events — ensuring consistent quality and timely delivery.',
+    description: 'Discounted rates on bulk purchases for distributors and retailers.',
   },
   {
     src: Packaging,
     title: 'Packaging & Labelling',
-    description:
-      'All products are professionally vacuum-sealed, labeled, and date-marked to maintain freshness and ensure easy storage.',
+    description: 'Flexible packaging solutions with custom labeling.',
   },
   {
     src: Quality,
-    title: 'Food Safety and Quality Assurance',
-    description:
-      'We prioritize food safety and consistent quality so every order meets the highest standards.',
+    title: 'OEM / Private Label',
+    description: 'Custom branding and manufacturing for your private label needs.',
+  },
+  {
+    src: Delivery,
+    title: 'Distribution Support',
+    description: 'Reliable logistics and delivery solutions nationwide.',
+  },
+  {
+    src: CustomerService,
+    title: 'B2B Customer Service',
+    description: 'Dedicated support team for prompt and effective assistance.',
+  },
+  {
+    src: Delivery,
+    title: 'Cold Chain Logistics & Handling',
+    description: 'End-to-end cold chain management for safe, temperature-controlled delivery.',
   },
 ];
 
 export const featureProducts = [
   {
     title: 'Strip Loin Steak',
-    description:
-      'Our Strip Loin Steak is a prime cut of beef, known for its robust flavor and tender texture.',
+    description: 'Tender and flavorful, with great marbling for the perfect balance.',
     link: './products',
     img: StripLoin,
   },
   {
     title: 'Chuck Eye Steak',
-    description:
-      'Discover the steak lover’s secret — bold, tender, and richly marbled Chuck Eye perfection.',
+    description: 'Juicy and flavorful, with great marbling for the perfect balance.',
     link: './products',
     img: ChuckEye,
   },
   {
     title: 'Rib Eye Steak',
-    description:
-      'Indulge in the unrivaled richness of our Rib Eye Steak — beautifully marbled, melt-in-your-mouth tender, and bursting with flavor in every bite.',
+    description: 'Rich and juicy, with excellent marbling for superior flavor.',
     link: './products',
     img: Ribeye,
   },

@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Logo from '~/assets/sunnyfoods-logo.png';
+import Logo from '~/assets/company-logo-textless.png';
 import Contact from '~/assets/phone-call.png';
 import Mail from '~/assets/gmail.png';
 import { footerContactUs, instantScrollToTop } from './utils';
@@ -12,11 +12,10 @@ const Footer = (): ReactElement => {
   const renderBrand = (): ReactNode => {
     return (
       <div className="flex justify-center gap-4 text-neutral-900 md:w-1/3 md:justify-start lg:w-auto">
-        <img src={Logo} className="h-18 w-18 lg:h-28 lg:w-28" />
+        <img src={Logo} className="hidden lg:block h-12" />
         <div className="font-semibold">
-          <p className="text-xl leading-6 font-black whitespace-nowrap">
-            <span className="text-success mr-1">Sunny</span>
-            <span className="text-error">Foods Inc.</span>
+          <p className="text-success font-serif text-xl leading-6 font-black whitespace-nowrap uppercase">
+            Sunny Foods Inc.
           </p>
           <p>Bldg. 2 Blk. 1 Governors Park Drive</p>
           <p>Southwoods Industrial Park Mabuhay,</p>
@@ -30,7 +29,7 @@ const Footer = (): ReactElement => {
     return (
       <div className="space-y-4 text-center text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
-        <div className="flex justify-center gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
             <div
               key={ids}
@@ -66,6 +65,13 @@ const Footer = (): ReactElement => {
           onClick={instantScrollToTop}
         >
           Talk to us
+        </NavLink>
+        <NavLink
+          to="/legal"
+          className="hover:text-error whitespace-nowrap"
+          onClick={instantScrollToTop}
+        >
+          Licenses and Safety
         </NavLink>
       </div>
     );

@@ -18,7 +18,7 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
   }, []);
 
   return isLoading ? (
-    <div className="skeleton flex h-48 flex-col items-center space-y-5" />
+    <div className="skeleton flex h-52 flex-col items-center space-y-5 lg:h-87" />
   ) : (
     <div className="flex flex-col items-center space-y-5">
       <div className="relative h-52 w-full overflow-hidden rounded-2xl shadow-lg shadow-gray-400 lg:h-72 lg:w-52">
