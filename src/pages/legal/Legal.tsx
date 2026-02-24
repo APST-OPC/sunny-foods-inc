@@ -124,11 +124,11 @@ const Legal = () => {
           <div className="space-y-7">
             <p className="text-center text-4xl font-extrabold">Safety Permits</p>
 
-            <div className="grid place-items-center lg:grid-cols-2 xl:grid-cols-4">
+            <div className="grid place-items-center gap-5 lg:grid-cols-2 xl:grid-cols-4">
               {safetyPermits.map((license, ids) => (
                 <div
                   key={ids}
-                  className="space-y-5 items-center text-center transition-all duration-300 hover:scale-105"
+                  className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105"
                 >
                   <img src={license.img} className="pointer-events-none size-80 rounded-2xl" />
 
@@ -141,11 +141,11 @@ const Legal = () => {
           <div className="space-y-7">
             <p className="text-center text-4xl font-extrabold">Licenses to Operate</p>
 
-            <div className="grid place-items-center text-center lg:grid-cols-2 xl:grid-cols-4">
+            <div className="grid place-items-center gap-5 lg:grid-cols-2 xl:grid-cols-4">
               {licenses.map((license, ids) => (
                 <div
                   key={ids}
-                  className="space-y-5 items-center transition-all duration-300 hover:scale-105"
+                  className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105"
                 >
                   <img src={license.img} className="pointer-events-none size-80 rounded-2xl" />
 
