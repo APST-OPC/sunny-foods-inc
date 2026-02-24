@@ -36,7 +36,7 @@ export const ProductCard = (props: IProductPreview) => {
         </div>
       )}
 
-      <img src={img} alt={title.toLowerCase()} className="h-full w-full" />
+      <img src={img} alt={title.toLowerCase()} className="h-full w-full object-cover" />
     </div>
   );
 };

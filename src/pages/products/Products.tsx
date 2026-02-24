@@ -38,8 +38,6 @@ const Products = (): ReactElement => {
   };
 
   const renderProductList = (): ReactNode => {
-    const displayedProducts = products.filter((p) => p.type === selectedType);
-
     return (
       <section className="container mx-auto space-y-7 px-5">
         <CustomDivider className="-mt-5" />
@@ -72,11 +70,13 @@ const Products = (): ReactElement => {
           </div>
 
           <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
-            {displayedProducts.map((data, index) => {
-              return (
-                <PreviewCard key={index} imageSrc={data} openDetails={() => handleView(data)} />
-              );
-            })}
+            {products
+              .filter((p) => p.type === selectedType)
+              .map((data) => {
+                return (
+                  <PreviewCard key={data.id} imageSrc={data} openDetails={() => handleView(data)} />
+                );
+              })}
           </div>
         </div>
 

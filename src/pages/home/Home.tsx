@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 
 import Cow from '~/assets/ic_cow.png';
 import Steak from '~/assets/ic_steak.png';
-import StripLoin from '~/assets/meat-categories/meat-cat-1.png';
-import Chuckeye from '~/assets/meat-categories/meat-cat-2.png';
-import Ribeye from '~/assets/meat-categories/meat-cat-3.png';
-import TopBlade from '~/assets/meat-categories/meat-cat-4.png';
+import StripLoin from '~/assets/strip-loin-cooked.jpg';
+import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
+import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
 import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
 
 import { featureProducts, services } from './utils';
@@ -15,7 +14,7 @@ import { CTA } from '~/components';
 import { cn } from '~/libs/cn';
 import { useNavigate } from 'react-router-dom';
 
-const images = [StripLoin, Chuckeye, Ribeye, TopBlade];
+const images = [StripLoin, Chuckeye, Ribeye];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -60,7 +59,7 @@ const Home = () => {
             <div className="flex flex-col gap-4 md:flex-row">
               <button
                 onClick={() => navigate('products')}
-                className="btn text-bold w-full rounded-sm border-[#1A1513] bg-[#1A1513] px-8 text-white md:h-14 md:w-56"
+                className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
               >
                 Explore Products
               </button>

@@ -1,12 +1,12 @@
 import type { Transition } from 'motion/react';
 
 import Warehouse2 from '~/assets/warehouse2.jpg';
-import WareHouse from '~/assets/company-building.png';
+import WareHouse from '~/assets/sunnyfood-warehouse.png';
 import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
 import ChefSlice from '~/assets/slice-meat.png';
 
-import YummeatLogo from '~/assets/yummeat-logo.png';
-import SoulmeatLogo from '~/assets/soulmeat-logo.png';
+import YummeatLogo from '~/assets/yummeat-logo-transparent.png';
+import SoulmeatLogo from '~/assets/soulmeat-logo-transparent.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -110,7 +110,9 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">Mission</h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
+                Mission
+              </h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
                 Our mission is to provide our customers with{' '}
@@ -151,7 +153,9 @@ const About = () => {
               viewport={{ once: false }}
               transition={linear}
             >
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">Vision</h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
+                Vision
+              </h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
                 Our vision is to be the leading producer of premium frozen beef products, known for{' '}
@@ -218,7 +222,9 @@ const About = () => {
         <section id="history">
           <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
             <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">History</h1>
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
+                History
+              </h1>
               <p className="text-justify text-lg text-gray-700 md:text-xl">
                 Sunny Foods Inc. is a leading meat processing and distribution company based in the
                 Philippines. Established in 2024, we specialize in producing high-quality meat
