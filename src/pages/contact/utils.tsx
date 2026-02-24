@@ -1,7 +1,8 @@
 import type { IContactUs } from "./type";
 
-import { FaTiktok, FaViber } from 'react-icons/fa';
+import { FaViber } from 'react-icons/fa';
 import { AiOutlineFacebook } from 'react-icons/ai';
+import { PiTiktokLogo } from 'react-icons/pi';
 import { FaInstagram } from 'react-icons/fa6';
 
 export const contactBtns: IContactUs[] = [
@@ -21,7 +22,7 @@ export const contactBtns: IContactUs[] = [
     contactFn: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
   {
-    contactIcon: <FaTiktok size={60} />,
+    contactIcon: <PiTiktokLogo size={60} />,
     contactCTA: 'Follow us on TikTok',
     contactFn: () => window.open('https://www.tiktok.com/@sunnyfoodsinc', '_blank'),
   },

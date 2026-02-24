@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
+import SunnyFoodsLogo from '~/assets/company-logo-textless.png';
 import { cn } from '~/libs/cn';
 
 import MobileNavbar from './MobileNavbar';
@@ -23,13 +23,13 @@ const Navbar = () => {
           onClick={onClickLogo}
           className="flex flex-row items-center gap-2 hover:cursor-pointer"
         >
-          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="h-16 w-16" />
+          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="block h-8 lg:h-12" />
+
           <span>
-            <p className="text-xl leading-6 font-bold">
-              <span className="text-success mr-1">Sunny</span>
-              <span className="text-error">Foods Inc.</span>
+            <p className="text-success font-serif text-sm lg:text-xl leading-6 font-bold uppercase">
+              Sunny Foods Inc.
             </p>
-            <p className="text-xs font-medium text-gray-600">Delicious • Healthy • Affordable</p>
+            <p className="text-[10px] lg:text-xs font-medium text-(--red)">Delicious • Healthy • Affordable</p>
           </span>
         </div>
       </div>

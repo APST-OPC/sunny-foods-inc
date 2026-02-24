@@ -56,14 +56,12 @@ const Home = () => {
               convenience.
             </p>
 
-            <div className="flex flex-col gap-4 md:flex-row">
-              <button
-                onClick={() => navigate('products')}
-                className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
-              >
-                Explore Products
-              </button>
-            </div>
+            <button
+              onClick={() => navigate('products')}
+              className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
+            >
+              Explore Products
+            </button>
           </div>
         </div>
       </section>
