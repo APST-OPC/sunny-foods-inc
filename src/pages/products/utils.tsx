@@ -8,11 +8,11 @@ import ChuckEyeSteak from '~/assets/products/steak-series/chuckeye-steak.png';
 import RibEyeSteak from '~/assets/products/steak-series/ribeye-steak.png';
 import TopBladeSteak from '~/assets/products/steak-series/topblade-steak.png';
 
-import Packaging from '~/assets/packaging-meat.png';
-import Stove from '~/assets/stove.png';
-import FrozenMeat from '~/assets/steak.png'
-import Restaurant from '~/assets/restaurant.png';
-import Quality from '~/assets/high-quality.png';
+import Packaging from '~/assets/icons/packaging-meat.png';
+import Stove from '~/assets/icons/stove.png';
+import FrozenMeat from '~/assets/icons/steak.png'
+import Restaurant from '~/assets/icons/restaurant.png';
+import Quality from '~/assets/icons/high-quality.png';
 
 export const products: IProducts[] = [
   {

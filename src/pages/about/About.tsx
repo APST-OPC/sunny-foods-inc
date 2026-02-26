@@ -5,8 +5,8 @@ import WareHouse from '~/assets/company-building.png';
 import WagyuCubes from '~/assets/wagyu-cube-cook.png';
 import ChefSlice from '~/assets/slice-meat.png';
 
-import YummeatLogo from '~/assets/yummeat-logo-trans.png';
-import SoulmeatLogo from '~/assets/soulmeat-logo-trans.png';
+import YummeatLogo from '~/assets/logos/yummeat-logo-trans.png';
+import SoulmeatLogo from '~/assets/logos/soulmeat-logo-trans.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -29,7 +29,7 @@ const About = () => {
 
           <div className="mb-10 h-96 w-full overflow-hidden rounded-xl shadow-xl shadow-gray-400">
             <img
-              loading="lazy"
+              loading="eager"
               src={WareHouse}
               alt="sunny-food"
               className="h-full w-full object-cover"
@@ -100,13 +100,51 @@ const About = () => {
 
         <section id="mission-vision" className="space-y-20">
           <article
-            id="mission"
+            id="history"
             className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 lg:flex-row"
           >
             <motion.div
               className="flex-1 space-y-6 lg:px-10"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={linear}
+            >
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
+                History
+              </h1>
+
+              <p className="text-justify text-lg text-gray-700 md:text-xl">
+                Sunny Foods Inc. is a leading meat processing and distribution company based in the
+                Philippines. Established in 2024, we specialize in producing high-quality meat
+                products using cutting-edge technology and strict quality control standards.
+              </p>
+
+              <p className="text-justify text-lg text-gray-700 md:text-xl">
+                From our state-of-the-art manufacturing facility in Carmona, Cavite, we supply
+                retailers, foodservice businesses, distributors, and private label clients
+                throughout the nation, with delicious and affordable protein solutions.
+              </p>
+            </motion.div>
+
+            <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
+              <img
+                loading="lazy"
+                src={Warehouse2}
+                alt={'chef'}
+                className="h-full w-full object-cover object-center"
+              />
+            </figure>
+          </article>
+
+          <article
+            id="mission"
+            className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 lg:flex-row-reverse"
+          >
+            <motion.div
+              className="flex-1 space-y-6 lg:px-10"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={linear}
             >
@@ -135,7 +173,7 @@ const About = () => {
 
           <article
             id="vision"
-            className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row"
+            className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row-reverse"
           >
             <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
               <img
@@ -184,7 +222,7 @@ const About = () => {
           </article>
         </section>
 
-        <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
+        <section className="relative bg-[url('~/assets/meat-combo.jpg')] bg-cover bg-center py-20">
           <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
 
           <article className="relative z-10 container mx-auto space-y-10 px-5">
@@ -216,35 +254,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </article>
-        </section>
-
-        <section id="history">
-          <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
-            <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                History
-              </h1>
-              <p className="text-justify text-lg text-gray-700 md:text-xl">
-                Sunny Foods Inc. is a leading meat processing and distribution company based in the
-                Philippines. Established in 2024, we specialize in producing high-quality meat
-                products using cutting-edge technology and strict quality control standards.
-              </p>
-              <p className="text-justify text-lg text-gray-700 md:text-xl">
-                From our state-of-the-art manufacturing facility in Carmona, Cavite, we supply
-                retailers, foodservice businesses, distributors, and private label clients
-                throughout the nation, with delicious and affordable protein solutions.
-              </p>
-            </div>
-
-            <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
-              <img
-                loading="lazy"
-                src={Warehouse2}
-                alt={'sunny-foods-inc-warehouse'}
-                className="h-full w-full object-cover object-center"
-              />
-            </figure>
           </article>
         </section>
 

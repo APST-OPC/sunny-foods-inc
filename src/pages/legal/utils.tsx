@@ -11,7 +11,9 @@ import Sec from '~/assets/certifications/sec-cert.png';
 
 import FdaLogo from '~/assets/icons/fda.png';
 import Checklist from '~/assets/icons/checklist.png';
-import Wholesale from '~/assets/wholesale.png';
+import Wholesale from '~/assets/icons/wholesale.png';
+import Quality from '~/assets/icons/high-quality.png'
+import SanitaryIcon from '~/assets/icons/sanitary.png'
 
 import FoodSafetyOne from '~/assets/food-safety/food-safety-one.png';
 import FoodSafetyTwo from '~/assets/food-safety/food-safety-two.png';
@@ -65,7 +67,7 @@ export const qualityAndFoodSafetyIcons: ILicenseAndSafety[] = [
     description: 'FDA',
   },
   {
-    img: Checklist,
+    img: SanitaryIcon,
     description: 'Sanitary',
   },
   {
@@ -81,7 +83,7 @@ export const qualityAndFoodSafetyIcons: ILicenseAndSafety[] = [
     description: 'Compliance',
   },
   {
-    img: Checklist,
+    img: Quality,
     description: 'Quality Management',
   },
 ];
