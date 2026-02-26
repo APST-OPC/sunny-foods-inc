@@ -1,4 +1,6 @@
-import { FaFacebookSquare, FaInstagramSquare, FaViber } from 'react-icons/fa';
+import { AiOutlineFacebook } from 'react-icons/ai';
+import { PiTiktokLogo } from 'react-icons/pi';
+import { FaInstagram, FaViber } from 'react-icons/fa';
 
 export const footerContactUs = [
   {
@@ -8,14 +10,19 @@ export const footerContactUs = [
   },
   {
     contactCTA: 'Visit our Facebook page',
-    contactIcon: <FaFacebookSquare color="#c8a175" size={50} />,
+    contactIcon: <AiOutlineFacebook color="#c8a175" size={50} />,
     openWindow: () => window.open('https://www.facebook.com/sunnyfoodsinc/', '_blank'),
   },
   {
     contactCTA: 'Visit our Instagram',
-    contactIcon: <FaInstagramSquare color="#c8a175" size={50} />,
+    contactIcon: <FaInstagram color="#c8a175" size={50} />,
     openWindow: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
+  {
+    contactCTA: 'Follow us on TikTok',
+    contactIcon: <PiTiktokLogo color="#c8a175" size={50} />,
+    openWindow: () => window.open('https://www.tiktok.com/@sunnyfoodsinc', '_blank'),
+  }
 ];
 export const links = [
   { to: '/', label: 'Home' },

@@ -1,4 +1,6 @@
-import { useEffect, useState, type ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { useState } from 'react';
+import { cn } from '~/libs/cn';
 
 interface IPreview {
   imageSrc: { title: string; image: string };
@@ -9,24 +11,16 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return isLoading ? (
-    <div className="skeleton flex h-48 flex-col items-center space-y-5" />
-  ) : (
+  return (
     <div className="flex flex-col items-center space-y-5">
       <div className="relative h-52 w-full overflow-hidden rounded-2xl shadow-lg shadow-gray-400 lg:h-72 lg:w-52">
         <img
           src={image}
           alt={title.toLowerCase()}
-          className="aspect-square h-full w-full object-cover"
+          className={cn('aspect-square h-full w-full object-cover', isLoading && 'skeleton')}
           loading="lazy"
+          onLoad={() => setIsLoading(false)}
+          onError={() => setIsLoading(false)}
         />
       </div>
       <button

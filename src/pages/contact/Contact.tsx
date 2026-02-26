@@ -2,6 +2,8 @@ import type { IContactCard, IContactForm } from './type';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
+import { useState } from 'react';
+
 import { useForm } from 'react-hook-form';
 import { FaCircleCheck, FaCircleExclamation } from 'react-icons/fa6';
 
@@ -12,6 +14,7 @@ import { useSendEmail } from '~/queries/useSendEmail';
 
 import { TextArea, TextField } from './components';
 import { contactBtns } from './utils';
+import { cn } from '~/libs/cn';
 
 const ContactCard = (props: IContactCard) => {
   const { title, className, children } = props;
@@ -29,6 +32,7 @@ const ContactCard = (props: IContactCard) => {
 
 const Contact = (): ReactElement => {
   const { mutate, isSuccess, isError, error } = useSendEmail();
+  const [loading, setLoading] = useState(true);
 
   const schema: yup.ObjectSchema<IContactForm> = yup.object({
     fullname: yup.string().required('required*'),
@@ -67,7 +71,7 @@ const Contact = (): ReactElement => {
         <div className="flex flex-col gap-10 p-5 md:flex-row">
           <div className="flex w-full flex-col gap-10 md:w-1/3">
             <ContactCard title="Follow us">
-              <div className="mt-5 flex flex-wrap justify-evenly">
+              <div className="mt-5 flex flex-wrap justify-center lg:space-x-2 space-x-0.5">
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
                   <div
                     key={ids}
@@ -88,8 +92,13 @@ const Contact = (): ReactElement => {
             <ContactCard title="Our location" className="flex h-full flex-col">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
-                className="mt-5 h-full w-full rounded-lg border-2 border-gray-400"
+                className={cn(
+                  'mt-5 h-full w-full rounded-lg border-2 border-gray-400',
+                  loading && 'skeleton'
+                )}
                 loading="lazy"
+                onLoad={() => setLoading(false)}
+                onError={() => setLoading(false)}
               />
 
               <p className="mt-5 md:hidden">

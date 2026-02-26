@@ -1,9 +1,9 @@
 import type { ReactElement, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Logo from '~/assets/sunnyfoods-logo.png';
-import Contact from '~/assets/phone-call.png';
-import Mail from '~/assets/gmail.png';
+import Logo from '~/assets/logos/company-logo-textless.png';
+import Contact from '~/assets/icons/phone-call.png';
+import Mail from '~/assets/icons/gmail.png';
 import { footerContactUs, instantScrollToTop } from './utils';
 
 const Footer = (): ReactElement => {
@@ -11,16 +11,26 @@ const Footer = (): ReactElement => {
 
   const renderBrand = (): ReactNode => {
     return (
-      <div className="flex justify-center gap-4 text-neutral-900 md:w-1/3 md:justify-start lg:w-auto">
-        <img src={Logo} className="h-18 w-18 lg:h-28 lg:w-28" />
-        <div className="font-semibold">
-          <p className="text-xl leading-6 font-black whitespace-nowrap">
-            <span className="text-success mr-1">Sunny</span>
-            <span className="text-error">Foods Inc.</span>
-          </p>
-          <p>Bldg. 2 Blk. 1 Governors Park Drive</p>
-          <p>Southwoods Industrial Park Mabuhay,</p>
-          <p>Carmona, Cavite (4116)</p>
+      <div className="flex flex-col justify-center gap-4 text-neutral-900 md:w-1/3 md:justify-start lg:w-auto lg:flex-row">
+        <div className='space-y-5'>
+          <div className="flex flex-col items-center gap-2 xl:flex-row">
+            <img src={Logo} alt="Sunny Foods" className="block h-14" />
+
+            <span className='text-center xl:text-start'>
+              <p className="text-success font-serif text-md leading-6 font-bold uppercase lg:text-xl">
+                Sunny Foods Inc.
+              </p>
+              <p className="text-[12px] font-medium text-(--red) lg:text-xs">
+                Delicious • Healthy • Affordable
+              </p>
+            </span>
+          </div>
+
+          <div>
+            <p>Bldg. 2 Blk. 1 Governors Park Drive</p>
+            <p>Southwoods Industrial Park Mabuhay,</p>
+            <p>Carmona, Cavite (4116)</p>
+          </div>
         </div>
       </div>
     );
@@ -30,7 +40,7 @@ const Footer = (): ReactElement => {
     return (
       <div className="space-y-4 text-center text-neutral-900">
         <p className="text-lg leading-6 font-bold">Follow us</p>
-        <div className="flex justify-center gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
             <div
               key={ids}
@@ -66,6 +76,13 @@ const Footer = (): ReactElement => {
           onClick={instantScrollToTop}
         >
           Talk to us
+        </NavLink>
+        <NavLink
+          to="/legal"
+          className="hover:text-error whitespace-nowrap"
+          onClick={instantScrollToTop}
+        >
+          Licenses and Safety
         </NavLink>
       </div>
     );

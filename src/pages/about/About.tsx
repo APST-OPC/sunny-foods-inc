@@ -1,9 +1,12 @@
 import type { Transition } from 'motion/react';
 
 import Warehouse2 from '~/assets/warehouse2.jpg';
-import WareHouse from '~/assets/sunnyfood-warehouse.png';
-import WagyuCubes from '~/assets/wagyu-cube-cook.jpg';
+import WareHouse from '~/assets/company-building.png';
+import WagyuCubes from '~/assets/wagyu-cube-cook.png';
 import ChefSlice from '~/assets/slice-meat.png';
+
+import YummeatLogo from '~/assets/logos/yummeat-logo-trans.png';
+import SoulmeatLogo from '~/assets/logos/soulmeat-logo-trans.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -18,7 +21,7 @@ const About = () => {
   return (
     <AnimatePresence mode="wait">
       <main className="space-y-20">
-        <section id="company-profile" className="container mx-auto px-5 py-20">
+        <section id="company-profile" className="container mx-auto space-y-20 px-5 py-20">
           <header className="mb-14">
             <h1 className="text-4xl font-extrabold">About Sunny Foods Inc.</h1>
             <div className="h-1 w-28 bg-(--red)" />
@@ -26,7 +29,7 @@ const About = () => {
 
           <div className="mb-10 h-96 w-full overflow-hidden rounded-xl shadow-xl shadow-gray-400">
             <img
-              loading="lazy"
+              loading="eager"
               src={WareHouse}
               alt="sunny-food"
               className="h-full w-full object-cover"
@@ -71,11 +74,33 @@ const About = () => {
               </q>
             </h1>
           </motion.div>
+
+          <article
+            id="brands"
+            data-aos="fade-up"
+            className="mx-auto max-w-7xl items-center space-y-3 px-6"
+          >
+            <h2 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">Our brands</h2>
+            <div className="mx-auto h-1 w-28 bg-(--green)" />
+
+            <div className="space-y-5">
+              <p className="px-5 text-justify text-xl text-gray-700">
+                With our brands such as Yummeat and Soulmeat, we are sure to deliver the best
+                experience from our beef products, from farm to table.
+              </p>
+
+              <div className="pointer-events-none flex flex-col items-center justify-between gap-10 lg:flex-row">
+                <img src={YummeatLogo} className="min-[500px]:w-100" />
+
+                <img src={SoulmeatLogo} className="min-[500px]:w-100" />
+              </div>
+            </div>
+          </article>
         </section>
 
         <section id="mission-vision" className="space-y-20">
           <article
-            id="mission"
+            id="history"
             className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 lg:flex-row"
           >
             <motion.div
@@ -86,13 +111,53 @@ const About = () => {
               transition={linear}
             >
               <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our Mission
+                History
+              </h1>
+
+              <p className="text-justify text-lg text-gray-700 md:text-xl">
+                Sunny Foods Inc. is a leading meat processing and distribution company based in the
+                Philippines. Established in 2024, we specialize in producing high-quality meat
+                products using cutting-edge technology and strict quality control standards.
+              </p>
+
+              <p className="text-justify text-lg text-gray-700 md:text-xl">
+                From our state-of-the-art manufacturing facility in Carmona, Cavite, we supply
+                retailers, foodservice businesses, distributors, and private label clients
+                throughout the nation, with delicious and affordable protein solutions.
+              </p>
+            </motion.div>
+
+            <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
+              <img
+                loading="lazy"
+                src={Warehouse2}
+                alt={'chef'}
+                className="h-full w-full object-cover object-center"
+              />
+            </figure>
+          </article>
+
+          <article
+            id="mission"
+            className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 lg:flex-row-reverse"
+          >
+            <motion.div
+              className="flex-1 space-y-6 lg:px-10"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={linear}
+            >
+              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
+                Mission
               </h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
-                Our mission is to provide high-quality, delicious, and affordable food products that
-                bring joy to every meal. We are committed to excellence, sustainability, and serving
-                our customers with integrity and care.
+                Our mission is to provide our customers with{' '}
+                <strong>high-quality, convenient,</strong> and{' '}
+                <strong>delicious frozen beef products,</strong> crafted to bring{' '}
+                <strong>gourmet flavors and premium</strong> dining experiences into every home and
+                business.
               </p>
             </motion.div>
 
@@ -108,7 +173,7 @@ const About = () => {
 
           <article
             id="vision"
-            className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row"
+            className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row-reverse"
           >
             <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
               <img
@@ -127,13 +192,13 @@ const About = () => {
               transition={linear}
             >
               <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our Vision
+                Vision
               </h1>
 
               <p className="text-lg text-gray-700 md:text-xl">
-                To be a leading and trusted provider of premium frozen meat products, recognized
-                across the retail and food service industries for our commitment to quality,
-                operational excellence, and consistent value.
+                Our vision is to be the leading producer of premium frozen beef products, known for{' '}
+                <strong>our commitment to quality, innovation,</strong> and{' '}
+                <strong>exceptional taste</strong> in the local and international markets.
               </p>
             </motion.div>
           </article>
@@ -152,12 +217,12 @@ const About = () => {
               Development (R&D) team is constantly exploring new ways to improve our products,
               develop new cuts of meat, and introduce healthier options. We also focus on improving
               packaging, enhancing flavor profiles, and developing convenient meal solutions for our
-              customers..
+              customers.
             </p>
           </article>
         </section>
 
-        <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
+        <section className="relative bg-[url('~/assets/meat-combo.jpg')] bg-cover bg-center py-20">
           <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
 
           <article className="relative z-10 container mx-auto space-y-10 px-5">
@@ -189,33 +254,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </article>
-        </section>
-
-        <section id="history">
-          <article className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row">
-            <div data-aos="fade-right" className="flex-1 space-y-6 lg:px-10">
-              <h1 className="text-5xl font-semibold text-(--warm-red) md:text-7xl lg:text-9xl">
-                Our History
-              </h1>
-              <p className="text-justify text-lg text-gray-700 md:text-xl">
-                Established in 2024, Sunny Foods Inc. develops high-quality meat products using
-                cutting-edge technology and precision-engineered equipment.
-              </p>
-              <p className="text-justify text-lg text-gray-700 md:text-xl">
-                We&apos;re passionate about delivering fresh, flavorful, and reliable meats that
-                suit every meal from daily dinners to special occasions.
-              </p>
-            </div>
-
-            <figure className="aspect-video h-64 w-full flex-1 overflow-hidden rounded-2xl shadow-xl shadow-gray-400 md:h-96 lg:h-[500px]">
-              <img
-                loading="lazy"
-                src={Warehouse2}
-                alt={'sunny-foods-inc-warehouse'}
-                className="h-full w-full object-cover object-center"
-              />
-            </figure>
           </article>
         </section>
 

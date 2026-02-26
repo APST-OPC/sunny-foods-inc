@@ -1,12 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
-import { cn } from '~/libs/cn';
+import type { IProducts } from '../type';
 
-interface IProducts {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-}
+import { cn } from '~/libs/cn';
 
 interface IPreviewModal {
   product: IProducts | null;
@@ -19,7 +14,7 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
 
   const imageFigure = (): ReactNode => {
     return (
-      <figure className="mb-4 h-40 overflow-hidden rounded-lg md:mb-0 md:h-100 md:w-350">
+      <figure className="mb-4 h-40 overflow-hidden rounded-lg md:mb-0 md:h-100 md:w-1/3">
         <img
           loading="lazy"
           src={product?.image}
@@ -40,9 +35,16 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
   const tags = (): ReactNode => {
     return (
       <div className="mb-4 flex flex-wrap gap-2">
-        <span className="badge badge-outline text-(--red)">Premium Cut</span>
-        <span className="badge badge-outline text-(--olive-green)">Fresh</span>
-        <span className="badge badge-outline text-(--golden-yellow)">Best Seller</span>
+        {product?.tags?.map((tag, ids) => {
+          const colors = ['--red', '--olive-green', '--golden-yellow'];
+          const colorClass = colors[ids % colors.length];
+
+          return (
+            <span key={ids} className={`badge badge-outline text-(${colorClass})`}>
+              {tag}
+            </span>
+          );
+        })}
       </div>
     );
   };

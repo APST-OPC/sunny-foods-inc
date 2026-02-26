@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import Cow from '~/assets/ic_cow.png';
-import Steak from '~/assets/ic_steak.png';
-import StripLoin from '~/assets/strip-loin-cooked.jpg';
-import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
-import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';
-import BannerHead from '~/assets/ai-generated-banner-head-v3.png';
+import Cow from '~/assets/icons/ic_cow.png';
+import Steak from '~/assets/icons/ic_steak.png';
+
+import StripLoin from '~/assets/meat-carousel/striploin.png';
+import Chuckeye from '~/assets/meat-carousel/chuckeye.png';
+import Ribeye from '~/assets/meat-carousel/ribeye.png';
+import BannerHead from '~/assets/hero-sec.png';
 
 import { featureProducts, services } from './utils';
 import { ProductCard, ServiceCard } from './components';
@@ -56,14 +57,12 @@ const Home = () => {
               convenience.
             </p>
 
-            <div className="flex flex-col gap-4 md:flex-row">
-              <button
-                onClick={() => navigate('products')}
-                className="btn text-bold w-full rounded-sm border-[#1A1513] bg-[#1A1513] px-8 text-white md:h-14 md:w-56"
-              >
-                Explore Products
-              </button>
-            </div>
+            <button
+              onClick={() => navigate('products')}
+              className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
+            >
+              Explore Products
+            </button>
           </div>
         </div>
       </section>
@@ -114,7 +113,7 @@ const Home = () => {
                 >
                   <img
                     src={src}
-                    className="aspect-video h-72 w-full max-w-md rounded-lg"
+                    className="aspect-video h-72 w-full max-w-md rounded-lg object-cover"
                     alt={src}
                   />
                 </div>
@@ -151,7 +150,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-[url('~/assets/bg-signiture-steak.webp')] bg-cover bg-center py-20">
+      <section className="relative bg-[url('~/assets/meat-combo.jpg')] bg-cover bg-center py-20">
         <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
