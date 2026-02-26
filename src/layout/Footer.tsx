@@ -1,9 +1,9 @@
 import type { ReactElement, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Logo from '~/assets/company-logo-textless.png';
-import Contact from '~/assets/phone-call.png';
-import Mail from '~/assets/gmail.png';
+import Logo from '~/assets/logos/company-logo-textless.png';
+import Contact from '~/assets/icons/phone-call.png';
+import Mail from '~/assets/icons/gmail.png';
 import { footerContactUs, instantScrollToTop } from './utils';
 
 const Footer = (): ReactElement => {

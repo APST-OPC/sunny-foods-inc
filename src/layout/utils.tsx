@@ -21,7 +21,7 @@ export const footerContactUs = [
   {
     contactCTA: 'Follow us on TikTok',
     contactIcon: <PiTiktokLogo color="#c8a175" size={50} />,
-    contactFn: () => window.open('https://www.tiktok.com/@sunnyfoodsinc', '_blank'),
+    openWindow: () => window.open('https://www.tiktok.com/@sunnyfoodsinc', '_blank'),
   }
 ];
 export const links = [

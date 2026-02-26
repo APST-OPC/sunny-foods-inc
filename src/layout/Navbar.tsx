@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-import SunnyFoodsLogo from '~/assets/company-logo-textless.png';
+import SunnyFoodsLogo from '~/assets/logos/company-logo-textless.png';
 import { cn } from '~/libs/cn';
 
 import MobileNavbar from './MobileNavbar';

@@ -5,8 +5,8 @@ import WareHouse from '~/assets/company-building.png';
 import WagyuCubes from '~/assets/wagyu-cube-cook.png';
 import ChefSlice from '~/assets/slice-meat.png';
 
-import YummeatLogo from '~/assets/yummeat-logo-trans.png';
-import SoulmeatLogo from '~/assets/soulmeat-logo-trans.png';
+import YummeatLogo from '~/assets/logos/yummeat-logo-trans.png';
+import SoulmeatLogo from '~/assets/logos/soulmeat-logo-trans.png';
 
 import { reasons, teams } from './utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -29,7 +29,7 @@ const About = () => {
 
           <div className="mb-10 h-96 w-full overflow-hidden rounded-xl shadow-xl shadow-gray-400">
             <img
-              loading="lazy"
+              loading="eager"
               src={WareHouse}
               alt="sunny-food"
               className="h-full w-full object-cover"

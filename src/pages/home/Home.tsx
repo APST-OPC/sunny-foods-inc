@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import Cow from '~/assets/ic_cow.png';
-import Steak from '~/assets/ic_steak.png';
+import Cow from '~/assets/icons/ic_cow.png';
+import Steak from '~/assets/icons/ic_steak.png';
 import StripLoin from '~/assets/strip-loin-cooked.jpg';
 import Chuckeye from '~/assets/chuck-eye-steak-cooked.jpg';
 import Ribeye from '~/assets/rib-eye-steak-cooked.jpg';

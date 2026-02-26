@@ -1,9 +1,9 @@
-import SliceMeat from '~/assets/custom-meat.png';
-import Wholesale from '~/assets/box.png';
-import Packaging from '~/assets/packaging-meat.png';
-import Quality from '~/assets/products.png';
-import Delivery from '~/assets/delivery.png';
-import CustomerService from '~/assets/customer-service.png';
+import SliceMeat from '~/assets/icons/custom-meat.png';
+import Wholesale from '~/assets/icons/box.png';
+import Packaging from '~/assets/icons/packaging-meat.png';
+import Quality from '~/assets/icons/products.png';
+import Delivery from '~/assets/icons/delivery.png';
+import CustomerService from '~/assets/icons/customer-service.png';
 
 import ChuckEye from '~/assets/products/steak-series/chuckeye-steak.png';
 import Ribeye from '~/assets/products/steak-series/ribeye-steak.png';
