@@ -1,6 +1,8 @@
 import type { IContactCard, IContactForm } from './type';
-import { useState, type ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
+
+import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { FaCircleCheck, FaCircleExclamation } from 'react-icons/fa6';
@@ -69,7 +71,7 @@ const Contact = (): ReactElement => {
         <div className="flex flex-col gap-10 p-5 md:flex-row">
           <div className="flex w-full flex-col gap-10 md:w-1/3">
             <ContactCard title="Follow us">
-              <div className="mt-5 flex flex-wrap justify-evenly">
+              <div className="mt-5 flex flex-wrap justify-center lg:space-x-2 space-x-0.5">
                 {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
                   <div
                     key={ids}
