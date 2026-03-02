@@ -36,11 +36,11 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
     return (
       <div className="mb-4 flex flex-wrap gap-2">
         {product?.tags?.map((tag, ids) => {
-          const colors = ['--red', '--olive-green', '--golden-yellow'];
+          const colors = ['#b81c21', '#4f7d30', '#eead15'];
           const colorClass = colors[ids % colors.length];
 
           return (
-            <span key={ids} className={`badge badge-outline text-(${colorClass})`}>
+            <span key={ids} className={`badge badge-outline text-[${colorClass}]`}>
               {tag}
             </span>
           );

@@ -65,7 +65,7 @@ const Footer = (): ReactElement => {
           className="hover:text-error whitespace-nowrap"
           onClick={instantScrollToTop}
         >
-          Who we are
+          Who We Are
         </NavLink>
         <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
           Products
@@ -75,7 +75,7 @@ const Footer = (): ReactElement => {
           className="hover:text-error whitespace-nowrap"
           onClick={instantScrollToTop}
         >
-          Talk to us
+          Talk To Us
         </NavLink>
         <NavLink
           to="/legal"

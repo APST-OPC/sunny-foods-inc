@@ -72,7 +72,7 @@ const Home = () => {
           <div className="flex items-center gap-5">
             <img src={Cow} alt="High-quality meat" />
             <div>
-              <h6 className="text-xl font-bold">High-quality meat</h6>
+              <h6 className="text-xl font-bold">High-Quality Meat</h6>
               <p className="text-sm opacity-90">Carefully sourced from trusted farms</p>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Home = () => {
           <div className="flex items-center gap-5">
             <img src={Steak} alt="Wide selection" />
             <div>
-              <h6 className="text-xl font-bold">Wide selection</h6>
+              <h6 className="text-xl font-bold">Wide Selection</h6>
               <p className="text-sm opacity-90">Cuts for every recipe and occasion</p>
             </div>
           </div>
@@ -150,14 +150,14 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-[url('~/assets/meat-combo.jpg')] bg-cover bg-center py-20">
+      <section className="relative bg-[url('~/assets/meat-combo.jpg')] xl:bg-[url('~/assets/meat-combo.png')] bg-cover bg-center py-20">
         <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold">
-              Our Signature <span className="text-error"> Steak Series</span>
+              Our Signature <span className="font-black text-error"> Steak Series</span>
             </h1>
-            <p className="font- mt-2 px-2 text-lg leading-6">
+            <p className="font-medium mt-2 px-2 text-lg leading-6">
               Experience the difference of truly exceptional meat
             </p>
           </div>
@@ -175,7 +175,7 @@ const Home = () => {
           </div>
 
           <h1 className="text-center text-4xl font-bold">
-            ...And there&apos;s <span className="text-error">more!</span>
+            ...And there&apos;s <span className="font-black text-error">more!</span>
           </h1>
         </div>
       </section>

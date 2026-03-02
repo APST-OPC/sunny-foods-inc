@@ -58,7 +58,7 @@ const Navbar = () => {
             onClick={instantScrollToTop}
             className="btn border border-(--warm-red) bg-(--warm-red) text-white"
           >
-            Talk to us
+            Talk To Us
           </button>
         </Link>
       </div>

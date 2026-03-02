@@ -103,7 +103,7 @@ const Products = (): ReactElement => {
           {whyChooseProducts.map(({ title, description, image }, ids) => (
             <div
               key={ids}
-              className="card bg-base-100 border-base-200 w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md"
+              className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md"
             >
               <div className="card-body items-center text-center">
                 <div className="mb-4 text-5xl">
