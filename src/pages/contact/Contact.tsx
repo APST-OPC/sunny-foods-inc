@@ -75,7 +75,7 @@ const Contact = (): ReactElement => {
                 {contactBtns.map(({ contactCTA, contactIcon, openWindow }, ids) => (
                   <div
                     key={ids}
-                    className="tooltip tooltip-bottom before:bg-gray-500 before:text-white after:bg-gray-500"
+                    className="md:tooltip md:tooltip-bottom before:bg-gray-500 before:text-white after:bg-gray-500"
                     data-tip={contactCTA}
                   >
                     <button className="cursor-pointer" onClick={openWindow}>
