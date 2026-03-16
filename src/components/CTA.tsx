@@ -51,7 +51,7 @@ export const CTA = () => {
             onClick={handleNavigate}
             className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
           >
-            Talk to us
+            Talk To Us
           </button>
         </div>
       </div>

@@ -50,7 +50,7 @@ export const products: IProducts[] = [
   {
     id: 5,
     title: 'Chuck Eye Steak',
-    description: 'Juicy and flavorful, with greate marbling for the perfect balance.',
+    description: 'Juicy and flavorful, with great marbling for the perfect balance.',
     image: ChuckEyeSteak,
     type: 'Steak Series',
     tags: ['Frozen', 'Easy to Cook']

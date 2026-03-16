@@ -12,12 +12,12 @@ const Footer = (): ReactElement => {
   const renderBrand = (): ReactNode => {
     return (
       <div className="flex flex-col justify-center gap-4 text-neutral-900 md:w-1/3 md:justify-start lg:w-auto lg:flex-row">
-        <div className='space-y-5'>
+        <div className="space-y-5">
           <div className="flex flex-col items-center gap-2 xl:flex-row">
-            <img src={Logo} alt="Sunny Foods" className="block h-14" />
+            <img src={Logo} alt="Sunny Foods" className="pointer-events-none block h-14" />
 
-            <span className='text-center xl:text-start'>
-              <p className="text-success font-serif text-md leading-6 font-bold uppercase lg:text-xl">
+            <span className="text-center xl:text-start">
+              <p className="text-success text-md font-serif leading-6 font-bold uppercase lg:text-xl">
                 Sunny Foods Inc.
               </p>
               <p className="text-[12px] font-medium text-(--red) lg:text-xs">
@@ -26,7 +26,7 @@ const Footer = (): ReactElement => {
             </span>
           </div>
 
-          <div>
+          <div className="text-center lg:text-start">
             <p>Bldg. 2 Blk. 1 Governors Park Drive</p>
             <p>Southwoods Industrial Park Mabuhay,</p>
             <p>Carmona, Cavite (4116)</p>
@@ -39,16 +39,17 @@ const Footer = (): ReactElement => {
   const renderSocial = (): ReactNode => {
     return (
       <div className="space-y-4 text-center text-neutral-900">
-        <p className="text-lg leading-6 font-bold">Follow us</p>
-        <div className="flex flex-wrap justify-center gap-5">
+        <p className="text-lg font-bold">Follow us</p>
+
+        <div className="flex flex-wrap justify-center space-x-0.5">
           {footerContactUs.map(({ contactCTA, contactIcon, openWindow }, ids) => (
             <div
               key={ids}
-              className="tooltip before:bg-gray-500 before:text-white after:bg-gray-500"
+              className="md:tooltip before:bg-gray-500 before:text-white after:bg-gray-500"
               data-tip={contactCTA}
             >
-              <button className="hover:cursor-pointer active:opacity-80" onClick={openWindow}>
-                {contactIcon}
+              <button className="cursor-pointer active:opacity-80" onClick={openWindow}>
+                {contactIcon({ size: 40, color: '#c8a175' })}
               </button>
             </div>
           ))}
@@ -65,7 +66,7 @@ const Footer = (): ReactElement => {
           className="hover:text-error whitespace-nowrap"
           onClick={instantScrollToTop}
         >
-          Who we are
+          Who We Are
         </NavLink>
         <NavLink to="/products" className="hover:text-error" onClick={instantScrollToTop}>
           Products
@@ -75,7 +76,7 @@ const Footer = (): ReactElement => {
           className="hover:text-error whitespace-nowrap"
           onClick={instantScrollToTop}
         >
-          Talk to us
+          Talk To Us
         </NavLink>
         <NavLink
           to="/legal"
@@ -120,7 +121,7 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="bg-[#f6ede3]">
-      <div className="container mx-auto flex flex-col justify-between gap-10 px-6 pt-12 pb-6 md:flex-row md:gap-4 lg:min-w-1/4">
+      <div className="container mx-auto flex flex-col justify-between gap-6 px-2 pt-12 pb-6 md:flex-row md:gap-4 lg:min-w-1/4">
         {renderBrand()}
         {renderLinks()}
         {renderSocial()}

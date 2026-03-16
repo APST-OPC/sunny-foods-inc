@@ -8,12 +8,10 @@ export const ServiceCard = (props: ServiceCardProps) => {
   const { description, src, title } = props;
 
   return (
-    <div
-      className="card bg-base-100 border-base-200 w-full max-w-xs md:max-w-md shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
+    <div className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md">
       <div className="card-body items-center text-center">
         <div className="mb-4 text-5xl">
-          <img src={src} alt={title.toLowerCase()} className="h-14 w-14" />
+          <img src={src} alt={title.toLowerCase()} className="pointer-events-none h-14 w-14" />
         </div>
         <h3 className="card-title text-xl font-bold">{title}</h3>
         <p className="text-base-content/80">{description}</p>
