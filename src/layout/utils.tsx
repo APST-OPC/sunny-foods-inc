@@ -1,29 +1,37 @@
-import { AiOutlineFacebook } from 'react-icons/ai';
+import type { IContactButton } from '~/pages/contact/type';
+
+import { AiOutlineFacebook, AiOutlineLinkedin } from 'react-icons/ai';
 import { PiTiktokLogo } from 'react-icons/pi';
 import { FaInstagram, FaViber } from 'react-icons/fa';
 
-export const footerContactUs = [
+export const footerContactUs: IContactButton[] = [
   {
     contactCTA: 'Chat with us on Viber',
-    contactIcon: <FaViber color="#c8a175" size={50} />,
-    openWindow: () => window.open('viber://chat?number=%2B9392379999', '_blank'),
+    contactIcon: ({ size, color }) => <FaViber color={color} size={size} />,
+    openWindow: () => window.open('viber://chat?number=%2B9850963333', '_blank'),
   },
   {
     contactCTA: 'Visit our Facebook page',
-    contactIcon: <AiOutlineFacebook color="#c8a175" size={50} />,
+    contactIcon: ({ size, color }) => <AiOutlineFacebook color={color} size={size} />,
     openWindow: () => window.open('https://www.facebook.com/sunnyfoodsinc/', '_blank'),
   },
   {
     contactCTA: 'Visit our Instagram',
-    contactIcon: <FaInstagram color="#c8a175" size={50} />,
+    contactIcon: ({ size, color }) => <FaInstagram color={color} size={size} />,
     openWindow: () => window.open('https://www.instagram.com/sunnyfoods.com.ph', '_blank'),
   },
   {
     contactCTA: 'Follow us on TikTok',
-    contactIcon: <PiTiktokLogo color="#c8a175" size={50} />,
+    contactIcon: ({ size, color }) => <PiTiktokLogo color={color} size={size} />,
     openWindow: () => window.open('https://www.tiktok.com/@sunnyfoodsinc', '_blank'),
-  }
+  },
+  {
+    contactCTA: 'Visit our LinkedIn page',
+    contactIcon: ({ size, color }) => <AiOutlineLinkedin color={color} size={size} />,
+    openWindow: () => window.open('https://www.linkedin.com/company/sunny-foods-inc', '_blank'),
+  },
 ];
+
 export const links = [
   { to: '/', label: 'Home' },
   { to: '/who-we-are', label: 'Who We Are' },

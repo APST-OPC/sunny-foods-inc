@@ -23,7 +23,7 @@ const Navbar = () => {
           onClick={onClickLogo}
           className="flex flex-row items-center gap-2 hover:cursor-pointer"
         >
-          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="block h-8 lg:h-12" />
+          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="block h-8 lg:h-12 pointer-events-none" />
 
           <span>
             <p className="text-success font-serif text-sm lg:text-xl leading-6 font-bold uppercase">

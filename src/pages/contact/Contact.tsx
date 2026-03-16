@@ -13,7 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useSendEmail } from '~/queries/useSendEmail';
 
 import { TextArea, TextField } from './components';
-import { contactBtns } from './utils';
+import { contactButtons } from './utils';
 import { cn } from '~/libs/cn';
 
 const ContactCard = (props: IContactCard) => {
@@ -71,18 +71,18 @@ const Contact = (): ReactElement => {
         <div className="flex flex-col gap-10 p-5 md:flex-row">
           <div className="flex w-full flex-col gap-10 md:w-1/3">
             <ContactCard title="Follow us">
-              <div className="mt-5 flex flex-wrap justify-center lg:space-x-2 space-x-0.5">
-                {contactBtns.map(({ contactCTA, contactIcon, contactFn }, ids) => (
+              <div className="mt-5 flex flex-wrap justify-center space-x-0.5">
+                {contactButtons.map(({ contactCTA, contactIcon, openWindow }, ids) => (
                   <div
                     key={ids}
                     className="tooltip tooltip-bottom before:bg-gray-500 before:text-white after:bg-gray-500"
                     data-tip={contactCTA}
                   >
                     <button
-                      className="btn btn-circle btn-ghost size-full rounded-full border-none p-2"
-                      onClick={contactFn}
+                      className="cursor-pointer"
+                      onClick={openWindow}
                     >
-                      {contactIcon}
+                      {contactIcon({ size: 50 })}
                     </button>
                   </div>
                 ))}

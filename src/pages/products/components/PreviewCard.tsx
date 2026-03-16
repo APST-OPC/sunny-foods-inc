@@ -17,7 +17,7 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
         <img
           src={image}
           alt={title.toLowerCase()}
-          className={cn('aspect-square h-full w-full object-cover', isLoading && 'skeleton')}
+          className={cn('aspect-square h-full w-full object-cover' , isLoading && 'skeleton')}
           loading="lazy"
           onLoad={() => setIsLoading(false)}
           onError={() => setIsLoading(false)}
