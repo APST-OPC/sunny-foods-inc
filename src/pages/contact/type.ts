@@ -1,10 +1,11 @@
-import type { PropsWithChildren, ReactElement } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { Control, FieldValues, Path } from 'react-hook-form';
+import type { IconType } from 'react-icons/lib';
 
-export interface IContactUs {
-  contactIcon: ReactElement;
+export interface IContactButton {
+  contactIcon: IconType;
   contactCTA: string;
-  contactFn?: () => void;
+  openWindow: () => void;
 }
 
 export interface IContactForm {
