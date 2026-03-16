@@ -35,7 +35,7 @@ const Home = () => {
         <img
           src={BannerHead}
           alt="beef"
-          loading="lazy"
+          loading="eager"
           className={cn(
             'aspect-square h-[70vh] w-full rotate-y-180',
             'bg-[radial-gradient(ellipse_at_top,#7A1F1F_0%,#3B0A0A_55%,#1A0505_100%)] object-cover object-center'
@@ -107,7 +107,7 @@ const Home = () => {
                 <div
                   key={index}
                   className={cn(
-                    'carousel-item w-full transition-all',
+                    'carousel-item pointer-events-none w-full transition-all',
                     index === currentSlide ? 'opacity-100' : 'absolute opacity-0'
                   )}
                 >
@@ -150,14 +150,14 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-[url('~/assets/meat-combo.jpg')] xl:bg-[url('~/assets/meat-combo.png')] bg-cover bg-center py-20">
-        <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.2)] via-[rgba(184,28,33,0.2)] to-[rgba(0,108,45,0.2)] backdrop-blur-sm" />
+      <section className="relative bg-[url('~/assets/meat-combo-mobile.png')] bg-cover bg-center py-20 xl:bg-[url('~/assets/meat-combo.png')]">
+        <div className="absolute inset-0 bg-linear-to-bl from-[rgba(200,161,117,0.1)] via-[rgba(184,28,33,0.1)] to-[rgba(0,108,45,0.1)] backdrop-blur-xs" />
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold">
-              Our Signature <span className="font-black text-error"> Steak Series</span>
+              Our Signature <span className="text-error font-black"> Steak Series</span>
             </h1>
-            <p className="font-medium mt-2 px-2 text-lg leading-6">
+            <p className="mt-2 px-2 text-lg leading-6 font-medium">
               Experience the difference of truly exceptional meat
             </p>
           </div>
@@ -175,7 +175,7 @@ const Home = () => {
           </div>
 
           <h1 className="text-center text-4xl font-bold">
-            ...And there&apos;s <span className="font-black text-error">more!</span>
+            ...And there&apos;s <span className="text-error font-black">more!</span>
           </h1>
         </div>
       </section>
