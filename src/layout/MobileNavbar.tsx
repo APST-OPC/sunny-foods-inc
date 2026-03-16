@@ -141,7 +141,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
                 onClick={handleNavigate}
                 className="btn w-full border-(--warm-red) bg-(--warm-red) font-bold text-white shadow-md hover:shadow-lg"
               >
-                Talk to us
+                Talk To Us
               </button>
             </div>
           </motion.div>

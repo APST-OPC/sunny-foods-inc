@@ -23,13 +23,19 @@ const Navbar = () => {
           onClick={onClickLogo}
           className="flex flex-row items-center gap-2 hover:cursor-pointer"
         >
-          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="block h-8 lg:h-12" />
+          <img
+            src={SunnyFoodsLogo}
+            alt="Sunny Foods"
+            className="pointer-events-none block h-8 lg:h-12"
+          />
 
           <span>
-            <p className="text-success font-serif text-sm lg:text-xl leading-6 font-bold uppercase">
+            <p className="text-success font-serif text-sm leading-6 font-bold uppercase lg:text-xl">
               Sunny Foods Inc.
             </p>
-            <p className="text-[10px] lg:text-xs font-medium text-(--red)">Delicious • Healthy • Affordable</p>
+            <p className="text-[10px] font-medium text-(--red) lg:text-xs">
+              Delicious • Healthy • Affordable
+            </p>
           </span>
         </div>
       </div>
@@ -58,7 +64,7 @@ const Navbar = () => {
             onClick={instantScrollToTop}
             className="btn border border-(--warm-red) bg-(--warm-red) text-white"
           >
-            Talk to us
+            Talk To Us
           </button>
         </Link>
       </div>
