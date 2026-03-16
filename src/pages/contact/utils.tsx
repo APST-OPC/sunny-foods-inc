@@ -28,7 +28,7 @@ export const contactButtons: IContactButton[] = [
   },
   {
     contactIcon: ({ size }) => <AiOutlineLinkedin size={size} color="#1877f2" />,
-    contactCTA: 'Visit our LinkedIn page',
+    contactCTA: 'Visit our LinkedIn',
     openWindow: () => window.open('https://www.linkedin.com/company/sunny-foods-inc', '_blank'),
   },
 ];
