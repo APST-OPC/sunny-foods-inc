@@ -32,7 +32,7 @@ const About = () => {
               loading="eager"
               src={WareHouse}
               alt="sunny-food"
-              className="h-full w-full object-cover"
+              className="pointer-events-none h-full w-full object-cover"
             />
           </div>
 
