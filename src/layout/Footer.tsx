@@ -96,13 +96,13 @@ const Footer = (): ReactElement => {
           Power Your Business
         </h1>
         <div className="flex justify-center gap-1 md:justify-start">
-          <img src={Mail} className="h-5 w-5" />
+          <img src={Mail} alt="mail" className="h-5 w-5" />
           <p className="lg:text-md font-semibold whitespace-nowrap md:justify-start md:text-sm">
             : sales@sunnyfoods.com.ph
           </p>
         </div>
         <div className="flex justify-center gap-1 md:justify-start">
-          <img src={Contact} className="h-5 w-5" />
+          <img src={Contact} alt="contact" className="h-5 w-5" />
           <p className="lg:text-md font-semibold md:justify-start md:text-sm">
             : 0939-237-9999 / 0918-739-9999
           </p>
