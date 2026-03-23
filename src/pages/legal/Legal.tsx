@@ -30,7 +30,7 @@ const Legal = () => {
                 key={ids}
                 className="flex size-30 flex-col items-center justify-evenly space-y-3 text-center"
               >
-                <img src={q.img} className="size-16 lg:size-20" />
+                <img src={q.img} alt={q.description} className="size-16 lg:size-20" />
 
                 <span className="text-sm font-bold tracking-tight lg:text-lg">{q.description}</span>
               </div>
@@ -48,6 +48,7 @@ const Legal = () => {
               >
                 <img
                   src={img}
+                  alt={content.title.toLocaleLowerCase()}
                   className="rounded-2xl object-cover shadow-xl shadow-gray-400 lg:h-100 lg:w-100"
                 />
 
@@ -76,14 +77,14 @@ const Legal = () => {
             PPE Uniform & Production Protocols
           </h3>
 
-          <img src={PpeImage} className="w-full justify-self-center rounded-2xl" />
+          <img src={PpeImage} alt="PPE-image" className="w-full justify-self-center rounded-2xl" />
 
           <h3 className="text-center text-4xl font-extrabold">How the production area looks</h3>
 
           <div className="flex w-full flex-col items-center justify-center gap-5 lg:flex-row lg:px-2.5">
-            <img src={ProdAreaVisualOne} className="rounded-2xl lg:w-1/2" />
+            <img src={ProdAreaVisualOne} alt="ProdAreaVisualOne" className="rounded-2xl lg:w-1/2" />
 
-            <img src={ProdAreaVisualTwo} className="rounded-2xl lg:w-1/2" />
+            <img src={ProdAreaVisualTwo} alt="ProdAreaVisualTwo" className="rounded-2xl lg:w-1/2" />
           </div>
         </section>
 
@@ -103,6 +104,7 @@ const Legal = () => {
               >
                 <img
                   src={f.img}
+                  alt={f.description.toLocaleLowerCase()}
                   className="rounded-2xl object-cover shadow-xl shadow-gray-400 lg:h-100 lg:w-100"
                 />
 
@@ -130,7 +132,11 @@ const Legal = () => {
                   key={ids}
                   className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105"
                 >
-                  <img src={license.img} className="pointer-events-none size-80 rounded-2xl" />
+                  <img
+                    src={license.img}
+                    alt={license.description.toLocaleLowerCase()}
+                    className="pointer-events-none size-80 rounded-2xl"
+                  />
 
                   <p className="text-lg font-bold">{license.description}</p>
                 </div>
@@ -147,7 +153,11 @@ const Legal = () => {
                   key={ids}
                   className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105"
                 >
-                  <img src={license.img} className="pointer-events-none size-80 rounded-2xl" />
+                  <img
+                    src={license.img}
+                    alt={license.description}
+                    className="pointer-events-none size-80 rounded-2xl"
+                  />
 
                   <p className="text-lg font-bold">{license.description}</p>
                 </div>
