@@ -90,9 +90,9 @@ const About = () => {
               </p>
 
               <div className="pointer-events-none flex flex-col items-center justify-between gap-10 lg:flex-row">
-                <img src={YummeatLogo} className="min-[500px]:w-100" />
+                <img src={YummeatLogo} alt='yum-meat' className="min-[500px]:w-100" />
 
-                <img src={SoulmeatLogo} className="min-[500px]:w-100" />
+                <img src={SoulmeatLogo} alt='soul-meat' className="min-[500px]:w-100" />
               </div>
             </div>
           </article>
