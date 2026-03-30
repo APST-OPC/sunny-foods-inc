@@ -1,13 +1,14 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import Layout from '~/layout';
-import Home from '~/pages/home';
-import Products from '~/pages/products';
-import About from '~/pages/about';
-import Contact from '~/pages/contact';
-import Legal from './pages/legal';
+import About from "~/pages/about";
+import Contact from "~/pages/contact";
+import Home from "~/pages/home";
+import Products from "~/pages/products";
 
-import { LayoutProvider } from './provider/LayoutProvider';
+import Layout from "~/layout";
+
+import Legal from "./pages/legal";
+import { LayoutProvider } from "./provider/LayoutProvider";
 
 const App = () => {
   return (
@@ -18,8 +19,7 @@ const App = () => {
           <LayoutProvider>
             <Layout />
           </LayoutProvider>
-        }
-      >
+        }>
         <Route index element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/who-we-are" element={<About />} />

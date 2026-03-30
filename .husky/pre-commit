@@ -1,0 +1,5 @@
+echo "Running pre-commit hook: Biome check and auto-fix..."
+
+npm run check:staged
+
+echo "Pre-commit hook completed successfully."

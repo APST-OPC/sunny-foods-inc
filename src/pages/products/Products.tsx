@@ -1,21 +1,23 @@
-import type { ReactElement, ReactNode } from 'react';
-import type { IProductType, IProducts } from './type';
+import type { ReactElement, ReactNode } from "react";
+import type { IProducts, IProductType } from "./type";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { CTA } from '~/components';
+import { CTA } from "~/components";
+import { cn } from "~/libs/cn";
 
-import CustomDivider from './components/CustomDivider';
-import PreviewCard from './components/PreviewCard';
-import PreviewModal from './components/PreviewModal';
-
-import { products, whyChooseProducts } from './utils';
-import { cn } from '~/libs/cn';
+import CustomDivider from "./components/CustomDivider";
+import PreviewCard from "./components/PreviewCard";
+import PreviewModal from "./components/PreviewModal";
+import { products, whyChooseProducts } from "./utils";
 
 const Products = (): ReactElement => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(null);
-  const [selectedType, setSelectedType] = useState<IProductType>('Core Products');
+  const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(
+    null,
+  );
+  const [selectedType, setSelectedType] =
+    useState<IProductType>("Core Products");
 
   const handleView = (item: IProducts) => {
     setSelectedProduct(item);
@@ -31,7 +33,8 @@ const Products = (): ReactElement => {
         </h1>
 
         <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
-          Select from our finest cuts, each prepared to deliver exceptional taste and quality.
+          Select from our finest cuts, each prepared to deliver exceptional
+          taste and quality.
         </p>
       </header>
     );
@@ -44,29 +47,29 @@ const Products = (): ReactElement => {
 
         <div className="space-y-5">
           <div role="tablist" className="tabs tabs-border justify-center">
-            <a
+            <div
               role="tab"
+              tabIndex={0}
               className={cn(
-                'tab hover:text-error text-lg transition-colors duration-300',
-                selectedType === 'Core Products' &&
-                  'tab-active before:text-error text-error font-bold'
+                "tab hover:text-error text-lg transition-colors duration-300",
+                selectedType === "Core Products" &&
+                  "tab-active before:text-error text-error font-bold",
               )}
-              onClick={() => setSelectedType('Core Products')}
-            >
+              onClick={() => setSelectedType("Core Products")}>
               Core Products
-            </a>
+            </div>
 
-            <a
+            <div
               role="tab"
+              tabIndex={0}
               className={cn(
-                'tab hover:text-error text-lg transition-colors duration-300',
-                selectedType === 'Steak Series' &&
-                  'tab-active before:text-error text-error font-bold'
+                "tab hover:text-error text-lg transition-colors duration-300",
+                selectedType === "Steak Series" &&
+                  "tab-active before:text-error text-error font-bold",
               )}
-              onClick={() => setSelectedType('Steak Series')}
-            >
+              onClick={() => setSelectedType("Steak Series")}>
               Steak Series
-            </a>
+            </div>
           </div>
 
           <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
@@ -74,7 +77,11 @@ const Products = (): ReactElement => {
               .filter((p) => p.type === selectedType)
               .map((data) => {
                 return (
-                  <PreviewCard key={data.id} imageSrc={data} openDetails={() => handleView(data)} />
+                  <PreviewCard
+                    key={data.id}
+                    imageSrc={data}
+                    openDetails={() => handleView(data)}
+                  />
                 );
               })}
           </div>
@@ -94,8 +101,9 @@ const Products = (): ReactElement => {
           </h1>
 
           <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
-            Sunny Foods is committed to more than just great meat — we make sure that our beef
-            products are of utmost quality to keep our customers satisfied.
+            Sunny Foods is committed to more than just great meat — we make sure
+            that our beef products are of utmost quality to keep our customers
+            satisfied.
           </p>
         </div>
 
@@ -103,11 +111,14 @@ const Products = (): ReactElement => {
           {whyChooseProducts.map(({ title, description, image }, ids) => (
             <div
               key={ids}
-              className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md"
-            >
+              className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md">
               <div className="card-body items-center text-center">
                 <div className="mb-4 text-5xl">
-                  <img src={image} alt={title.toLowerCase()} className="h-14 w-14" />
+                  <img
+                    src={image}
+                    alt={title.toLowerCase()}
+                    className="h-14 w-14"
+                  />
                 </div>
                 <h3 className="card-title text-xl font-bold">{title}</h3>
                 <p className="text-base-content/80">{description}</p>
@@ -127,7 +138,11 @@ const Products = (): ReactElement => {
       {renderProductList()}
       {renderWhyChooseProducts()}
       <CTA />
-      <PreviewModal product={selectedProduct} open={showDetail} handleClose={handleShowDetail} />
+      <PreviewModal
+        product={selectedProduct}
+        open={showDetail}
+        handleClose={handleShowDetail}
+      />
     </main>
   );
 };
