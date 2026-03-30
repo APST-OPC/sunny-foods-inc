@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
-import AOS from 'aos';
+import AOS from "aos";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect } from "react";
+import { FaAngleUp } from "react-icons/fa";
+import { Outlet } from "react-router-dom";
 
-import { Outlet } from 'react-router-dom';
-import { FaAngleUp } from 'react-icons/fa';
+import { useLayoutContext } from "~/hooks/useLayoutContext";
 
-import { AnimatePresence, motion } from 'motion/react';
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { smoothScrollToTop } from "./utils";
 
-import { useLayoutContext } from '~/hooks/useLayoutContext';
-
-import Navbar from './Navbar';
-import Footer from './Footer';
-
-import { smoothScrollToTop } from './utils';
-
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 const Layout = () => {
   const { isSidebarOpen, isShowFab, setShowFab } = useLayoutContext();
@@ -25,13 +22,13 @@ const Layout = () => {
       setShowFab(window.scrollY > window.innerHeight - 500);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       AOS.refreshHard();
     };
-  }, []);
+  }, [setShowFab]);
 
   return (
     <main className="h-full bg-(--light-brown)/10">
@@ -48,12 +45,10 @@ const Layout = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fab bottom-8"
-          >
+            className="fab bottom-8">
             <button
               className="btn btn-sm btn-circle md:btn-lg btn-success text-white"
-              onClick={smoothScrollToTop}
-            >
+              onClick={smoothScrollToTop}>
               <FaAngleUp />
             </button>
           </motion.div>

@@ -1,15 +1,22 @@
-import type { ILayoutContext } from '~/context/layoutContext';
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
+import type { ILayoutContext } from "~/context/layoutContext";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { LayoutContext } from '~/context/layoutContext';
+import { LayoutContext } from "~/context/layoutContext";
 
 export const LayoutProvider = ({ children }: PropsWithChildren) => {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [isShowFab, setShowFab] = useState<boolean>(false);
 
-  const value: ILayoutContext = { isSidebarOpen, setSidebarOpen, isShowFab, setShowFab };
+  const value: ILayoutContext = {
+    isSidebarOpen,
+    setSidebarOpen,
+    isShowFab,
+    setShowFab,
+  };
 
-  return <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>;
+  return (
+    <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>
+  );
 };

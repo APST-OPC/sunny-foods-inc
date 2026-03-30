@@ -1,7 +1,7 @@
-import type { ReactElement, ReactNode } from 'react';
-import type { IProducts } from '../type';
+import type { ReactElement, ReactNode } from "react";
+import type { IProducts } from "../type";
 
-import { cn } from '~/libs/cn';
+import { cn } from "~/libs/cn";
 
 interface IPreviewModal {
   product: IProducts | null;
@@ -36,11 +36,13 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
     return (
       <div className="mb-4 flex flex-wrap gap-2">
         {product?.tags?.map((tag, ids) => {
-          const colors = ['#b81c21', '#4f7d30', '#eead15'];
+          const colors = ["#b81c21", "#4f7d30", "#eead15"];
           const colorClass = colors[ids % colors.length];
 
           return (
-            <span key={ids} className={`badge badge-outline text-[${colorClass}]`}>
+            <span
+              key={ids}
+              className={`badge badge-outline text-[${colorClass}]`}>
               {tag}
             </span>
           );
@@ -67,8 +69,7 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
       <div className="modal-action md:absolute md:right-6 md:bottom-6">
         <button
           className="btn w-full border border-(--warm-red) bg-(--warm-red) text-white shadow-lg hover:shadow-xl sm:w-36"
-          onClick={handleClose}
-        >
+          onClick={handleClose}>
           Close
         </button>
       </div>
@@ -76,15 +77,17 @@ const PreviewModal = (props: IPreviewModal): ReactElement => {
   };
 
   return (
-    <dialog id="product-detail" className="modal modal-middle backdrop-blur-xs" open={open}>
+    <dialog
+      id="product-detail"
+      className="modal modal-middle backdrop-blur-xs"
+      open={open}>
       <div
         className={cn(
-          'modal-box max-w-3xl rounded-xl',
-          'border border-white/40 bg-white/90',
-          'shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-xl',
-          'block md:flex md:gap-5'
-        )}
-      >
+          "modal-box max-w-3xl rounded-xl",
+          "border border-white/40 bg-white/90",
+          "shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-xl",
+          "block md:flex md:gap-5",
+        )}>
         {imageFigure()}
         <div>
           {header()}

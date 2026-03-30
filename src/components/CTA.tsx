@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export const CTA = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate('/talk-to-us');
+    navigate("/talk-to-us");
     window.scrollTo(0, 0);
   };
 
@@ -16,8 +16,7 @@ export const CTA = () => {
           <h1
             data-aos="fade-right"
             data-aos-duration="2000"
-            className="text-4xl leading-snug font-extrabold"
-          >
+            className="text-4xl leading-snug font-extrabold">
             Power Your Business With a
             <span className="text-(--warm-red)"> Reliable Meat Supplier</span>
           </h1>
@@ -25,22 +24,27 @@ export const CTA = () => {
           <p
             data-aos="fade-right"
             data-aos-duration="3000"
-            className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg"
-          >
-            Premium-quality meat, strict quality control, and customer-first service—tailored for
-            restaurants, retailers, and large-scale distributors.
+            className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 lg:text-lg">
+            Premium-quality meat, strict quality control, and customer-first
+            service—tailored for restaurants, retailers, and large-scale
+            distributors.
           </p>
         </header>
 
-        <div data-aos="fade-up" className="mx-auto grid max-w-md gap-3 text-sm text-gray-700">
+        <div
+          data-aos="fade-up"
+          className="mx-auto grid max-w-md gap-3 text-sm text-gray-700">
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-(--warm-red)" /> Premium quality & strict standards
+            <FaCheck className="text-(--warm-red)" /> Premium quality & strict
+            standards
           </div>
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-(--warm-red)" /> Reliable, consistent delivery
+            <FaCheck className="text-(--warm-red)" /> Reliable, consistent
+            delivery
           </div>
           <div className="flex items-center justify-center gap-2">
-            <FaCheck className="text-(--warm-red)" /> Exceptional Flavor & Juiciness
+            <FaCheck className="text-(--warm-red)" /> Exceptional Flavor &
+            Juiciness
           </div>
         </div>
 
@@ -49,8 +53,7 @@ export const CTA = () => {
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <button
             onClick={handleNavigate}
-            className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
-          >
+            className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg">
             Talk To Us
           </button>
         </div>

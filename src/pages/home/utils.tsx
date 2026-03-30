@@ -1,69 +1,74 @@
-import SliceMeat from '~/assets/icons/custom-meat.png';
-import Wholesale from '~/assets/icons/box.png';
-import Packaging from '~/assets/icons/packaging-meat.png';
-import Quality from '~/assets/icons/products.png';
-import Delivery from '~/assets/icons/delivery.png';
-import CustomerService from '~/assets/icons/customer-service.png';
-
-import ChuckEye from '~/assets/products/steak-series/chuckeye-steak.png';
-import Ribeye from '~/assets/products/steak-series/ribeye-steak.png';
-import StripLoin from '~/assets/products/steak-series/striploin-steak.png';
+import Wholesale from "~/assets/icons/box.png";
+import SliceMeat from "~/assets/icons/custom-meat.png";
+import CustomerService from "~/assets/icons/customer-service.png";
+import Delivery from "~/assets/icons/delivery.png";
+import Packaging from "~/assets/icons/packaging-meat.png";
+import Quality from "~/assets/icons/products.png";
+import ChuckEye from "~/assets/products/steak-series/chuckeye-steak.png";
+import Ribeye from "~/assets/products/steak-series/ribeye-steak.png";
+import StripLoin from "~/assets/products/steak-series/striploin-steak.png";
 
 export const services = [
   {
     src: SliceMeat,
-    title: 'Custom Meat Orders',
-    description: 'Tailored cuts and blends to your exact to your exact specifications.',
+    title: "Custom Meat Orders",
+    description:
+      "Tailored cuts and blends to your exact to your exact specifications.",
   },
   {
     src: Wholesale,
-    title: 'Bulk Ordering & Wholesale',
-    description: 'Discounted rates on bulk purchases for distributors and retailers.',
+    title: "Bulk Ordering & Wholesale",
+    description:
+      "Discounted rates on bulk purchases for distributors and retailers.",
   },
   {
     src: Packaging,
-    title: 'Packaging & Labelling',
-    description: 'Flexible packaging solutions with custom labeling.',
+    title: "Packaging & Labelling",
+    description: "Flexible packaging solutions with custom labeling.",
   },
   {
     src: Quality,
-    title: 'OEM / Private Label',
-    description: 'Custom branding and manufacturing for your private label needs.',
+    title: "OEM / Private Label",
+    description:
+      "Custom branding and manufacturing for your private label needs.",
   },
   {
     src: Delivery,
-    title: 'Distribution Support',
-    description: 'Reliable logistics and delivery solutions nationwide.',
+    title: "Distribution Support",
+    description: "Reliable logistics and delivery solutions nationwide.",
   },
   {
     src: CustomerService,
-    title: 'B2B Customer Service',
-    description: 'Dedicated support team for prompt and effective assistance.',
+    title: "B2B Customer Service",
+    description: "Dedicated support team for prompt and effective assistance.",
   },
   {
     src: Delivery,
-    title: 'Cold Chain Logistics & Handling',
-    description: 'End-to-end cold chain management for safe, temperature-controlled delivery.',
+    title: "Cold Chain Logistics & Handling",
+    description:
+      "End-to-end cold chain management for safe, temperature-controlled delivery.",
   },
 ];
 
 export const featureProducts = [
   {
-    title: 'Strip Loin Steak',
-    description: 'Tender and flavorful, with great marbling for the perfect balance.',
-    link: './products',
+    title: "Strip Loin Steak",
+    description:
+      "Tender and flavorful, with great marbling for the perfect balance.",
+    link: "./products",
     img: StripLoin,
   },
   {
-    title: 'Chuck Eye Steak',
-    description: 'Juicy and flavorful, with great marbling for the perfect balance.',
-    link: './products',
+    title: "Chuck Eye Steak",
+    description:
+      "Juicy and flavorful, with great marbling for the perfect balance.",
+    link: "./products",
     img: ChuckEye,
   },
   {
-    title: 'Rib Eye Steak',
-    description: 'Rich and juicy, with excellent marbling for superior flavor.',
-    link: './products',
+    title: "Rib Eye Steak",
+    description: "Rich and juicy, with excellent marbling for superior flavor.",
+    link: "./products",
     img: Ribeye,
   },
 ];

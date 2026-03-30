@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Cow from '~/assets/icons/ic_cow.png';
-import Steak from '~/assets/icons/ic_steak.png';
+import BannerHead from "~/assets/hero-sec.png";
+import Cow from "~/assets/icons/ic_cow.png";
+import Steak from "~/assets/icons/ic_steak.png";
+import Chuckeye from "~/assets/meat-carousel/chuckeye.png";
+import Ribeye from "~/assets/meat-carousel/ribeye.png";
+import StripLoin from "~/assets/meat-carousel/striploin.png";
 
-import StripLoin from '~/assets/meat-carousel/striploin.png';
-import Chuckeye from '~/assets/meat-carousel/chuckeye.png';
-import Ribeye from '~/assets/meat-carousel/ribeye.png';
-import BannerHead from '~/assets/hero-sec.png';
+import { CTA } from "~/components";
+import { cn } from "~/libs/cn";
 
-import { featureProducts, services } from './utils';
-import { ProductCard, ServiceCard } from './components';
-
-import { CTA } from '~/components';
-import { cn } from '~/libs/cn';
-import { useNavigate } from 'react-router-dom';
+import { ProductCard, ServiceCard } from "./components";
+import { featureProducts, services } from "./utils";
 
 const images = [StripLoin, Chuckeye, Ribeye];
 
@@ -37,8 +36,8 @@ const Home = () => {
           alt="beef"
           loading="eager"
           className={cn(
-            'aspect-square h-[70vh] w-full rotate-y-180',
-            'bg-[radial-gradient(ellipse_at_top,#7A1F1F_0%,#3B0A0A_55%,#1A0505_100%)] object-cover object-center'
+            "aspect-square h-[70vh] w-full rotate-y-180",
+            "bg-[radial-gradient(ellipse_at_top,#7A1F1F_0%,#3B0A0A_55%,#1A0505_100%)] object-cover object-center",
           )}
         />
 
@@ -46,21 +45,22 @@ const Home = () => {
 
         <div className="z-20 p-5 text-center text-white md:p-0 md:text-start">
           <div className="max-w-xl lg:absolute lg:left-10">
-            <p className="font-heading text-4xl md:font-bold lg:text-6xl">Premium Beef,</p>
+            <p className="font-heading text-4xl md:font-bold lg:text-6xl">
+              Premium Beef,
+            </p>
             <p className="font-heading mb-5 text-4xl md:font-bold lg:text-6xl">
               Crafted to Perfection
             </p>
 
             <p className="text-md mb-5 lg:text-lg">
-              Handpicked premium beef — from Wagyu-style cubes and Black Pepper Steaks to our
-              signature Strip Loin, Rib Eye, and Top Blade. Unmatched flavor, tenderness, and
-              convenience.
+              Handpicked premium beef — from Wagyu-style cubes and Black Pepper
+              Steaks to our signature Strip Loin, Rib Eye, and Top Blade.
+              Unmatched flavor, tenderness, and convenience.
             </p>
 
             <button
-              onClick={() => navigate('products')}
-              className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg"
-            >
+              onClick={() => navigate("products")}
+              className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg">
               Explore Products
             </button>
           </div>
@@ -73,7 +73,9 @@ const Home = () => {
             <img src={Cow} alt="High-quality meat" />
             <div>
               <h6 className="text-xl font-bold">High-Quality Meat</h6>
-              <p className="text-sm opacity-90">Carefully sourced from trusted farms</p>
+              <p className="text-sm opacity-90">
+                Carefully sourced from trusted farms
+              </p>
             </div>
           </div>
 
@@ -83,7 +85,9 @@ const Home = () => {
             <img src={Steak} alt="Wide selection" />
             <div>
               <h6 className="text-xl font-bold">Wide Selection</h6>
-              <p className="text-sm opacity-90">Cuts for every recipe and occasion</p>
+              <p className="text-sm opacity-90">
+                Cuts for every recipe and occasion
+              </p>
             </div>
           </div>
         </div>
@@ -96,8 +100,9 @@ const Home = () => {
               Make Every Dish Unforgettable
             </h1>
             <p className="text-lg text-gray-600">
-              Sunny Foods Inc. delivers premium beef — trusted by chefs, restaurants, and retailers
-              for unbeatable flavor, tenderness, and consistency.
+              Sunny Foods Inc. delivers premium beef — trusted by chefs,
+              restaurants, and retailers for unbeatable flavor, tenderness, and
+              consistency.
             </p>
           </div>
 
@@ -107,10 +112,11 @@ const Home = () => {
                 <div
                   key={index}
                   className={cn(
-                    'carousel-item pointer-events-none w-full transition-all',
-                    index === currentSlide ? 'opacity-100' : 'absolute opacity-0'
-                  )}
-                >
+                    "carousel-item pointer-events-none w-full transition-all",
+                    index === currentSlide
+                      ? "opacity-100"
+                      : "absolute opacity-0",
+                  )}>
                   <img
                     src={src}
                     className="aspect-video h-72 w-full max-w-md rounded-lg object-cover"
@@ -130,15 +136,15 @@ const Home = () => {
           </h1>
 
           <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
-            Sunny Foods is committed to more than just great meat — we provide dependable service
-            and tailored solutions to keep our customers satisfied.
+            Sunny Foods is committed to more than just great meat — we provide
+            dependable service and tailored solutions to keep our customers
+            satisfied.
           </p>
         </div>
 
         <div
           className="grid place-items-center gap-5 px-5 md:grid-cols-2 lg:grid-cols-4"
-          data-aos="zoom-in-up"
-        >
+          data-aos="zoom-in-up">
           {services.map((service, ids) => (
             <ServiceCard
               key={ids}
@@ -155,7 +161,8 @@ const Home = () => {
         <div className="relative container mx-auto space-y-10 text-white">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold">
-              Our Signature <span className="text-error font-black"> Steak Series</span>
+              Our Signature{" "}
+              <span className="text-error font-black"> Steak Series</span>
             </h1>
             <p className="mt-2 px-2 text-lg leading-6 font-medium">
               Experience the difference of truly exceptional meat
@@ -175,7 +182,8 @@ const Home = () => {
           </div>
 
           <h1 className="text-center text-4xl font-bold">
-            ...And there&apos;s <span className="text-error font-black">more!</span>
+            ...And there&apos;s{" "}
+            <span className="text-error font-black">more!</span>
           </h1>
         </div>
       </section>
