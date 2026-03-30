@@ -8,7 +8,7 @@
 	"files": {
 		"includes": [
 			"**",
-			"!boime.json",
+			"!biome.json",
 			"!eslint.config.js",
 			"!package.json",
 			"!tsconfig.json",
