@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react';
-import type { Control, FieldValues, Path } from 'react-hook-form';
-import type { IconType } from 'react-icons/lib';
+import type { PropsWithChildren } from "react";
+import type { Control, FieldValues, Path } from "react-hook-form";
+import type { IconType } from "react-icons/lib";
 
 export interface IContactButton {
   contactIcon: IconType;

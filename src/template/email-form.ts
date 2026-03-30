@@ -1,4 +1,4 @@
-import type { IContactForm } from '~/pages/contact/type';
+import type { IContactForm } from "~/pages/contact/type";
 
 export const buildEmailHtml = (props: IContactForm) => `
 <!DOCTYPE html>

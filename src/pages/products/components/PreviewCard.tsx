@@ -1,6 +1,8 @@
-import type { ReactElement } from 'react';
-import { useState } from 'react';
-import { cn } from '~/libs/cn';
+import type { ReactElement } from "react";
+
+import { useState } from "react";
+
+import { cn } from "~/libs/cn";
 
 interface IPreview {
   imageSrc: { title: string; image: string };
@@ -17,7 +19,10 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
         <img
           src={image}
           alt={title.toLowerCase()}
-          className={cn('aspect-square h-full w-full object-cover', isLoading && 'skeleton')}
+          className={cn(
+            "aspect-square h-full w-full object-cover",
+            isLoading && "skeleton",
+          )}
           loading="lazy"
           onLoad={() => setIsLoading(false)}
           onError={() => setIsLoading(false)}
@@ -25,8 +30,7 @@ const PreviewCard = ({ imageSrc, openDetails }: IPreview): ReactElement => {
       </div>
       <button
         className="btn border border-(--warm-red) bg-(--warm-red) text-white"
-        onClick={openDetails}
-      >
+        onClick={openDetails}>
         {title}
       </button>
     </div>

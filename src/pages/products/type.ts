@@ -1,4 +1,4 @@
-export type IProductType = "Core Products" | "Steak Series"
+export type IProductType = "Core Products" | "Steak Series";
 
 export interface IProducts {
   id: number;
@@ -6,5 +6,5 @@ export interface IProducts {
   description: string;
   image: string;
   type: IProductType;
-  tags?: string[]
+  tags?: string[];
 }

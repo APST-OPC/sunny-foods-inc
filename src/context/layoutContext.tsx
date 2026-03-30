@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
 export interface ILayoutContext {
   isSidebarOpen: boolean;
@@ -7,4 +7,6 @@ export interface ILayoutContext {
   setShowFab: (isOpen: boolean) => void;
 }
 
-export const LayoutContext = createContext<ILayoutContext | undefined>(undefined);
+export const LayoutContext = createContext<ILayoutContext | undefined>(
+  undefined,
+);

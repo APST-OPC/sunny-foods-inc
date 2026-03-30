@@ -1,11 +1,19 @@
-import type { FieldValues } from 'react-hook-form';
-import type { ITextInput } from '../type';
+import type { FieldValues } from "react-hook-form";
+import type { ITextInput } from "../type";
 
-import { useController } from 'react-hook-form';
-import { cn } from '~/libs/cn';
+import { useController } from "react-hook-form";
+
+import { cn } from "~/libs/cn";
 
 export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
-  const { name, control, label, className, placeholder = 'Pease type here', disabled } = props;
+  const {
+    name,
+    control,
+    label,
+    className,
+    placeholder = "Pease type here",
+    disabled,
+  } = props;
 
   const {
     field,
@@ -16,8 +24,11 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
 
   return (
     <fieldset className="fieldset">
-      <p className={cn('label text-lg font-semibold text-black')}>
-        {label} <span className="text-error text-xs">{error && <>{error.message}</>}</span>
+      <p className={cn("label text-lg font-semibold text-black")}>
+        {label}{" "}
+        <span className="text-error text-xs">
+          {error && <>{error.message}</>}
+        </span>
       </p>
 
       <textarea
@@ -25,10 +36,10 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          'textarea h-90 w-full resize-none rounded-md focus-within:border-(--foreground) focus-within:outline-0 focus:outline-0',
-          error && 'border-error',
-          valueCheck && !error && 'border-success',
-          className
+          "textarea h-90 w-full resize-none rounded-md focus-within:outline-0 focus:outline-0",
+          error && "border-error",
+          valueCheck && !error && "border-success",
+          className,
         )}
       />
     </fieldset>
