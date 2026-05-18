@@ -136,7 +136,10 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
                 data-aos="fade-right"
                 className="text-2xl leading-snug font-extrabold">
                 Power Your Business With a
-                <span className="text-error"> Reliable Meat Supplier</span>
+                <span className="text-(--warm-red)">
+                  {" "}
+                  Reliable Meat Supplier
+                </span>
               </h1>
 
               <button

@@ -7,7 +7,10 @@ import Products from "~/pages/products";
 
 import Layout from "~/layout";
 
+import BusinessCard from "./pages/business-card";
 import Legal from "./pages/legal";
+import NotFound from "./pages/not-found";
+import QR from "./pages/qr";
 import { LayoutProvider } from "./provider/LayoutProvider";
 
 const App = () => {
@@ -26,6 +29,11 @@ const App = () => {
         <Route path="/talk-to-us" element={<Contact />} />
         <Route path="/legal" element={<Legal />} />
       </Route>
+
+      <Route path="qr/:id" element={<QR />} />
+      <Route path="business-card/:id" element={<BusinessCard />} />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
