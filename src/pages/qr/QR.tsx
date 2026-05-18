@@ -21,6 +21,7 @@ const QR = (): ReactElement => {
 
     qrRef.current.innerHTML = "";
     qrCode.current = new QRCodeStyling({
+      nodeCanvas: qrRef.current,
       width: 260,
       height: 260,
       data: qrValue,

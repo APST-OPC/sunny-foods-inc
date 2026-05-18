@@ -13,6 +13,9 @@ const BusinessCard = () => {
   const { id } = useParams<{ id: string }>();
   const card = businessCardInfo.find((card) => card.id === id);
 
+  const imageUrl = (img: string) =>
+    new URL(`../../assets/${img}`, import.meta.url).href;
+
   const getViberLink = (phoneNumber: string | undefined): string => {
     if (!phoneNumber) return "";
 
@@ -36,7 +39,7 @@ const BusinessCard = () => {
       <section className="flex flex-col items-center p-7">
         <div className="avatar">
           <div className="ring-offset-base-100 w-48 rounded-full ring-4 ring-[#7a1f1f] ring-offset-2">
-            <img src={card?.img} alt="Sunny Foods Inc" />
+            <img src={imageUrl(card?.img)} alt="Sunny Foods Inc" />
           </div>
         </div>
 
