@@ -5,6 +5,7 @@ import Packaging from "~/assets/icons/packaging-meat.png";
 import Restaurant from "~/assets/icons/restaurant.png";
 import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
+import BeefBBQCuts from "~/assets/products/core-products/beef-bbq-cuts.jpg";
 import BlackPepperSteak from "~/assets/products/core-products/black-pepper-steak.png";
 import BurgerPatty from "~/assets/products/core-products/burger-patty.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
@@ -75,6 +76,15 @@ export const products: IProducts[] = [
     image: TopBladeSteak,
     type: "Steak Series",
     tags: ["Frozen", "Easy to Cook"],
+  },
+  {
+    id: 8,
+    title: "Beef BBQ Cuts",
+    description:
+      "Quality beef cuts perfect for grilling, barbecue, and everyday delicious meals.",
+    image: BeefBBQCuts,
+    type: "Core Products",
+    tags: ["Frozen", "Easy to Cook", "BBQ"],
   },
 ];
 

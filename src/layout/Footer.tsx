@@ -99,23 +99,43 @@ const Footer = (): ReactElement => {
   };
 
   const renderInfo = (): ReactNode => {
+    const linkStyle =
+      "link link-hover flex justify-center gap-1 md:justify-start";
+    const renderViberLink = (phoneNumber: string | undefined): void => {
+      window.open(`viber://chat?number=${phoneNumber}`, "_blank");
+    };
+
     return (
       <div className="space-y-2">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
           Power Your Business
         </h1>
-        <div className="flex justify-center gap-1 md:justify-start">
+        <button
+          className={linkStyle}
+          onClick={() =>
+            window.open(`mailto:sales@sunnyfoods.com.ph`, "_blank")
+          }>
           <img src={Mail} alt="mail" className="h-5 w-5" />
           <p className="lg:text-md font-semibold whitespace-nowrap md:justify-start md:text-sm">
-            : sales@sunnyfoods.com.ph
+            sales@sunnyfoods.com.ph
           </p>
-        </div>
-        <div className="flex justify-center gap-1 md:justify-start">
+        </button>
+        <button
+          className={linkStyle}
+          onClick={() => renderViberLink("639187399999")}>
           <img src={Contact} alt="contact" className="h-5 w-5" />
           <p className="lg:text-md font-semibold md:justify-start md:text-sm">
-            : 0939-237-9999 / 0918-739-9999
+            Company +63 918-739-9999
           </p>
-        </div>
+        </button>
+        <button
+          className={linkStyle}
+          onClick={() => renderViberLink("639850963333")}>
+          <img src={Contact} alt="contact" className="h-5 w-5" />
+          <p className="lg:text-md font-semibold md:justify-start md:text-sm">
+            Sales +63 985-096-3333
+          </p>
+        </button>
       </div>
     );
   };

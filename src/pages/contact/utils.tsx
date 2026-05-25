@@ -9,8 +9,7 @@ export const contactBtns: IContactButton[] = [
   {
     contactIcon: ({ size }) => <FaViber size={size} color="#7360f2" />,
     contactCTA: "Chat with us on Viber",
-    openWindow: () =>
-      window.open("viber://chat?number=%2B9392379999", "_blank"),
+    openWindow: () => window.open("viber://chat?number=639187399999", "_blank"),
   },
   {
     contactIcon: ({ size }) => (
@@ -18,7 +17,7 @@ export const contactBtns: IContactButton[] = [
     ),
     contactCTA: "Visit our Facebook page",
     openWindow: () =>
-      window.open("https://www.facebook.com/SUNNYFOODSINC.2025", "_blank"),
+      window.open("https://www.facebook.com/sunnyfoodsinc/", "_blank"),
   },
   {
     contactIcon: ({ size }) => <FaInstagram size={size} color="#d300c5" />,

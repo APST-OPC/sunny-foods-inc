@@ -8,8 +8,7 @@ export const footerContactUs: IContactButton[] = [
   {
     contactCTA: "Chat with us on Viber",
     contactIcon: ({ size, color }) => <FaViber color={color} size={size} />,
-    openWindow: () =>
-      window.open("viber://chat?number=%2B9850963333", "_blank"),
+    openWindow: () => window.open("viber://chat?number=639187399999", "_blank"),
   },
   {
     contactCTA: "Visit our Facebook page",
