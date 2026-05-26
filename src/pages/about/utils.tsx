@@ -46,15 +46,15 @@ export const teams = [
     postion: "Executive Assistant",
   },
   {
-    name: "Xiao Bin",
-    postion: "Production Manager",
+    name: "Bong Aguilar",
+    postion: "Sales Director",
   },
   {
     name: "Rodella Mercado",
     postion: "Asst. Prod. Supervisor",
   },
   {
-    name: "Kimberly Anahaw",
-    postion: "HR Manager",
+    name: "Dona Mullet",
+    postion: "HR/Admin",
   },
 ];
