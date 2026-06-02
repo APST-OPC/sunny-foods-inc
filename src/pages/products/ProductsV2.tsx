@@ -66,6 +66,7 @@ const ProductItem = ({ description, image, title }: CatalogItem) => {
 
 const triggerButtonStyles =
   "btn btn-link group h-auto min-h-0 p-0 font-medium tracking-widest text-stone-600 uppercase no-underline hover:text-stone-500 hover:no-underline ";
+
 const TriggerButton = ({ activeCategory }: { activeCategory: string }) => {
   return (
     <button className={triggerButtonStyles}>
@@ -139,6 +140,14 @@ const TriggerDrawer = ({ activeCategory }: { activeCategory: string }) => {
         <span className="ml-1 font-bold underline underline-offset-4">
           {activeCategory === "all" ? "Show All" : activeCategory}
         </span>
+      </span>
+      <span className="text-[10px] text-stone-400 transition-transform duration-200 group-hover:translate-y-0.5">
+        <HugeiconsIcon
+          icon={ArrowDown02Icon}
+          size={16}
+          color="currentColor"
+          strokeWidth={1.2}
+        />
       </span>
     </label>
   );
@@ -271,9 +280,13 @@ const ProductsV2 = () => {
           <div
             className={cn(
               "sticky top-19 z-40 mb-12 px-5 transition-colors duration-300",
-              isStuck ? "bg-white shadow-sm" : "bg-transparent",
+              isStuck ? "bg-white shadow-xs" : "bg-transparent",
             )}>
-            <div className="container mx-auto flex items-center justify-between border-b border-stone-200 px-6 py-7">
+            <div
+              className={cn(
+                "container mx-auto flex items-center justify-between px-6 py-7",
+                isStuck ? "border-none" : "border-b border-stone-200",
+              )}>
               <div className="dropdown dropdown-bottom hidden md:block">
                 <TriggerButton activeCategory={activeCategory} />
                 <DropdownContent
