@@ -9,6 +9,9 @@ import BeefBBQCuts from "~/assets/products/core-products/beef-bbq-cuts.jpg";
 import BlackPepperSteak from "~/assets/products/core-products/black-pepper-steak.png";
 import BurgerPatty from "~/assets/products/core-products/burger-patty.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
+import BlackPepperSauce from "~/assets/products/sauces/bbq-sauce.jpeg";
+import BBQSeasoning from "~/assets/products/sauces/bbq-seasoning.jpeg";
+import MushroomGravy from "~/assets/products/sauces/mushroom-gravy.jpeg";
 import ChuckEyeSteak from "~/assets/products/steak-series/chuckeye-steak.png";
 import RibEyeSteak from "~/assets/products/steak-series/ribeye-steak.png";
 import StripLoinSteak from "~/assets/products/steak-series/striploin-steak.png";
@@ -123,5 +126,48 @@ export const whyChooseProducts = [
     title: "Consistent Quality Every Time",
     description:
       "Rigorous quality control, ensuring top quality in every order.",
+  },
+];
+
+export const productArray: {
+  product: string;
+  productHeader: string;
+  productDesc: string;
+  productData: IProducts[];
+}[] = [
+  {
+    product: "meats",
+    productHeader: "Our Premium Meat Collection",
+    productDesc:
+      "Select from our finest cuts, each prepared to deliver exceptional taste and quality.",
+    productData: products,
+  },
+  {
+    product: "sauces-and-seasonings",
+    productHeader: "Sauces, Gravies & Seasonings",
+    productDesc: "Complete Flavor Solutions for Every Meal",
+    productData: [
+      {
+        id: 9,
+        title: "Black Pepper Sauce",
+        description:
+          "Ready-to-use sauces crafted to enhance flavor and simplify food preparation.",
+        image: BlackPepperSauce,
+      },
+      {
+        id: 10,
+        title: "Mushroom Gravy",
+        description:
+          "Rich and flavorful gravies designed to pair perfectly with meat products and prepared meals.",
+        image: MushroomGravy,
+      },
+      {
+        id: 11,
+        title: "BBQ Seasoning",
+        description:
+          "Carefully blended seasonings that deliver consistent taste and versatility.",
+        image: BBQSeasoning,
+      },
+    ],
   },
 ];

@@ -5,6 +5,6 @@ export interface IProducts {
   title: string;
   description: string;
   image: string;
-  type: IProductType;
+  type?: IProductType;
   tags?: string[];
 }

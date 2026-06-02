@@ -1,0 +1,149 @@
+import type { ReactNode } from "react";
+import type { IProducts, IProductType } from "../type";
+
+import { useState } from "react";
+import { useParams } from "react-router";
+
+import { CTA } from "~/components";
+import { cn } from "~/libs/cn";
+
+import CustomDivider from "../components/CustomDivider";
+import PreviewCard from "../components/PreviewCard";
+import PreviewModal from "../components/PreviewModal";
+import { productArray, whyChooseProducts } from "../utils";
+
+const ProductSection = () => {
+  const { product } = useParams<{ product: string }>();
+  const productData = productArray.find((data) => data.product === product);
+
+  const [selectedType, setSelectedType] =
+    useState<IProductType>("Core Products");
+  const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(
+    null,
+  );
+  const [showDetail, setShowDetail] = useState<boolean>(false);
+
+  const showCats = product === "meats";
+
+  const showProducts = showCats
+    ? productData?.productData.filter((p) => p.type === selectedType)
+    : productData?.productData;
+
+  const handleView = (item: IProducts) => {
+    setSelectedProduct(item);
+    setShowDetail(true);
+  };
+
+  const handleShowDetail = (): void => setShowDetail(false);
+
+  const renderWhyChooseProducts = (): ReactNode => {
+    return (
+      <section className="container mx-auto space-y-20 py-20">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold">
+            WHY CHOOSE <span className="text-error">OUR BEEF PRODUCTS</span>?
+          </h1>
+
+          <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
+            Sunny Foods is committed to more than just great meat — we make sure
+            that our beef products are of utmost quality to keep our customers
+            satisfied.
+          </p>
+        </div>
+
+        <div className="grid place-items-center gap-5 px-5 md:grid-cols-2 lg:grid-cols-3">
+          {whyChooseProducts.map(({ title, description, image }, ids) => (
+            <div
+              key={ids}
+              className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md">
+              <div className="card-body items-center text-center">
+                <div className="mb-4 text-5xl">
+                  <img
+                    src={image}
+                    alt={title.toLowerCase()}
+                    className="h-14 w-14"
+                  />
+                </div>
+                <h3 className="card-title text-xl font-bold">{title}</h3>
+                <p className="text-base-content/80">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <CustomDivider />
+      </section>
+    );
+  };
+
+  return (
+    <main className="py-20">
+      <header className="container mx-auto mb-14 px-4 text-center">
+        <h1 className="text-cetner text-4xl font-bold md:text-5xl lg:text-6xl">
+          {productData?.productHeader}
+        </h1>
+
+        <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
+          {productData?.productDesc}
+        </p>
+      </header>
+
+      <section className="container mx-auto space-y-7 px-5">
+        <CustomDivider />
+
+        <div className="space-y-5">
+          {product === "meats" && (
+            <div role="tablist" className="tabs tabs-border justify-center">
+              <div
+                role="tab"
+                tabIndex={0}
+                className={cn(
+                  "tab hover:text-error text-lg transition-colors duration-300",
+                  selectedType === "Core Products" &&
+                    "tab-active before:text-error text-error font-bold",
+                )}
+                onClick={() => setSelectedType("Core Products")}>
+                Core Products
+              </div>
+
+              <div
+                role="tab"
+                tabIndex={0}
+                className={cn(
+                  "tab hover:text-error text-lg transition-colors duration-300",
+                  selectedType === "Steak Series" &&
+                    "tab-active before:text-error text-error font-bold",
+                )}
+                onClick={() => setSelectedType("Steak Series")}>
+                Steak Series
+              </div>
+            </div>
+          )}
+
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
+            {showProducts?.map((data) => (
+              <PreviewCard
+                key={data.id}
+                imageSrc={data}
+                openDetails={() => handleView(data)}
+              />
+            ))}
+          </div>
+        </div>
+
+        <CustomDivider />
+
+        <PreviewModal
+          product={selectedProduct}
+          open={showDetail}
+          handleClose={handleShowDetail}
+        />
+      </section>
+
+      {renderWhyChooseProducts()}
+      <CTA />
+    </main>
+  );
+};
+
+export default ProductSection;

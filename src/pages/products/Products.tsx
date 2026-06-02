@@ -1,96 +1,17 @@
 import type { ReactElement, ReactNode } from "react";
-import type { IProducts, IProductType } from "./type";
 
-import { useState } from "react";
+import { useNavigate } from "react-router";
+
+import Sauces from "~/assets/icons/ic_sauces.png";
+import Steak from "~/assets/icons/ic_steak.png";
 
 import { CTA } from "~/components";
-import { cn } from "~/libs/cn";
 
 import CustomDivider from "./components/CustomDivider";
-import PreviewCard from "./components/PreviewCard";
-import PreviewModal from "./components/PreviewModal";
-import { products, whyChooseProducts } from "./utils";
+import { whyChooseProducts } from "./utils";
 
 const Products = (): ReactElement => {
-  const [showDetail, setShowDetail] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(
-    null,
-  );
-  const [selectedType, setSelectedType] =
-    useState<IProductType>("Core Products");
-
-  const handleView = (item: IProducts) => {
-    setSelectedProduct(item);
-    setShowDetail(true);
-  };
-  const handleShowDetail = (): void => setShowDetail(false);
-
-  const renderHeader = (): ReactNode => {
-    return (
-      <header className="container mx-auto mb-14 px-4 text-center">
-        <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
-          Our Premium Meat Collection
-        </h1>
-
-        <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
-          Select from our finest cuts, each prepared to deliver exceptional
-          taste and quality.
-        </p>
-      </header>
-    );
-  };
-
-  const renderProductList = (): ReactNode => {
-    return (
-      <section className="container mx-auto space-y-7 px-5">
-        <CustomDivider />
-
-        <div className="space-y-5">
-          <div role="tablist" className="tabs tabs-border justify-center">
-            <div
-              role="tab"
-              tabIndex={0}
-              className={cn(
-                "tab hover:text-error text-lg transition-colors duration-300",
-                selectedType === "Core Products" &&
-                  "tab-active before:text-error text-error font-bold",
-              )}
-              onClick={() => setSelectedType("Core Products")}>
-              Core Products
-            </div>
-
-            <div
-              role="tab"
-              tabIndex={0}
-              className={cn(
-                "tab hover:text-error text-lg transition-colors duration-300",
-                selectedType === "Steak Series" &&
-                  "tab-active before:text-error text-error font-bold",
-              )}
-              onClick={() => setSelectedType("Steak Series")}>
-              Steak Series
-            </div>
-          </div>
-
-          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
-            {products
-              .filter((p) => p.type === selectedType)
-              .map((data) => {
-                return (
-                  <PreviewCard
-                    key={data.id}
-                    imageSrc={data}
-                    openDetails={() => handleView(data)}
-                  />
-                );
-              })}
-          </div>
-        </div>
-
-        <CustomDivider />
-      </section>
-    );
-  };
+  const navigate = useNavigate();
 
   const renderWhyChooseProducts = (): ReactNode => {
     return (
@@ -133,17 +54,32 @@ const Products = (): ReactElement => {
   };
 
   return (
-    <main className="py-20">
-      {renderHeader()}
-      {renderProductList()}
-      {renderWhyChooseProducts()}
-      <CTA />
-      <PreviewModal
-        product={selectedProduct}
-        open={showDetail}
-        handleClose={handleShowDetail}
-      />
-    </main>
+    <>
+      <section className="container mx-auto justify-items-center space-y-10 px-5 py-20 lg:px-0">
+        <p className="text-4xl font-bold md:text-5xl lg:text-6xl">Products</p>
+
+        <div className="flex w-full flex-col justify-evenly gap-5 lg:flex-row">
+          <button
+            className="btn flex h-100 flex-col border-none bg-(--warm-red) text-5xl text-white lg:w-150"
+            onClick={() => navigate("meats")}>
+            <img src={Steak} alt="Steak" className="h-30" />
+            <p>Look at our meat products</p>
+          </button>
+
+          <button
+            className="btn flex h-100 flex-col border-none bg-(--warm-red) text-5xl text-wrap text-white lg:w-150"
+            onClick={() => navigate("sauces-and-seasonings")}>
+            <img src={Sauces} alt="Sauces" className="h-30" />
+            Look at our sauces, gravies and seasonings
+          </button>
+        </div>
+      </section>
+
+      <main className="py-20">
+        {renderWhyChooseProducts()}
+        <CTA />
+      </main>
+    </>
   );
 };
 
