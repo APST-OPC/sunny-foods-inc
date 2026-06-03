@@ -3,13 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import About from "~/pages/about";
 import Contact from "~/pages/contact";
 import Home from "~/pages/home";
-import Products from "~/pages/products";
 
 import Layout from "~/layout";
 
 import BusinessCard from "./pages/business-card";
 import Legal from "./pages/legal";
 import NotFound from "./pages/not-found";
+import Productsv2 from "./pages/products/ProductsV2";
 import ProductSection from "./pages/products/product-section";
 import QR from "./pages/qr";
 import { LayoutProvider } from "./provider/LayoutProvider";
@@ -25,7 +25,8 @@ const App = () => {
           </LayoutProvider>
         }>
         <Route index element={<Home />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<Productsv2 />} />
+        <Route path="/products-v2" element={<Productsv2 />} />
         <Route path="/products/:product" element={<ProductSection />} />
         <Route path="/who-we-are" element={<About />} />
         <Route path="/talk-to-us" element={<Contact />} />

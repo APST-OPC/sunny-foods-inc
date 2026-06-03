@@ -1,0 +1,29 @@
+[
+	{
+		"category": "other meat",
+		"items": [
+			{
+				"id": 1,
+				"title": "Wagyu-Style Cubes",
+				"description": "Warbled beef cubes ideal for grilling, stir-frying, and premium dishes.",
+				"image": "wagyu-cubes.png",
+				"tags": ["Cook From Frozen", "Easy to Cook", "No Chef Needed"]
+			},
+
+			{
+				"id": 2,
+				"title": "Burger Patty",
+				"description": "Juicy beef patties for burgers, sandwiches and creative dishes.",
+				"image": "burger-patty.png",
+				"tags": ["Cook From Frozen", "Easy to Cook", "No Chef Needed"]
+			},
+			{
+				"id": 3,
+				"title": "Beef BBQ Cuts",
+				"description": "Quality beef cuts perfect for grilling, barbecue, and everyday delicious meals.",
+				"image": "beef-bbq-cuts.jpg",
+				"tags": ["Frozen", "Easy to Cook", "BBQ"]
+			}
+		]
+	}
+]

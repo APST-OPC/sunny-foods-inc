@@ -106,7 +106,7 @@ const Footer = (): ReactElement => {
     };
 
     return (
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <h1 className="text-center text-lg leading-6 font-bold md:text-start">
           Power Your Business
         </h1>
