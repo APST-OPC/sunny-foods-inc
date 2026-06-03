@@ -31,12 +31,14 @@ const Layout = () => {
   }, [setShowFab]);
 
   return (
-    <main className="h-full bg-(--light-brown)/10">
-      <header className="sticky top-0 left-0 z-50 w-full bg-[#f5ede4] shadow-sm">
+    <main className="flex min-h-screen flex-col bg-(--light-brown)/10">
+      <header className="sticky top-0 left-0 z-50 flex h-20 w-full bg-[#f5ede4]">
         <Navbar />
       </header>
 
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
 
       <AnimatePresence>
         {isShowFab && !isSidebarOpen && (
