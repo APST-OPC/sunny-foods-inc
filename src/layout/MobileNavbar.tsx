@@ -1,12 +1,14 @@
-import type { Variants } from 'motion/react';
+import type { Variants } from "motion/react";
 
-import { Fragment, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion } from "motion/react";
+import { Fragment } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { NavLink, useNavigate } from "react-router-dom";
 
-import { FiMenu, FiX } from 'react-icons/fi';
+import { useLayoutContext } from "~/hooks/useLayoutContext";
+import { cn } from "~/libs/cn";
 
-import { cn } from '~/libs/cn';
+import { instantScrollToTop } from "./utils";
 
 interface Links {
   to: string;
@@ -17,34 +19,50 @@ interface MobileNavbarProps {
 }
 
 const MobileNavbar = ({ links }: MobileNavbarProps) => {
-  const [open, setOpen] = useState(false);
+  const { isSidebarOpen, setSidebarOpen } = useLayoutContext();
+
+  const navigate = useNavigate();
 
   const menuVariants: Variants = {
     hidden: { height: 0, opacity: 0 },
     visible: {
-      height: '100dvh',
+      height: "calc(100dvh - 64px)",
       opacity: 1,
       transition: {
-        when: 'beforeChildren',
+        when: "beforeChildren",
         staggerChildren: 0.5,
       },
-      backgroundColor: '#FFFFFF',
+      backgroundColor: "#FFFFFF",
     },
     exit: {
       height: 0,
-      opacity: 99,
-      transition: { when: 'afterChildren', type: 'spring', stiffness: 200, damping: 30 },
+      opacity: 1,
+      transition: {
+        when: "afterChildren",
+        type: "spring",
+        stiffness: 200,
+        damping: 30,
+      },
     },
   };
 
   // Variants for each menu item
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
   };
-  const motionlistMenuVariant = {
-    variant: itemVariants,
+
+  const handleNavigate = () => {
+    navigate("/talk-to-us");
+    closeMenu();
+  };
+
+  const toggleMenu = () => setSidebarOpen(!isSidebarOpen);
+
+  const closeMenu = () => {
+    instantScrollToTop();
+    setSidebarOpen(false);
   };
 
   const closeIcon = () => {
@@ -54,8 +72,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
         initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
         animate={{ opacity: 1, rotate: 0, scale: 1 }}
         exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-        transition={{ duration: 0.25 }}
-      >
+        transition={{ duration: 0.25 }}>
         <FiX className="text-error h-8 w-8" />
       </motion.div>
     );
@@ -68,49 +85,69 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.5 }}
-        transition={{ duration: 0.25 }}
-      >
+        transition={{ duration: 0.25 }}>
         <FiMenu className="text-error h-8 w-8" />
       </motion.div>
     );
   };
+
+  const renderMenuList = () => {
+    return (
+      <motion.ul className="menu w-full p-4">
+        {links.map((link, ids) => (
+          <motion.li key={ids} variants={itemVariants}>
+            <NavLink
+              to={link.to}
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                cn(
+                  "bg-transparent text-2xl font-bold tracking-tight",
+                  isActive ? "text-error" : "text-black",
+                )
+              }>
+              {link.label}
+            </NavLink>
+          </motion.li>
+        ))}
+      </motion.ul>
+    );
+  };
+
   return (
     <Fragment>
-      {/* MOBILE MENU ICON */}
-      <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
-        <div className="nav-end flex md:hidden" onClick={() => setOpen(!open)}>
-          <AnimatePresence mode="wait">{open ? closeIcon() : menuIcon()}</AnimatePresence>
-        </div>
-      </div>
+      <button className="flex md:hidden" onClick={toggleMenu}>
+        <AnimatePresence mode="wait">
+          {isSidebarOpen ? closeIcon() : menuIcon()}
+        </AnimatePresence>
+      </button>
 
-      {/* MOBILE MENU DROPDOWN (FRAMER MOTION) */}
       <AnimatePresence>
-        {open && (
+        {isSidebarOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full overflow-hidden bg-[url('~/assets/beef-bg-mobile.png')] bg-cover bg-bottom-left backdrop-blur-lg md:hidden"
+            className="absolute top-full left-0 flex w-full flex-col overflow-hidden backdrop-blur-lg md:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={menuVariants}
-          >
-            <motion.ul className="menu w-full space-y-2 p-4">
-              {links.map((link, ids) => (
-                <motion.li key={ids} variants={motionlistMenuVariant.variant}>
-                  <NavLink
-                    to={link.to}
-                    onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
-                      cn(
-                        'bg-transparent text-4xl font-bold tracking-tight',
-                        isActive ? 'text-error' : 'text-black'
-                      )
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                </motion.li>
-              ))}
-            </motion.ul>
+            variants={menuVariants}>
+            {renderMenuList()}
+
+            <div className="mt-auto space-y-5 bg-amber-100 px-5 py-10">
+              <h1
+                data-aos="fade-right"
+                className="text-2xl leading-snug font-extrabold">
+                Power Your Business With a
+                <span className="text-(--warm-red)">
+                  {" "}
+                  Reliable Meat Supplier
+                </span>
+              </h1>
+
+              <button
+                onClick={handleNavigate}
+                className="btn btn-error w-full text-white shadow-md hover:shadow-lg">
+                Talk To Us
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

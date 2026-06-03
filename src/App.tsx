@@ -1,20 +1,39 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import Home from '~/pages/home';
-import Layout from '~/layout';
-import Products from '~/pages/products';
-import About from '~/pages/about';
-import Contact from '~/pages/contact';
+import About from "~/pages/about";
+import Contact from "~/pages/contact";
+import Home from "~/pages/home";
+import Products from "~/pages/products";
+
+import Layout from "~/layout";
+
+import BusinessCard from "./pages/business-card";
+import Legal from "./pages/legal";
+import NotFound from "./pages/not-found";
+import QR from "./pages/qr";
+import { LayoutProvider } from "./provider/LayoutProvider";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route
+        path="/"
+        element={
+          <LayoutProvider>
+            <Layout />
+          </LayoutProvider>
+        }>
         <Route index element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/who-we-are" element={<About />} />
+        <Route path="/talk-to-us" element={<Contact />} />
+        <Route path="/legal" element={<Legal />} />
       </Route>
+
+      <Route path="qr/:id" element={<QR />} />
+      <Route path="business-card/:id" element={<BusinessCard />} />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

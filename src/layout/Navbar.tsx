@@ -1,62 +1,71 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import SunnyFoodsLogo from '~/assets/sunnyfoods-logo.png';
-import { cn } from '~/libs/cn';
+import SunnyFoodsLogo from "~/assets/logos/company-logo-textless.png";
 
-import MobileNavbar from './MobileNavbar';
+import { cn } from "~/libs/cn";
 
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-];
+import MobileNavbar from "./MobileNavbar";
+import { instantScrollToTop, links } from "./utils";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const handleScrollTop = () => {
-    window.scrollTo(0, 0);
+  const onClickLogo = () => {
+    navigate("/");
+    instantScrollToTop();
   };
 
   return (
-    <nav className={cn('navbar container mx-auto')}>
+    <nav className={cn("navbar container mx-auto")}>
       {/* LEFT SIDE LOGO */}
       <div className="navbar-start flex flex-1">
         <div
           role="button"
-          onClick={() => navigate('/')}
-          className="flex flex-row items-center gap-2 hover:cursor-pointer"
-        >
-          <img src={SunnyFoodsLogo} alt="Sunny Foods" className="h-16 w-16" />
+          tabIndex={0}
+          onClick={onClickLogo}
+          className="flex flex-row items-center gap-2 hover:cursor-pointer">
+          <img
+            src={SunnyFoodsLogo}
+            alt="Sunny Foods"
+            className="pointer-events-none block h-8 lg:h-12"
+          />
+
           <span>
-            <p className="text-xl leading-6 font-bold">
-              <span className="text-success mr-1">Sunny</span>
-              <span className="text-error">Foods Inc.</span>
+            <p className="text-success font-serif text-sm leading-6 font-bold uppercase lg:text-xl">
+              Sunny Foods Inc.
             </p>
-            <p className="text-xs font-medium text-gray-600">Delicious • Healthy • Affordable</p>
+            <p className="text-[10px] font-medium text-(--red) lg:text-xs">
+              Delicious • Healthy • Affordable
+            </p>
           </span>
         </div>
       </div>
 
       {/* DESKTOP LINKS */}
-      <div className="navbar-end text-md hidden gap-8 font-semibold md:flex">
+      <div className="navbar-end text-md hidden gap-5 font-semibold md:flex">
         {links.map((link, ids) => (
           <NavLink
             key={ids}
             to={link.to}
-            onClick={() => handleScrollTop()}
+            onClick={instantScrollToTop}
             className={({ isActive }) =>
               cn(
-                'hover:text-error relative px-2 py-1 text-black transition-all duration-300',
-                'after:bg-error after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full',
-                isActive && 'text-error after:w-full'
+                "hover:text-error relative px-2 py-1 text-black transition-all duration-300",
+                "after:bg-error after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full",
+                isActive && "text-error after:w-full",
               )
-            }
-          >
+            }>
             {link.label}
           </NavLink>
         ))}
+
+        <Link to="/talk-to-us">
+          <button
+            onClick={instantScrollToTop}
+            className="btn border border-(--warm-red) bg-(--warm-red) text-white">
+            Talk To Us
+          </button>
+        </Link>
       </div>
 
       {/* MOBILE MENU ICON */}

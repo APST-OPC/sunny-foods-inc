@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Solitreo&display=swap");
 
-@import 'tailwindcss';
-@plugin 'daisyui';
+@import "tailwindcss";
+@plugin "daisyui";
 
-@plugin 'daisyui/theme' {
-  name: 'custom-theme';
+@plugin "daisyui/theme" {
+  name: "custom-theme";
   default: false;
   prefersdark: false;
-  color-scheme: 'light';
+  color-scheme: "light";
 
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(95% 0 0);
@@ -54,19 +54,21 @@
   --background: #ffffff;
   --foreground: #3b2f2f;
   --red: #b81c21;
+  --warm-red: #7a1f1f;
   --green: #006c2d;
   --light-brown: #c8a175;
   --golden-yellow: #eead15;
   --olive-green: #4f7d30;
   --spring-green: #8ac447;
-  --nunito-sans: 'Nunito Sans', sans-serif;
-  --solitreo: 'Solitreo', cursive;
+  --nunito-sans: "Nunito Sans", sans-serif;
+  --solitreo: "Solitreo", cursive;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--nunito-sans);
+  font-size: 14;
 }
 
 .font-heading {

@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
+import AOS from "aos";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect } from "react";
+import { FaAngleUp } from "react-icons/fa";
+import { Outlet } from "react-router-dom";
 
-import { Outlet } from 'react-router-dom';
-import { FaAngleUp } from 'react-icons/fa';
+import { useLayoutContext } from "~/hooks/useLayoutContext";
 
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { smoothScrollToTop } from "./utils";
 
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 const Layout = () => {
-  const [showFab, setShowFab] = useState(false);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const { isSidebarOpen, isShowFab, setShowFab } = useLayoutContext();
 
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -21,29 +22,40 @@ const Layout = () => {
       setShowFab(window.scrollY > window.innerHeight - 500);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       AOS.refreshHard();
     };
-  }, []);
+  }, [setShowFab]);
 
   return (
     <main className="h-full bg-(--light-brown)/10">
-      <header className={`sticky top-0 left-0 z-50 w-full bg-[#f5ede4] shadow-sm`}>
+      <header className="sticky top-0 left-0 z-50 w-full bg-[#f5ede4] shadow-sm">
         <Navbar />
       </header>
 
       <Outlet />
-      <Footer />
 
-      {showFab && (
-        <div className="fab transition-all">
-          <button className="btn btn-xl btn-square btn-success" onClick={() => scrollToTop()}>
-            <FaAngleUp />
-          </button>
-        </div>
-      )}
+      <AnimatePresence>
+        {isShowFab && !isSidebarOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fab bottom-8">
+            <button
+              className="btn btn-sm btn-circle md:btn-lg btn-success text-white"
+              onClick={smoothScrollToTop}>
+              <FaAngleUp />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <Footer />
     </main>
   );
 };
