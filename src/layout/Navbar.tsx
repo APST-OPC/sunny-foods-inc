@@ -1,12 +1,12 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaChevronDown } from "react-icons/fa";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import SunnyFoodsLogo from '~/assets/logos/company-logo-textless.png';
+import SunnyFoodsLogo from "~/assets/logos/company-logo-textless.png";
 
-import { cn } from '~/libs/cn';
+import { cn } from "~/libs/cn";
 
-import MobileNavbar from './MobileNavbar';
-import { aboutDropList, instantScrollToTop, links } from './utils';
-import { FaChevronDown } from 'react-icons/fa';
+import MobileNavbar from "./MobileNavbar";
+import { aboutDropList, instantScrollToTop, links } from "./utils";
 
 interface IDropdownNav {
   label: string;
@@ -18,9 +18,9 @@ interface IDropdownNav {
 
 const defaultNavStyle = (isActive: boolean) =>
   cn(
-    'hover:text-error relative px-2 py-1 text-black transition-all duration-300',
-    'after:bg-error after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full',
-    isActive && 'text-error after:w-full'
+    "hover:text-error relative px-2 py-1 text-black transition-all duration-300",
+    "after:bg-error after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full",
+    isActive && "text-error after:w-full",
   );
 
 const DropdownNav = (props: IDropdownNav) => {
@@ -39,11 +39,10 @@ const DropdownNav = (props: IDropdownNav) => {
             onClick={instantScrollToTop}
             className={({ isActive }) =>
               cn(
-                'p-2 text-base font-normal hover:bg-[#F5EDE4]/70',
-                isActive && 'text-error bg-[#F5EDE4] font-semibold'
+                "p-2 text-base font-normal hover:bg-[#F5EDE4]/70",
+                isActive && "text-error bg-[#F5EDE4] font-semibold",
               )
-            }
-          >
+            }>
             {item.label}
           </NavLink>
         ))}
@@ -56,20 +55,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const onClickLogo = () => {
-    navigate('/');
+    navigate("/");
     instantScrollToTop();
   };
 
   return (
-    <nav className={cn('navbar container mx-auto')}>
+    <nav className={cn("navbar container mx-auto")}>
       {/* LEFT SIDE LOGO */}
       <div className="navbar-start flex flex-1">
         <div
           role="button"
           tabIndex={0}
           onClick={onClickLogo}
-          className="flex flex-row items-center gap-2 hover:cursor-pointer"
-        >
+          className="flex flex-row items-center gap-2 hover:cursor-pointer">
           <img
             src={SunnyFoodsLogo}
             alt="Sunny Foods"
@@ -91,14 +89,17 @@ const Navbar = () => {
       <div className="navbar-end text-md hidden gap-5 font-semibold md:flex">
         {links.map((link, ids) => {
           return ids === 1 ? (
-            <DropdownNav key={ids} label={link.label} dropList={aboutDropList} />
+            <DropdownNav
+              key={ids}
+              label={link.label}
+              dropList={aboutDropList}
+            />
           ) : (
             <NavLink
               key={ids}
               to={link.to}
               onClick={instantScrollToTop}
-              className={({ isActive }) => cn(defaultNavStyle(isActive))}
-            >
+              className={({ isActive }) => cn(defaultNavStyle(isActive))}>
               {link.label}
             </NavLink>
           );
@@ -107,8 +108,7 @@ const Navbar = () => {
         <Link to="/talk-to-us">
           <button
             onClick={instantScrollToTop}
-            className="btn border border-(--warm-red) bg-(--warm-red) text-white"
-          >
+            className="btn border border-(--warm-red) bg-(--warm-red) text-white">
             Talk To Us
           </button>
         </Link>

@@ -1,10 +1,11 @@
-import { cn } from '~/libs/cn';
 // import { whyChooseProducts } from './utils';
-import { GiLaurelCrown } from 'react-icons/gi';
-import { TbMeat } from 'react-icons/tb';
-import { HiMiniStar } from 'react-icons/hi2';
+import { GiLaurelCrown } from "react-icons/gi";
+import { HiMiniStar } from "react-icons/hi2";
+import { TbMeat } from "react-icons/tb";
 
-import { brandAndProducts } from './utils';
+import { cn } from "~/libs/cn";
+
+import { brandAndProducts } from "./utils";
 
 const ServiceHeader = () => {
   return (
@@ -31,20 +32,20 @@ const ServiceHeader = () => {
 
       <div
         className={cn(
-          'divider mx-auto w-40',
-          'before:bg-linear-to-l before:from-(--light-brown) before:to-white',
-          'after:bg-linear-to-r after:from-(--light-brown) after:to-white'
-        )}
-      >
+          "divider mx-auto w-40",
+          "before:bg-linear-to-l before:from-(--light-brown) before:to-white",
+          "after:bg-linear-to-r after:from-(--light-brown) after:to-white",
+        )}>
         <TbMeat className="h-16 w-16 text-(--light-brown)" />
       </div>
 
       <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
-        Our services are designed to support every aspect of your business operations, from custom
-        meat orders and private labeling to packaging, wholesale supply, and distribution support.
-        With a focus on quality, reliability, and efficiency, we help businesses streamline
-        processes, strengthen their brand presence, and deliver exceptional products to their
-        customers.
+        Our services are designed to support every aspect of your business
+        operations, from custom meat orders and private labeling to packaging,
+        wholesale supply, and distribution support. With a focus on quality,
+        reliability, and efficiency, we help businesses streamline processes,
+        strengthen their brand presence, and deliver exceptional products to
+        their customers.
       </p>
     </div>
   );
@@ -74,14 +75,22 @@ const ServiceHeader = () => {
 const BrandAndProductService = () => {
   return (
     <div className="space-y-10">
-      <h1 className="text-center text-4xl font-bold">Brand & Product Development Service</h1>
+      <h1 className="text-center text-4xl font-bold">
+        Brand & Product Development Service
+      </h1>
       {brandAndProducts.map((item, index) => (
         <div
-          className={cn('flex w-full items-center gap-20', index % 2 !== 0 && 'flex-row-reverse')}
-          key={index}
-        >
+          className={cn(
+            "flex w-full items-center gap-20",
+            index % 2 !== 0 && "flex-row-reverse",
+          )}
+          key={index}>
           <div className="h-90 w-175 overflow-hidden rounded-xl">
-            <img src={item.image} alt="packaging and labeling" className="h-full w-full" />
+            <img
+              src={item.image}
+              alt="packaging and labeling"
+              className="h-full w-full"
+            />
           </div>
           <div className="w-full space-y-5">
             <h1 className="text-5xl font-semibold tracking-tight text-(--warm-red) md:text-6xl lg:text-7xl">

@@ -23,8 +23,7 @@ const App = () => {
           <LayoutProvider>
             <Layout />
           </LayoutProvider>
-        }
-      >
+        }>
         <Route index element={<Home />} />
         <Route path="/products" element={<Productsv2 />} />
         <Route path="/products-v2" element={<Productsv2 />} />
