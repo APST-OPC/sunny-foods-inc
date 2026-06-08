@@ -20,13 +20,13 @@ export default defineConfig({
       dynamicRoutes: ['/who-we-are', '/products', '/talk-to-us'],
     }),
   ],
-  server: {
-    allowedHosts: true,
-  },
 
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),
     },
+  },
+  server: {
+    allowedHosts: true,
   },
 });
