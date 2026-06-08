@@ -1,10 +1,5 @@
 import type { IProducts } from "./type";
 
-import Quality from "~/assets/icons/high-quality.png";
-import Packaging from "~/assets/icons/packaging-meat.png";
-import Restaurant from "~/assets/icons/restaurant.png";
-import FrozenMeat from "~/assets/icons/steak.png";
-import Stove from "~/assets/icons/stove.png";
 import BeefBBQCuts from "~/assets/products/core-products/beef-bbq-cuts.jpg";
 import BurgerPatty from "~/assets/products/core-products/burger-patty.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
@@ -85,43 +80,5 @@ export const products: IProducts[] = [
     image: BeefBBQCuts,
     type: "Core Products",
     tags: ["Frozen", "Easy to Cook", "BBQ"],
-  },
-];
-
-export const whyChooseProducts = [
-  {
-    image: Packaging,
-    title: "Premium Beef Cuts",
-    description:
-      "All natural, premium-grade cuts, expertly portion-controlled.",
-  },
-  {
-    image: Stove,
-    title: "Ready-to-Cook Convenience",
-    description: "Pre-cut, pre-marinated options for effortless cooking.",
-  },
-  {
-    image: Packaging,
-    title: "Portion-Controlled / Zero Waste",
-    description:
-      "Consistent weight & size, minimizing waste & maximizing profit.",
-  },
-  {
-    image: FrozenMeat,
-    title: "Frozen for Freshness & Shelf Life",
-    description:
-      "Locking in natural juices and nutrients for extended shelf life.",
-  },
-  {
-    image: Restaurant,
-    title: "Foodservice Friendly",
-    description:
-      "Custom-tailored to meet the needs of horeca and food retailers.",
-  },
-  {
-    image: Quality,
-    title: "Consistent Quality Every Time",
-    description:
-      "Rigorous quality control, ensuring top quality in every order.",
   },
 ];

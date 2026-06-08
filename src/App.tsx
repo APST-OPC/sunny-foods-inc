@@ -11,6 +11,7 @@ import Legal from "./pages/legal";
 import NotFound from "./pages/not-found";
 import Productsv2 from "./pages/products/ProductsV2";
 import QR from "./pages/qr";
+import Services from "./pages/services";
 import { LayoutProvider } from "./provider/LayoutProvider";
 
 const App = () => {
@@ -22,13 +23,15 @@ const App = () => {
           <LayoutProvider>
             <Layout />
           </LayoutProvider>
-        }>
+        }
+      >
         <Route index element={<Home />} />
         <Route path="/products" element={<Productsv2 />} />
         <Route path="/products-v2" element={<Productsv2 />} />
         <Route path="/who-we-are" element={<About />} />
         <Route path="/talk-to-us" element={<Contact />} />
         <Route path="/legal" element={<Legal />} />
+        <Route path="/services" element={<Services />} />
       </Route>
 
       <Route path="qr/:id" element={<QR />} />

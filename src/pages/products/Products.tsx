@@ -9,7 +9,7 @@ import { cn } from "~/libs/cn";
 import CustomDivider from "./components/CustomDivider";
 import PreviewCard from "./components/PreviewCard";
 import PreviewModal from "./components/PreviewModal";
-import { products, whyChooseProducts } from "./utils";
+import { products } from "./utils";
 
 const Products = (): ReactElement => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
@@ -105,26 +105,6 @@ const Products = (): ReactElement => {
             that our beef products are of utmost quality to keep our customers
             satisfied.
           </p>
-        </div>
-
-        <div className="grid place-items-center gap-5 px-5 md:grid-cols-2 lg:grid-cols-3">
-          {whyChooseProducts.map(({ title, description, image }, ids) => (
-            <div
-              key={ids}
-              className="card bg-base-100 border-base-200 h-full w-full max-w-xs shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg md:max-w-md">
-              <div className="card-body items-center text-center">
-                <div className="mb-4 text-5xl">
-                  <img
-                    src={image}
-                    alt={title.toLowerCase()}
-                    className="h-14 w-14"
-                  />
-                </div>
-                <h3 className="card-title text-xl font-bold">{title}</h3>
-                <p className="text-base-content/80">{description}</p>
-              </div>
-            </div>
-          ))}
         </div>
 
         <CustomDivider />
