@@ -3,7 +3,7 @@ import Packaging from "~/assets/icons/packaging-meat.png";
 import Restaurant from "~/assets/icons/restaurant.png";
 import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
-import packAndLabel from "~/assets/services/packagelabeling.png";
+// import packAndLabel from "~/assets/services/packagelabeling.png";
 
 export const whyChooseProducts = [
   {
@@ -46,7 +46,7 @@ export const whyChooseProducts = [
 export const brandAndProducts = [
   {
     title: "Packaging & Labeling",
-    image: packAndLabel,
+    image: Quality,
     description:
       "Our packaging process ensures products remain safe, fresh, and presentable throughout storage, transportation, and delivery. We implement accurate labeling systems that provide clear product information, support regulatory compliance, and enhance customer trust through consistent brand presentation.",
     bullet: [
@@ -57,7 +57,7 @@ export const brandAndProducts = [
   },
   {
     title: "OEM / Private Label",
-    image: packAndLabel,
+    image: Quality,
     description: "",
     bullet: [
       "Delivering customized OEM and private label solutions tailored to your brand requirements.",
@@ -67,7 +67,7 @@ export const brandAndProducts = [
   },
   {
     title: "Custom Meat Orders",
-    image: packAndLabel,
+    image: Quality,
     description: "",
     bullet: [
       "Secure packaging and accurate labeling that protect products and strengthen brand identity.",
