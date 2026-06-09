@@ -1,12 +1,12 @@
-import { GiLaurelCrown } from 'react-icons/gi';
-import { HiMiniStar } from 'react-icons/hi2';
-import { TbMeat } from 'react-icons/tb';
+import { GiLaurelCrown } from "react-icons/gi";
+import { HiMiniStar } from "react-icons/hi2";
+import { TbMeat } from "react-icons/tb";
 
-import CustomerService from '~/assets/services/customer-support.png';
+import CustomerService from "~/assets/services/customer-support.png";
 
-import { cn } from '~/libs/cn';
+import { cn } from "~/libs/cn";
 
-import { brandAndProducts, wholesaleAndLogistics } from './utils';
+import { brandAndProducts, wholesaleAndLogistics } from "./utils";
 
 const ServiceHeader = () => {
   return (
@@ -33,18 +33,18 @@ const ServiceHeader = () => {
 
       <div
         className={cn(
-          'divider mx-auto w-40',
-          'before:bg-linear-to-l before:from-(--light-brown) before:to-white',
-          'after:bg-linear-to-r after:from-(--light-brown) after:to-white'
-        )}
-      >
+          "divider mx-auto w-40",
+          "before:bg-linear-to-l before:from-(--light-brown) before:to-white",
+          "after:bg-linear-to-r after:from-(--light-brown) after:to-white",
+        )}>
         <TbMeat className="h-16 w-16 text-(--light-brown)" />
       </div>
 
       <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
-        Sunny Foods delivers high-quality meat products paired with outstanding customer service.
-        Alongside our premium meat selections, we provide comprehensive services that enhance
-        quality, convenience, and customer satisfaction at every step.
+        Sunny Foods delivers high-quality meat products paired with outstanding
+        customer service. Alongside our premium meat selections, we provide
+        comprehensive services that enhance quality, convenience, and customer
+        satisfaction at every step.
       </p>
     </div>
   );
@@ -53,27 +53,33 @@ const ServiceHeader = () => {
 const BrandAndProductService = () => {
   return (
     <div className="space-y-10">
-      <h1 className="text-center text-4xl font-bold">Brand & Product Development Service</h1>
+      <h1 className="text-center text-4xl font-bold">
+        Brand & Product Development Service
+      </h1>
       {brandAndProducts.map((item, index) => (
         <div
           className={cn(
-            'flex w-full flex-col items-center gap-5 lg:gap-10',
-            index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'
+            "flex w-full flex-col items-center gap-5 lg:gap-10",
+            index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
-          key={index}
-        >
+          key={index}>
           <div
             className="aspect-16/10 w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl"
-            data-aos={index % 2 !== 0 ? 'fade-left' : 'fade-right'}
-          >
-            <img src={item.image} alt="packaging and labeling" className="h-full w-full" />
+            data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
+            <img
+              src={item.image}
+              alt="packaging and labeling"
+              className="h-full w-full"
+            />
           </div>
           <div className="w-full space-y-3 px-5 lg:w-2/3">
             <h1 className="text-center text-4xl font-semibold tracking-tight text-(--warm-red) md:text-5xl lg:text-start lg:text-6xl">
               {item.title}
             </h1>
             <div className="space-y-2">
-              <h1 className="text-center text-base lg:text-start lg:text-lg">{item.description}</h1>
+              <h1 className="text-center text-base lg:text-start lg:text-lg">
+                {item.description}
+              </h1>
               <div className="divider hidden lg:block" />
               <ul className="hidden list-inside list-disc lg:block">
                 {item.bullet.map((data, ids) => (
@@ -93,14 +99,15 @@ const BrandAndProductService = () => {
 const LogisticsAndSupply = () => {
   return (
     <div className="space-y-10">
-      <h1 className="text-center text-4xl font-bold">Wholesale, Logistics & Distribution</h1>
+      <h1 className="text-center text-4xl font-bold">
+        Wholesale, Logistics & Distribution
+      </h1>
 
       <div className="flex flex-col md:flex-row">
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
-            className="h-full w-full cursor-pointer space-y-5 p-5 shadow-black/25 hover:scale-105 hover:bg-(--light-brown)/20"
-          >
+            className="h-full w-full cursor-pointer space-y-5 p-5 shadow-black/25 hover:scale-105 hover:bg-(--light-brown)/20">
             <div className="relative">
               <img
                 src={item.image}
@@ -112,7 +119,9 @@ const LogisticsAndSupply = () => {
               <h1 className="text-center text-4xl font-semibold tracking-tighter text-(--warm-red) lg:text-start">
                 {item.title}
               </h1>
-              <p className="mt-3 text-center text-lg md:text-start">{item.description}</p>
+              <p className="mt-3 text-center text-lg md:text-start">
+                {item.description}
+              </p>
             </div>
             <ul className="list-inside list-disc text-lg">
               {item.bullet.map((data, index) => (
@@ -129,9 +138,15 @@ const LogisticsAndSupply = () => {
 const BusinessSupportService = () => {
   return (
     <div className="w-full space-y-5">
-      <h1 className="text-center text-4xl font-bold">Business Support Services</h1>
+      <h1 className="text-center text-4xl font-bold">
+        Business Support Services
+      </h1>
 
-      <img src={CustomerService} className="h-full w-full rounded-xl" alt="customer-service" />
+      <img
+        src={CustomerService}
+        className="h-full w-full rounded-xl"
+        alt="customer-service"
+      />
     </div>
   );
 };
