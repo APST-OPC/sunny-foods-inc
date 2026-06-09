@@ -62,17 +62,16 @@ const BrandAndProductService = () => {
             "flex w-full flex-col items-center gap-5 lg:gap-10",
             index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
-          key={index}>
-          <div
-            className="aspect-16/10 w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl"
-            data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
+          key={index}
+          data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
+          <div className="w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl">
             <img
               src={item.image}
               alt="packaging and labeling"
               className="h-full w-full"
             />
           </div>
-          <div className="w-full space-y-3 px-5 lg:w-2/3">
+          <div className="w-full space-y-3 px-5 lg:w-2/3 lg:px-0">
             <h1 className="text-center text-4xl font-semibold tracking-tight text-(--warm-red) md:text-5xl lg:text-start lg:text-6xl">
               {item.title}
             </h1>
@@ -103,11 +102,11 @@ const LogisticsAndSupply = () => {
         Wholesale, Logistics & Distribution
       </h1>
 
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row" data-aos="fade-up">
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
-            className="h-full w-full cursor-pointer space-y-5 shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 md:p-5 rounded-xl hover:shadow-sm">
+            className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 hover:shadow-sm md:p-5">
             <div className="relative">
               <img
                 src={item.image}
@@ -146,6 +145,7 @@ const BusinessSupportService = () => {
         src={CustomerService}
         className="h-full w-full rounded-xl"
         alt="customer-service"
+        data-aos="zoom-in"
       />
     </div>
   );
