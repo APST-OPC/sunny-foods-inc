@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
@@ -24,29 +25,37 @@ const defaultNavStyle = (isActive: boolean) =>
   );
 
 const DropdownNav = (props: IDropdownNav) => {
+  const [isOpen, setIsOpen] = useState(false);
   const { label, dropList } = props;
-
+  const handelClick = () => {
+    instantScrollToTop();
+    setIsOpen(false);
+  };
   return (
     <div className="dropdown">
-      <button className="hover:text-error flex cursor-pointer items-center gap-2 transition-all duration-300">
+      <button
+        className="hover:text-error flex cursor-pointer items-center gap-2 transition-all duration-300"
+        onClick={() => setIsOpen((prev) => !prev)}>
         {label} <FaChevronDown className="size-4" />
       </button>
-      <div className="dropdown-content menu mt-2 w-60 space-y-1 rounded-lg bg-[#FFF9F3] shadow-lg">
-        {dropList.map((item, index) => (
-          <NavLink
-            to={item.to}
-            key={index}
-            onClick={instantScrollToTop}
-            className={({ isActive }) =>
-              cn(
-                "p-2 text-base font-normal hover:bg-[#F5EDE4]/70",
-                isActive && "text-error bg-[#F5EDE4] font-semibold",
-              )
-            }>
-            {item.label}
-          </NavLink>
-        ))}
-      </div>
+      {isOpen && (
+        <div className="dropdown-content menu mt-2 w-60 space-y-1 rounded-lg bg-[#FFF9F3] shadow-lg">
+          {dropList.map((item, index) => (
+            <NavLink
+              to={item.to}
+              key={index}
+              onClick={handelClick}
+              className={({ isActive }) =>
+                cn(
+                  "p-2 text-base font-normal hover:bg-[#F5EDE4]/70",
+                  isActive && "text-error bg-[#F5EDE4] font-semibold",
+                )
+              }>
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
