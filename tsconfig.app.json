@@ -10,9 +10,8 @@
 
     /* Path */
 
-    "baseUrl": "./",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     },
 
     /* Bundler mode */
