@@ -5,8 +5,8 @@ import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
 import BulkAndWholesale from "~/assets/services/bulk_wholesale.png";
 import CustomMeat from "~/assets/services/custom_meat_order.png";
+import MeatPackage from "~/assets/services/meat-package.png";
 import OEMPrivateLabel from "~/assets/services/OEM_Private_labeling.png";
-import PackAndLabel from "~/assets/services/packageLabeling.png";
 
 export const whyChooseProducts = [
   {
@@ -49,7 +49,7 @@ export const whyChooseProducts = [
 export const brandAndProducts = [
   {
     title: "Packaging / Labeling",
-    image: PackAndLabel,
+    image: MeatPackage,
     description:
       "Custom packaging and labeling tailored to your needs, from vacuum-sealed portions to bulk orders, ensuring secure presentation and clear product information.",
     bullet: [
