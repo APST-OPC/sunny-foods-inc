@@ -16,8 +16,8 @@ export default defineConfig({
     }),
 
     Sitemap({
-      hostname: 'https://www.sunnyfoods.com.ph/',
       dynamicRoutes: ['/who-we-are', '/products', '/talk-to-us'],
+      hostname: 'https://www.sunnyfoods.com.ph/',
     }),
   ],
 
@@ -25,8 +25,5 @@ export default defineConfig({
     alias: {
       '~': path.resolve(__dirname, './src'),
     },
-  },
-  server: {
-    allowedHosts: true,
   },
 });
