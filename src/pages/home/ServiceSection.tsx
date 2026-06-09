@@ -6,7 +6,9 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useNavigate } from "react-router";
 
-import SteakWholeSale from "~/assets/products/steak-series/sunnyfoods-steak-wholesale.png";
+import BrandingAndPackaging from "~/assets/meat-carousel/branding-packaging-service.png";
+import BusinessSupportService from "~/assets/meat-carousel/business-support-service.png";
+import LogisticService from "~/assets/meat-carousel/cold-storage-logistics.png";
 
 const serviceData = [
   {
@@ -18,7 +20,7 @@ const serviceData = [
         strokeWidth={1.5}
       />
     ),
-    image: SteakWholeSale,
+    image: BrandingAndPackaging,
     title: "Branding & Packaging Services",
     description:
       "Comprehensive private label and OEM manufacturing solutions. We handle everything from custom portion specifications to regulatory-compliant retail packaging and branding.",
@@ -37,7 +39,7 @@ const serviceData = [
         strokeWidth={1.5}
       />
     ),
-    image: SteakWholeSale,
+    image: LogisticService,
     title: "Wholesale & Logistics Services",
     description:
       "High-volume bulk wholesale supply backed by secure distribution networks. We ensure massive product quantities are handled safely through strict, uninterrupted cold chain logistics.",
@@ -52,7 +54,7 @@ const serviceData = [
         strokeWidth={1.5}
       />
     ),
-    image: SteakWholeSale,
+    image: BusinessSupportService,
     title: "Business Support Services",
     description:
       "Dedicated enterprise partnership and post-delivery operations. Our commercial desk coordinates unbroken supply pipelines and proactive, ongoing customer support.",
@@ -103,7 +105,7 @@ export default function ServicesSection() {
 
                   <figure className="aspect-4/3 w-full overflow-hidden bg-[#262220]">
                     <img
-                      src={SteakWholeSale}
+                      src={service.image}
                       alt={service.title.toLowerCase()}
                       className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
                     />
