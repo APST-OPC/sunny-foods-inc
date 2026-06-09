@@ -3,7 +3,10 @@ import Packaging from "~/assets/icons/packaging-meat.png";
 import Restaurant from "~/assets/icons/restaurant.png";
 import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
-// import packAndLabel from "~/assets/services/packagelabeling.png";
+import BulkAndWholesale from "~/assets/services/bulk_wholesale.png";
+import CustomMeat from "~/assets/services/custom_meat_order.png";
+import OEMPrivateLabel from "~/assets/services/OEM_Private_labeling.png";
+import PackAndLabel from "~/assets/services/packageLabeling.png";
 
 export const whyChooseProducts = [
   {
@@ -45,20 +48,21 @@ export const whyChooseProducts = [
 
 export const brandAndProducts = [
   {
-    title: "Packaging & Labeling",
-    image: Quality,
+    title: "Packaging / Labeling",
+    image: PackAndLabel,
     description:
-      "Our packaging process ensures products remain safe, fresh, and presentable throughout storage, transportation, and delivery. We implement accurate labeling systems that provide clear product information, support regulatory compliance, and enhance customer trust through consistent brand presentation.",
+      "Custom packaging and labeling tailored to your needs, from vacuum-sealed portions to bulk orders, ensuring secure presentation and clear product information.",
     bullet: [
-      "Secure packaging and accurate labeling that protect products and strengthen brand identity.",
-      "Our labeling systems ensure clear product identification, regulatory compliance, and strong brand representation across every package.",
-      "Every package undergoes quality checks to maintain consistency, reliability, and presentation standards from production to distribution.",
+      "Custom packaging options, from vacuum-sealed portions to bulk orders, tailored to meet your business requirements.",
+      "Clear and accurate labeling ensures product identification, compliance, and a professional presentation.",
+      "Secure and neatly finished packaging helps preserve product quality while ensuring reliable handling and distribution.",
     ],
   },
   {
     title: "OEM / Private Label",
-    image: Quality,
-    description: "",
+    image: OEMPrivateLabel,
+    description:
+      "From product development to packaging and branding, our OEM and private label solutions help bring your vision to market with confidence.",
     bullet: [
       "Delivering customized OEM and private label solutions tailored to your brand requirements.",
       "Flexible production capabilities support product customization and brand growth",
@@ -67,12 +71,38 @@ export const brandAndProducts = [
   },
   {
     title: "Custom Meat Orders",
-    image: Quality,
-    description: "",
+    image: CustomMeat,
+    description:
+      "Custom meat orders tailored to your specifications, with flexible cuts, weights, and packaging designed to meet your exact requirements.",
     bullet: [
-      "Secure packaging and accurate labeling that protect products and strengthen brand identity.",
-      "Our labeling systems ensure clear product identification, regulatory compliance, and strong brand representation across every package.",
-      "Every package undergoes quality checks to maintain consistency, reliability, and presentation standards from production to distribution.",
+      "Personalized meat orders with custom cuts, portions, and specifications tailored to your unique needs.",
+      "Flexible packaging and weight options help ensure products align with your business requirements.",
+      "Our team works closely with you to fulfill special requests and deliver precisely what you need.",
+    ],
+  },
+];
+
+export const wholesaleAndLogistics = [
+  {
+    title: "Bulk Ordering & Wholesale",
+    image: BulkAndWholesale,
+    description:
+      "We provide bulk ordering and wholesale solutions for restaurants, retailers, and food service businesses, delivering premium-quality meat at competitive prices.",
+    bullet: [
+      "Premium-quality meat supplied in bulk quantities to support restaurants, retailers, and food businesses.",
+      "Competitive wholesale pricing helps businesses maintain value without compromising product quality.",
+      "Reliable inventory and consistent supply ensure uninterrupted operations and dependable order fulfillment.",
+    ],
+  },
+  {
+    title: "Cold Chain Logistics & Handling",
+    image: BulkAndWholesale,
+    description:
+      "Reliable cold chain management ensures meat products remain fresh, safe, and in optimal condition from processing to delivery.",
+    bullet: [
+      "Temperature-controlled storage and transport help preserve freshness, quality, and food safety.",
+      "Continuous cold chain monitoring minimizes risks and maintains optimal product conditions.",
+      "Efficient handling and distribution ensure products arrive safely, fresh, and ready for use.",
     ],
   },
 ];
