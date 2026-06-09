@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
 import BannerHead from "~/assets/hero-sec.png";
-import PremuimCut from "~/assets/meat-carousel/premium-beef-cuts.png";
+import PremuimCut from "~/assets/meat-carousel/premium-beef-cuts2.png";
 import ReadyToCook from "~/assets/meat-carousel/ready-to-cook.png";
 import SteakFoodService from "~/assets/meat-carousel/SteakFoodService.png";
 import SteakFrozenPack from "~/assets/meat-carousel/steak-frozen-pack.png";
