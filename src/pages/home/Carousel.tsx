@@ -5,12 +5,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-import BeefBBQCuts from "~/assets/products/core-products/beef-bbq-cuts.jpg";
+import BeefBBQCuts from "~/assets/products/core-products/bbq-cuts2.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
 import BBQSeasoning from "~/assets/products/sauces/bbq-seasoning.jpeg";
 import BlackPepperSauce from "~/assets/products/sauces/black-pepper-sauce.jpeg";
-import BlackPepperSteak from "~/assets/products/steak-series/black-pepper-steak.png";
-import ChuckEyeSteak from "~/assets/products/steak-series/chuckeye-steak.png";
+import BlackPepperSteak from "~/assets/products/steak-series/black-pepper-steak2.png";
+import ChuckEyeSteak from "~/assets/products/steak-series/chuck-eye-steak2.png";
 
 import { cn } from "~/libs/cn";
 
