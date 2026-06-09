@@ -18,6 +18,7 @@ export default defineConfig({
     Sitemap({
       dynamicRoutes: ['/who-we-are', '/products', '/talk-to-us'],
       hostname: 'https://www.sunnyfoods.com.ph/',
+      outDir: 'dist',
     }),
   ],
 
