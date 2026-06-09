@@ -52,7 +52,7 @@ const ServiceHeader = () => {
 
 const BrandAndProductService = () => {
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 md:px-5">
       <h1 className="text-center text-4xl font-bold">
         Brand & Product Development Service
       </h1>
@@ -107,7 +107,7 @@ const LogisticsAndSupply = () => {
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
-            className="h-full w-full cursor-pointer space-y-5 p-5 shadow-black/25 hover:scale-105 hover:bg-(--light-brown)/20">
+            className="h-full w-full cursor-pointer space-y-5 shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 md:p-5 rounded-xl hover:shadow-sm">
             <div className="relative">
               <img
                 src={item.image}
@@ -123,7 +123,7 @@ const LogisticsAndSupply = () => {
                 {item.description}
               </p>
             </div>
-            <ul className="list-inside list-disc text-lg">
+            <ul className="hidden list-inside list-disc text-lg md:block">
               {item.bullet.map((data, index) => (
                 <li key={index}>{data}</li>
               ))}
@@ -153,7 +153,7 @@ const BusinessSupportService = () => {
 
 const Services = () => {
   return (
-    <section className="container mx-auto space-y-20 px-5 py-20">
+    <section className="container mx-auto space-y-20 py-20">
       <ServiceHeader />
       <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
       <BrandAndProductService />
