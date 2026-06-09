@@ -19,6 +19,7 @@ export default defineConfig({
       dynamicRoutes: ['/who-we-are', '/products', '/talk-to-us'],
       hostname: 'https://www.sunnyfoods.com.ph/',
       outDir: 'dist',
+      generateRobotsTxt: false,
     }),
   ],
 
