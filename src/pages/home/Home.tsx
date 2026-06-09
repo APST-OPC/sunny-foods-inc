@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
 import BannerHead from "~/assets/hero-sec.png";
-import PremuimCutAlt from "~/assets/meat-carousel/premium-beef-cut-alt.png";
 import PremuimCut from "~/assets/meat-carousel/premium-beef-cuts.png";
 import ReadyToCook from "~/assets/meat-carousel/ready-to-cook.png";
 import SteakFoodService from "~/assets/meat-carousel/SteakFoodService.png";
@@ -22,7 +21,6 @@ const beefSolutions = [
     title: "Premium Beef Cuts",
     desc: "All natural, premium-grade cuts, expertly portion-controlled.",
     image: PremuimCut,
-    altImage: PremuimCutAlt,
   },
   {
     num: "02",
