@@ -3,10 +3,10 @@ import Packaging from "~/assets/icons/packaging-meat.png";
 import Restaurant from "~/assets/icons/restaurant.png";
 import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
-import BulkAndWholesale from "~/assets/services/bulk_wholesale.png";
-import CustomMeat from "~/assets/services/custom_meat_order.png";
+// import BulkAndWholesale from "~/assets/services/bulk_wholesale.png";
+// import CustomMeat from "~/assets/services/custom_meat_order.png";
 import MeatPackage from "~/assets/services/meat-package.png";
-import OEMPrivateLabel from "~/assets/services/OEM_Private_labeling.png";
+// import OEMPrivateLabel from "~/assets/services/OEM_Private_labeling.png";
 
 export const whyChooseProducts = [
   {
@@ -60,7 +60,7 @@ export const brandAndProducts = [
   },
   {
     title: "OEM / Private Label",
-    image: OEMPrivateLabel,
+    image: MeatPackage,
     description:
       "From product development to packaging and branding, our OEM and private label solutions help bring your vision to market with confidence.",
     bullet: [
@@ -71,7 +71,7 @@ export const brandAndProducts = [
   },
   {
     title: "Custom Meat Orders",
-    image: CustomMeat,
+    image: MeatPackage,
     description:
       "Custom meat orders tailored to your specifications, with flexible cuts, weights, and packaging designed to meet your exact requirements.",
     bullet: [
@@ -85,7 +85,7 @@ export const brandAndProducts = [
 export const wholesaleAndLogistics = [
   {
     title: "Bulk Ordering & Wholesale",
-    image: BulkAndWholesale,
+    image: MeatPackage,
     description:
       "We provide bulk ordering and wholesale solutions for restaurants, retailers, and food service businesses, delivering premium-quality meat at competitive prices.",
     bullet: [
@@ -96,7 +96,7 @@ export const wholesaleAndLogistics = [
   },
   {
     title: "Cold Chain Logistics & Handling",
-    image: BulkAndWholesale,
+    image: MeatPackage,
     description:
       "Reliable cold chain management ensures meat products remain fresh, safe, and in optimal condition from processing to delivery.",
     bullet: [
