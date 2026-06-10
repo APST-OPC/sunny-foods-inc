@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import SunnyFoodsLogo from "~/assets/logos/company-logo-textless.png";
+import SunnyFoodsLogo from "~/assets/logos/sunny-foods-logo.png";
 
 import { cn } from "~/libs/cn";
 
@@ -83,14 +83,14 @@ const Navbar = () => {
             className="pointer-events-none block h-8 lg:h-12"
           />
 
-          <span>
-            <p className="text-success font-serif text-sm leading-6 font-bold uppercase lg:text-xl">
+          <h1 className="font-heading">
+            <p className="text-success text-sm leading-6 font-bold uppercase lg:text-xl">
               Sunny Foods Inc.
             </p>
             <p className="text-[10px] font-medium text-(--red) lg:text-xs">
               Delicious • Healthy • Affordable
             </p>
-          </span>
+          </h1>
         </div>
       </div>
 
