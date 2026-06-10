@@ -4,11 +4,13 @@ import { GiLaurelCrown } from "react-icons/gi";
 import { HiMiniStar } from "react-icons/hi2";
 import { TbMeat } from "react-icons/tb";
 
-import CustomerService from "~/assets/services/customer-support.png";
-
 import { cn } from "~/libs/cn";
 
-import { brandAndProducts, wholesaleAndLogistics } from "./utils";
+import {
+  brandAndProducts,
+  businessSupportService,
+  wholesaleAndLogistics,
+} from "./utils";
 
 const Container = (props: ComponentProps<"div">) => {
   const { children, className, ...rest } = props;
@@ -96,7 +98,7 @@ const BrandAndProductService = () => {
                   key={index}
                   className={cn(
                     "text-center text-base tracking-tighter",
-                    "flex items-center justify-center gap-2",
+                    "flex items-center justify-center gap-3",
                     "rounded-xl border-2 border-(--light-brown)/50 px-2 py-2 shadow-sm",
                     "lg:justify-start lg:gap-5 lg:border-none lg:shadow-none",
                   )}>
@@ -155,12 +157,41 @@ const BusinessSupportService = () => {
   return (
     <Container>
       <CategoryTitle>Business Support Services</CategoryTitle>
-      <img
-        src={CustomerService}
-        className="mx-auto h-full w-full md:h-[80%] lg:w-[80%] lg:rounded-xl"
-        alt="customer-service"
-        data-aos="zoom-in"
-      />
+      {businessSupportService.map((item, index) => (
+        <div
+          key={index}
+          className={cn(
+            "flex flex-col items-center lg:gap-5",
+            index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
+          )}>
+          <img src={item.image} className="lg:h-100 lg:w-2/5" alt="service" />
+          <div className="mt-5 space-y-3 px-5 lg:mt-0 lg:w-3/5">
+            <h1 className="text-center text-4xl font-bold tracking-tight text-(--warm-red) lg:text-start lg:text-5xl">
+              {item.title}
+            </h1>
+            <p className="text-center text-lg lg:text-start">
+              {item.description}
+            </p>
+            <div className="divider" />
+            <ul className="space-y-3">
+              {item.bullet.map(({ title, description }, index) => (
+                <li
+                  key={index}
+                  className={cn(
+                    "text-center text-base tracking-tighter",
+                    "flex items-center justify-center gap-2",
+                    "lg:justify-start",
+                  )}>
+                  <div className="w-full text-start lg:w-full">
+                    <p className="text-lg font-bold italic">{title}</p>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </Container>
   );
 };
