@@ -64,6 +64,13 @@ const serviceData = [
 
 export default function ServicesSection() {
   const navigate = useNavigate();
+  const smoothScrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const handleService = () => {
+    navigate("/services");
+    smoothScrollToTop();
+  };
 
   return (
     <section className="container mx-auto flex flex-col items-center justify-center py-20">
@@ -128,7 +135,7 @@ export default function ServicesSection() {
                 </ul>
 
                 <button
-                  onClick={() => navigate("/services")}
+                  onClick={handleService}
                   className="btn btn-sm w-full border-none bg-(--red) tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95">
                   learn more
                 </button>
