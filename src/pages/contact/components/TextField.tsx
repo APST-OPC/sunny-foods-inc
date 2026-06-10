@@ -24,7 +24,7 @@ export const TextField = <T extends FieldValues>(props: ITextInput<T>) => {
 
   return (
     <fieldset className="fieldset">
-      <p className={cn("label text-lg font-semibold text-black")}>
+      <p className={cn("label text-lg font-semibold text-black tracking-tight")}>
         {label}{" "}
         <span className="text-error text-xs">
           {error && <>{error.message}</>}

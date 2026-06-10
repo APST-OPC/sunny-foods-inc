@@ -11,7 +11,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
     control,
     label,
     className,
-    placeholder = "Pease type here",
+    placeholder = "Please type here",
     disabled,
   } = props;
 
@@ -24,7 +24,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
 
   return (
     <fieldset className="fieldset">
-      <p className={cn("label text-lg font-semibold text-black")}>
+      <p className={cn("label text-lg font-semibold text-black tracking-tight")}>
         {label}{" "}
         <span className="text-error text-xs">
           {error && <>{error.message}</>}
@@ -36,7 +36,7 @@ export const TextArea = <T extends FieldValues>(props: ITextInput<T>) => {
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          "textarea h-90 w-full resize-none rounded-md focus-within:outline-0 focus:outline-0",
+          "textarea w-full resize-none rounded-md focus-within:outline-0 focus:outline-0",
           error && "border-error",
           valueCheck && !error && "border-success",
           className,
