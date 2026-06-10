@@ -168,7 +168,7 @@ export const wholesaleAndLogistics = [
 
 export const businessSupportService = [
   {
-    image: CustomerSupport,
+    image: DistributionSupport,
     title: "Distribution Support",
     description:
       "Reliable nationwide logistics with efficient delivery coordination, ensuring products arrive safely and on time.",
@@ -191,7 +191,7 @@ export const businessSupportService = [
     ],
   },
   {
-    image: DistributionSupport,
+    image: CustomerSupport,
     title: "B2B Customer Service",
     description:
       "Dedicated account support providing responsive assistance, order updates, and business-focused solutions.",
