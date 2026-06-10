@@ -52,7 +52,7 @@ const ServiceHeader = () => {
 
 const BrandAndProductService = () => {
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 md:px-5">
       <h1 className="text-center text-4xl font-bold">
         Brand & Product Development Service
       </h1>
@@ -62,17 +62,16 @@ const BrandAndProductService = () => {
             "flex w-full flex-col items-center gap-5 lg:gap-10",
             index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
-          key={index}>
-          <div
-            className="aspect-16/10 w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl"
-            data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
+          key={index}
+          data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
+          <div className="w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl">
             <img
               src={item.image}
               alt="packaging and labeling"
               className="h-full w-full"
             />
           </div>
-          <div className="w-full space-y-3 px-5 lg:w-2/3">
+          <div className="w-full space-y-3 px-5 lg:w-2/3 lg:px-0">
             <h1 className="text-center text-4xl font-semibold tracking-tight text-(--warm-red) md:text-5xl lg:text-start lg:text-6xl">
               {item.title}
             </h1>
@@ -103,11 +102,11 @@ const LogisticsAndSupply = () => {
         Wholesale, Logistics & Distribution
       </h1>
 
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row" data-aos="fade-up">
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
-            className="h-full w-full cursor-pointer space-y-5 p-5 shadow-black/25 hover:scale-105 hover:bg-(--light-brown)/20">
+            className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 hover:shadow-sm md:p-5">
             <div className="relative">
               <img
                 src={item.image}
@@ -123,7 +122,7 @@ const LogisticsAndSupply = () => {
                 {item.description}
               </p>
             </div>
-            <ul className="list-inside list-disc text-lg">
+            <ul className="hidden list-inside list-disc text-lg md:block">
               {item.bullet.map((data, index) => (
                 <li key={index}>{data}</li>
               ))}
@@ -146,6 +145,7 @@ const BusinessSupportService = () => {
         src={CustomerService}
         className="h-full w-full rounded-xl"
         alt="customer-service"
+        data-aos="zoom-in"
       />
     </div>
   );
@@ -153,7 +153,7 @@ const BusinessSupportService = () => {
 
 const Services = () => {
   return (
-    <section className="container mx-auto space-y-20 px-5 py-20">
+    <section className="container mx-auto space-y-20 py-20">
       <ServiceHeader />
       <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
       <BrandAndProductService />
