@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-import BeefBBQCuts from "~/assets/products/core-products/bbq-cuts2.png";
+import BeefBBQCuts from "~/assets/products/core-products/bbq-samgyup-cut.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
 import BBQSeasoning from "~/assets/products/sauces/bbq-seasoning.jpeg";
 import BlackPepperSauce from "~/assets/products/sauces/black-pepper-sauce.jpeg";
@@ -73,6 +73,9 @@ const Carousel = () => {
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]);
 
+  const smoothScrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
   const scrollTo = useCallback(
@@ -84,6 +87,11 @@ const Carousel = () => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi?.selectedScrollSnap());
   }, [emblaApi]);
+
+  const navigateToProduct = () => {
+    navigate("/products");
+    smoothScrollToTop();
+  };
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -122,7 +130,7 @@ const Carousel = () => {
                 </p>
 
                 <button
-                  onClick={() => navigate("/products")}
+                  onClick={navigateToProduct}
                   className="btn mt-4 w-full border-none bg-(--red) font-bold tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95 md:w-40">
                   Details
                   <HugeiconsIcon icon={ArrowRight02Icon} size={18} />
