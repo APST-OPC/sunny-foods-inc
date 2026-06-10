@@ -16,8 +16,8 @@ import Stove from "~/assets/icons/stove.png";
 import BulkAndWholesale from "~/assets/services/bulk-ordering-wholesale.png";
 import ColdChainLogistics from "~/assets/services/cold-chain-logistics.png";
 import CustomMeat from "~/assets/services/custom-meat-order.png";
-import CustomerSupport from "~/assets/services/customer-support.png";
-import DistributionSupport from "~/assets/services/distribution-support.jpeg";
+import CustomerSupport from "~/assets/services/customer-support-fixed.png";
+import DistributionSupport from "~/assets/services/distribution-support-fixed.jpeg";
 import OEMPrivateLabel from "~/assets/services/oem-private-label-final.png";
 import MeatPackage from "~/assets/services/packageLabeling.png";
 
@@ -168,7 +168,7 @@ export const wholesaleAndLogistics = [
 
 export const businessSupportService = [
   {
-    image: CustomerSupport,
+    image: DistributionSupport,
     title: "Distribution Support",
     description:
       "Reliable nationwide logistics with efficient delivery coordination, ensuring products arrive safely and on time.",
@@ -191,7 +191,7 @@ export const businessSupportService = [
     ],
   },
   {
-    image: DistributionSupport,
+    image: CustomerSupport,
     title: "B2B Customer Service",
     description:
       "Dedicated account support providing responsive assistance, order updates, and business-focused solutions.",
