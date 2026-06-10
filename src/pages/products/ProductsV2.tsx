@@ -45,20 +45,19 @@ const ProductItem = ({ description, image, title }: CatalogItem) => {
           alt={title}
           className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 hidden flex-col items-center gap-3 bg-black/70 p-6 text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 md:flex">
-          <p className="text-center text-lg font-bold tracking-wide uppercase">
-            {title}
-          </p>
+        {/* <div className="absolute inset-0 hidden flex-col items-center gap-3 bg-black/70 p-6 text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 md:flex">
+          <p className="text-center text-lg font-bold tracking-wide uppercase">{title}</p>
           <p className="px-4 text-center text-sm leading-relaxed font-light">
             <q>{description}</q>
           </p>
-        </div>
+        </div> */}
       </figure>
 
       <div className="card-body mt-2 gap-0 p-0">
-        <h3 className="text-sm tracking-wide text-stone-900 transition-colors group-hover:text-stone-600 md:text-base lg:text-lg">
+        <h3 className="text-base-content text-base font-semibold tracking-wide transition-colors lg:text-lg">
           {title}
         </h3>
+        <p className="text-sm leading-relaxed font-light">{description}</p>
       </div>
     </div>
   );
@@ -112,9 +111,8 @@ const DropdownContent = ({
             onClick={() => onSelectCategory(category, false)}
             className={cn(
               "justify-start rounded-none py-2 text-left text-base capitalize hover:bg-stone-50",
-              activeCategory === category
-                ? "bg-stone-100 font-bold text-stone-950"
-                : "",
+              activeCategory === category &&
+                "bg-stone-100 font-bold text-stone-950",
             )}>
             {category === "all" ? "Show All" : category}
           </button>
@@ -264,12 +262,12 @@ const ProductsV2 = () => {
 
       <div className="drawer-content">
         <main className="flex-1 py-16">
-          <header className="container mx-auto max-w-5xl px-10 py-12">
+          <header className="container mx-auto px-10 py-12">
             <div className="space-y-3">
-              <h1 className="font-sans text-3xl font-light tracking-wide md:text-4xl lg:text-5xl">
+              <h1 className="text-4xl leading-[0.95] font-black tracking-tighter text-[#262220] sm:text-6xl">
                 The Masterpiece Collection
               </h1>
-              <p className="max-w-xl text-base leading-relaxed font-light text-stone-500">
+              <p className="text-base-content max-w-xl text-base leading-relaxed font-light">
                 Curated for the discerning palate. Exceptional quality, crafted
                 without compromise.
               </p>
@@ -313,9 +311,10 @@ const ProductsV2 = () => {
                   <div
                     key={`${folder}-${catIndex}`}
                     className="flex flex-col gap-3">
-                    <h2 className="font-sans text-2xl font-light tracking-wider text-stone-900 capitalize">
+                    <div className="text-base-content font-sans text-2xl font-semibold tracking-wider capitalize">
                       {categoryGroup.category}
-                    </h2>
+                      <div className="h-0.75 w-16 rounded-full bg-(--red)" />
+                    </div>
                     <p className="text-sm leading-relaxed font-light text-stone-400">
                       {categoryGroup.items.length} Items
                     </p>

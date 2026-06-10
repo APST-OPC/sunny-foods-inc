@@ -1,16 +1,8 @@
 import type { IProducts } from "./type";
 
-import Quality from "~/assets/icons/high-quality.png";
-import Packaging from "~/assets/icons/packaging-meat.png";
-import Restaurant from "~/assets/icons/restaurant.png";
-import FrozenMeat from "~/assets/icons/steak.png";
-import Stove from "~/assets/icons/stove.png";
 import BeefBBQCuts from "~/assets/products/core-products/beef-bbq-cuts.jpg";
 import BurgerPatty from "~/assets/products/core-products/burger-patty.png";
 import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
-import BlackPepperSauce from "~/assets/products/sauces/bbq-sauce.jpeg";
-import BBQSeasoning from "~/assets/products/sauces/bbq-seasoning.jpeg";
-import MushroomGravy from "~/assets/products/sauces/mushroom-gravy.jpeg";
 import BlackPepperSteak from "~/assets/products/steak-series/black-pepper-steak.png";
 import ChuckEyeSteak from "~/assets/products/steak-series/chuckeye-steak.png";
 import RibEyeSteak from "~/assets/products/steak-series/ribeye-steak.png";
@@ -88,86 +80,5 @@ export const products: IProducts[] = [
     image: BeefBBQCuts,
     type: "Core Products",
     tags: ["Frozen", "Easy to Cook", "BBQ"],
-  },
-];
-
-export const whyChooseProducts = [
-  {
-    image: Packaging,
-    title: "Premium Beef Cuts",
-    description:
-      "All natural, premium-grade cuts, expertly portion-controlled.",
-  },
-  {
-    image: Stove,
-    title: "Ready-to-Cook Convenience",
-    description: "Pre-cut, pre-marinated options for effortless cooking.",
-  },
-  {
-    image: Packaging,
-    title: "Portion-Controlled / Zero Waste",
-    description:
-      "Consistent weight & size, minimizing waste & maximizing profit.",
-  },
-  {
-    image: FrozenMeat,
-    title: "Frozen for Freshness & Shelf Life",
-    description:
-      "Locking in natural juices and nutrients for extended shelf life.",
-  },
-  {
-    image: Restaurant,
-    title: "Foodservice Friendly",
-    description:
-      "Custom-tailored to meet the needs of horeca and food retailers.",
-  },
-  {
-    image: Quality,
-    title: "Consistent Quality Every Time",
-    description:
-      "Rigorous quality control, ensuring top quality in every order.",
-  },
-];
-
-export const productArray: {
-  product: string;
-  productHeader: string;
-  productDesc: string;
-  productData: IProducts[];
-}[] = [
-  {
-    product: "meats",
-    productHeader: "Our Premium Meat Collection",
-    productDesc:
-      "Select from our finest cuts, each prepared to deliver exceptional taste and quality.",
-    productData: products,
-  },
-  {
-    product: "sauces-and-seasonings",
-    productHeader: "Sauces, Gravies & Seasonings",
-    productDesc: "Complete Flavor Solutions for Every Meal",
-    productData: [
-      {
-        id: 9,
-        title: "Black Pepper Sauce",
-        description:
-          "Ready-to-use sauces crafted to enhance flavor and simplify food preparation.",
-        image: BlackPepperSauce,
-      },
-      {
-        id: 10,
-        title: "Mushroom Gravy",
-        description:
-          "Rich and flavorful gravies designed to pair perfectly with meat products and prepared meals.",
-        image: MushroomGravy,
-      },
-      {
-        id: 11,
-        title: "BBQ Seasoning",
-        description:
-          "Carefully blended seasonings that deliver consistent taste and versatility.",
-        image: BBQSeasoning,
-      },
-    ],
   },
 ];

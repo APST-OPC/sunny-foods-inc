@@ -42,10 +42,16 @@ export const footerContactUs: IContactButton[] = [
   },
 ];
 
+export const aboutDropList = [
+  { to: "/who-we-are", label: "Company Profile" },
+  { to: "/services", label: "Services Offered" },
+  { to: "/legal", label: "Licenses and Safety" },
+];
+
 export const links = [
   { to: "/", label: "Home" },
-  { to: "/who-we-are", label: "Who We Are" },
-  { to: "/products", label: "Our Products" },
+  { to: "/who-we-are", label: "About", dropList: aboutDropList },
+  { to: "/products", label: "Products" },
 ];
 
 export const instantScrollToTop = () => window.scrollTo(0, 0);

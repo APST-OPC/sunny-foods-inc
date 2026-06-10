@@ -14,7 +14,7 @@ const BusinessCard = () => {
   const card = businessCardInfo.find((card) => card.id === id);
 
   const imageUrl = (img: string) =>
-    new URL(`../../assets/${img}`, import.meta.url).href;
+    new URL(`../../assets/logos/${img}`, import.meta.url).href;
 
   const getViberLink = (phoneNumber: string | undefined): string => {
     if (!phoneNumber) return "";
