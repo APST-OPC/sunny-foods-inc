@@ -16,6 +16,8 @@ import Stove from "~/assets/icons/stove.png";
 import BulkAndWholesale from "~/assets/services/bulk-ordering-wholesale.png";
 import ColdChainLogistics from "~/assets/services/cold-chain-logistics.png";
 import CustomMeat from "~/assets/services/custom-meat-order.png";
+import CustomerSupport from "~/assets/services/customer-support.png";
+import DistributionSupport from "~/assets/services/distribution-support.jpeg";
 import OEMPrivateLabel from "~/assets/services/oem-private-label-final.png";
 import MeatPackage from "~/assets/services/packageLabeling.png";
 
@@ -57,7 +59,7 @@ export const whyChooseProducts = [
   },
 ];
 
-const listIconClass = "size-8 text-(--light-brown)";
+const listIconClass = "size-12 lg:size-8 text-(--light-brown)";
 export const brandAndProducts = [
   {
     title: "Packaging / Labeling",
@@ -160,6 +162,54 @@ export const wholesaleAndLogistics = [
       "Temperature-controlled storage and transport help preserve freshness, quality, and food safety.",
       "Continuous cold chain monitoring minimizes risks and maintains optimal product conditions.",
       "Efficient handling and distribution ensure products arrive safely, fresh, and ready for use.",
+    ],
+  },
+];
+
+export const businessSupportService = [
+  {
+    image: CustomerSupport,
+    title: "Distribution Support",
+    description:
+      "Reliable nationwide logistics with efficient delivery coordination, ensuring products arrive safely and on time.",
+    bullet: [
+      {
+        title: "Nationwide Delivery",
+        description:
+          "Nationwide delivery coordination for reliable product movement.",
+      },
+      {
+        title: "Optimized Logistics",
+        description:
+          "Optimized logistics to ensure timely and efficient distribution.",
+      },
+      {
+        title: "Secure Handling",
+        description:
+          "Secure handling and tracking from dispatch to destination.",
+      },
+    ],
+  },
+  {
+    image: DistributionSupport,
+    title: "B2B Customer Service",
+    description:
+      "Dedicated account support providing responsive assistance, order updates, and business-focused solutions.",
+    bullet: [
+      {
+        title: "Dedicated Support",
+        description:
+          "Dedicated support for orders, inquiries, and account assistance.",
+      },
+      {
+        title: "Prompt Response",
+        description:
+          "Prompt responses to keep business operations running smoothly.",
+      },
+      {
+        title: "Personalized Solutions",
+        description: "Personalized solutions tailored to your business needs.",
+      },
     ],
   },
 ];
