@@ -1,11 +1,22 @@
+import { FaCogs, FaTags } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
+import { GiBoxUnpacking, GiManualMeatGrinder } from "react-icons/gi";
+import { IoShieldCheckmark } from "react-icons/io5";
+import {
+  MdOutlineAutoAwesome,
+  MdPermDataSetting,
+  MdScale,
+} from "react-icons/md";
+
 import Quality from "~/assets/icons/high-quality.png";
 import Packaging from "~/assets/icons/packaging-meat.png";
 import Restaurant from "~/assets/icons/restaurant.png";
 import FrozenMeat from "~/assets/icons/steak.png";
 import Stove from "~/assets/icons/stove.png";
-import BulkAndWholesale from "~/assets/services/bulk-wholesale.png";
+import BulkAndWholesale from "~/assets/services/bulk-ordering-wholesale.png";
+import ColdChainLogistics from "~/assets/services/cold-chain-logistics.png";
 import CustomMeat from "~/assets/services/custom-meat-order.png";
-import OEMPrivateLabel from "~/assets/services/OEM-Private-labeling.png";
+import OEMPrivateLabel from "~/assets/services/oem-private-label-final.png";
 import MeatPackage from "~/assets/services/packageLabeling.png";
 
 export const whyChooseProducts = [
@@ -46,6 +57,7 @@ export const whyChooseProducts = [
   },
 ];
 
+const listIconClass = "size-8 text-(--light-brown)";
 export const brandAndProducts = [
   {
     title: "Packaging / Labeling",
@@ -53,9 +65,24 @@ export const brandAndProducts = [
     description:
       "Custom packaging and labeling tailored to your needs, from vacuum-sealed portions to bulk orders, ensuring secure presentation and clear product information.",
     bullet: [
-      "Custom packaging options, from vacuum-sealed portions to bulk orders, tailored to meet your business requirements.",
-      "Clear and accurate labeling ensures product identification, compliance, and a professional presentation.",
-      "Secure and neatly finished packaging helps preserve product quality while ensuring reliable handling and distribution.",
+      {
+        icons: <GiBoxUnpacking className={listIconClass} />,
+        title: "Customized Packaging",
+        description:
+          "Custom packaging options, from vacuum-sealed portions to bulk orders, tailored to meet your business requirements.",
+      },
+      {
+        icons: <MdPermDataSetting className={listIconClass} />,
+        title: "Precise Labeling",
+        description:
+          "Clear and accurate labeling ensures product identification, compliance, and a professional presentation.",
+      },
+      {
+        icons: <IoShieldCheckmark className={listIconClass} />,
+        title: "Secure Finish",
+        description:
+          "Secure and neatly finished packaging helps preserve product quality while ensuring reliable handling and distribution.",
+      },
     ],
   },
   {
@@ -64,9 +91,24 @@ export const brandAndProducts = [
     description:
       "From product development to packaging and branding, our OEM and private label solutions help bring your vision to market with confidence.",
     bullet: [
-      "Delivering customized OEM and private label solutions tailored to your brand requirements.",
-      "Flexible production capabilities support product customization and brand growth",
-      "Strict quality control ensures consistency, compliance, and market-ready products",
+      {
+        icons: <FaTags className={listIconClass} />,
+        title: "Custom Label",
+        description:
+          "Delivering customized OEM and private label solutions tailored to your brand requirements.",
+      },
+      {
+        icons: <FaCogs className={listIconClass} />,
+        title: "Flexible Production",
+        description:
+          "Flexible production capabilities support product customization and brand growth",
+      },
+      {
+        icons: <FaCircleCheck className={listIconClass} />,
+        title: "Quality Control",
+        description:
+          "Strict quality control ensures consistency, compliance, and market-ready products",
+      },
     ],
   },
   {
@@ -75,9 +117,24 @@ export const brandAndProducts = [
     description:
       "Custom meat orders tailored to your specifications, with flexible cuts, weights, and packaging designed to meet your exact requirements.",
     bullet: [
-      "Personalized meat orders with custom cuts, portions, and specifications tailored to your unique needs.",
-      "Flexible packaging and weight options help ensure products align with your business requirements.",
-      "Our team works closely with you to fulfill special requests and deliver precisely what you need.",
+      {
+        icons: <GiManualMeatGrinder className={listIconClass} />,
+        title: "Personalize Cuts",
+        description:
+          "Personalized meat orders with custom cuts, portions, and specifications tailored to your unique needs.",
+      },
+      {
+        icons: <MdScale className={listIconClass} />,
+        title: "Flexible Weight Options",
+        description:
+          "Flexible packaging and weight options help ensure products align with your business requirements.",
+      },
+      {
+        icons: <MdOutlineAutoAwesome className={listIconClass} />,
+        title: "Tailored Solutions",
+        description:
+          "Our team works closely with you to fulfill special requests and deliver precisely what you need.",
+      },
     ],
   },
 ];
@@ -96,7 +153,7 @@ export const wholesaleAndLogistics = [
   },
   {
     title: "Cold Chain Logistics & Handling",
-    image: BulkAndWholesale,
+    image: ColdChainLogistics,
     description:
       "Reliable cold chain management ensures meat products remain fresh, safe, and in optimal condition from processing to delivery.",
     bullet: [

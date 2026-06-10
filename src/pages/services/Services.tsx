@@ -1,3 +1,5 @@
+import type { ComponentProps, PropsWithChildren } from "react";
+
 import { GiLaurelCrown } from "react-icons/gi";
 import { HiMiniStar } from "react-icons/hi2";
 import { TbMeat } from "react-icons/tb";
@@ -8,12 +10,31 @@ import { cn } from "~/libs/cn";
 
 import { brandAndProducts, wholesaleAndLogistics } from "./utils";
 
+const Container = (props: ComponentProps<"div">) => {
+  const { children, className, ...rest } = props;
+  return (
+    <div
+      className={cn("container mx-auto w-full space-y-5 md:px-5", className)}
+      {...rest}>
+      {children}
+    </div>
+  );
+};
+
+const CategoryTitle = ({ children }: PropsWithChildren) => {
+  return (
+    <h1 className="text-center text-4xl font-bold tracking-tighter md:tracking-tight lg:text-5xl">
+      {children}
+    </h1>
+  );
+};
+
 const ServiceHeader = () => {
   return (
-    <div className="space-y-5 text-center">
-      <div>
-        <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full border-2 border-(--light-brown) bg-white">
-          <GiLaurelCrown className="h-6 w-6 text-(--light-brown)" />
+    <Container className="text-center">
+      <div className="space-y-2">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--light-brown) bg-white">
+          <GiLaurelCrown className="h-10 w-10 text-(--light-brown)" />
         </div>
         <div className="flex items-center justify-center gap-1">
           <HiMiniStar className="hidden text-(--light-brown) md:block md:size-2" />
@@ -27,7 +48,7 @@ const ServiceHeader = () => {
           <HiMiniStar className="hidden text-(--light-brown) md:block md:size-2" />
         </div>
       </div>
-      <h1 className="flex flex-col text-4xl font-extrabold">
+      <h1 className="flex flex-col text-4xl font-extrabold lg:text-5xl">
         SERVICES TAILORED TO <span className="text-error">YOUR BUSINESS</span>
       </h1>
 
@@ -46,74 +67,70 @@ const ServiceHeader = () => {
         comprehensive services that enhance quality, convenience, and customer
         satisfaction at every step.
       </p>
-    </div>
+    </Container>
   );
 };
 
 const BrandAndProductService = () => {
   return (
-    <div className="space-y-10 md:px-5">
-      <h1 className="text-center text-4xl font-bold">
-        Brand & Product Development Service
-      </h1>
+    <Container>
+      <CategoryTitle>Brand & Product Development Service</CategoryTitle>
       {brandAndProducts.map((item, index) => (
         <div
-          className={cn(
-            "flex w-full flex-col items-center gap-5 lg:gap-10",
-            index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
-          )}
           key={index}
-          data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}>
-          <div className="w-full overflow-hidden lg:h-100 lg:w-190 lg:rounded-xl">
-            <img
-              src={item.image}
-              alt="packaging and labeling"
-              className="h-full w-full"
-            />
-          </div>
-          <div className="w-full space-y-3 px-5 lg:w-2/3 lg:px-0">
-            <h1 className="text-center text-4xl font-semibold tracking-tight text-(--warm-red) md:text-5xl lg:text-start lg:text-6xl">
+          className={cn(
+            "flex flex-col items-center lg:gap-5",
+            index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
+          )}>
+          <img src={item.image} className="lg:h-100 lg:w-2/5" alt="service" />
+          <div className="mt-5 space-y-3 px-5 lg:mt-0 lg:w-3/5">
+            <h1 className="text-center text-4xl font-bold tracking-tight text-(--warm-red) lg:text-start lg:text-5xl">
               {item.title}
             </h1>
-            <div className="space-y-2">
-              <h1 className="text-center text-base lg:text-start lg:text-lg">
-                {item.description}
-              </h1>
-              <div className="divider hidden lg:block" />
-              <ul className="hidden list-inside list-disc lg:block">
-                {item.bullet.map((data, ids) => (
-                  <li className="text-base lg:text-lg" key={ids}>
-                    {data}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="text-center text-lg lg:text-start">
+              {item.description}
+            </p>
+            <ul className="space-y-3 lg:space-y-0">
+              {item.bullet.map(({ title, description, icons }, index) => (
+                <li
+                  key={index}
+                  className={cn(
+                    "text-center text-base tracking-tighter",
+                    "flex items-center justify-center gap-2",
+                    "rounded-xl border-2 border-(--light-brown)/50 px-2 py-2 shadow-sm",
+                    "lg:justify-start lg:gap-5 lg:border-none lg:shadow-none",
+                  )}>
+                  <div className="rounded-full border-4 border-(--light-brown) bg-(--light-brown)/10 p-2">
+                    {icons}
+                  </div>
+                  <div className="w-full text-start lg:w-full">
+                    <p className="text-lg font-bold italic">{title}</p>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       ))}
-    </div>
+    </Container>
   );
 };
 
 const LogisticsAndSupply = () => {
   return (
-    <div className="space-y-10">
-      <h1 className="text-center text-4xl font-bold">
-        Wholesale, Logistics & Distribution
-      </h1>
-
+    <Container>
+      <CategoryTitle>Wholesale, Logistics & Distribution</CategoryTitle>
       <div className="flex flex-col md:flex-row" data-aos="fade-up">
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
             className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 hover:shadow-sm md:p-5">
-            <div className="relative">
-              <img
-                src={item.image}
-                className="relative h-full w-full transition-all duration-300 md:rounded-xl"
-                alt={item.title}
-              />
-            </div>
+            <img
+              src={item.image}
+              className="relative h-full max-h-110 w-full transition-all duration-300 md:rounded-xl"
+              alt={item.title}
+            />
             <div className="h-full">
               <h1 className="text-center text-4xl font-semibold tracking-tighter text-(--warm-red) lg:text-start">
                 {item.title}
@@ -130,30 +147,27 @@ const LogisticsAndSupply = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
 const BusinessSupportService = () => {
   return (
-    <div className="w-full space-y-5">
-      <h1 className="text-center text-4xl font-bold">
-        Business Support Services
-      </h1>
-
+    <Container>
+      <CategoryTitle>Business Support Services</CategoryTitle>
       <img
         src={CustomerService}
-        className="h-full w-full rounded-xl"
+        className="mx-auto h-full w-full md:h-[80%] lg:w-[80%] lg:rounded-xl"
         alt="customer-service"
         data-aos="zoom-in"
       />
-    </div>
+    </Container>
   );
 };
 
 const Services = () => {
   return (
-    <section className="container mx-auto space-y-20 py-20">
+    <section className="space-y-20 py-20">
       <ServiceHeader />
       <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
       <BrandAndProductService />
