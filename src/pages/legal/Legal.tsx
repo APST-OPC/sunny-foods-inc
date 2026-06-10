@@ -1,4 +1,4 @@
-import PpeImage from "~/assets/food-safety/ppe-protocol.png";
+import PpeImage from "~/assets/food-safety/ppe.png";
 import ProdAreaVisualOne from "~/assets/food-safety/prod-area-visual-1.png";
 import ProdAreaVisualTwo from "~/assets/food-safety/prod-area-visual-2.png";
 
