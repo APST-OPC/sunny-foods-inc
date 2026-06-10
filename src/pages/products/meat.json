@@ -1,6 +1,6 @@
 [
 	{
-		"category": "other meat",
+		"category": "core product",
 		"items": [
 			{
 				"id": 1,
@@ -21,7 +21,7 @@
 				"id": 3,
 				"title": "Beef BBQ Cuts",
 				"description": "Quality beef cuts perfect for grilling, barbecue, and everyday delicious meals.",
-				"image": "beef-bbq-cuts.jpg",
+				"image": "bbq-samgyup-cut.png",
 				"tags": ["Frozen", "Easy to Cook", "BBQ"]
 			}
 		]

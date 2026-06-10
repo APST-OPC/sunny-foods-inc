@@ -3,14 +3,13 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useNavigate } from "react-router-dom";
 
 import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
-import BannerHead from "~/assets/hero-sec.png";
-import PremuimCut from "~/assets/meat-carousel/premium-beef-cuts2.png";
+import PremuimCut from "~/assets/hero-sec.png";
+import BannerHead from "~/assets/meat-carousel/premium-beef-cuts2.png";
+// import PremuimCut from '~/assets/meat-carousel/premium-beef-cuts2.png';
 import ReadyToCook from "~/assets/meat-carousel/ready-to-cook.png";
 import SteakFoodService from "~/assets/meat-carousel/SteakFoodService.png";
 import SteakFrozenPack from "~/assets/meat-carousel/steak-frozen-pack.png";
 import PortionControlled from "~/assets/meat-carousel/steak-portion-controlled.png";
-
-import { cn } from "~/libs/cn";
 
 import Carousel from "./Carousel";
 import ServicesSection from "./ServiceSection";
@@ -58,42 +57,42 @@ const Home = () => {
 
   return (
     <main>
-      <section className="hero relative min-h-[70vh]">
+      <section className="hero relative flex min-h-[75vh] items-end bg-neutral-950 pb-12 sm:pb-20">
         <img
           src={BannerHead}
-          alt="beef"
-          loading="eager"
-          className={cn(
-            "aspect-square h-[70vh] w-full rotate-y-180",
-            "bg-[radial-gradient(ellipse_at_top,#7A1F1F_0%,#3B0A0A_55%,#1A0505_100%)] object-cover object-center",
-          )}
+          alt="Sunnyfoods manufacturer product range banner"
+          className="absolute inset-0 z-0 h-full w-full object-cover object-center"
         />
 
-        <div className="hero-overlay rotate-y-180" />
+        <div className="absolute inset-0 z-10 bg-linear-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/20" />
 
-        <div className="hero-content z-20 h-full w-full max-w-none items-end justify-start p-0">
-          <div className="container mx-auto px-4 pb-10 text-center text-white md:px-8 md:pb-16 md:text-start">
-            <div className="max-w-xl">
-              <p className="font-heading text-4xl md:font-bold lg:text-6xl">
-                Premium Beef,
-              </p>
-              <p className="font-heading mb-5 text-4xl md:font-bold lg:text-6xl">
-                Crafted to Perfection
-              </p>
+        <div className="relative z-20 container mx-auto px-6 xl:max-w-7xl">
+          <header className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-8">
+              <h1 className="text-4xl leading-none font-black tracking-tighter text-white uppercase sm:text-6xl md:text-7xl">
+                Premium Beef, Crafted to Perfection
+              </h1>
+            </div>
 
-              <p className="text-md mb-5 lg:text-lg">
+            <div className="space-y-6 lg:col-span-4 lg:pb-4">
+              <div className="h-1 w-12 bg-(--red)" />
+              <p className="text-base leading-relaxed font-light text-neutral-300">
                 Handpicked premium beef — from Wagyu-style cubes and Black
                 Pepper Steaks to our signature Strip Loin, Rib Eye, and Top
                 Blade. Unmatched flavor, tenderness, and convenience.
               </p>
-
               <button
                 onClick={() => navigate("products")}
-                className="btn btn-success w-60 rounded-full font-bold text-white shadow-md hover:shadow-lg">
-                Explore Products
+                className="group btn btn-lg w-full border-transparent bg-(--red) text-base font-extrabold text-white uppercase transition-all sm:w-64">
+                Explore products
+                <HugeiconsIcon
+                  icon={ArrowRight02Icon}
+                  className="group-hover:translate-x-1.5"
+                  strokeWidth={2}
+                />
               </button>
             </div>
-          </div>
+          </header>
         </div>
       </section>
 
@@ -159,9 +158,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       <ServicesSection />
-
       <section
         data-aos="fade-up"
         className="container mx-auto space-y-10 px-4 py-20 sm:px-6 lg:px-8">
