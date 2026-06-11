@@ -7,7 +7,8 @@ import Home from "~/pages/home";
 import Layout from "~/layout";
 
 import BusinessCard from "./pages/business-card";
-import Legal from "./pages/legal";
+import Certificate from "./pages/legal/Certificate";
+import LegalV2 from "./pages/legal/LegalV2";
 import NotFound from "./pages/not-found";
 import Productsv2 from "./pages/products/ProductsV2";
 import QR from "./pages/qr";
@@ -29,7 +30,8 @@ const App = () => {
         <Route path="/products-v2" element={<Productsv2 />} />
         <Route path="/who-we-are" element={<About />} />
         <Route path="/talk-to-us" element={<Contact />} />
-        <Route path="/legal" element={<Legal />} />
+        <Route path="/legal" element={<LegalV2 />} />
+        <Route path="/legal/certificate" element={<Certificate />} />
         <Route path="/services" element={<Services />} />
       </Route>
 
