@@ -22,7 +22,8 @@ const images = [
 const headingStyle = "text-4xl leading-[0.95] font-black tracking-tighter";
 const subHeadingStyle = "text-2xl font-extrabold tracking-wide";
 const descriptionStyle = "max-w-2xl text-base leading-relaxed font-light";
-export const LegalV2 = () => {
+
+const Legal = () => {
   return (
     <div className="text-base-content antialiased">
       <header className="mx-auto max-w-6xl border-b border-[#E1D4C7] px-6 pt-24 pb-16 md:px-12">
@@ -169,4 +170,4 @@ export const LegalV2 = () => {
     </div>
   );
 };
-export default LegalV2;
+export default Legal;
