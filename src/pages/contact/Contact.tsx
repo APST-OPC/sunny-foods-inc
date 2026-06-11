@@ -79,30 +79,28 @@ const Contact = (): ReactElement => {
 
   return (
     <main className="container mx-auto px-5 py-20 md:space-y-20 md:px-0">
-      <header className="hero space-y-5">
-        <section className="hero-content flex-col items-start">
-          <p className="text-error font-extrabold tracking-widest uppercase">
-            Contact Us
+      <header className="space-y-5">
+        <p className="text-error font-extrabold tracking-widest uppercase">
+          Contact Us
+        </p>
+
+        <div className="flex flex-col items-center gap-5 md:flex-row">
+          <h2 className="text-4xl font-black tracking-tighter text-pretty md:w-2/3 md:text-7xl">
+            We value your feedback and questions.
+          </h2>
+
+          <p className="md:w-1/3">
+            Whether you need assistance with our services, have inquiries, or
+            want to share your feedback, our team is always ready to support you
+            every step of the way.
           </p>
-
-          <div className="flex flex-col items-center gap-5 md:flex-row">
-            <h2 className="text-4xl font-black tracking-tighter text-pretty md:w-2/3 md:text-7xl">
-              We value your feedback and questions.
-            </h2>
-
-            <p className="md:w-1/3">
-              Whether you need assistance with our services, have inquiries, or
-              want to share your feedback, our team is always ready to support
-              you every step of the way.
-            </p>
-          </div>
-        </section>
+        </div>
       </header>
 
       <article className="divider" />
 
       <article className="flex flex-col gap-5">
-        <section className="grid gap-5 md:grid-cols-2">
+        <section className="grid gap-5 md:grid-cols-3">
           <ContactCard
             title="Send us your inquiries here"
             className="row-span-2">
@@ -149,9 +147,9 @@ const Contact = (): ReactElement => {
                 ({ contactCTA, contactIcon, openWindow }, ids) => (
                   <div key={ids} className="flex items-center gap-2.5">
                     <button
-                      className="btn btn-error btn-circle btn-xl"
+                      className="btn btn-error btn-circle"
                       onClick={openWindow}>
-                      {contactIcon({ size: 40, color: "white" })}
+                      {contactIcon({ size: 30, color: "white" })}
                     </button>
 
                     <p>{contactCTA}</p>
@@ -161,12 +159,24 @@ const Contact = (): ReactElement => {
             </div>
           </ContactCard>
 
+          <iframe
+            title="maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
+            className={cn(
+              "order-first row-span-2 h-full w-full rounded-2xl md:order-0",
+              loading && "skeleton",
+            )}
+            loading="lazy"
+            onLoad={() => setLoading(false)}
+            onError={() => setLoading(false)}
+          />
+
           <ContactCard title="Our contact information">
             <div className="space-y-3">
               {contactInformation.map(({ contactCTA, contactIcon }, ids) => (
                 <div
                   key={ids}
-                  className="grid grid-cols-[20%_80%] items-center md:grid-cols-[10%_90%]">
+                  className="grid grid-cols-[15%_85%] items-center">
                   {contactIcon({ size: 40 })}
 
                   <p>{contactCTA}</p>
@@ -175,15 +185,6 @@ const Contact = (): ReactElement => {
             </div>
           </ContactCard>
         </section>
-
-        <iframe
-          title="maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
-          className={cn("h-90 w-full", loading && "skeleton")}
-          loading="lazy"
-          onLoad={() => setLoading(false)}
-          onError={() => setLoading(false)}
-        />
       </article>
     </main>
   );
