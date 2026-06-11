@@ -69,12 +69,17 @@ const Carousel = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const navigate = useNavigate();
 
+  const handleProducts = (id: string) => {
+    const hashId = id.replaceAll(" ", "-");
+    navigate({
+      pathname: "/products",
+      hash: `#${hashId.toLowerCase()}`,
+    });
+  };
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 25 }, [
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]);
-
-  const smoothScrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -87,14 +92,6 @@ const Carousel = () => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi?.selectedScrollSnap());
   }, [emblaApi]);
-
-  const navigateToProduct = (id: string) => {
-    navigate({
-      pathname: "/products",
-      hash: `#${id.toLowerCase()}`,
-    });
-    smoothScrollToTop();
-  };
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -133,7 +130,7 @@ const Carousel = () => {
                 </p>
 
                 <button
-                  onClick={() => navigateToProduct(slide.title)}
+                  onClick={() => handleProducts(slide.title)}
                   className="btn mt-4 w-full border-none bg-(--red) font-bold tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95 md:w-40">
                   Details
                   <HugeiconsIcon icon={ArrowRight02Icon} size={18} />

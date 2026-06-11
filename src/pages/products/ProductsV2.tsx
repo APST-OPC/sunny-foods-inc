@@ -4,7 +4,8 @@ import {
   FilterMailIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { cn } from "~/libs/cn";
 
@@ -197,6 +198,7 @@ const DrawerContent = ({
 };
 
 const ProductsV2 = () => {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [isStuck, setIsStuck] = useState(false);
 
@@ -219,6 +221,18 @@ const ProductsV2 = () => {
       document.activeElement.blur();
     }
   };
+
+  const scrollElementId = useCallback((id: string) => {
+    if (!id) return;
+
+    return CATALOG_SECTIONS.find((category) =>
+      category.data.some((group) =>
+        group.items.some(
+          (item) => item.title.replaceAll(" ", "-").toLowerCase() === id,
+        ),
+      ),
+    )?.folder;
+  }, []);
 
   useEffect(() => {
     const currentSentinel = sentinelRef.current;
@@ -244,6 +258,16 @@ const ProductsV2 = () => {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    const id = location.hash.substring(1);
+    if (id) {
+      const categoryElement = document.getElementById(
+        scrollElementId(id) ?? "",
+      );
+      categoryElement?.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  }, [location, scrollElementId]);
 
   return (
     <div className="drawer">
@@ -304,7 +328,8 @@ const ProductsV2 = () => {
                 return (
                   <div
                     key={`${folder}-${catIndex}`}
-                    className="flex flex-col gap-3">
+                    className="flex flex-col gap-3"
+                    id={folder}>
                     <div className="text-base-content font-sans text-2xl font-semibold tracking-wider capitalize">
                       {categoryGroup.category}
                       <div className="h-0.75 w-16 rounded-full bg-(--red)" />
