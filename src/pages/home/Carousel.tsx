@@ -88,8 +88,11 @@ const Carousel = () => {
     setSelectedIndex(emblaApi?.selectedScrollSnap());
   }, [emblaApi]);
 
-  const navigateToProduct = () => {
-    navigate("/products");
+  const navigateToProduct = (id: string) => {
+    navigate({
+      pathname: "/products",
+      hash: `#${id.toLowerCase()}`,
+    });
     smoothScrollToTop();
   };
 
@@ -130,7 +133,7 @@ const Carousel = () => {
                 </p>
 
                 <button
-                  onClick={navigateToProduct}
+                  onClick={() => navigateToProduct(slide.title)}
                   className="btn mt-4 w-full border-none bg-(--red) font-bold tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95 md:w-40">
                   Details
                   <HugeiconsIcon icon={ArrowRight02Icon} size={18} />
