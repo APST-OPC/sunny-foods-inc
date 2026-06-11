@@ -1,199 +1,173 @@
+import { Link } from "react-router";
+
+import FoodSafetyOne from "~/assets/food-safety/food-safety-one.png";
+import FoodSafetyTwo from "~/assets/food-safety/food-safety-two.png";
 import PpeImage from "~/assets/food-safety/ppe.png";
 import ProdAreaVisualOne from "~/assets/food-safety/prod-area-visual-1.png";
 import ProdAreaVisualTwo from "~/assets/food-safety/prod-area-visual-2.png";
+import ProdFacilityOne from "~/assets/food-safety/prod-facility-1.png";
+import ProdFacilityThree from "~/assets/food-safety/prod-facility-3.png";
 
 import { cn } from "~/libs/cn";
 
-import {
-  factoryCardContent,
-  licenses,
-  qualityAndFoodSafetyIcons,
-  safetyCardContent,
-  safetyPermits,
-} from "./utils";
+const images = [
+  ProdAreaVisualOne,
+  ProdAreaVisualTwo,
+  FoodSafetyOne,
+  FoodSafetyTwo,
+  ProdFacilityThree,
+  ProdFacilityOne,
+];
+
+const headingStyle = "text-4xl leading-[0.95] font-black tracking-tighter";
+const subHeadingStyle = "text-2xl font-extrabold tracking-wide";
+const descriptionStyle = "max-w-2xl text-base leading-relaxed font-light";
 
 const Legal = () => {
   return (
-    <main className="space-y-5 py-20">
-      <header className="mx-auto space-y-5 px-10 text-center">
-        <h2 className="text-4xl font-bold md:text-6xl">Licenses and Safety</h2>
+    <div className="text-base-content antialiased">
+      <header className="mx-auto max-w-6xl border-b border-[#E1D4C7] px-6 pt-24 pb-16 md:px-12">
+        <div className="max-w-3xl">
+          <p className="mb-2 block text-sm font-bold tracking-widest text-(--red) uppercase">
+            Sunny Foods Inc. / Compliance Registry
+          </p>
+          <h1 className="text-4xl leading-[0.95] font-black tracking-tighter sm:text-6xl">
+            Standards & <br />
+            Operational Safety.
+          </h1>
+          <p className="mt-4 max-w-3xl place-self-center text-base leading-relaxed font-light">
+            Our commitment to safety is foundational. We operate an advanced,
+            data-monitored cold chain infrastructure and enforce strict
+            sanitation workflows across every stage of processing, logistics,
+            and delivery.
+          </p>
+        </div>
       </header>
 
-      <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
+      <section className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:px-12 lg:grid-cols-12">
+        <div className="h-fit lg:sticky lg:top-28 lg:col-span-4">
+          <h2 className={headingStyle}>Quality and Food Safety</h2>
+        </div>
 
-      <div className="flex flex-col gap-10 p-5">
-        <section className="container mx-auto space-y-10">
-          <h3 className="text-center text-4xl font-extrabold">
-            Quality and Food Safety
-          </h3>
+        <div className="space-y-12 lg:col-span-8">
+          <div className="space-y-4">
+            <h3 className={subHeadingStyle}>Food Safety & Quality Assurance</h3>
 
-          <div className="flex flex-wrap items-center justify-evenly py-10">
-            {qualityAndFoodSafetyIcons.map((q, ids) => (
-              <div
-                key={ids}
-                className="flex size-30 flex-col items-center justify-evenly space-y-3 text-center">
-                <img
-                  src={q.img}
-                  alt={q.description}
-                  className="size-16 lg:size-20"
-                />
+            <ol className="text-base-content list-outside list-decimal space-y-6 pl-6">
+              <li className="pl-2">
+                <h6 className="text-neutral text-base font-bold tracking-wide uppercase">
+                  Upholding Strict Hygiene and Safety Protocols
+                </h6>
+                <p className={descriptionStyle}>
+                  We maintain rigorous hygiene standards and follow strict
+                  safety protocols at every stage of production.
+                </p>
+              </li>
 
-                <span className="text-sm font-bold tracking-tight lg:text-lg">
-                  {q.description}
-                </span>
-              </div>
-            ))}
+              <li className="pl-2">
+                <h6 className="text-neutral text-base font-bold tracking-wide uppercase">
+                  High Standards of Cleanliness and Quality
+                </h6>
+                <p className={descriptionStyle}>
+                  All processing facilities meet high standards of cleanliness
+                  and quality control.
+                </p>
+              </li>
+
+              <li className="pl-2">
+                <h6 className="text-neutral text-base font-bold tracking-wide uppercase">
+                  Tested Processes for Consistency & Traceability
+                </h6>
+                <p className={descriptionStyle}>
+                  Our batch tested processes ensure consistency and traceability
+                  from production to delivery.
+                </p>
+              </li>
+            </ol>
           </div>
 
-          <div className="flex flex-col items-center gap-5">
-            {safetyCardContent.map(({ img, content }, ids) => (
-              <div
-                key={ids}
-                className={cn(
-                  "flex w-full max-w-7xl flex-col items-center gap-10 object-cover",
-                  ids % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row",
-                )}>
-                <img
-                  src={img}
-                  alt={content.title.toLocaleLowerCase()}
-                  className="rounded-2xl object-cover shadow-xl shadow-gray-400 lg:h-100 lg:w-100"
-                />
-
-                <div className="space-y-5">
-                  <p className="text-5xl font-semibold text-(--warm-red) md:text-6xl lg:text-7xl">
-                    {content.title}
-                  </p>
-
-                  {content.subtitle && (
-                    <p className="text-xl font-medium">{content.subtitle}</p>
-                  )}
-
-                  <ul className="list-inside list-disc text-lg">
-                    {content.description.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-
-        <section className="container mx-auto max-w-7xl space-y-10">
-          <h3 className="text-center text-4xl font-extrabold">
-            PPE Uniform & Production Protocols
-          </h3>
-
-          <img
-            src={PpeImage}
-            alt="PPE-image"
-            className="w-full justify-self-center rounded-2xl"
-          />
-
-          <h3 className="text-center text-4xl font-extrabold">
-            How the production area looks
-          </h3>
-
-          <div className="flex w-full flex-col items-center justify-center gap-5 lg:flex-row lg:px-2.5">
-            <img
-              src={ProdAreaVisualOne}
-              alt="ProdAreaVisualOne"
-              className="rounded-2xl lg:w-1/2"
-            />
-
-            <img
-              src={ProdAreaVisualTwo}
-              alt="ProdAreaVisualTwo"
-              className="rounded-2xl lg:w-1/2"
-            />
-          </div>
-        </section>
-
-        <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-
-        <section className="container mx-auto space-y-10">
-          <h3 className="text-center text-4xl font-extrabold">
-            Factory & Operational Capability
-          </h3>
-
-          <div className="flex flex-col items-center gap-5">
-            {factoryCardContent.map((f, ids) => (
-              <div
-                key={ids}
-                className={cn(
-                  "flex w-full max-w-7xl flex-col items-center gap-10 object-cover",
-                  ids % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row",
-                )}>
-                <img
-                  src={f.img}
-                  alt={f.description.toLocaleLowerCase()}
-                  className="rounded-2xl object-cover shadow-xl shadow-gray-400 lg:h-100 lg:w-100"
-                />
-
-                <div className="space-y-5">
-                  <p className="text-5xl font-semibold text-(--warm-red) md:text-6xl lg:text-7xl">
-                    {f.title}
-                  </p>
-
-                  <p className="text-xl font-medium">{f.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider m-10 mx-auto h-5 w-4/5 before:bg-linear-to-r before:from-[#F9F5F1] before:via-(--red) before:to-(--red) after:bg-linear-to-l after:from-[#F9F5F1] after:via-(--red) after:to-(--red)" />
-
-        <section className="container mx-auto space-y-10">
-          <div className="space-y-7">
-            <p className="text-center text-4xl font-extrabold">
-              Safety Permits
+          <div className="space-y-4">
+            <h3 className={subHeadingStyle}>Certifications & Compliance</h3>
+            <p className={descriptionStyle}>
+              Sunny Foods Inc. strictly complies with all applicable local and
+              national government regulations and possesses the proper licenses,
+              permits, and certifications necessary for food manufacturing and
+              distribution operations.
+              <Link to="/legal/certificate" className="link link-primary ml-1">
+                view certificates
+              </Link>
             </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid place-items-center gap-5 lg:grid-cols-2 xl:grid-cols-4">
-              {safetyPermits.map((license, ids) => (
-                <div
-                  key={ids}
-                  className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105">
-                  <img
-                    src={license.img}
-                    alt={license.description.toLocaleLowerCase()}
-                    className="pointer-events-none size-80 rounded-2xl"
-                  />
+      <section className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:px-12 lg:grid-cols-12">
+        <div className="h-fit lg:sticky lg:top-28 lg:col-span-4">
+          <h2 className={headingStyle}>Factory & Operational Capability</h2>
+        </div>
 
-                  <p className="text-lg font-bold">{license.description}</p>
-                </div>
-              ))}
+        <div className="space-y-12 lg:col-span-8">
+          <div className="space-y-4">
+            <div>
+              <h6 className={subHeadingStyle}>Production Facility</h6>
+              <p className={cn("text-justify", descriptionStyle)}>
+                Our state-of-the-art production facility is designed to handle
+                large-scale meat processing efficiently and safely. We maintain
+                strict food safety protocols, ensuring hygienic conditions
+                throughout all stages of production.
+              </p>
+            </div>
+            <div>
+              <h6 className={subHeadingStyle}>R&D and Innovation</h6>
+              <p className={cn("text-justify", descriptionStyle)}>
+                We are committed to continuous innovation, with a dedicated R&D
+                team working on developing new products, improving recipes, and
+                refining flavors and textures. Our research focuses on
+                sustainable practices, innovative packaging, and meeting the
+                evolving demands of our clients and market.
+              </p>
+            </div>
+            <div>
+              <h6 className={subHeadingStyle}>Team & Leadership</h6>
+              <p className={cn("text-justify", descriptionStyle)}>
+                Our team is led by seasoned professionals with extensive
+                experience in food manufacturing and safety standards. From
+                quality assurance managers to skilled butchers, our leadership
+                ensures precision and quality in every batch. We emphasize
+                ongoing training and a culture of excellence in operations
+                management.
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="space-y-7">
-            <p className="text-center text-4xl font-extrabold">
-              Licenses to Operate
-            </p>
+      <section className="container mx-auto max-w-6xl space-y-10 px-6 py-20 md:px-12">
+        <h3 className={headingStyle}>PPE Uniform & Production Protocols</h3>
 
-            <div className="grid place-items-center gap-5 lg:grid-cols-2 xl:grid-cols-4">
-              {licenses.map((license, ids) => (
-                <div
-                  key={ids}
-                  className="items-center space-y-5 text-center transition-all duration-300 hover:scale-105">
-                  <img
-                    src={license.img}
-                    alt={license.description}
-                    className="pointer-events-none size-80 rounded-2xl"
-                  />
+        <img
+          src={PpeImage}
+          alt="PPE-image"
+          className="w-full justify-self-center rounded-2xl"
+        />
+      </section>
 
-                  <p className="text-lg font-bold">{license.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
+      <section className="container mx-auto mt-12 px-6 pb-16">
+        <div className="grid grid-cols-2 gap-1 md:grid-cols-3">
+          {images.map((image, i) => (
+            <figure
+              key={i}
+              className="group border-base-200 bg-base-200 relative aspect-video overflow-hidden">
+              <img
+                src={image}
+                alt={image}
+                className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
-
 export default Legal;

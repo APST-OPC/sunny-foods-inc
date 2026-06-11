@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <nav className={cn("navbar container mx-auto")}>
       {/* LEFT SIDE LOGO */}
-      <div className="navbar-start flex flex-1">
+      <div className="navbar-start w-auto">
         <div
           role="button"
           tabIndex={0}
@@ -97,7 +97,7 @@ const Navbar = () => {
       </div>
 
       {/* DESKTOP LINKS */}
-      <div className="navbar-end text-md hidden gap-5 font-semibold md:flex">
+      <div className="navbar-end hidden flex-1 items-center justify-end gap-6 font-semibold md:flex">
         {links.map((link, ids) => {
           return ids === 1 ? (
             <DropdownNav
@@ -126,7 +126,9 @@ const Navbar = () => {
       </div>
 
       {/* MOBILE MENU ICON */}
-      <MobileNavbar links={links} />
+      <div className="flex flex-1 items-center justify-end md:hidden">
+        <MobileNavbar links={links} />
+      </div>
     </nav>
   );
 };
