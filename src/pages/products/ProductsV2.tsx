@@ -45,12 +45,6 @@ const ProductItem = ({ description, image, title }: CatalogItem) => {
           alt={title}
           className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
         />
-        {/* <div className="absolute inset-0 hidden flex-col items-center gap-3 bg-black/70 p-6 text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 md:flex">
-          <p className="text-center text-lg font-bold tracking-wide uppercase">{title}</p>
-          <p className="px-4 text-center text-sm leading-relaxed font-light">
-            <q>{description}</q>
-          </p>
-        </div> */}
       </figure>
 
       <div className="card-body mt-2 gap-0 p-0">
