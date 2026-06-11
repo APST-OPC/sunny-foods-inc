@@ -1,3 +1,5 @@
+import { Message01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -117,8 +119,8 @@ const Navbar = () => {
         <Link to="/talk-to-us">
           <button
             onClick={instantScrollToTop}
-            className="btn border border-(--warm-red) bg-(--warm-red) text-white">
-            Talk To Us
+            className="btn gap-2 border border-(--red) bg-(--red) text-white">
+            Talk To Us <HugeiconsIcon icon={Message01Icon} strokeWidth={2} />
           </button>
         </Link>
       </div>

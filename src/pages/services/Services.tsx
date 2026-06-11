@@ -1,8 +1,8 @@
-import type { ComponentProps, PropsWithChildren } from "react";
-
+import { type ComponentProps, type PropsWithChildren, useEffect } from "react";
 import { GiLaurelCrown } from "react-icons/gi";
 import { HiMiniStar } from "react-icons/hi2";
 import { TbMeat } from "react-icons/tb";
+import { useLocation } from "react-router";
 
 import { cn } from "~/libs/cn";
 
@@ -75,7 +75,7 @@ const ServiceHeader = () => {
 
 const BrandAndProductService = () => {
   return (
-    <Container>
+    <Container id="branding-&-packaging-services">
       <CategoryTitle>Brand & Product Development Service</CategoryTitle>
       {brandAndProducts.map((item, index) => (
         <div
@@ -121,7 +121,7 @@ const BrandAndProductService = () => {
 
 const LogisticsAndSupply = () => {
   return (
-    <Container>
+    <Container id="wholesale-&-logistics-services">
       <CategoryTitle>Wholesale, Logistics & Distribution</CategoryTitle>
       <div className="flex flex-col md:flex-row" data-aos="fade-up">
         {wholesaleAndLogistics.map((item, index) => (
@@ -155,7 +155,7 @@ const LogisticsAndSupply = () => {
 
 const BusinessSupportService = () => {
   return (
-    <Container>
+    <Container id="business-support-services">
       <CategoryTitle>Business Support Services</CategoryTitle>
       {businessSupportService.map((item, index) => (
         <div
@@ -197,6 +197,21 @@ const BusinessSupportService = () => {
 };
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id.toLowerCase());
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "instant" });
+        }, 0);
+      }
+    }
+  }, [location]);
+
   return (
     <section className="space-y-20 py-20">
       <ServiceHeader />

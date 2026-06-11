@@ -4,7 +4,8 @@ import {
   FilterMailIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { cn } from "~/libs/cn";
 
@@ -45,12 +46,6 @@ const ProductItem = ({ description, image, title }: CatalogItem) => {
           alt={title}
           className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
         />
-        {/* <div className="absolute inset-0 hidden flex-col items-center gap-3 bg-black/70 p-6 text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 md:flex">
-          <p className="text-center text-lg font-bold tracking-wide uppercase">{title}</p>
-          <p className="px-4 text-center text-sm leading-relaxed font-light">
-            <q>{description}</q>
-          </p>
-        </div> */}
       </figure>
 
       <div className="card-body mt-2 gap-0 p-0">
@@ -203,6 +198,7 @@ const DrawerContent = ({
 };
 
 const ProductsV2 = () => {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [isStuck, setIsStuck] = useState(false);
 
@@ -225,6 +221,18 @@ const ProductsV2 = () => {
       document.activeElement.blur();
     }
   };
+
+  const scrollElementId = useCallback((id: string) => {
+    if (!id) return;
+
+    return CATALOG_SECTIONS.find((category) =>
+      category.data.some((group) =>
+        group.items.some(
+          (item) => item.title.replaceAll(" ", "-").toLowerCase() === id,
+        ),
+      ),
+    )?.folder;
+  }, []);
 
   useEffect(() => {
     const currentSentinel = sentinelRef.current;
@@ -250,6 +258,16 @@ const ProductsV2 = () => {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    const id = location.hash.substring(1);
+    if (id) {
+      const categoryElement = document.getElementById(
+        scrollElementId(id) ?? "",
+      );
+      categoryElement?.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  }, [location, scrollElementId]);
 
   return (
     <div className="drawer">
@@ -310,7 +328,8 @@ const ProductsV2 = () => {
                 return (
                   <div
                     key={`${folder}-${catIndex}`}
-                    className="flex flex-col gap-3">
+                    className="flex flex-col gap-3"
+                    id={folder}>
                     <div className="text-base-content font-sans text-2xl font-semibold tracking-wider capitalize">
                       {categoryGroup.category}
                       <div className="h-0.75 w-16 rounded-full bg-(--red)" />
