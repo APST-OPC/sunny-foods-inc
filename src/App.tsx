@@ -10,7 +10,7 @@ import BusinessCard from "./pages/business-card";
 import Legal from "./pages/legal";
 import Certificate from "./pages/legal/Certificate";
 import NotFound from "./pages/not-found";
-import Productsv2 from "./pages/products/ProductsV2";
+import Products from "./pages/products/Products";
 import QR from "./pages/qr";
 import Services from "./pages/services";
 import { LayoutProvider } from "./provider/LayoutProvider";
@@ -26,7 +26,7 @@ const App = () => {
           </LayoutProvider>
         }>
         <Route index element={<Home />} />
-        <Route path="/products" element={<Productsv2 />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/who-we-are" element={<About />} />
         <Route path="/talk-to-us" element={<Contact />} />
         <Route path="/legal" element={<Legal />} />

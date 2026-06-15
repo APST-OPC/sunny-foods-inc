@@ -197,7 +197,7 @@ const DrawerContent = ({
   );
 };
 
-const ProductsV2 = () => {
+const Products = () => {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [isStuck, setIsStuck] = useState(false);
@@ -376,4 +376,4 @@ const ProductsV2 = () => {
   );
 };
 
-export default ProductsV2;
+export default Products;
