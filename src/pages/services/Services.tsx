@@ -25,7 +25,7 @@ const Container = (props: ComponentProps<"div">) => {
 
 const CategoryTitle = ({ children }: PropsWithChildren) => {
   return (
-    <h1 className="text-center text-4xl font-bold tracking-tighter md:tracking-tight lg:text-5xl">
+    <h1 className="mb-20 text-center text-4xl font-bold tracking-tighter md:tracking-tight lg:text-5xl">
       {children}
     </h1>
   );
@@ -83,7 +83,8 @@ const BrandAndProductService = () => {
           className={cn(
             "flex flex-col items-center lg:gap-5",
             index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
-          )}>
+          )}
+          data-aos="fade-up">
           <img src={item.image} className="lg:h-100 lg:w-2/5" alt="service" />
           <div className="mt-5 space-y-3 px-5 lg:mt-0 lg:w-3/5">
             <h1 className="text-center text-4xl font-bold tracking-tight text-(--warm-red) lg:text-start lg:text-5xl">
@@ -102,7 +103,7 @@ const BrandAndProductService = () => {
                     "rounded-xl border-2 border-(--light-brown)/50 px-2 py-2 shadow-sm",
                     "lg:justify-start lg:gap-5 lg:border-none lg:shadow-none",
                   )}>
-                  <div className="rounded-full border-4 border-(--light-brown) bg-(--light-brown)/10 p-2">
+                  <div className="rounded-full border-4 border-(--light-brown) bg-(--light-brown)/10 p-2 shadow-sm shadow-black/50">
                     {icons}
                   </div>
                   <div className="w-full text-start lg:w-full">
@@ -121,16 +122,14 @@ const BrandAndProductService = () => {
 
 const LogisticsAndSupply = () => {
   return (
-    <Container id="wholesale-&-logistics-services">
+    <Container data-aos="fade-up" id="wholesale-&-logistics-services">
       <CategoryTitle>Wholesale, Logistics & Distribution</CategoryTitle>
-      <div className="flex flex-col md:flex-row" data-aos="fade-up">
+      <div className="flex flex-col md:flex-row">
         {wholesaleAndLogistics.map((item, index) => (
-          <div
-            key={index}
-            className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 hover:shadow-sm md:p-5">
+          <div key={index} className="h-full w-full space-y-5 md:p-5">
             <img
               src={item.image}
-              className="relative h-full max-h-110 w-full transition-all duration-300 md:rounded-xl"
+              className="relative h-full max-h-110 w-full"
               alt={item.title}
             />
             <div className="h-full">
@@ -163,7 +162,8 @@ const BusinessSupportService = () => {
           className={cn(
             "flex flex-col items-center lg:gap-5",
             index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row",
-          )}>
+          )}
+          data-aos="fade-up">
           <img src={item.image} className="lg:h-100 lg:w-2/5" alt="service" />
           <div className="mt-5 space-y-3 px-5 lg:mt-0 lg:w-3/5">
             <h1 className="text-center text-4xl font-bold tracking-tight text-(--warm-red) lg:text-start lg:text-5xl">
