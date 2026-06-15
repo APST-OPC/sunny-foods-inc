@@ -1,129 +1,378 @@
-import type { ReactElement, ReactNode } from "react";
-import type { IProducts, IProductType } from "./type";
+import {
+  ArrowDown02Icon,
+  Cancel01Icon,
+  FilterMailIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { useState } from "react";
-
-import { CTA } from "~/components";
 import { cn } from "~/libs/cn";
 
-import CustomDivider from "./components/CustomDivider";
-import PreviewCard from "./components/PreviewCard";
-import PreviewModal from "./components/PreviewModal";
-import { products } from "./utils";
+import MeatData from "./meat.json";
+import SaucesData from "./sauces.json";
+import SteakData from "./steak.json";
 
-const Products = (): ReactElement => {
-  const [showDetail, setShowDetail] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<IProducts | null>(
-    null,
+interface CatalogItem {
+  id?: number;
+  title: string;
+  description: string;
+  image: string;
+  tags?: string[];
+}
+
+interface CatalogCategory {
+  category: string;
+  items: Pick<CatalogItem, "id" | "description" | "image" | "title">[];
+}
+
+interface CatalogSection {
+  data: CatalogCategory[];
+  folder: string;
+}
+
+const CATALOG_SECTIONS: CatalogSection[] = [
+  { data: SteakData, folder: "steak-series" },
+  { data: MeatData, folder: "core-products" },
+  { data: SaucesData, folder: "sauces" },
+];
+
+const ProductItem = ({ description, image, title }: CatalogItem) => {
+  return (
+    <div className="group card relative cursor-pointer overflow-hidden rounded-none">
+      <figure className="relative aspect-square w-full overflow-hidden bg-stone-300">
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+        />
+      </figure>
+
+      <div className="card-body mt-2 gap-0 p-0">
+        <h3 className="text-base-content text-base font-semibold tracking-wide transition-colors lg:text-lg">
+          {title}
+        </h3>
+        <p className="text-sm leading-relaxed font-light">{description}</p>
+      </div>
+    </div>
   );
-  const [selectedType, setSelectedType] =
-    useState<IProductType>("Core Products");
+};
 
-  const handleView = (item: IProducts) => {
-    setSelectedProduct(item);
-    setShowDetail(true);
-  };
-  const handleShowDetail = (): void => setShowDetail(false);
+const triggerButtonStyles =
+  "btn btn-link group h-auto min-h-0 p-0 font-medium tracking-widest text-stone-600 uppercase no-underline hover:text-stone-500 hover:no-underline ";
 
-  const renderHeader = (): ReactNode => {
-    return (
-      <header className="container mx-auto mb-14 px-4 text-center">
-        <h1 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
-          Our Premium Meat Collection
-        </h1>
+const TriggerButton = ({ activeCategory }: { activeCategory: string }) => {
+  return (
+    <button className={triggerButtonStyles}>
+      <HugeiconsIcon
+        icon={FilterMailIcon}
+        size={16}
+        color="currentColor"
+        strokeWidth={1.2}
+      />
+      <span className="capitalize">
+        Category:
+        <span className="ml-1 font-bold underline underline-offset-4">
+          {activeCategory === "all" ? "Show All" : activeCategory}
+        </span>
+      </span>
+      <span className="text-[10px] text-stone-400 transition-transform duration-200 group-hover:translate-y-0.5">
+        <HugeiconsIcon
+          icon={ArrowDown02Icon}
+          size={16}
+          color="currentColor"
+          strokeWidth={1.2}
+        />
+      </span>
+    </button>
+  );
+};
 
-        <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600">
-          Select from our finest cuts, each prepared to deliver exceptional
-          taste and quality.
-        </p>
-      </header>
-    );
-  };
+interface DropdownContentProps {
+  allCategories: string[];
+  activeCategory: string;
+  onSelectCategory: (category: string, isMobile: boolean) => void;
+}
+const DropdownContent = ({
+  allCategories,
+  activeCategory,
+  onSelectCategory,
+}: DropdownContentProps) => {
+  return (
+    <ul className="dropdown-content menu z-50 mt-2 w-80 gap-0.5 rounded-none border border-stone-200 bg-white p-1 text-xs tracking-wider text-stone-700 uppercase shadow-md">
+      {allCategories.map((category) => (
+        <li key={category}>
+          <button
+            onClick={() => onSelectCategory(category, false)}
+            className={cn(
+              "justify-start rounded-none py-2 text-left text-base capitalize hover:bg-stone-50",
+              activeCategory === category &&
+                "bg-stone-100 font-bold text-stone-950",
+            )}>
+            {category === "all" ? "Show All" : category}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-  const renderProductList = (): ReactNode => {
-    return (
-      <section className="container mx-auto space-y-7 px-5">
-        <CustomDivider />
+const TriggerDrawer = ({ activeCategory }: { activeCategory: string }) => {
+  return (
+    <label
+      htmlFor="mobile-filter-drawer"
+      className={cn(triggerButtonStyles, "md:hidden")}>
+      <HugeiconsIcon
+        icon={FilterMailIcon}
+        size={16}
+        color="currentColor"
+        strokeWidth={1.2}
+      />
+      <span className="capitalize">
+        Category:
+        <span className="ml-1 font-bold underline underline-offset-4">
+          {activeCategory === "all" ? "Show All" : activeCategory}
+        </span>
+      </span>
+      <span className="text-[10px] text-stone-400 transition-transform duration-200 group-hover:translate-y-0.5">
+        <HugeiconsIcon
+          icon={ArrowDown02Icon}
+          size={16}
+          color="currentColor"
+          strokeWidth={1.2}
+        />
+      </span>
+    </label>
+  );
+};
 
-        <div className="space-y-5">
-          <div role="tablist" className="tabs tabs-border justify-center">
-            <div
-              role="tab"
-              tabIndex={0}
-              className={cn(
-                "tab hover:text-error text-lg transition-colors duration-300",
-                selectedType === "Core Products" &&
-                  "tab-active before:text-error text-error font-bold",
-              )}
-              onClick={() => setSelectedType("Core Products")}>
-              Core Products
-            </div>
-
-            <div
-              role="tab"
-              tabIndex={0}
-              className={cn(
-                "tab hover:text-error text-lg transition-colors duration-300",
-                selectedType === "Steak Series" &&
-                  "tab-active before:text-error text-error font-bold",
-              )}
-              onClick={() => setSelectedType("Steak Series")}>
-              Steak Series
-            </div>
+type DrawerContentProps = DropdownContentProps;
+const DrawerContent = ({
+  activeCategory,
+  allCategories,
+  onSelectCategory,
+}: DrawerContentProps) => {
+  return (
+    <div className="drawer-side z-50">
+      <label
+        htmlFor="mobile-filter-drawer"
+        aria-label="close sidebar"
+        className="drawer-overlay"
+      />
+      <div className="menu flex min-h-full w-80 flex-col gap-6 bg-white p-0 text-stone-800">
+        <div className="flex items-center justify-between border-b border-b-stone-200 p-6 shadow-xs">
+          <div>
+            <h2 className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
+              Catalog
+            </h2>
+            <p className="text-base font-light tracking-tight text-stone-900">
+              Select Category
+            </p>
           </div>
-
-          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-5 lg:grid-cols-3">
-            {products
-              .filter((p) => p.type === selectedType)
-              .map((data) => {
-                return (
-                  <PreviewCard
-                    key={data.id}
-                    imageSrc={data}
-                    openDetails={() => handleView(data)}
-                  />
-                );
-              })}
-          </div>
+          <label
+            htmlFor="mobile-filter-drawer"
+            className="btn btn-circle btn-sm">
+            <HugeiconsIcon icon={Cancel01Icon} />
+          </label>
         </div>
 
-        <CustomDivider />
-      </section>
-    );
+        <ul className="flex flex-col gap-1 p-6 text-base tracking-wide uppercase">
+          {allCategories.map((category) => (
+            <li key={category}>
+              <button
+                onClick={() => onSelectCategory(category, true)}
+                className={cn(
+                  "justify-between rounded-none border border-transparent px-4 py-3 text-left capitalize",
+                  activeCategory === category
+                    ? "bg-stone-900 font-medium text-white"
+                    : "text-stone-600 hover:bg-stone-50",
+                )}>
+                {category === "all" ? "Show All" : category}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const Products = () => {
+  const location = useLocation();
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [isStuck, setIsStuck] = useState(false);
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const drawerToggleRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const allCategories = [
+    "all",
+    ...CATALOG_SECTIONS.flatMap(({ data }) => data.map((cat) => cat.category)),
+  ];
+
+  const handleCategorySelect = (category: string, isMobile = false) => {
+    setActiveCategory(category);
+    navigate({
+      hash: `${category}`,
+    });
+
+    if (isMobile) {
+      if (drawerToggleRef.current) {
+        drawerToggleRef.current.checked = false;
+      }
+    } else if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   };
 
-  const renderWhyChooseProducts = (): ReactNode => {
-    return (
-      <section className="container mx-auto space-y-20 py-20">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold">
-            WHY CHOOSE <span className="text-error">OUR BEEF PRODUCTS</span>?
-          </h1>
+  const scrollElementId = useCallback((id: string) => {
+    if (!id) return;
 
-          <p className="mx-auto w-full max-w-2xl px-2 text-lg leading-6 text-gray-600">
-            Sunny Foods is committed to more than just great meat — we make sure
-            that our beef products are of utmost quality to keep our customers
-            satisfied.
-          </p>
-        </div>
+    return CATALOG_SECTIONS.find((category) =>
+      category.data.some((group) =>
+        group.items.some(
+          (item) => item.title.replaceAll(" ", "-").toLowerCase() === id,
+        ),
+      ),
+    )?.folder;
+  }, []);
 
-        <CustomDivider />
-      </section>
+  useEffect(() => {
+    const currentSentinel = sentinelRef.current;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsStuck(!entry.isIntersecting);
+      },
+      {
+        rootMargin: "-64px 0px 0px 0px",
+        threshold: [0],
+      },
     );
-  };
+
+    if (currentSentinel) {
+      observer.observe(currentSentinel);
+    }
+
+    return () => {
+      if (currentSentinel) {
+        observer.unobserve(currentSentinel);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const id = location.hash.substring(1);
+    if (id) {
+      const categoryElement = document.getElementById(
+        scrollElementId(id) ?? "",
+      );
+      categoryElement?.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  }, [location, scrollElementId]);
 
   return (
-    <main className="py-20">
-      {renderHeader()}
-      {renderProductList()}
-      {renderWhyChooseProducts()}
-      <CTA />
-      <PreviewModal
-        product={selectedProduct}
-        open={showDetail}
-        handleClose={handleShowDetail}
+    <div className="drawer">
+      <input
+        id="mobile-filter-drawer"
+        type="checkbox"
+        className="drawer-toggle"
+        ref={drawerToggleRef}
       />
-    </main>
+
+      <div className="drawer-content">
+        <main className="flex-1 py-16">
+          <header className="container mx-auto px-10 py-12">
+            <div className="space-y-3">
+              <h1 className="text-4xl leading-[0.95] font-black tracking-tighter text-[#262220] sm:text-6xl">
+                The Masterpiece Collection
+              </h1>
+              <p className="text-base-content max-w-xl text-base leading-relaxed font-light">
+                Curated for the discerning palate. Exceptional quality, crafted
+                without compromise.
+              </p>
+            </div>
+          </header>
+
+          <div ref={sentinelRef} className="h-px w-full bg-transparent" />
+          <div
+            className={cn(
+              "sticky top-19 z-40 mb-12 px-5 transition-colors duration-300",
+              isStuck ? "bg-white shadow-xs" : "bg-transparent",
+            )}>
+            <div
+              className={cn(
+                "container mx-auto flex items-center justify-between px-6 py-7",
+                isStuck ? "border-none" : "border-b border-stone-200",
+              )}>
+              <div className="dropdown dropdown-bottom hidden md:block">
+                <TriggerButton activeCategory={activeCategory} />
+                <DropdownContent
+                  allCategories={allCategories}
+                  activeCategory={activeCategory}
+                  onSelectCategory={handleCategorySelect}
+                />
+              </div>
+
+              <TriggerDrawer activeCategory={activeCategory} />
+            </div>
+          </div>
+
+          <section className="container mx-auto flex flex-col gap-16 px-10">
+            {CATALOG_SECTIONS.map(({ data, folder }) =>
+              data.map((categoryGroup, catIndex) => {
+                const isVisible =
+                  activeCategory === "all" ||
+                  activeCategory === categoryGroup.category;
+
+                if (!isVisible) return null;
+
+                return (
+                  <div
+                    key={`${folder}-${catIndex}`}
+                    className="flex flex-col gap-3"
+                    id={folder}>
+                    <div className="text-base-content font-sans text-2xl font-semibold tracking-wider capitalize">
+                      {categoryGroup.category}
+                      <div className="h-0.75 w-16 rounded-full bg-(--red)" />
+                    </div>
+                    <p className="text-sm leading-relaxed font-light text-stone-400">
+                      {categoryGroup.items.length} Items
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+                      {categoryGroup.items.map((item) => {
+                        const assetUrl = new URL(
+                          `../../assets/products/${folder}/${item.image}`,
+                          import.meta.url,
+                        ).href;
+
+                        return (
+                          <ProductItem
+                            key={item.id}
+                            image={assetUrl}
+                            title={item.title}
+                            description={item.description}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }),
+            )}
+          </section>
+        </main>
+      </div>
+
+      <DrawerContent
+        activeCategory={activeCategory}
+        allCategories={allCategories}
+        onSelectCategory={handleCategorySelect}
+      />
+    </div>
   );
 };
 

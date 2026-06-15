@@ -23,7 +23,7 @@ const Certificate = () => {
     <div className="container mx-auto space-y-10 py-20">
       <header className="mb-8 text-center">
         <h1 className="text-base-content text-4xl leading-[0.95] font-black tracking-tighter sm:text-6xl">
-          Regulatory Compliance
+          Certifications & Compliance
         </h1>
       </header>
 
