@@ -8,11 +8,6 @@ import {
   MdScale,
 } from "react-icons/md";
 
-import Quality from "~/assets/icons/high-quality.png";
-import Packaging from "~/assets/icons/packaging-meat.png";
-import Restaurant from "~/assets/icons/restaurant.png";
-import FrozenMeat from "~/assets/icons/steak.png";
-import Stove from "~/assets/icons/stove.png";
 import BulkAndWholesale from "~/assets/services/bulk-ordering-wholesale.png";
 import ColdChainLogistics from "~/assets/services/cold-chain-logistics.png";
 import CustomMeat from "~/assets/services/custom-meat-order.png";
@@ -20,44 +15,6 @@ import CustomerSupport from "~/assets/services/customer-support-fixed.png";
 import DistributionSupport from "~/assets/services/distribution-support-fixed.jpeg";
 import OEMPrivateLabel from "~/assets/services/oem-private-label-final.png";
 import MeatPackage from "~/assets/services/packageLabeling.png";
-
-export const whyChooseProducts = [
-  {
-    image: Packaging,
-    title: "Premium Beef Cuts",
-    description:
-      "All natural, premium-grade cuts, expertly portion-controlled.",
-  },
-  {
-    image: Stove,
-    title: "Ready-to-Cook Convenience",
-    description: "Pre-cut, pre-marinated options for effortless cooking.",
-  },
-  {
-    image: Packaging,
-    title: "Portion-Controlled / Zero Waste",
-    description:
-      "Consistent weight & size, minimizing waste & maximizing profit.",
-  },
-  {
-    image: FrozenMeat,
-    title: "Frozen for Freshness & Shelf Life",
-    description:
-      "Locking in natural juices and nutrients for extended shelf life.",
-  },
-  {
-    image: Restaurant,
-    title: "Foodservice Friendly",
-    description:
-      "Custom-tailored to meet the needs of horeca and food retailers.",
-  },
-  {
-    image: Quality,
-    title: "Consistent Quality Every Time",
-    description:
-      "Rigorous quality control, ensuring top quality in every order.",
-  },
-];
 
 const listIconClass = "size-12 lg:size-8 text-(--light-brown)";
 export const brandAndProducts = [

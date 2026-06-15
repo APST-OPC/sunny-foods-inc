@@ -49,7 +49,7 @@ const Legal = () => {
           <h2 className={headingStyle}>Quality and Food Safety</h2>
         </div>
 
-        <div className="space-y-12 lg:col-span-8">
+        <div data-aos="fade-up" className="space-y-12 lg:col-span-8">
           <div className="space-y-4">
             <h3 className={subHeadingStyle}>Food Safety & Quality Assurance</h3>
 
@@ -106,7 +106,7 @@ const Legal = () => {
           <h2 className={headingStyle}>Factory & Operational Capability</h2>
         </div>
 
-        <div className="space-y-12 lg:col-span-8">
+        <div data-aos="fade-up" className="space-y-12 lg:col-span-8">
           <div className="space-y-4">
             <div>
               <h6 className={subHeadingStyle}>Production Facility</h6>
@@ -146,6 +146,7 @@ const Legal = () => {
         <h3 className={headingStyle}>PPE Uniform & Production Protocols</h3>
 
         <img
+          data-aos="zoom-in"
           src={PpeImage}
           alt="PPE-image"
           className="w-full justify-self-center rounded-2xl"
@@ -157,6 +158,7 @@ const Legal = () => {
           {images.map((image, i) => (
             <figure
               key={i}
+              data-aos="zoom-in-up"
               className="group border-base-200 bg-base-200 relative aspect-video overflow-hidden">
               <img
                 src={image}
