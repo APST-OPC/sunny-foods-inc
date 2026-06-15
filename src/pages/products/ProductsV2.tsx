@@ -5,7 +5,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { cn } from "~/libs/cn";
 
@@ -204,6 +204,7 @@ const ProductsV2 = () => {
 
   const sentinelRef = useRef<HTMLDivElement>(null);
   const drawerToggleRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const allCategories = [
     "all",
@@ -212,6 +213,9 @@ const ProductsV2 = () => {
 
   const handleCategorySelect = (category: string, isMobile = false) => {
     setActiveCategory(category);
+    navigate({
+      hash: `${category}`,
+    });
 
     if (isMobile) {
       if (drawerToggleRef.current) {

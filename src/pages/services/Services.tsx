@@ -33,7 +33,7 @@ const CategoryTitle = ({ children }: PropsWithChildren) => {
 
 const ServiceHeader = () => {
   return (
-    <Container className="text-center">
+    <Container data-aos="fade-up" className="text-center">
       <div className="space-y-2">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--light-brown) bg-white">
           <GiLaurelCrown className="h-10 w-10 text-(--light-brown)" />
@@ -75,7 +75,7 @@ const ServiceHeader = () => {
 
 const BrandAndProductService = () => {
   return (
-    <Container id="branding-&-packaging-services">
+    <Container data-aos="fade-up" id="branding-&-packaging-services">
       <CategoryTitle>Brand & Product Development Service</CategoryTitle>
       {brandAndProducts.map((item, index) => (
         <div
@@ -155,7 +155,7 @@ const LogisticsAndSupply = () => {
 
 const BusinessSupportService = () => {
   return (
-    <Container id="business-support-services">
+    <Container data-aos="fade-up" id="business-support-services">
       <CategoryTitle>Business Support Services</CategoryTitle>
       {businessSupportService.map((item, index) => (
         <div

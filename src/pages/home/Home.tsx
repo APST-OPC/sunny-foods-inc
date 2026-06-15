@@ -2,56 +2,12 @@ import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useNavigate } from "react-router-dom";
 
-import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
-import PremuimCut from "~/assets/hero-sec.png";
-import BannerHead from "~/assets/meat-carousel/premium-beef-cuts2.png";
-// import PremuimCut from '~/assets/meat-carousel/premium-beef-cuts2.png';
-import ReadyToCook from "~/assets/meat-carousel/ready-to-cook.png";
-import SteakFoodService from "~/assets/meat-carousel/SteakFoodService.png";
-import SteakFrozenPack from "~/assets/meat-carousel/steak-frozen-pack.png";
-import PortionControlled from "~/assets/meat-carousel/steak-portion-controlled.png";
+import BannerHead from "~/assets/home/premium-beef-cuts2.png";
 
 import Carousel from "./Carousel";
 import ServicesSection from "./ServiceSection";
+import { beefSolutions } from "./utils";
 
-const beefSolutions = [
-  {
-    num: "01",
-    title: "Premium Beef Cuts",
-    desc: "All natural, premium-grade cuts, expertly portion-controlled.",
-    image: PremuimCut,
-  },
-  {
-    num: "02",
-    title: "Ready-to-Cook Convenience",
-    desc: "Pre-cut, pre-marinated options for effortless cooking.",
-    image: ReadyToCook,
-  },
-  {
-    num: "03",
-    title: "Portion-Controlled / Zero Waste",
-    desc: "Consistent weight & size, minimizing waste & maximizing profit.",
-    image: PortionControlled,
-  },
-  {
-    num: "04",
-    title: "Frozen for Freshness & Shelf Life",
-    desc: "Locking in natural juices and nutrients for extended shelf life.",
-    image: SteakFrozenPack,
-  },
-  {
-    num: "05",
-    title: "Food Service Friendly",
-    desc: "Custom-tailored to meet the needs of horeca and food retailers.",
-    image: SteakFoodService,
-  },
-  {
-    num: "06",
-    title: "Consistent Quality Every Time",
-    desc: "Rigorous quality control, ensuring top quality in every order.",
-    image: SteakQualityControl,
-  },
-];
 const Home = () => {
   const navigate = useNavigate();
 
@@ -138,16 +94,14 @@ const Home = () => {
             <div
               key={index}
               className="group relative aspect-video w-full overflow-hidden border border-[#262220]/10 bg-[#262220]/5 transition-all duration-300 hover:cursor-default hover:border-[#262220]">
-              {/* Gallery Image Placeholder / Background Component */}
-              <div className="absolute inset-0 z-0 bg-[#262220]/10 mix-blend-multiply transition-transform duration-500 group-hover:scale-105">
+              <figure className="absolute inset-0 z-0 bg-[#262220]/10 mix-blend-multiply transition-transform duration-500 group-hover:scale-105">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="h-full w-full object-cover"
                 />
-              </div>
+              </figure>
 
-              {/* Default State Viewport - Partially Darkened Bottom Gradient Layer */}
               <div className="absolute inset-0 z-10 flex flex-col justify-end bg-linear-to-t from-black/80 via-black/30 to-transparent p-6 text-[#FAF6F1] transition-opacity duration-300 group-hover:opacity-0">
                 <h3 className="text-lg leading-tight font-black tracking-tight uppercase">
                   {item.title}
@@ -158,7 +112,9 @@ const Home = () => {
           ))}
         </div>
       </section>
+
       <ServicesSection />
+
       <section
         data-aos="fade-up"
         className="container mx-auto space-y-10 px-4 py-20 sm:px-6 lg:px-8">
