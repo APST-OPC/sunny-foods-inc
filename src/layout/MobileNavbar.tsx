@@ -30,8 +30,8 @@ interface IDropdownNav {
 
 const defaultNavStyle = (isActive: boolean) =>
   cn(
-    "bg-transparent text-2xl font-bold tracking-tight",
-    isActive ? "text-error" : "text-black",
+    "rounded-none bg-transparent text-2xl font-bold tracking-tight",
+    isActive ? "bg-stone-900 text-white" : "text-stone-600 hover:bg-stone-50",
   );
 
 const menuVariants: Variants = {
@@ -41,7 +41,6 @@ const menuVariants: Variants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.5,
     },
     backgroundColor: "#FFFFFF",
   },
@@ -56,41 +55,10 @@ const menuVariants: Variants = {
     },
   },
 };
-
-// Variants for each menu item
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
-};
-
-//dropdown navigation variants
-const dropDownVariants: Variants = {
-  hidden: { height: 0, width: 0 },
-  visible: {
-    height: "auto",
-    width: "auto",
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.5,
-    },
-    backgroundColor: "none",
-  },
-  exit: {
-    height: 0,
-    opacity: 1,
-    transition: {
-      when: "afterChildren",
-      staggerChildren: 0.1,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const dropDownItemVariants: Variants = {
-  ...itemVariants,
-  exit: { ...itemVariants.exit, transition: { duration: 0.25 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0.9, transition: { duration: 0.3 } },
 };
 
 const DropdownNav = (props: IDropdownNav) => {
@@ -103,10 +71,10 @@ const DropdownNav = (props: IDropdownNav) => {
   };
   const renderToggle = () => {
     return (
-      <button
+      <p
         className={cn(
-          "flex items-center gap-2 bg-transparent text-2xl font-bold tracking-tight",
-          (isOpen || activeLink) && "text-error",
+          "flex w-full items-center gap-2 bg-transparent p-2 text-2xl font-bold tracking-tight",
+          (isOpen || activeLink) && "bg-stone-900 text-white",
         )}
         onClick={handleClick}>
         {label}
@@ -116,43 +84,37 @@ const DropdownNav = (props: IDropdownNav) => {
             isOpen && "rotate-180",
           )}
         />
-      </button>
+      </p>
     );
   };
 
   const renderList = () => {
     return (
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={dropDownVariants}>
-            <ul className="menu ml-5 w-full">
-              {dropList.map((item, index) => (
-                <motion.li key={index} variants={dropDownItemVariants}>
-                  <NavLink
-                    to={item.to}
-                    onClick={closeMenu}
-                    className={({ isActive }) => defaultNavStyle(isActive)}>
-                    {item.label}
-                  </NavLink>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      isOpen && (
+        <ul className="menu bg-stone ml-2 w-full">
+          {dropList.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.to}
+                onClick={closeMenu}
+                className={({ isActive }) => defaultNavStyle(isActive)}>
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )
     );
   };
   return (
-    <motion.div
-      variants={itemVariants}
-      className="ml-3 flex flex-col items-start">
-      {renderToggle()}
-      {renderList()}
-    </motion.div>
+    <AnimatePresence>
+      <motion.div
+        variants={itemVariants}
+        className={cn("flex flex-col items-start", isOpen && "bg-stone-100")}>
+        {renderToggle()}
+        {renderList()}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
@@ -201,7 +163,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
 
   const renderMenuList = () => {
     return (
-      <motion.ul className="menu w-full p-4">
+      <ul className="menu w-full p-4">
         {links.map((link, ids) =>
           ids === 1 ? (
             <DropdownNav
@@ -221,7 +183,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
             </motion.li>
           ),
         )}
-      </motion.ul>
+      </ul>
     );
   };
 
