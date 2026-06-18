@@ -83,7 +83,7 @@ const DropdownNav = (props: IDropdownNav) => {
         {label}
         <FaChevronUp
           className={cn(
-            "size-5 transition-all duration-250",
+            "size-5 transition-all duration-100",
             isOpen && "rotate-180",
           )}
         />
@@ -94,7 +94,7 @@ const DropdownNav = (props: IDropdownNav) => {
   const renderList = () => {
     return (
       isOpen && (
-        <ul className="w-full menu">
+        <ul className="menu w-full">
           {dropList.map((item, index) => (
             <li key={index}>
               <NavLink
