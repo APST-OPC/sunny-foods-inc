@@ -5,13 +5,13 @@ import type { IContactCard, IContactForm } from "./type";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaCircleCheck, FaCircleExclamation } from "react-icons/fa6";
+import toast from "react-hot-toast";
 import * as yup from "yup";
 
 import { cn } from "~/libs/cn";
 import { useSendEmail } from "~/queries/useSendEmail";
 
-import { TextArea, TextField } from "./components";
+import { TextArea, TextField, Toast } from "./components";
 import { contactBtns, contactInfo } from "./utils";
 
 const ContactCard = (props: IContactCard) => {
@@ -29,7 +29,7 @@ const ContactCard = (props: IContactCard) => {
 };
 
 const Contact = (): ReactElement => {
-  const { mutate, isSuccess, isError, error } = useSendEmail();
+  const { mutate, isPending } = useSendEmail();
   const [loading, setLoading] = useState(true);
 
   const schema: yup.ObjectSchema<IContactForm> = yup.object({
@@ -51,12 +51,27 @@ const Contact = (): ReactElement => {
     mutate(data, {
       onSuccess: () => {
         reset();
+
+        toast.custom((t) => (
+          <Toast
+            t={t}
+            message="Thank you for your inquiry. It has been successfully
+                  submitted, and our team will contact you shortly."
+            variant="success"
+          />
+        ));
+      },
+
+      onError: (err) => {
+        toast.custom((t) => (
+          <Toast t={t} message={err.message} variant="error" />
+        ));
       },
     });
   };
 
   return (
-    <main className="container mx-auto md:space-y-20 px-5 py-20 md:px-0">
+    <main className="container mx-auto px-5 py-20 md:space-y-20 md:px-0">
       <header className="space-y-2">
         <p className="text-sm font-bold tracking-widest text-(--red) uppercase">
           Contact Us
@@ -82,39 +97,23 @@ const Contact = (): ReactElement => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col space-y-3">
-            {isSuccess && (
-              <div role="alert" className="alert alert-success alert-soft">
-                <FaCircleCheck size={24} />
-                <span>
-                  Thank you for your inquiry. It has been successfully
-                  submitted, and our team will contact you shortly.
-                </span>
-              </div>
-            )}
-            {isError && (
-              <div role="alert" className="alert alert-error alert-soft">
-                <FaCircleExclamation size={24} />
-                <span>{error?.message}</span>
-              </div>
-            )}
-
             <TextField
               control={control}
               label="Full name"
-              disabled={isSuccess}
+              disabled={isPending}
               name="fullname"
             />
 
             <TextField
               control={control}
               label="Email address"
-              disabled={isSuccess}
+              disabled={isPending}
               name="email"
             />
 
             <TextArea
               control={control}
-              disabled={isSuccess}
+              disabled={isPending}
               label="Message"
               name="message"
               className="h-60"
@@ -123,8 +122,8 @@ const Contact = (): ReactElement => {
             <button
               type="submit"
               className="btn border(--warm-red) w-full border bg-(--warm-red) text-white md:text-lg"
-              disabled={isSuccess}>
-              {isSuccess ? "Sending ..." : "Send us a message"}
+              disabled={isPending}>
+              {isPending ? "Sending ..." : "Send us a message"}
             </button>
           </form>
         </ContactCard>
