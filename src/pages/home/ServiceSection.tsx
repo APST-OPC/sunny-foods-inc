@@ -1,3 +1,5 @@
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useNavigate } from "react-router";
 
 import { serviceData } from "./utils";
@@ -77,8 +79,12 @@ export default function ServicesSection() {
 
                 <button
                   onClick={() => handleService(service.title)}
-                  className="btn btn-sm w-full border-none bg-(--red) tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95">
+                  className="group btn btn-sm w-full border-none bg-(--red) tracking-wider text-white uppercase shadow-lg transition-all hover:bg-(--red)/90 hover:shadow-red-900/20 active:scale-95">
                   learn more
+                  <HugeiconsIcon
+                    icon={ArrowRight02Icon}
+                    className="group-hover:translate-x-2"
+                  />
                 </button>
               </div>
             ))}

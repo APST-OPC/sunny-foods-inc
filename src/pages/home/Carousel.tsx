@@ -6,10 +6,10 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import BeefBBQCuts from "~/assets/products/core-products/bbq-samgyup-cut.png";
-import WagyuCubes from "~/assets/products/core-products/wagyu-cubes.png";
+import BlackPepperSteak from "~/assets/products/core-products/black-pepper-steak2.png";
+import WagyuCubes from "~/assets/products/core-products/wagyu-cubes-feat.png";
 import BBQSeasoning from "~/assets/products/sauces/bbq-seasoning.jpeg";
 import BlackPepperSauce from "~/assets/products/sauces/black-pepper-sauce.jpeg";
-import BlackPepperSteak from "~/assets/products/steak-series/black-pepper-steak2.png";
 import ChuckEyeSteak from "~/assets/products/steak-series/chuck-eye-steak2.png";
 
 import { cn } from "~/libs/cn";
@@ -18,7 +18,7 @@ const slides = [
   {
     id: 1,
     title: "Black Pepper Steak",
-    subtitle: "Steak Series",
+    subtitle: "Core Product",
     description:
       "Juicy, premium cut seared perfectly with our signature crushed black pepper crust.",
     image: BlackPepperSteak,
@@ -107,7 +107,7 @@ const Carousel = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className="relative grid h-[450px] w-full flex-none grid-cols-1 sm:h-[500px] md:h-[450px] md:grid-cols-2 lg:h-[500px]">
+              className="relative grid h-112.5 w-full flex-none grid-cols-1 sm:h-125 md:h-112.5 md:grid-cols-2 lg:h-125">
               <figure className="relative h-full w-full overflow-hidden bg-neutral-900">
                 <img
                   src={slide.image}
