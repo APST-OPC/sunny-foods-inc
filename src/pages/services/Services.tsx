@@ -102,7 +102,7 @@ const BrandAndProductService = () => {
                     "rounded-xl border-2 border-(--light-brown)/50 px-2 py-2 shadow-sm",
                     "lg:justify-start lg:gap-5 lg:border-none lg:shadow-none",
                   )}>
-                  <div className="rounded-full border-4 border-(--light-brown) bg-(--light-brown)/10 p-2">
+                  <div className="rounded-full border-4 border-(--light-brown) bg-(--light-brown)/10 p-2 lg:shadow-sm lg:shadow-black/50">
                     {icons}
                   </div>
                   <div className="w-full text-start lg:w-full">
@@ -127,7 +127,7 @@ const LogisticsAndSupply = () => {
         {wholesaleAndLogistics.map((item, index) => (
           <div
             key={index}
-            className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 transition-all duration-150 hover:scale-105 hover:bg-(--light-brown)/30 hover:shadow-sm md:p-5">
+            className="h-full w-full cursor-pointer space-y-5 rounded-xl shadow-black/25 md:p-5">
             <img
               src={item.image}
               className="relative h-full max-h-110 w-full transition-all duration-300 md:rounded-xl"
