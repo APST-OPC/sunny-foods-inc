@@ -5,7 +5,7 @@
 			{
 				"id": 1,
 				"title": "Wagyu-Style Cubes",
-				"description": "Warbled beef cubes ideal for grilling, stir-frying, and premium dishes.",
+				"description": "Marbled beef cubes ideal for grilling, stir-frying, and premium dishes.",
 				"image": "wagyu-cubes.png",
 				"tags": ["Cook From Frozen", "Easy to Cook", "No Chef Needed"]
 			},
@@ -23,6 +23,13 @@
 				"description": "Quality beef cuts perfect for grilling, barbecue, and everyday delicious meals.",
 				"image": "bbq-samgyup-cut.png",
 				"tags": ["Frozen", "Easy to Cook", "BBQ"]
+			},
+			{
+				"id": 4,
+				"title": "Black Pepper Steak",
+				"description": "Tender beef steak seasoned with cracked black pepper for bold flavor.",
+				"image": "black-pepper-steak2.png",
+				"tags": ["Frozen - Easy to Cook", "Premium Steak Experience"]
 			}
 		]
 	}

@@ -9,7 +9,7 @@ import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
 import BrandingAndPackaging from "~/assets/home/branding-packaging-service.png";
 import BusinessSupportService from "~/assets/home/business-support-service.png";
 import LogisticService from "~/assets/home/cold-storage-logistics.png";
-import PremuimCut from "~/assets/home/premium-beef-cuts.png";
+import PremuimCut from "~/assets/home/premium-beef-cuts3.png";
 import ReadyToCook from "~/assets/home/ready-to-cook.png";
 import SteakFoodService from "~/assets/home/SteakFoodService.png";
 import SteakFrozenPack from "~/assets/home/steak-frozen-pack.png";

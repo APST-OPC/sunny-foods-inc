@@ -4,14 +4,6 @@
 		"items": [
 			{
 				"id": 1,
-				"title": "Black Pepper Steak",
-				"description": "Tender beef steak seasoned with cracked black pepper for bold flavor.",
-				"image": "black-pepper-steak2.png",
-				"tags": ["Frozen - Easy to Cook", "Premium Steak Experience"]
-			},
-
-			{
-				"id": 2,
 				"title": "Strip Loin Steak",
 				"description": "Tender and flavorful, a classic choice for grilling or pan-searing.",
 				"image": "striploin-steak2.png",
@@ -19,21 +11,21 @@
 			},
 
 			{
-				"id": 3,
+				"id": 2,
 				"title": "Chuck Eye Steak",
 				"description": "Juicy and flavorful, with great marbling for the perfect balance.",
 				"image": "chuck-eye-steak2.png",
 				"tags": ["Frozen", "Easy to Cook"]
 			},
 			{
-				"id": 4,
+				"id": 3,
 				"title": "Rib Eye Steak",
 				"description": "Rich and juicy, with excellent marbling for superior flavor.",
 				"image": "ribeye-steak2.png",
 				"tags": ["Frozen", "Easy to Cook"]
 			},
 			{
-				"id": 5,
+				"id": 4,
 				"title": "Top Blade Steak",
 				"description": "Lean and tender, ideal for grilling, broiling, or pan-frying.",
 				"image": "topblade-steak2.png",
