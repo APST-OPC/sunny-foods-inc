@@ -56,7 +56,7 @@ const Contact = (): ReactElement => {
   };
 
   return (
-    <main className="container mx-auto space-y-20 px-5 py-20 md:px-0">
+    <main className="container mx-auto md:space-y-20 px-5 py-20 md:px-0">
       <header className="space-y-2">
         <p className="text-sm font-bold tracking-widest text-(--red) uppercase">
           Contact Us
