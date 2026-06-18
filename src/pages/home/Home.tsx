@@ -2,7 +2,7 @@ import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useNavigate } from "react-router-dom";
 
-import BannerHead from "~/assets/home/premium-beef-cuts2.png";
+import BannerHead from "~/assets/hero-banner.png";
 
 import Carousel from "./Carousel";
 import ServicesSection from "./ServiceSection";
@@ -25,7 +25,7 @@ const Home = () => {
         <div className="relative z-20 container mx-auto px-6 xl:max-w-7xl">
           <header className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
-              <h1 className="text-4xl leading-none font-black tracking-tighter text-white uppercase sm:text-6xl md:text-7xl">
+              <h1 className="text-4xl leading-none font-black tracking-tight text-white uppercase sm:text-6xl md:text-7xl">
                 Premium Beef, Crafted to Perfection
               </h1>
             </div>
@@ -129,11 +129,11 @@ const Home = () => {
                 With a Reliable Meat Supplier.
               </h2>
               <p className="text-base-content max-w-xl pt-6 text-base leading-relaxed font-light">
-                Let's integrate our state-of-the-art production capabilities
-                with your commercial brand vision. We establish deep-tier
-                partnerships that harmonize custom contract manufacturing,
-                dedicated private label scaling, and unified cold-chain
-                logistics under a single shared objective.
+                Let's integrate our scaled production capabilities with your
+                commercial brand vision. We establish deep-tier partnerships
+                that harmonize custom contract manufacturing, dedicated private
+                label scaling, and unified cold-chain logistics under a single
+                shared objective.
               </p>
             </header>
 

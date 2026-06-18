@@ -111,10 +111,11 @@ const Legal = () => {
             <div>
               <h6 className={subHeadingStyle}>Production Facility</h6>
               <p className={cn("text-justify", descriptionStyle)}>
-                Our state-of-the-art production facility is designed to handle
-                large-scale meat processing efficiently and safely. We maintain
-                strict food safety protocols, ensuring hygienic conditions
-                throughout all stages of production.
+                Our production facility is equipped to handle large-scale meat
+                processing efficiently while maintaining the highest standards
+                of food safety and quality. Strict hygiene and operational
+                controls are implemented throughout every stage of production to
+                ensure product consistency and customer satisfaction.
               </p>
             </div>
             <div>

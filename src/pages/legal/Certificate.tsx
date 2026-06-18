@@ -4,6 +4,7 @@ import Fda from "~/assets/certifications/fda-license-cert.png";
 import FireSafety from "~/assets/certifications/fire-safety-clearance.png";
 import Sanitary from "~/assets/certifications/mayor-sanitary-permit-cert.png";
 import MayorPerm from "~/assets/certifications/mayors-perm-cert.png";
+import NMIS_LTO from "~/assets/certifications/NMIS-LTO.webp";
 import SanitaryCert from "~/assets/certifications/sanitary-permit-cert.png";
 import Sec from "~/assets/certifications/sec-cert.png";
 
@@ -16,6 +17,7 @@ const certificates = [
   { img: Bir, description: "BIR Certificate of Registration" },
   { img: MayorPerm, description: "Mayor's Permit to Operate" },
   { img: BarangayCert, description: "Barangay Business Clearance" },
+  { img: NMIS_LTO, description: "NMIS LTO" },
 ];
 
 const Certificate = () => {
