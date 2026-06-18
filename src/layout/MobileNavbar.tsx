@@ -30,8 +30,8 @@ interface IDropdownNav {
 
 const defaultNavStyle = (isActive: boolean) =>
   cn(
-    "bg-transparent text-2xl font-bold tracking-tight",
-    isActive ? "text-error" : "text-black",
+    "w-full rounded-none bg-transparent text-2xl font-bold tracking-tight",
+    isActive ? "bg-stone-900 text-white" : "text-black",
   );
 
 const menuVariants: Variants = {
@@ -59,38 +59,9 @@ const menuVariants: Variants = {
 
 // Variants for each menu item
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
-};
-
-//dropdown navigation variants
-const dropDownVariants: Variants = {
-  hidden: { height: 0, width: 0 },
-  visible: {
-    height: "auto",
-    width: "auto",
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.5,
-    },
-    backgroundColor: "none",
-  },
-  exit: {
-    height: 0,
-    opacity: 1,
-    transition: {
-      when: "afterChildren",
-      staggerChildren: 0.1,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const dropDownItemVariants: Variants = {
-  ...itemVariants,
-  exit: { ...itemVariants.exit, transition: { duration: 0.25 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0.99, transition: { duration: 0.3 } },
 };
 
 const DropdownNav = (props: IDropdownNav) => {
@@ -105,8 +76,8 @@ const DropdownNav = (props: IDropdownNav) => {
     return (
       <button
         className={cn(
-          "flex items-center gap-2 bg-transparent text-2xl font-bold tracking-tight",
-          (isOpen || activeLink) && "text-error",
+          "flex w-full items-center gap-2 rounded-none bg-transparent px-3 py-2 text-2xl font-bold tracking-tight",
+          (isOpen || activeLink) && "bg-stone-900 text-white",
         )}
         onClick={handleClick}>
         {label}
@@ -122,37 +93,29 @@ const DropdownNav = (props: IDropdownNav) => {
 
   const renderList = () => {
     return (
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={dropDownVariants}>
-            <ul className="menu ml-5 w-full">
-              {dropList.map((item, index) => (
-                <motion.li key={index} variants={dropDownItemVariants}>
-                  <NavLink
-                    to={item.to}
-                    onClick={closeMenu}
-                    className={({ isActive }) => defaultNavStyle(isActive)}>
-                    {item.label}
-                  </NavLink>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      isOpen && (
+        <ul className="w-full menu">
+          {dropList.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.to}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  cn(defaultNavStyle(isActive), "ml-5")
+                }>
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )
     );
   };
   return (
-    <motion.div
-      variants={itemVariants}
-      className="ml-3 flex flex-col items-start">
+    <div className="flex flex-col items-start overflow-hidden">
       {renderToggle()}
       {renderList()}
-    </motion.div>
+    </div>
   );
 };
 
@@ -201,7 +164,7 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
 
   const renderMenuList = () => {
     return (
-      <motion.ul className="menu w-full p-4">
+      <motion.ul variants={itemVariants} className="menu w-full p-4">
         {links.map((link, ids) =>
           ids === 1 ? (
             <DropdownNav
@@ -211,14 +174,14 @@ const MobileNavbar = ({ links }: MobileNavbarProps) => {
               closeMenu={closeMenu}
             />
           ) : (
-            <motion.li key={ids} variants={itemVariants}>
+            <li key={ids}>
               <NavLink
                 to={link.to}
                 onClick={closeMenu}
                 className={({ isActive }) => defaultNavStyle(isActive)}>
                 {link.label}
               </NavLink>
-            </motion.li>
+            </li>
           ),
         )}
       </motion.ul>
