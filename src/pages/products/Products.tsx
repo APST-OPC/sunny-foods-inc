@@ -52,7 +52,7 @@ const ProductItem = ({ description, image, title }: CatalogItem) => {
         <h3 className="text-base-content text-base font-semibold tracking-wide transition-colors lg:text-lg">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed font-light">{description}</p>
+        <p className="text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
