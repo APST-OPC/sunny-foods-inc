@@ -144,7 +144,8 @@ const Contact = (): ReactElement => {
           {contactInfo.map((data, ids) => (
             <button
               key={ids}
-              className="link link-hover grid grid-cols-[20%_80%] items-start lg:items-center">
+              className="link link-hover grid grid-cols-[20%_80%] items-start lg:items-center"
+              onClick={data.openWindow}>
               {data.contactIcon({ className: "size-12.5 text-(--red)" })}
 
               <div className="place-items-start">
