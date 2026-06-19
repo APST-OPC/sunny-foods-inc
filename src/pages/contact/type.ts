@@ -2,9 +2,10 @@ import type { PropsWithChildren } from "react";
 import type { Control, FieldValues, Path } from "react-hook-form";
 import type { IconType } from "react-icons/lib";
 
-export interface IContactButton {
+export interface IContactDetail {
   contactIcon: IconType;
-  contactCTA: string;
+  contactLabel: string;
+  contactLink: string;
   openWindow?: () => void;
 }
 
