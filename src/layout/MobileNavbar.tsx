@@ -2,7 +2,7 @@ import type { Variants } from "motion/react";
 
 import { AnimatePresence, motion } from "motion/react";
 import { Fragment, useState } from "react";
-import { FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -30,8 +30,8 @@ interface IDropdownNav {
 
 const defaultNavStyle = (isActive: boolean) =>
   cn(
-    "w-full rounded-none bg-transparent text-2xl font-bold tracking-tight",
-    isActive ? "bg-stone-900 text-white" : "text-black",
+    "w-full rounded-none bg-transparent text-xl font-bold tracking-tight",
+    isActive ? "text-(--red)" : "text-black",
   );
 
 const menuVariants: Variants = {
@@ -76,14 +76,14 @@ const DropdownNav = (props: IDropdownNav) => {
     return (
       <button
         className={cn(
-          "flex w-full items-center gap-2 rounded-none bg-transparent px-3 py-2 text-2xl font-bold tracking-tight",
-          (isOpen || activeLink) && "bg-stone-900 text-white",
+          "flex w-full items-center justify-between rounded-none px-3 py-2 text-xl font-bold tracking-tight",
+          (isOpen || activeLink) && "text-black",
         )}
         onClick={handleClick}>
         {label}
-        <FaChevronUp
+        <FaChevronDown
           className={cn(
-            "size-5 transition-all duration-100",
+            "size-5 transition-all duration-300",
             isOpen && "rotate-180",
           )}
         />
