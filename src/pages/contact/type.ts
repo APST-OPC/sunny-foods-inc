@@ -4,7 +4,7 @@ import type { IconType } from "react-icons/lib";
 
 export interface IContactDetail {
   contactIcon: IconType;
-  contactLabel: string;
+  contactLabel?: string;
   contactLink: string;
   openWindow?: () => void;
 }

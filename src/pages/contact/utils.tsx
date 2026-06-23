@@ -1,26 +1,13 @@
 import type { IContactDetail } from "./type";
 
 import { AiOutlineFacebook, AiOutlineLinkedin } from "react-icons/ai";
-import { FaViber } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+import { FaInstagram, FaRegBuilding } from "react-icons/fa6";
 import { GrLocation } from "react-icons/gr";
-import { HiOutlinePhone } from "react-icons/hi2";
 import { LuMail } from "react-icons/lu";
 import { PiTiktokLogo } from "react-icons/pi";
+import { RiCustomerServiceLine } from "react-icons/ri";
 
-export const contactInfo: IContactDetail[] = [
-  {
-    contactIcon: ({ className }) => <FaViber className={className} />,
-    contactLabel: "Our Company Number",
-    contactLink: "+63 918 739 9999",
-    openWindow: () => window.open("viber://chat?number=639187399999", "_blank"),
-  },
-  {
-    contactIcon: ({ className }) => <HiOutlinePhone className={className} />,
-    contactLabel: "Our Sales Number",
-    contactLink: "+63 985 096 3333",
-    openWindow: () => window.open("viber://chat?number=639850963333", "_blank"),
-  },
+export const socialContacts: IContactDetail[] = [
   {
     contactIcon: ({ className }) => <AiOutlineFacebook className={className} />,
     contactLabel: "Our Facebook Page",
@@ -36,18 +23,35 @@ export const contactInfo: IContactDetail[] = [
       window.open("https://www.instagram.com/sunnyfoods.com.ph", "_blank"),
   },
   {
-    contactIcon: ({ className }) => <AiOutlineLinkedin className={className} />,
+    contactIcon: ({ className }) => <PiTiktokLogo className={className} />,
     contactLabel: "Our TikTok Account",
     contactLink: "@sunnyfoodsinc",
     openWindow: () =>
       window.open("https://www.tiktok.com/@sunnyfoodsinc", "_blank"),
   },
   {
-    contactIcon: ({ className }) => <PiTiktokLogo className={className} />,
+    contactIcon: ({ className }) => <AiOutlineLinkedin className={className} />,
     contactLabel: "Our LinkedIn Page",
-    contactLink: "Sunny Foods Inc.",
+    contactLink: "SUNNY FOODS INC.",
     openWindow: () =>
       window.open("https://www.linkedin.com/company/sunny-foods-inc", "_blank"),
+  },
+];
+
+export const contactDeets: IContactDetail[] = [
+  {
+    contactIcon: ({ className }) => <FaRegBuilding className={className} />,
+    contactLabel: "Our Company Number",
+    contactLink: "+63 918 739 9999",
+    openWindow: () => window.open("viber://chat?number=639187399999", "_blank"),
+  },
+  {
+    contactIcon: ({ className }) => (
+      <RiCustomerServiceLine className={className} />
+    ),
+    contactLabel: "Our Sales Number",
+    contactLink: "+63 985 096 3333",
+    openWindow: () => window.open("viber://chat?number=639850963333", "_blank"),
   },
   {
     contactIcon: ({ className }) => <LuMail className={className} />,
