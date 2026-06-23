@@ -29,18 +29,20 @@ const ContactCard = (props: IContactCard) => {
 };
 
 const ContactLink = (props: IContactDetail) => {
-  const { contactIcon, contactLink, contactLabel, openWindow } = props;
+  const { contactIcon, contactLink, contactLabel, openWindow, className } =
+    props;
 
   return (
     <button
       type="button"
-      className="link link-hover grid grid-cols-[20%_80%] gap-3 transition-transform duration-300 ease-out hover:-translate-y-2"
+      className={cn(
+        "link link-hover transition-transform duration-300 ease-out hover:-translate-y-2",
+        className,
+      )}
       onClick={openWindow}>
-      {contactIcon({
-        className: "size-12 text-(--red)",
-      })}
+      {contactIcon({})}
 
-      <div className="text-start">
+      <div>
         <p className="font-bold tracking-tight md:text-lg">{contactLabel}</p>
         <p>{contactLink}</p>
       </div>
@@ -90,18 +92,18 @@ const Contact = (): ReactElement => {
   };
 
   return (
-    <main className="container mx-auto px-5 py-20 md:space-y-10 md:px-0">
+    <main className="container mx-auto px-5 py-20 md:space-y-10 xl:px-0">
       <header className="space-y-2">
         <p className="text-sm font-bold tracking-widest text-(--red) uppercase">
           Contact Us
         </p>
 
-        <section className="flex flex-col items-center gap-2 md:flex-row">
+        <section className="flex flex-col items-center gap-2 xl:flex-row">
           <h1 className="text-base-content text-4xl leading-none font-black tracking-tighter sm:text-6xl">
             We value your feedback and questions.
           </h1>
 
-          <p className="md:w-1/3">
+          <p className="xl:w-1/3">
             Whether you need assistance with our services, have inquiries, or
             want to share your feedback, our team is always ready to support you
             every step of the way.
@@ -118,7 +120,10 @@ const Contact = (): ReactElement => {
               <ContactLink
                 key={ids}
                 openWindow={openWindow}
-                contactIcon={contactIcon}
+                className="flex items-center gap-3 text-start md:flex-col md:text-center"
+                contactIcon={() =>
+                  contactIcon({ className: "size-14 text-(--red)" })
+                }
                 contactLabel={contactLabel}
                 contactLink={contactLink}
               />
@@ -127,7 +132,7 @@ const Contact = (): ReactElement => {
         </div>
       </ContactCard>
 
-      <article className="grid gap-5 md:grid-cols-2">
+      <article className="grid gap-5 xl:grid-cols-2">
         <ContactCard
           title="Send us your inquiries here"
           className="bg-[#F4ECE4]">
@@ -153,7 +158,7 @@ const Contact = (): ReactElement => {
               disabled={isPending}
               label="Message"
               name="message"
-              className="h-60"
+              className="h-70"
             />
 
             <button
@@ -178,7 +183,10 @@ const Contact = (): ReactElement => {
                     <ContactLink
                       key={ids}
                       openWindow={openWindow}
-                      contactIcon={contactIcon}
+                      className="grid grid-cols-[20%_80%] items-center gap-3 text-start"
+                      contactIcon={() =>
+                        contactIcon({ className: "size-10 text-(--red)" })
+                      }
                       contactLabel={contactLabel}
                       contactLink={contactLink}
                     />
@@ -190,19 +198,17 @@ const Contact = (): ReactElement => {
           <ContactCard title="Our location" className="h-full">
             <div className="mb-5 grid grid-cols-[20%_80%] md:hidden">
               {contactDeets[3].contactIcon({
-                className: "size-12 text-(--red)",
+                className: "size-10 text-(--red)",
               })}
 
-              <div className="text-start">
-                <p>{contactDeets[3].contactLink}</p>
-              </div>
+              <p className="text-start">{contactDeets[3].contactLink}</p>
             </div>
 
             <iframe
               title="maps"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1625.4783164662417!2d121.03392743413092!3d14.307902529289628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d786cc958323%3A0x6426c3b99529899e!2sSUNNY%20FOODS%20INC.!5e0!3m2!1sen!2sph!4v1763358420686!5m2!1sen!2sph"
               className={cn(
-                "h-full w-full rounded-lg border-2 border-gray-400",
+                "md:h-[90%] w-full rounded-lg border-2 border-gray-400",
                 loading && "skeleton",
               )}
               loading="lazy"

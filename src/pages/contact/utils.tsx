@@ -3,36 +3,32 @@ import type { IContactDetail } from "./type";
 import { AiOutlineFacebook, AiOutlineLinkedin } from "react-icons/ai";
 import { FaInstagram, FaRegBuilding } from "react-icons/fa6";
 import { GrLocation } from "react-icons/gr";
+import { LiaCashRegisterSolid } from "react-icons/lia";
 import { LuMail } from "react-icons/lu";
 import { PiTiktokLogo } from "react-icons/pi";
-import { RiCustomerServiceLine } from "react-icons/ri";
 
 export const socialContacts: IContactDetail[] = [
   {
     contactIcon: ({ className }) => <AiOutlineFacebook className={className} />,
-    contactLabel: "Our Facebook Page",
-    contactLink: "facebook.com/sunnyfoodsinc",
+    contactLabel: "Facebook",
     openWindow: () =>
       window.open("https://www.facebook.com/sunnyfoodsinc/", "_blank"),
   },
   {
     contactIcon: ({ className }) => <FaInstagram className={className} />,
-    contactLabel: "Our Instagram Page",
-    contactLink: "@sunnyfoods.com.ph",
+    contactLabel: "Instagram",
     openWindow: () =>
       window.open("https://www.instagram.com/sunnyfoods.com.ph", "_blank"),
   },
   {
     contactIcon: ({ className }) => <PiTiktokLogo className={className} />,
-    contactLabel: "Our TikTok Account",
-    contactLink: "@sunnyfoodsinc",
+    contactLabel: "TikTok",
     openWindow: () =>
       window.open("https://www.tiktok.com/@sunnyfoodsinc", "_blank"),
   },
   {
     contactIcon: ({ className }) => <AiOutlineLinkedin className={className} />,
-    contactLabel: "Our LinkedIn Page",
-    contactLink: "SUNNY FOODS INC.",
+    contactLabel: "LinkedIn",
     openWindow: () =>
       window.open("https://www.linkedin.com/company/sunny-foods-inc", "_blank"),
   },
@@ -47,7 +43,7 @@ export const contactDeets: IContactDetail[] = [
   },
   {
     contactIcon: ({ className }) => (
-      <RiCustomerServiceLine className={className} />
+      <LiaCashRegisterSolid className={className} />
     ),
     contactLabel: "Our Sales Number",
     contactLink: "+63 985 096 3333",
