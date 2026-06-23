@@ -8,6 +8,14 @@ export interface IContactButton {
   openWindow?: () => void;
 }
 
+export interface IContactDetail {
+  contactIcon: IconType;
+  contactLabel: string;
+  contactLink?: string;
+  openWindow?: () => void;
+  className?: string;
+}
+
 export interface IContactForm {
   fullname: string;
   email: string;
