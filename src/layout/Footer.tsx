@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import Mail from "~/assets/icons/gmail.png";
 import Contact from "~/assets/icons/phone-call.png";
-import Logo from "~/assets/logos/company-logo-textless.png";
+import Logo from "~/assets/logos/sunny-foods-logo.png";
 
 import { footerContactUs, instantScrollToTop } from "./utils";
 
