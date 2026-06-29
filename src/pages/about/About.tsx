@@ -209,7 +209,7 @@ const About = () => {
             <div className="relative grid grid-cols-1 items-end gap-8 md:grid-cols-12 lg:col-span-7">
               <div data-aos="fade-left" className="relative z-10 md:col-span-7">
                 <div className="pointer-events-none absolute -inset-4 translate-x-2 translate-y-6 rounded-2xl border-2 border-amber-500/30" />
-                <figure className="relative aspect-3/4 overflow-hidden rounded-2xl shadow-2xl grayscale transition-all duration-700 hover:grayscale-0">
+                <figure className="relative aspect-3/4 overflow-hidden rounded-2xl shadow-2xl transition-all duration-700">
                   <img
                     src={Banner}
                     alt="Premium Quality Food Supply"
