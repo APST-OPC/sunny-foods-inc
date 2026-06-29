@@ -13,8 +13,10 @@ const Home = () => {
 
   return (
     <main>
-      <section className="hero relative flex min-h-[75vh] items-end bg-neutral-950 pb-12 sm:pb-20">
+      <section className="hero relative flex min-h-[75vh] items-end overflow-hidden bg-neutral-950 pb-12 sm:pb-20">
         <img
+          data-aos="zoom-out"
+          data-aos-duration="3000"
           src={BannerHead}
           alt="Sunnyfoods manufacturer product range banner"
           className="absolute inset-0 z-0 h-full w-full object-cover object-center"
@@ -22,7 +24,10 @@ const Home = () => {
 
         <div className="absolute inset-0 z-10 bg-linear-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/20" />
 
-        <div className="relative z-20 container mx-auto px-6 xl:max-w-7xl">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="relative z-20 container mx-auto px-6 xl:max-w-7xl">
           <header className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <h1 className="text-4xl leading-none font-black tracking-tight text-white uppercase sm:text-6xl md:text-7xl">
