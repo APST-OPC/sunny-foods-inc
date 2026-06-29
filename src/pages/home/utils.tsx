@@ -5,7 +5,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
-import SteakQualityControl from "~/assets/food-safety/prod-facility-1.png";
+import SteakQualityControl from "~/assets/food-safety/prod-area-visual-6.png";
 import BrandingAndPackaging from "~/assets/home/branding-packaging-service.png";
 import BusinessSupportService from "~/assets/home/business-support-service.png";
 import LogisticService from "~/assets/home/cold-storage-logistics.png";
@@ -17,37 +17,37 @@ import PortionControlled from "~/assets/home/steak-portion-controlled.png";
 
 export const beefSolutions = [
   {
-    num: "01",
+    id: 1,
     title: "Premium Beef Cuts",
     desc: "All natural, premium-grade cuts, expertly portion-controlled.",
     image: PremuimCut,
   },
   {
-    num: "02",
+    id: 2,
     title: "Ready-to-Cook Convenience",
     desc: "Pre-cut, pre-marinated options for effortless cooking.",
     image: ReadyToCook,
   },
   {
-    num: "03",
+    id: 3,
     title: "Portion-Controlled / Zero Waste",
     desc: "Consistent weight & size, minimizing waste & maximizing profit.",
     image: PortionControlled,
   },
   {
-    num: "04",
+    id: 4,
     title: "Frozen for Freshness & Shelf Life",
     desc: "Locking in natural juices and nutrients for extended shelf life.",
     image: SteakFrozenPack,
   },
   {
-    num: "05",
+    id: 5,
     title: "Food Service Friendly",
     desc: "Custom-tailored to meet the needs of horeca and food retailers.",
     image: SteakFoodService,
   },
   {
-    num: "06",
+    id: 6,
     title: "Consistent Quality Every Time",
     desc: "Rigorous quality control, ensuring top quality in every order.",
     image: SteakQualityControl,
