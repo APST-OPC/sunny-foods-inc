@@ -95,9 +95,9 @@ const Home = () => {
         </header>
 
         <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-3">
-          {beefSolutions.map((item, index) => (
+          {beefSolutions.map((item) => (
             <div
-              key={index}
+              key={item.id}
               className="group relative aspect-video w-full overflow-hidden border border-[#262220]/10 bg-[#262220]/5 transition-all duration-300 hover:cursor-default hover:border-[#262220]">
               <figure className="absolute inset-0 z-0 bg-[#262220]/10 mix-blend-multiply transition-transform duration-500 group-hover:scale-105">
                 <img

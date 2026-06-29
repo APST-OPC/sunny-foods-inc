@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import FoodSafetyOne from "~/assets/food-safety/food-safety-one.png";
-import FoodSafetyTwo from "~/assets/food-safety/food-safety-two.png";
+import FoodSafetyTwo from "~/assets/food-safety/food-safety-2.png";
 import PpeImage from "~/assets/food-safety/ppe.png";
 import ProdAreaVisualOne from "~/assets/food-safety/prod-area-visual-1.png";
 import ProdAreaVisualTwo from "~/assets/food-safety/prod-area-visual-2.png";
-import ProdFacilityOne from "~/assets/food-safety/prod-facility-1.png";
+import FoodSafetyOne from "~/assets/food-safety/prod-area-visual-5.png";
+import ProdFacilityOne from "~/assets/food-safety/prod-area-visual-7.png";
 import ProdFacilityThree from "~/assets/food-safety/prod-facility-3.png";
 
 import { cn } from "~/libs/cn";
