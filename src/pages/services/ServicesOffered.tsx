@@ -206,7 +206,6 @@ const PageContent = () => {
 const ServicesOffered = () => {
   return (
     <main>
-      {/* <PageHeader /> */}
       <PageContent />
     </main>
   );
