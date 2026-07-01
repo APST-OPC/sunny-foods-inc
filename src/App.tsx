@@ -12,7 +12,8 @@ import Certificate from "./pages/legal/Certificate";
 import NotFound from "./pages/not-found";
 import Products from "./pages/products/Products";
 import QR from "./pages/qr";
-import Services from "./pages/services";
+import ServicesOffered from "./pages/services/ServicesOffered";
+// import Services from './pages/services';
 import { LayoutProvider } from "./provider/LayoutProvider";
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
         <Route path="/talk-to-us" element={<Contact />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/legal/certificate" element={<Certificate />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/services" element={<ServicesOffered />} />
       </Route>
 
       <Route path="qr/:id" element={<QR />} />
