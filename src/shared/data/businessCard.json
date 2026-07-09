@@ -29,8 +29,8 @@
 		"qrLink": "/business-card/002",
 		"buttons": [
 			{
-				"buttonType": "viber",
-				"buttonText": "Chat with me on Viber",
+				"buttonType": "message",
+				"buttonText": "Message us",
 				"buttonContent": "639178618188"
 			},
 			{

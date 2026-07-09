@@ -1,6 +1,11 @@
 import type { IBusinessCardButton, IButtonData } from "./type";
 
-import { Globe02Icon, Mail01Icon, ViberIcon } from "@hugeicons/core-free-icons";
+import {
+  Globe02Icon,
+  Mail01Icon,
+  Message02Icon,
+  ViberIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useParams } from "react-router-dom";
 
@@ -59,6 +64,12 @@ const BusinessCard = () => {
           buttonText: buttonText,
           icon: Mail01Icon,
           onClick: () => window.open(`mailto:${buttonContent}`, "_blank"),
+        };
+      case "message":
+        return {
+          buttonText: buttonText,
+          icon: Message02Icon,
+          onClick: () => window.open(`sms:+${buttonContent}`),
         };
       default:
         return {

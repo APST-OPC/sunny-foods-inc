@@ -1,5 +1,7 @@
 import type { IconSvgElement } from "@hugeicons/react";
 
+type IButtonType = "viber" | "email" | "website" | "message";
+
 export interface IBusinessCard {
   data: ICardData[];
 }
@@ -14,7 +16,7 @@ export interface ICardData {
 }
 
 export interface IButtonData {
-  buttonType: "viber" | "email" | "website";
+  buttonType: IButtonType;
   buttonText: string;
   buttonContent: string;
 }
