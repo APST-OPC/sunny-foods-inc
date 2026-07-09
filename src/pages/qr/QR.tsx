@@ -14,7 +14,7 @@ const QR = (): ReactElement => {
   const qrCode = useRef<QRCodeStyling | null>(null);
 
   const card = businessCardInfo.find((card) => card.id === id);
-  const qrValue = `${window.location.origin}${card?.qrLink || ""}`;
+  const qrValue = `${window.location.origin}/business-card/${card?.id}`;
 
   useEffect(() => {
     if (!card || !qrRef.current) return;
@@ -43,7 +43,7 @@ const QR = (): ReactElement => {
 
   const handleDownload = () => {
     qrCode.current?.download({
-      name: "SunnyFoodsInc_QR_Code",
+      name: card?.name ?? "SunnyFoodsInc_QR_Code",
       extension: "png",
     });
   };
@@ -56,7 +56,9 @@ const QR = (): ReactElement => {
     <div className="flex-col overflow-x-hidden">
       <div className="mt-10 flex flex-col items-center">
         <div ref={qrRef} />
-        <p className="mt-4 text-center text-2xl">Sunny Foods Inc.</p>
+        <p className="mt-4 text-center text-2xl">
+          {card?.name ?? "Sunny Foods Inc."}
+        </p>
         <div className="mt-6">
           <button
             className="btn border border-(--warm-red) bg-(--warm-red) text-white"
