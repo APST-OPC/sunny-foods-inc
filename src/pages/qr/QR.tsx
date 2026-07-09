@@ -14,7 +14,7 @@ const QR = (): ReactElement => {
   const qrCode = useRef<QRCodeStyling | null>(null);
 
   const card = businessCardInfo.find((card) => card.id === id);
-  const qrValue = `${window.location.origin}${card?.qrLink || ""}`;
+  const qrValue = `${window.location.origin}/business-card/${card?.id}`;
 
   useEffect(() => {
     if (!card || !qrRef.current) return;

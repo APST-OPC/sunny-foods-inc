@@ -2,7 +2,6 @@
 	{
 		"id": "001",
 		"img": "sunny-foods-logo2.png",
-		"qrLink": "/business-card/001",
 		"buttons": [
 			{
 				"buttonType": "viber",
@@ -26,7 +25,6 @@
 		"img": "sunny-foods-logo2.png",
 		"name": "Pedro Armel Aguilar",
 		"role": "Sales Director",
-		"qrLink": "/business-card/002",
 		"buttons": [
 			{
 				"buttonType": "message",
