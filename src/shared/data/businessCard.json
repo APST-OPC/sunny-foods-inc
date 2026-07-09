@@ -3,8 +3,51 @@
 		"id": "001",
 		"img": "sunny-foods-logo2.png",
 		"qrLink": "/business-card/001",
-		"contactNumber": "639187399999",
-		"email": "sales@sunnyfoods.com.ph",
-		"site": "https://www.sunnyfoods.com.ph/"
+		"buttons": [
+			{
+				"buttonType": "viber",
+				"buttonText": "Chat with us on Viber",
+				"buttonContent": "639187399999"
+			},
+			{
+				"buttonType": "email",
+				"buttonText": "Partner with us",
+				"buttonContent": "sales@sunnyfoods.com.ph"
+			},
+			{
+				"buttonType": "website",
+				"buttonText": "Visit our website",
+				"buttonContent": "https://www.sunnyfoods.com.ph/"
+			}
+		]
+	},
+	{
+		"id": "002",
+		"img": "sunny-foods-logo2.png",
+		"name": "Pedro Armel Aguilar",
+		"role": "Sales Director",
+		"qrLink": "/business-card/002",
+		"buttons": [
+			{
+				"buttonType": "viber",
+				"buttonText": "Chat with me on Viber",
+				"buttonContent": "639178618188"
+			},
+			{
+				"buttonType": "viber",
+				"buttonText": "Chat with us on Viber",
+				"buttonContent": "639850963333"
+			},
+			{
+				"buttonType": "email",
+				"buttonText": "Partner with us",
+				"buttonContent": "sales@sunnyfoods.com.ph"
+			},
+			{
+				"buttonType": "website",
+				"buttonText": "Visit our website",
+				"buttonContent": "https://www.sunnyfoods.com.ph/"
+			}
+		]
 	}
 ]
