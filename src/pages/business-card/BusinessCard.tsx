@@ -69,7 +69,7 @@ const BusinessCard = () => {
         return {
           buttonText: buttonText,
           icon: Message02Icon,
-          onClick: () => window.open(`sms:+${buttonContent}`),
+          onClick: () => window.open(`sms:+${buttonContent}`, "_blank"),
         };
       default:
         return {
