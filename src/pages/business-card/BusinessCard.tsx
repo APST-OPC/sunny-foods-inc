@@ -30,7 +30,7 @@ const BusinessCard = () => {
 
   return (
     <main className="min-h-dvh bg-(--light-brown)/10">
-      <header className="flex h-[100px] w-full items-center justify-center bg-linear-to-b from-[#460f0f] to-[#7a1f1f]">
+      <header className="flex h-25 w-full items-center justify-center bg-linear-to-b from-[#460f0f] to-[#7a1f1f]">
         <h4 className="bg-linear-to-r from-white to-(--red) bg-clip-text pr-1 text-[23px] font-extrabold tracking-wide text-transparent italic">
           Premium Quality In Every Bite
         </h4>
