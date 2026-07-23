@@ -28,23 +28,39 @@
 		"buttons": [
 			{
 				"buttonType": "message",
-				"buttonText": "Message us",
+				"buttonText": "Message me",
 				"buttonContent": "639178618188"
 			},
 			{
 				"buttonType": "viber",
-				"buttonText": "Chat with us on Viber",
+				"buttonText": "Chat with me on Viber",
 				"buttonContent": "639850963333"
 			},
 			{
 				"buttonType": "email",
-				"buttonText": "Partner with us",
+				"buttonText": "Email me",
 				"buttonContent": "sales@sunnyfoods.com.ph"
 			},
 			{
 				"buttonType": "website",
 				"buttonText": "Visit our website",
 				"buttonContent": "https://www.sunnyfoods.com.ph/"
+			}
+		]
+	},
+	{
+		"id": "003",
+		"img": "sunny-foods-logo2.png",
+		"buttons": [
+			{
+				"buttonType": "website",
+				"buttonText": "About us",
+				"buttonContent": "https://www.sunnyfoods.com.ph/who-we-are"
+			},
+			{
+				"buttonType": "website",
+				"buttonText": "Our Products",
+				"buttonContent": "https://www.sunnyfoods.com.ph/products"
 			}
 		]
 	}
